@@ -1,0 +1,30 @@
+.loading_img{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 36px;
+    height: 36px;
+}
+.code_img{
+    width:200px;
+    height:200px;
+    box-shadow: rgb(153, 153, 153) 0px 6px 6px;
+    margin-bottom: 20px;
+    vertical-align: middle;
+}
+.code_img_error{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: red;
+}
+.code_title {
+    height: 50px;
+    text-shadow: rgb(255, 255, 255) 0px 1px 0px;
+    font-size: 32px;
+    line-height: 50px;
+    color: rgb(102, 102, 102);
+    border-radius: 4px 4px 0px 0px;
+}
+.modal-body{
+    text-align: center;
+    padding-bottom: 20px;
+}

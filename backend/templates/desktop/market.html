@@ -1,0 +1,164 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% trans '桌面 | 蓝鲸蓝鲸智云' %}</title>
+    <meta name="keywords" content="{% trans '开发者中心,游戏运维,运维,服务器管理,模块配置,监控,腾讯游戏,蓝鲸,智云,devops,运维开发,蓝鲸企业版,企业版,作业平台,集成平台,配置平台,管控平台' %}" />
+    <meta name="description" content="{% trans '蓝鲸智云软件企业版是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变中国运维行业，帮助企业快速达到基础运维支撑能力，并提升技术人员的DevOps能力。该版本提供了配置平台，作业平台，集成平台等强大功能，用户在使用时，请查阅并遵守《蓝鲸智云软件用户服务协议》。' %}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="Shortcut Icon" href="{{STATIC_URL}}favicon.ico">
+    <!-- bootstrap 样式 -->
+    <link rel="stylesheet" href="{{STATIC_URL}}assets/bootstrap-v2.3.2/css/bootstrap.min.css">
+    <!-- 腾讯UED提示信息&部分其他小插件 -->
+    <link rel="stylesheet" href="{{STATIC_URL}}assets/bluekingLibs/bluekinglibs.css">
+    <!-- bkdialog -->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}assets/bkDialog-1.0/css/ui-dialog.css">
+    <!-- base 基本样式 -->
+    <link rel="stylesheet" href="{{STATIC_URL}}css/market.{{CSS_SUFFIX}}?v={{STATIC_VERSION}}">
+    <!-- 处理图片国际化 -->
+    <style>
+        .app-list-box .app-list span.lapp_mark{position:absolute;top:34px;left:35px;width:24px;height:24px;background: url({{ STATIC_URL }}{% trans 'img/app_logo/light_app.png' %}) no-repeat;}
+        #nearest_app li span.lapp_mark{position: absolute;left: 28px;top: 24.5px;width:15px;height:15px;background: url({{ STATIC_URL }}{% trans 'img/app_logo/light_app.png' %}) no-repeat;background-size: 100% auto;}
+    </style>
+</head>
+<body>
+    {% if EXTERNAL_THEME %}
+        <link rel="stylesheet" type="text/css" href="{{EXTERNAL_THEME}}">
+	{% endif %}
+
+    <div class="background_m">
+        <!--普通搜索-->
+        <div class="form-inline search-box">
+            <div class="input-append">
+                <input type="text" name="keyword" id="keyword" placeholder="{% trans '按应用名称、应用ID、开发负责人搜索' %}" value="{{searchkey}}"/>
+                <button id="search_button" class="btn btn-primary"><i class="icon-search icon-white" title="{% trans '搜索应用' %}"></i>{% trans '搜索' %}</button>
+            </div>
+            <button id="set_market_nav_btn" class="btn btn-inverse" title="{% trans '设置' %}"><i class="icon-cog icon-white mr2"></i>{% trans '设置' %}</button>
+        </div>
+        <!-- 导航tag设置 -->
+        <div id="set_market_nav">
+            <div class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">{% trans '左侧导航：' %}</label>
+                    <div class="controls" id="market_nav">
+                        <label>
+                            <input type="radio" name="market_nav" value="1" style="margin-bottom:5px;" {% if market_nav == 1 %} checked {% endif %}>
+                            <span style="margin-left:3px">{% trans '分类' %}</span>
+                        </label>
+                        <label style="margin-left:20px;">
+                            <input type="radio" name="market_nav" value="0" style="margin-bottom:5px;" {% if market_nav == 0 %} checked {% endif %}>
+                            <span style="margin-left:3px">{% trans '开发负责人' %}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <p id="error_set">{% trans '设置失败，请联系管理员！' %}</p>
+        </div>
+        <!-- 导航tag设置 -->
+    </div>
+    <!--左侧导航-->
+    <div class="sidebar-wrap">
+        <div class="sidebar-wrap-t clearfix">
+            <a href="javascript:;" _value="0" id="all" class="app-all app-btn all">{% trans '全部应用' %}</a>
+        </div>
+        <div class="sidebar-con" id="scrollDiv">
+            <div class="scroll-view" id="viewArea">
+                <ul>
+                    {% for i in tag_list %}
+                    <li _value="{{i.0}}" class="group-1">
+                        <span></span>
+                        <a href="javascript:;" title="{% trans i.1 %}"><i class="sidebar-ico"></i>{% trans i.1 %}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <a href="###" class="btn-control btn-arrow-up" id="btn-control-pre"><i class="ico-arrow"></i></a>
+            <a href="###" class="btn-control btn-arrow-down"  id="btn-control-next"><i class="ico-arrow"></i></a>
+            <input type="hidden" name="sidebar_select" id="sidebar_select" value="0">
+        </div>
+    </div>
+    <!--右侧内容-->
+    <div class="wrap">
+        <!--最右侧内容-->
+        <div class="col-sub">
+            <!--最近打开-->
+            <div class="mbox commend-day" style="width:215px; height:367px; border-top: none;margin-bottom:10px;">
+                <h3>{% trans '最近打开' %}</h3>
+                <ul class="app_list_nearest nav nav-tabs" id="nearest_app" style="margin-bottom:0px"></ul>
+            </div>
+            <!--最近打开-->
+            <!--我是开发者-->
+            <div class="mbox commend-day" style="width:215px; height:124px; border-top: none;">
+                <h3>{% trans '我是开发者' %}</h3>
+                <div class="developer">
+                    <div>
+                        <a href="###" class="btn btn-primary" id="dev_btn">{% trans '我要开发SaaS' %}</a>
+                    </div>
+                </div>
+            </div>
+            <!--我是开发者-->
+        </div>
+        <!--中间内容-->
+        <div class="col-main">
+            <!--普通分类显示内容-->
+            <div class="mbox app-list-box">
+                <div class="title">
+                    <ul>
+                        <li _value="1" class="focus"><a href="javascript:;">{% trans '最新应用' %}</a></li>
+                        <li _value="2"><a href="javascript:;">{% trans '最热门' %}</a></li>
+                        <input type="hidden" name="topbar_select" id="topbar_select" value="1">
+                    </ul>
+                    <div id="app_total" class="fr"></div>
+                </div>
+                <ul class="app-list"></ul>
+                <div class="pagination pagination-centered" style="margin-top:13px" id="pagination"></div>
+                <input id="pagination_setting" type="hidden" per="6" />
+            </div>
+        </div>
+    </div>
+    <!--应用详细页内容-->
+    {% if app_id == 0 %}
+        <div id="detailIframe" class="disn" style="width: 71%;">
+            <iframe frameborder="0" id="market_detailIframe"></iframe>
+        </div>
+    {% else %}
+        <div id="detailIframe" style="width: 71%;">
+            <iframe frameborder="0" id="market_detailIframe" src="{{SITE_URL}}market_app_detail/{{app_id}}/?flag=0"></iframe>
+        </div>
+    {% endif %}
+    </div>
+    <script type="text/javascript">
+        var bk_paas3_url = "{{BK_PAAS3_URL}}";
+        var bk_user_app_code = "{{BK_USER_APP_CODE}}";
+    </script>
+    <!-- js 国际化 -->
+    <script type="text/javascript" src="{{SITE_URL}}jsi18n/i18n/"></script>
+    <!-- jQery库 公共脚本 -->
+    <script src="{{STATIC_URL}}assets/jquery-1.8.3.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="{{STATIC_URL}}assets/bootstrap-v2.3.2/js/bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}assets/twitter-bootstrap-v2.0.3-5/js/bootstrap-paginator.min.js"></script>
+    <!-- 腾讯UED提示信息&部分其他小插件 -->
+    <script src="{{STATIC_URL}}assets/bluekingLibs/bluekinglibs.js"></script>
+    <!-- bkdialog -->
+    <script src="{{STATIC_URL}}assets/bkDialog-1.0/js/dialog.js"></script>
+    <!-- Django框架对使用jQuery的ajax POST请求 处理CSRFTOKEN脚本-->
+    <script src="{{STATIC_URL}}js/csrftoken.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <!-- 蓝鲸工作台核心脚本 -->
+    <script src="{{STATIC_URL}}js/blueking.core.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <!-- 蓝鲸工作台应用市场核心脚本 -->
+    <script src="{{STATIC_URL}}js/blueking.marketBase.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <script src="{{STATIC_URL}}js/blueking.marketTemplate.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <script src="{{STATIC_URL}}js/blueking.marketSearchbox.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <script src="{{STATIC_URL}}js/blueking.marketSidebar.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <script src="{{STATIC_URL}}js/blueking.marketApp.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <!-- 兼容性设置 -->
+    <!--[if lt IE 6]>\xe8\x93\x9d\xe9\xb2\xb8\xe6\x99\xba\xe8\x90\xa5\x20\xe7\x89\x88\xe6\x9d\x83\xe6\x89\x80\xe6\x9c\x89<![endif]-->
+    <script type="text/javascript">
+        $(function(){
+            BLUEKING.marketBase.init();
+        });
+    </script>
+</body>
+</html>

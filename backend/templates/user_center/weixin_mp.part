@@ -1,0 +1,21 @@
+<!-- 微信绑定层 -->
+{% load i18n %}
+<div id="bind_weixin" class="modal" tabindex="-1" role="dialog" style="margin-top:50px;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{% trans '绑定微信' %}</h4>
+            </div>
+            <div class="modal-body">
+                <p class="code_title">{% trans '扫描二维码' %}</p>
+                <div id="code_content">
+                    <img class="loading_img" src="{{STATIC_URL}}user_center/img/loading_2_36x36.gif">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 微信绑定层 end -->

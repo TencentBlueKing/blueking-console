@@ -1,0 +1,114 @@
+$drp: '.daterangepicker';
+$textColor: #48576a;
+$iconColor: #8a97aa;
+$weekColor: #8391a5;
+$disabled: #ccd3dd;
+$itemHover: #f4f4f4;
+$activeColor: #20a0ff;
+$borderColor: #e5e5e5;
+
+.table-condensed{
+	& > tbody{
+		& > tr{
+			& > th{
+				padding: 11px;
+			}
+		}
+	}
+	& > thead{
+		& > tr{
+			& > th{
+				font-weight: normal;
+				color: $textColor;
+			}
+		}
+	}
+}
+
+#{$drp}{
+	.calendar{
+		max-width: 300px;
+		.calendar-table{
+			border: none;
+		}
+		&.left:not(.single){
+			border: {
+				top: 1px solid $borderColor;
+				left: 1px solid $borderColor;
+				bottom: 1px solid $borderColor;
+			}
+		}
+		&.right{
+			border: 1px solid $borderColor;
+		}
+		.daterangepicker_input{
+			padding: 0;
+			i{
+				display: none;
+			}
+		}
+		thead{
+			th{
+				&.week{
+					& ~ th{
+						color: $weekColor;
+						font-weight: normal;
+					}
+				}
+			}
+		}
+	}
+	.glyphicon{
+		color: $iconColor;
+	}
+	select{
+		&.monthselect,
+		&.yearselect{
+			font-weight: normal;
+			color: $textColor;
+		}
+	}
+	td{
+		&.disabled,
+		&.off,
+		&.off.start-date,
+		&.off.end-date{
+			color: $disabled;
+			background-color: $itemHover;
+			border-radius: 0;
+		}
+		&.active{
+			&,
+			&:hover{
+				background-color: $activeColor;
+				border-color: $activeColor;
+				border-radius: 0;
+			}
+		}
+		&.available{
+			&:not(.active):hover{
+				background-color: $itemHover;
+				border-radius: 0;
+			}
+		}
+		&.start-date.end-date{
+			border-radius: 0;
+		}
+	}
+	th{
+		&.month{
+			font-weight: normal;
+			color: $textColor;
+		}
+	}
+	.input-mini{
+		padding: 0;
+		margin: 0;
+		border: none;
+		outline: none;
+	    text-align: center;
+	}
+	.calendar-time{
+		padding: 0;
+	}
+}

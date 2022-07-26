@@ -1,0 +1,59 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% trans '桌面 | 蓝鲸蓝鲸智云' %}</title>
+    <meta name="keywords" content="{% trans '开发者中心,游戏运维,运维,服务器管理,模块配置,监控,腾讯游戏,蓝鲸,智云,devops,运维开发,蓝鲸企业版,企业版,作业平台,集成平台,配置平台,管控平台' %}" />
+    <meta name="description" content="{% trans '蓝鲸智云软件企业版是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变中国运维行业，帮助企业快速达到基础运维支撑能力，并提升技术人员的DevOps能力。该版本提供了配置平台，作业平台，集成平台等强大功能，用户在使用时，请查阅并遵守《蓝鲸智云软件用户服务协议》。' %}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="Shortcut Icon" href="{{STATIC_URL}}favicon.ico">
+    <!-- bootstrap 样式 -->
+    <link rel="stylesheet" href="{{STATIC_URL}}assets/bootstrap-v2.3.2/css/bootstrap.min.css">
+    <!-- 腾讯UED提示信息&部分其他小插件 -->
+    <link rel="stylesheet" href="{{STATIC_URL}}assets/bluekingLibs/bluekinglibs.css">
+    <!-- 基本样式 -->
+    <link rel="stylesheet" href="{{STATIC_URL}}css/appearance.{{CSS_SUFFIX}}?v={{STATIC_VERSION}}">
+</head>
+<body>
+    {% if EXTERNAL_THEME %}
+        <link rel="stylesheet" type="text/css" href="{{EXTERNAL_THEME}}">
+	{% endif %}
+
+    <div class="title">
+        <ul>
+            <li><a href="{{SITE_URL}}wallpaper/">{% trans '壁纸设置' %}</a></li>
+            <li class="focus">{% trans '皮肤设置' %}</li>
+        </ul>
+    </div>
+    <ul class="skin">
+        <li skin="qq" {% if skin == 'qq' %} class="selected" {% endif %}><img src="{{STATIC_URL}}{% trans 'img/skins/qq/preview.png' %}"><div></div></li>
+        <li skin="chrome" {% if skin == 'chrome' %} class="selected" {% endif %}><img src="{{STATIC_URL}}{% trans 'img/skins/chrome/preview.png' %}"><div></div></li>
+        <li skin="default" {% if skin == 'default' %} class="selected" {% endif %}><img src="{{STATIC_URL}}{% trans 'img/skins/default/preview.png' %}"><div></div></li>
+        <li skin="ext" {% if skin == 'ext' %} class="selected" {% endif %}><img src="{{STATIC_URL}}{% trans 'img/skins/ext/preview.png' %}"><div></div></li>
+        <li skin="mac" {% if skin == 'mac' %} class="selected" {% endif %}><img src="{{STATIC_URL}}{% trans 'img/skins/mac/preview.png' %}"><div></div></li>
+    </ul>
+    <script type="text/javascript">
+        var bk_paas3_url = "{{BK_PAAS3_URL}}";
+        var bk_user_app_code = "{{BK_USER_APP_CODE}}";
+    </script>
+    <!-- js 国际化 -->
+    <script type="text/javascript" src="{{SITE_URL}}jsi18n/i18n/"></script>
+    <!-- jQery库 公共脚本 -->
+    <script src="{{STATIC_URL}}assets/jquery-1.8.3.min.js"></script>
+    <!-- 腾讯UED提示信息&部分其他小插件 -->
+    <script src="{{STATIC_URL}}assets/bluekingLibs/bluekinglibs.js"></script>
+    <!-- Django框架对使用jQuery的ajax POST请求 处理CSRFTOKEN脚本-->
+    <script src="{{STATIC_URL}}js/csrftoken.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <!-- 蓝鲸工作台核心脚本 -->
+    <script src="{{STATIC_URL}}js/blueking.core.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <script src="{{STATIC_URL}}js/blueking.skinApp.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <!-- 兼容性设置 -->
+    <!--[if lt IE 6]>\xe8\x93\x9d\xe9\xb2\xb8\xe6\x99\xba\xe8\x90\xa5\x20\xe7\x89\x88\xe6\x9d\x83\xe6\x89\x80\xe6\x9c\x89<![endif]-->
+    <script>
+    $(function(){
+        BLUEKING.skinApp.init()
+    });
+    </script>
+</body>
+</html>

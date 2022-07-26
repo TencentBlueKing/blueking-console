@@ -1,0 +1,1378 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-01 17:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: account/decorators.py:54
+msgid "请求头缺少参数:HTTP_X_APP_ID / HTTP_X_APP_TOKEN"
+msgstr "Request header is short of parameters:HTTP_X_APP_ID / HTTP_X_APP_TOKEN"
+
+#: account/decorators.py:70
+msgid "参数不匹配:HTTP_X_APP_ID / HTTP_X_APP_TOKEN"
+msgstr "Parameters do not match: HTTP_X_APP_ID / HTTP_X_APP_TOKEN"
+
+#: account/decorators.py:76
+msgid "参数不合法:HTTP_X_APP_ID"
+msgstr "Parameters are illegal: HTTP_X_APP_ID"
+
+#: account/models.py:62
+msgid "date joined"
+msgstr ""
+
+#: account/models.py:72
+msgid "user"
+msgstr ""
+
+#: account/models.py:73
+msgid "users"
+msgstr ""
+
+#: app/constants.py:18
+msgid "已下架"
+msgstr "Removed"
+
+#: app/constants.py:19
+msgid "开发中"
+msgstr "In-Develop"
+
+#: app/constants.py:20
+msgid "测试中"
+msgstr "In-Test"
+
+#: app/constants.py:21
+msgid "已上线"
+msgstr "Online"
+
+#: app/constants.py:22 release/constants.py:27
+msgid "正在提测"
+msgstr "Being-Test"
+
+#: app/constants.py:23 release/constants.py:28
+msgid "正在上线"
+msgstr "Being-Online"
+
+#: app/constants.py:24 release/constants.py:29
+msgid "正在下架"
+msgstr "Being-Removed"
+
+#: app/constants.py:61
+msgid "运维工具"
+msgstr "OpsTools"
+
+#: app/constants.py:62
+msgid "监控告警"
+msgstr "Alarm"
+
+#: app/constants.py:63
+msgid "配置管理"
+msgstr "ConfManage"
+
+#: app/constants.py:64
+msgid "开发工具"
+msgstr "DevTools"
+
+#: app/constants.py:65
+msgid "企业IT"
+msgstr "EnterpriseIT"
+
+#: app/constants.py:66
+msgid "办公应用"
+msgstr "OfficeApp"
+
+#: app/constants.py:67 desktop/constants.py:41
+msgid "其它"
+msgstr "Others"
+
+#: app/constants.py:72
+msgid "桌面"
+msgstr "Desktop"
+
+#: app/constants.py:72
+msgid "新标签页"
+msgstr "New Tab"
+
+#: app/constants.py:78 desktop/constants.py:36
+msgid "蓝鲸智云"
+msgstr "BlueKing"
+
+#: app/constants.py:79 desktop/constants.py:37
+msgid "嘉为蓝鲸"
+msgstr "CanWay"
+
+#: app/constants.py:80 desktop/constants.py:38
+msgid "齐治科技"
+msgstr "Qizhi Technology"
+
+#: app/constants.py:81 desktop/constants.py:39
+msgid "皓西科技"
+msgstr "OneOaaS"
+
+#: app/constants.py:82 desktop/constants.py:40
+msgid "红雨创展"
+msgstr "R2cd"
+
+#: app_esb_auth/constants.py:5
+msgid "无限制"
+msgstr "No limits"
+
+#: app_esb_auth/constants.py:6
+msgid "普通权限"
+msgstr "Common permissions"
+
+#: app_esb_auth/constants.py:7
+msgid "敏感权限"
+msgstr "Sensitive permissions"
+
+#: app_esb_auth/constants.py:8
+msgid "特殊权限"
+msgstr "Special permissions"
+
+#: app_statistics/utils.py:144
+#, python-format
+msgid "%(year)s年%(month)s月"
+msgstr "%(year)s-%(month)s"
+
+#: app_statistics/utils.py:147
+#, python-format
+msgid "%(year)s年%(week)s周"
+msgstr "%(year)s%(week)s"
+
+#: app_statistics/utils.py:149
+#, python-format
+msgid "%(year)s年%(month)s月%(day)s日"
+msgstr "%(year)s-%(month)s-%(day)s"
+
+#: app_statistics/utils.py:181 app_statistics/views.py:58
+msgid "全部"
+msgstr "All"
+
+#: app_statistics/views.py:88
+msgid "在线时长分时间统计"
+msgstr "Online duration statistics by time"
+
+#: app_statistics/views.py:89
+#, python-format
+msgid "%(range_time)s （总量：%(total)s 小时）"
+msgstr "%(range_time)s (Total: %(total)s hours) "
+
+#: app_statistics/views.py:91 app_statistics/views.py:127
+#: app_statistics/views.py:164
+msgid "在线时长"
+msgstr "Online duration"
+
+#: app_statistics/views.py:120
+msgid "在线时长分用户统计"
+msgstr "Online duration statistics by user"
+
+#: app_statistics/views.py:121
+#, python-format
+msgid "%(range_time)s （总量：%(total_hour)s 小时，用户总数：%(total_user)s）"
+msgstr ""
+"%(range_time)s (Total: %(total_hour)s hours, Total number of users: "
+"%(total_user)s) "
+
+#: app_statistics/views.py:157
+msgid "在线时长分应用统计"
+msgstr "Online duration statistics by app"
+
+#: app_statistics/views.py:158
+#, python-format
+msgid "%(range_time)s （总量：%(total_hour)s 小时，应用总数：%(total_app)s）"
+msgstr ""
+"%(range_time)s (Total: %(total_hour)s hours, Total number of apps: "
+"%(total_app)s)"
+
+#: app_statistics/views.py:195
+msgid "访问量分时间统计"
+msgstr "Views statistics by time"
+
+#: app_statistics/views.py:196
+#, python-format
+msgid "%(range_time)s（总量：%(total)s 次）"
+msgstr "%(range_time)s (Total: %(total)s) "
+
+#: app_statistics/views.py:198 app_statistics/views.py:230
+msgid "访问量"
+msgstr "Views"
+
+#: app_statistics/views.py:227
+msgid "访问量分应用统计"
+msgstr "Views statistics by app"
+
+#: app_statistics/views.py:228
+#, python-format
+msgid "%(range_time)s （总量：%(total_visit)s 次，应用总数：%(total_app)s）"
+msgstr ""
+"%(range_time)s (Total: %(total_visit)s, Total number of apps: %(total_app)s) "
+
+#: app_statistics/views.py:262
+msgid "活跃度分时间统计"
+msgstr "Activity statistics by time"
+
+#: app_statistics/views.py:263
+#, python-format
+msgid "%(range_time)s （总量：%(total)s 次）"
+msgstr "%(range_time)s (Total: %(total)s) "
+
+#: app_statistics/views.py:265 app_statistics/views.py:296
+msgid "活跃度"
+msgstr "Activity"
+
+#: app_statistics/views.py:293
+msgid "活跃度分应用统计"
+msgstr "Activity statistics by app"
+
+#: app_statistics/views.py:294
+#, python-format
+msgid "%(range_time)s （总量：%(total_liveness)s 次，应用总数：%(total_app)s）"
+msgstr ""
+"%(range_time)s (Total: %(total_liveness)s, Total number of apps: "
+"%(total_app)s) "
+
+#: app_statistics/views.py:345
+msgid "开发者开发应用个数统计"
+msgstr "App statistics by developer"
+
+#: app_statistics/views.py:346
+#, python-format
+msgid "%(range_time)s （开发者总数：%(total_developer)s）"
+msgstr "%(range_time)s (Total number of developers: %(total_developer)s) "
+
+#: app_statistics/views.py:348
+msgid "应用个数"
+msgstr "Number of apps"
+
+#: app_statistics/views.py:383
+msgid "新上线应用数量统计"
+msgstr "Statistics of the number of New apps online"
+
+#: app_statistics/views.py:384
+#, python-format
+msgid "%(range_time)s （应用个数：%(total)s 个）"
+msgstr "%(range_time)s (Number of apps: %(total)s) "
+
+#: app_statistics/views.py:386
+msgid "新上线应用个数"
+msgstr "The number of new apps online"
+
+#: common/bk_iam.py:38
+msgid "访问开发者中心"
+msgstr "Access Developer Center"
+
+#: common/bk_iam.py:39
+msgid "开发SaaS应用及外链应用"
+msgstr "Develop SaaS"
+
+#: common/bk_iam.py:40
+msgid "管理S-mart应用"
+msgstr "Manage S-mart App"
+
+#: common/bk_iam.py:41
+msgid "系统维护"
+msgstr "PaaS System Maintain"
+
+#: common/bk_iam.py:42
+msgid "API网关维护"
+msgstr "API Gateway Maintain"
+
+#: common/bk_iam.py:50
+msgid "应用"
+msgstr "Application"
+
+#: common/constants.py:23
+msgid "申请中"
+msgstr "In-application"
+
+#: common/constants.py:24
+msgid "审批通过"
+msgstr "Approved"
+
+#: common/constants.py:25
+msgid "驳回"
+msgstr "Refused"
+
+#: common/constants.py:32
+msgid "普通用户"
+msgstr "staff"
+
+#: common/constants.py:33
+msgid "管理员"
+msgstr "superuser"
+
+#: common/constants.py:34 templates/app_statistics/developer.html:18
+msgid "开发者"
+msgstr "developer"
+
+#: common/constants.py:35
+msgid "职能化用户"
+msgstr "operator"
+
+#: common/license_utils.py:29
+#, python-format
+msgid "证书文件(platform.cert)不存在: %s"
+msgstr "Certificate file (platform.cert) does not exist: %s"
+
+#: common/license_utils.py:32
+#, python-format
+msgid "密钥文件(platform.key)不存在: %s"
+msgstr "Secret key file (platform.key) does not exist: %s"
+
+#: common/license_utils.py:40
+msgid "证书文件(platform.cert)为空或已被损坏"
+msgstr "Certificate file (platform.cert) is empty or has been damaged"
+
+#: common/license_utils.py:56
+msgid "license_server请求校验证书异常"
+msgstr ""
+"Exceptions occurred in request license server to certificate validation"
+
+#: common/license_utils.py:107
+msgid "证书不可用，请求未返回有效期或返回格式有误"
+msgstr ""
+"Certificate is not available, the request did not return a valid period or "
+"the return format is incorrect"
+
+#: common/license_utils.py:108
+msgid "证书校验成功"
+msgstr "Certificate validation succeeded"
+
+#: conf/default.py:182
+msgid "English"
+msgstr "Engilsh"
+
+#: conf/default.py:183
+msgid "简体中文"
+msgstr "简体中文"
+
+#: desktop/constants.py:18
+msgid "应用创建者"
+msgstr "App creator"
+
+#: desktop/constants.py:19
+msgid "应用分类"
+msgstr "Category"
+
+#: desktop/constants.py:35
+msgid "用户自建"
+msgstr "User self-built"
+
+#: desktop/market_views.py:277 desktop/market_views.py:289
+#: desktop/market_views.py:290
+msgid "是"
+msgstr "Yes"
+
+#: desktop/market_views.py:277 desktop/market_views.py:289
+#: desktop/market_views.py:290
+msgid "否"
+msgstr "No"
+
+#: desktop/other_views.py:28
+#, python-format
+msgid "当前企业版的有效期至%s，请提前15个工作日联系软件供应商提供技术支持"
+msgstr ""
+"Validity of the current enterprise version is until % s, please contact the "
+"software vendor 15 days in advance to provide technical support"
+
+#: desktop/other_views.py:30
+#, python-format
+msgid "%s，请联系管理员处理！"
+msgstr "%s, Contact administrator to handle this problem"
+
+#: desktop/other_views.py:44
+#, python-format
+msgid "%(start_time)s 至 %(end_time)s"
+msgstr "%(start_time)s ~ %(end_time)s"
+
+#: healthz/views.py:71
+#, python-format
+msgid "配置文件不正确, 缺失对应配置: %s"
+msgstr ""
+"Configuration file is incorrect, with corresponding configurations missed, "
+"Error message: %s"
+
+#: healthz/views.py:83
+#, python-format
+msgid "数据库连接存在问题: %s"
+msgstr "There is a problem with database connection, Error message: %s"
+
+#: healthz/views.py:103
+#, python-format
+msgid "第三方依赖连接超时: name=%(name)s, host=%(host)s,  error=%(error)s"
+msgstr ""
+"Third party dependency connection timeout, name=%(name)s, host=%(host)s,  "
+"error=%(error)s"
+
+#: healthz/views.py:119
+#, python-format
+msgid ""
+"%(ecode)s Bksuite数据库连接存在问题 %(error)s; 不影响使用, 但[蓝鲸智云 - 开发"
+"者中心 - 版本信息]无法正常展示"
+msgstr ""
+"%(ecode)s, There is a problem with database connection, Error_message: "
+"%(error)s; it does not affect the use, but [BlueKing - Developer Center - "
+"Version Info] can not be displayed properly"
+
+#: healthz/views.py:135
+#, python-format
+msgid "%(error_code)s 企业证书无效：%(error)s; 只影响桌面版本信息的展示"
+msgstr ""
+"%(error_code)s, Enterprise certificate is invalid, Error message: %(error)s; "
+"it just has an impact on the demonstration of desktop version information "
+
+#: release/constants.py:24
+msgid "提测"
+msgstr "Test"
+
+#: release/constants.py:25
+msgid "上线"
+msgstr "Online"
+
+#: release/constants.py:26
+msgid "下架"
+msgstr "Removal"
+
+#: release/constants.py:30
+msgid "基本信息注册"
+msgstr "Basic information register"
+
+#: release/constants.py:31
+msgid "数据库创建"
+msgstr "Database creation"
+
+#: release/constants.py:32
+msgid "SVN代码初始化"
+msgstr "SVN Code initialization"
+
+#: release/constants.py:33
+msgid "数据库授权"
+msgstr "Database authorization"
+
+#: release/constants.py:34
+msgid "初始化APP代码"
+msgstr "Initialize APP code"
+
+#: release/constants.py:35 release/constants.py:50
+msgid "删除APP"
+msgstr "Delete App"
+
+#: release/constants.py:49
+msgid "APP创建"
+msgstr "Create App"
+
+#: release/constants.py:51
+msgid "APP提测"
+msgstr "App-Test"
+
+#: release/constants.py:52
+msgid "APP上线"
+msgstr "App-Online"
+
+#: release/constants.py:53
+msgid "APP下架"
+msgstr "App-Removal"
+
+#: templates/401.html:6
+msgid "未登录蓝鲸智云平台(401页)"
+msgstr "Have not logged in BlueKing platform (page 401)"
+
+#: templates/401.html:20
+msgid "您需要登录蓝鲸智云"
+msgstr "You need to log in BlueKing"
+
+#: templates/401.html:21
+msgid "立即登录"
+msgstr "Log in right now"
+
+#: templates/403.html:6
+msgid "您没有访问权限(403页)"
+msgstr "You have no access permissions (Page 403)"
+
+#: templates/403.html:20
+msgid "您没有访问权限，请联系系统管理员添加"
+msgstr ""
+"You have no access permissions, please contact system administrator to add"
+
+#: templates/404.html:6
+msgid "页面找不到（404页）"
+msgstr "Page Not Found (404)"
+
+#: templates/404.html:20
+msgid "页面找不到了"
+msgstr "Page Not Found"
+
+#: templates/500.html:6
+msgid "系统异常(500页)"
+msgstr "System exception (page 500)"
+
+#: templates/500.html:20
+msgid "系统出现异常"
+msgstr "Exceptions occurred in system"
+
+#: templates/500.html:21
+msgid "努力恢复中，请稍后再试......"
+msgstr "Trying to recover, please try again later..."
+
+#: templates/50x.html:6 templates/50x.html:19
+msgid "服务故障，努力修复中..."
+msgstr "Service failure, trying to repair ..."
+
+#: templates/50x.html:20
+msgid "服务出现故障，我们正在紧急修复，给您带来不便，敬请谅解。"
+msgstr ""
+"Service failure, we are trying our best to do emergency repair. Please "
+"understand for the inconvenience."
+
+#: templates/app_statistics/app_update.html:6
+msgid "新上线"
+msgstr "Recently online"
+
+#: templates/app_statistics/app_update.html:13
+msgid "查询条件:"
+msgstr "Query conditions:"
+
+#: templates/app_statistics/app_update.html:15
+#: templates/app_statistics/developer.html:14
+#: templates/app_statistics/liveness.html:15
+#: templates/app_statistics/liveness.html:34
+#: templates/app_statistics/online_time.html:16
+#: templates/app_statistics/online_time.html:43
+#: templates/app_statistics/online_time.html:62
+#: templates/app_statistics/visit.html:15
+#: templates/app_statistics/visit.html:34
+msgid "时间范围选择"
+msgstr "Time range"
+
+#: templates/app_statistics/app_update.html:16
+#: templates/app_statistics/developer.html:15
+#: templates/app_statistics/liveness.html:16
+#: templates/app_statistics/liveness.html:35
+#: templates/app_statistics/online_time.html:17
+#: templates/app_statistics/online_time.html:44
+#: templates/app_statistics/online_time.html:63
+#: templates/app_statistics/visit.html:16
+#: templates/app_statistics/visit.html:35
+msgid "选择日期..."
+msgstr "Select a date ..."
+
+#: templates/app_statistics/app_update.html:19
+#: templates/app_statistics/liveness.html:23
+#: templates/app_statistics/visit.html:23 templates/desktop/wallpaper.html:34
+msgid "显示方式"
+msgstr "Display mode"
+
+#: templates/app_statistics/app_update.html:23
+#: templates/app_statistics/developer.html:26
+#: templates/app_statistics/liveness.html:27
+#: templates/app_statistics/liveness.html:42
+#: templates/app_statistics/online_time.html:28
+#: templates/app_statistics/online_time.html:55
+#: templates/app_statistics/online_time.html:74
+#: templates/app_statistics/visit.html:27
+#: templates/app_statistics/visit.html:42
+msgid "查询"
+msgstr "Query"
+
+#: templates/app_statistics/base.html:6 templates/desktop/index.html:95
+#: templates/desktop/index.html:96
+msgid "统计"
+msgstr "Statistics"
+
+#: templates/app_statistics/base.html:21
+msgid "在线时长统计"
+msgstr "Online duration statistics"
+
+#: templates/app_statistics/base.html:22
+msgid "访问量统计"
+msgstr "Views statistics"
+
+#: templates/app_statistics/base.html:23
+msgid "活跃度统计"
+msgstr "Activity statistics"
+
+#: templates/app_statistics/base.html:24
+msgid "应用更新情况统计"
+msgstr "App update statistics"
+
+#: templates/app_statistics/developer.html:6
+msgid "按开发负责人"
+msgstr "By developer"
+
+#: templates/app_statistics/developer.html:22
+msgid "应用状态"
+msgstr "App status"
+
+#: templates/app_statistics/liveness.html:6
+#: templates/app_statistics/online_time.html:6
+#: templates/app_statistics/visit.html:6
+msgid "按时间"
+msgstr "By time"
+
+#: templates/app_statistics/liveness.html:7
+#: templates/app_statistics/online_time.html:8
+#: templates/app_statistics/visit.html:7
+msgid "按应用"
+msgstr "By app"
+
+#: templates/app_statistics/liveness.html:19
+#: templates/app_statistics/liveness.html:38
+#: templates/app_statistics/online_time.html:24
+#: templates/app_statistics/online_time.html:51
+#: templates/app_statistics/online_time.html:70
+#: templates/app_statistics/visit.html:19
+#: templates/app_statistics/visit.html:38
+msgid "应用名称"
+msgstr "App name"
+
+#: templates/app_statistics/online_time.html:7
+msgid "按用户"
+msgstr "By user"
+
+#: templates/app_statistics/online_time.html:20
+#: templates/app_statistics/online_time.html:47
+#: templates/app_statistics/online_time.html:66
+msgid "用户名称"
+msgstr "Username"
+
+#: templates/app_statistics/online_time.html:31
+msgid ""
+"<label style=\"margin-left:20px;\"> <span>显示方式</span> <input class="
+"\"show_way\" type=\"hidden\" style=\"width:183px;\"> </label>"
+msgstr ""
+"<label style=\"margin-left:-17px;\"> <span>Display mode</span> <input class="
+"\"show_way\" type=\"hidden\" style=\"width:183px;\"> </label>"
+
+#: templates/csrf_failure.html:6 templates/csrf_failure.html:20
+msgid "CSRF验证失败"
+msgstr "CSRF verification failed"
+
+#: templates/csrf_failure.html:22
+msgid ""
+"您看到此消息是由于该站点在提交表单时需要一个CSRF cookie。此项是出于安全考虑，"
+"以确保您的浏览器没有被第三方劫持。"
+msgstr ""
+"You see this message because the site needs a CSRF cookie when submitting "
+"the form. This is for security reasons to make sure your browser is not "
+"hijacked by a third party."
+
+#: templates/csrf_failure.html:23
+msgid ""
+"如果您已经设置浏览器禁用cookies，请重新启用，至少针对这个站点，全部HTTPS请"
+"求，或者同源请求（same-origin）启用cookies。"
+msgstr ""
+"If you have set your browser to disable cookies, please enable it again, "
+"enabling cookies at least for this site, for all HTTPS requests, or same-"
+"origin requests."
+
+#: templates/csrf_failure.html:24
+msgid "重新登录"
+msgstr "Login again"
+
+#: templates/desktop/desk_setting.html:6 templates/desktop/index.html:6
+#: templates/desktop/market.html:6 templates/desktop/market_app_detail.html:6
+#: templates/desktop/skin.html:6 templates/desktop/wallpaper.html:6
+msgid "桌面 | 蓝鲸蓝鲸智云"
+msgstr "Desktop | Tencent BlueKing"
+
+#: templates/desktop/desk_setting.html:7 templates/desktop/index.html:7
+#: templates/desktop/market.html:7 templates/desktop/market_app_detail.html:7
+#: templates/desktop/skin.html:7 templates/desktop/wallpaper.html:7
+msgid ""
+"开发者中心,游戏运维,运维,服务器管理,模块配置,监控,腾讯游戏,蓝鲸,智云,devops,"
+"运维开发,蓝鲸企业版,企业版,作业平台,集成平台,配置平台,管控平台"
+msgstr ""
+"Developer Center, Game OPS, OPS, Server Management, Module Configuration, "
+"Monitoring, Tencent Game, BlueKing, DevOps, OPS Development, BlueKing "
+"Enterprise, Enterprise, Job System, Integration System, Configuration "
+"System, Control System"
+
+#: templates/desktop/desk_setting.html:8 templates/desktop/index.html:8
+#: templates/desktop/market.html:8 templates/desktop/market_app_detail.html:8
+#: templates/desktop/skin.html:8 templates/desktop/wallpaper.html:8
+msgid ""
+"蓝鲸智云软件企业版是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变"
+"中国运维行业，帮助企业快速达到基础运维支撑能力，并提升技术人员的DevOps能力。"
+"该版本提供了配置平台，作业平台，集成平台等强大功能，用户在使用时，请查阅并遵"
+"守《蓝鲸智云软件用户服务协议》。"
+msgstr ""
+"BlueKing Enterprise is a PaaS-based technology solution developed by "
+"BlueKing team, aiming at changing the OPS industry in China, helping "
+"enterprises rapidly achieve basic OPS support capability and enhancing "
+"technical staff's DevOps capabilities. It supports CC/JOB/PaaS."
+
+#: templates/desktop/desk_setting.html:23
+msgid "桌面设置"
+msgstr "Desktop settings"
+
+#: templates/desktop/desk_setting.html:26
+msgid "图标排列："
+msgstr "Icon arrangement: "
+
+#: templates/desktop/desk_setting.html:28
+msgid "横向排列"
+msgstr "Horizontal"
+
+#: templates/desktop/desk_setting.html:29
+msgid "纵向排列"
+msgstr "Vertical"
+
+#: templates/desktop/desk_setting.html:33
+msgid "应用码头设置"
+msgstr "App dock settings"
+
+#: templates/desktop/desk_setting.html:40
+msgid "顶部"
+msgstr "Top"
+
+#: templates/desktop/desk_setting.html:49
+msgid "左侧"
+msgstr "Left"
+
+#: templates/desktop/desk_setting.html:57
+msgid "右侧"
+msgstr "Right"
+
+#: templates/desktop/index.html:20
+msgid "img/base_ui/watermark.png"
+msgstr "img/base_ui/watermark_en.png"
+
+#: templates/desktop/index.html:21 templates/desktop/market.html:19
+#: templates/desktop/market.html:20 templates/desktop/market_app_detail.html:19
+msgid "img/app_logo/light_app.png"
+msgstr "img/app_logo/light_app_en.png"
+
+#: templates/desktop/index.html:22
+msgid "img/base_ui/desk_sprite.png"
+msgstr "img/base_ui/desk_sprite_en.png"
+
+#: templates/desktop/index.html:35
+msgid "搜索应用..."
+msgstr "Search app..."
+
+#: templates/desktop/index.html:36
+msgid "搜索..."
+msgstr "Search..."
+
+#: templates/desktop/index.html:42
+msgid "去应用市场搜搜..."
+msgstr "Go to search in app market"
+
+#: templates/desktop/index.html:52
+msgid "知道了"
+msgstr "I know"
+
+#: templates/desktop/index.html:81 templates/desktop/index.html:82
+msgid "应用市场"
+msgstr "App market"
+
+#: templates/desktop/index.html:85 templates/desktop/index.html:86
+#: templates/user_center/base.html:6 templates/user_center/base.html:23
+msgid "个人中心"
+msgstr "Profile"
+
+#: templates/desktop/index.html:90 templates/desktop/index.html:91
+msgid "开发者中心"
+msgstr "Developer"
+
+#: templates/desktop/index.html:99 templates/desktop/index.html:100
+msgid "权限中心"
+msgstr "IAM"
+
+#: templates/desktop/index.html:103 templates/desktop/index.html:104
+#: templates/user_center/account.html:102
+msgid "用户管理"
+msgstr "User Management"
+
+#: templates/desktop/index.html:110
+msgid "外观设置"
+msgstr "Appearance settings"
+
+#: templates/desktop/index.html:111
+msgid "反馈"
+msgstr "Feedback"
+
+#: templates/desktop/index.html:114
+msgid "全局视图"
+msgstr "Global view"
+
+#: templates/desktop/index.html:115
+msgid "帮助"
+msgstr "Help"
+
+#: templates/desktop/index.html:124
+msgid "切换至桌面1，快捷键：Ctrl + 1"
+msgstr "Switch to desktop 1, hot key: Ctrl + 1"
+
+#: templates/desktop/index.html:128
+msgid "切换至桌面2，快捷键：Ctrl + 2"
+msgstr "Switch to desktop 2, hot key: Ctrl + 2"
+
+#: templates/desktop/index.html:132
+msgid "切换至桌面3，快捷键：Ctrl + 3"
+msgstr "Switch to desktop 3, hot key: Ctrl + 3"
+
+#: templates/desktop/index.html:136
+msgid "切换至桌面4，快捷键：Ctrl + 4"
+msgstr "Switch to desktop 4, hot key: Ctrl + 4"
+
+#: templates/desktop/index.html:140
+msgid "切换至桌面5，快捷键：Ctrl + 5"
+msgstr "Switch to desktop 5, hot key: Ctrl + 5"
+
+#: templates/desktop/index.html:155
+msgid "产品文档"
+msgstr "PaaS Docs"
+
+#: templates/desktop/index.html:156
+msgid "蓝鲸官网"
+msgstr "BlueKing official site"
+
+#: templates/desktop/index.html:157
+msgid "服务协议"
+msgstr "Service protocol"
+
+#: templates/desktop/index.html:158
+msgid "QQ咨询（800802001）"
+msgstr "QQ consulting(800802001)"
+
+#: templates/desktop/index.html:160
+msgid "注销当前用户"
+msgstr "Log out the current user"
+
+#: templates/desktop/index.html:165
+msgid "主题设置"
+msgstr "Theme settings"
+
+#: templates/desktop/index.html:166
+msgid "布局设置"
+msgstr "Layout settings"
+
+#: templates/desktop/index.html:172 templates/desktop/index.html:275
+#: templates/desktop/market_app_detail.html:57
+msgid "版本信息"
+msgstr "Version info"
+
+#: templates/desktop/index.html:173
+msgid "桌面指引"
+msgstr "Desktop guide"
+
+#: templates/desktop/index.html:174
+msgid "快捷键说明"
+msgstr "Hot key instructions"
+
+#: templates/desktop/index.html:192 templates/desktop/index.html:194
+#: templates/desktop/market_app_detail.html:50
+msgid "添加应用"
+msgstr "Add app"
+
+#: templates/desktop/index.html:199 templates/desktop/index.html:201
+msgid "新建文件夹"
+msgstr "New folder"
+
+#: templates/desktop/index.html:257
+msgid "快捷键使用说明"
+msgstr "Hot key instructions"
+
+#: templates/desktop/index.html:260
+msgid ""
+"Alt+d：显示桌面（最小化所有应用窗口）</br> Ctrl+up：显示全局视图</br> Ctrl"
+"+1~Ctrl+5：切换显示桌面1~5</br> Ctrl+left：逆序切换显示桌面</br> Ctrl+right："
+"顺序切换显示桌面</br> Alt+1~Alt+9：切换显示应用窗口1~9</br> Alt+up：逆序切换"
+"显示应用窗口</br> Alt+right：顺序切换显示应用窗口</br>"
+msgstr ""
+"Alt+d: Show desktop(Minimize all window of app)</br> Ctrl+up: Show global "
+"view</br> Ctrl+1~Ctrl+5: Switch the display desktop 1~5</br> Ctrl+left: "
+"Switch previous desktop</br> Ctrl+right: Switch next desktop</br> Alt+1~Alt"
+"+9: Switch the display app window</br> Alt+up: Switch previous app window</"
+"br> Alt+right: Switch next app window"
+
+#: templates/desktop/index.html:280
+msgid ""
+"为了不影响您使用蓝鲸，建议您:<br/> &nbsp;&nbsp;&nbsp;1. 使用高级浏览器："
+"<strong>Chrome</strong>, <strong>Firefox</strong>, <strong>Opera</strong>等;"
+"<br/> &nbsp;&nbsp;&nbsp;2. 如果您使用的是<strong>IE</strong>，请使用"
+"<strong>IE8</strong>及以上版本;<br/> &nbsp;&nbsp;&nbsp;3. 如果您使用的是"
+"<strong>IE</strong>，请使用<strong>IE8</strong>及以上文档模式;<br/> &nbsp;"
+"&nbsp;&nbsp;4. 如果您使用的是<strong>IE</strong>，<span class=\"color_red\">"
+"请不要使用<strong>\"兼容模式\"</strong>!</span>"
+msgstr ""
+"In order not to affect your use of BlueKing, some suggestions are as "
+"follows: <br/> &nbsp;&nbsp;&nbsp;1. use advanced browsers, such as "
+"<strong>Chrome</strong>, <strong>Firefox</strong>, <strong>Opera</strong> "
+"and so on;<br/> &nbsp;&nbsp;&nbsp;2. please use more than <strong>IE8</"
+"strong> version if you're using <strong>IE</strong><br/> &nbsp;&nbsp;"
+"&nbsp;3. please use more than strong>IE8</strong> document schema if you're "
+"using <strong>IE</strong><br/> &nbsp;&nbsp;&nbsp;4. <span class=\"color_red"
+"\">please do not use<strong> \"compatibility mode\"</strong></span> if "
+"you're using <strong>IE</strong>"
+
+#: templates/desktop/market.html:32
+msgid "按应用名称、应用ID、开发负责人搜索"
+msgstr "Search by app name, app id or developer"
+
+#: templates/desktop/market.html:33
+msgid "搜索应用"
+msgstr "Search app"
+
+#: templates/desktop/market.html:33
+msgid "搜索"
+msgstr "Search"
+
+#: templates/desktop/market.html:35
+msgid "设置"
+msgstr "Settings"
+
+#: templates/desktop/market.html:41
+msgid "左侧导航："
+msgstr "Left navbar&nbsp;: &nbsp;&nbsp;"
+
+#: templates/desktop/market.html:45
+msgid "分类"
+msgstr "Category"
+
+#: templates/desktop/market.html:49
+msgid "开发负责人"
+msgstr "Developer"
+
+#: templates/desktop/market.html:54
+msgid "设置失败，请联系管理员！"
+msgstr "Category setting failed, please contact administrator"
+
+#: templates/desktop/market.html:61
+msgid "全部应用"
+msgstr "All app"
+
+#: templates/desktop/market.html:85
+msgid "最近打开"
+msgstr "Recently Opened"
+
+#: templates/desktop/market.html:91
+msgid "我是开发者"
+msgstr "I Am a Developer"
+
+#: templates/desktop/market.html:94
+msgid "我要开发SaaS"
+msgstr "Develop SaaS"
+
+#: templates/desktop/market.html:106
+msgid "最新应用"
+msgstr "Latest app"
+
+#: templates/desktop/market.html:107
+msgid "最热门"
+msgstr "Most popular"
+
+#: templates/desktop/market_app_detail.html:32
+msgid "返回"
+msgstr "Back"
+
+#: templates/desktop/market_app_detail.html:42
+#, python-format
+msgid ""
+"<span class=\"app-desc\"><i>%(app_use_count)s</i> 人添加 &nbsp; &nbsp; "
+"&nbsp; &nbsp; 本月有&nbsp;<i>%(app_visit_count)s</i>&nbsp;次访问&nbsp;</span>"
+msgstr ""
+"<span class=\"app-desc\">Number of user added app: <i>%(app_use_count)s</i> "
+"&nbsp; &nbsp; Monthly Views: <i>%(app_visit_count)s</i>&nbsp;</span>"
+
+#: templates/desktop/market_app_detail.html:45
+msgid "复制宣传链接"
+msgstr "Copy links"
+
+#: templates/desktop/market_app_detail.html:47
+#: templates/desktop/market_app_detail.html:49
+msgid "打开应用"
+msgstr "Open app"
+
+#: templates/desktop/market_app_detail.html:55
+msgid "基本信息"
+msgstr "Basic info"
+
+#: templates/desktop/market_app_detail.html:56
+msgid "属性信息"
+msgstr "Property info"
+
+#: templates/desktop/market_app_detail.html:58
+msgid "已添加用户"
+msgstr "User added to app"
+
+#: templates/desktop/market_app_detail.html:66
+#: templates/desktop/market_app_detail.html:99
+msgid "应用编码："
+msgstr "App ID: "
+
+#: templates/desktop/market_app_detail.html:67
+msgid "应用分类："
+msgstr "Category: "
+
+#: templates/desktop/market_app_detail.html:69
+#: templates/desktop/market_app_detail.html:72
+#: templates/desktop/market_app_detail.html:74
+msgid "开发负责人："
+msgstr "Developer: "
+
+#: templates/desktop/market_app_detail.html:77
+msgid "首次提测时间："
+msgstr "First test time: "
+
+#: templates/desktop/market_app_detail.html:78
+msgid "首次上线时间："
+msgstr "First online time: "
+
+#: templates/desktop/market_app_detail.html:79
+msgid "最近上线时间："
+msgstr "Recent online time: "
+
+#: templates/desktop/market_app_detail.html:83
+msgid "应用简介"
+msgstr "App brief"
+
+#: templates/desktop/market_app_detail.html:93
+msgid "应用名称："
+msgstr "App name: "
+
+#: templates/desktop/market_app_detail.html:94
+msgid "窗口是否可拉伸："
+msgstr "Resize window: "
+
+#: templates/desktop/market_app_detail.html:95
+msgid "窗口是否最大化："
+msgstr "Maximize window: "
+
+#: templates/desktop/market_app_detail.html:96
+msgid "窗口是否详情按钮："
+msgstr "Details button: "
+
+#: templates/desktop/market_app_detail.html:100
+msgid "页面宽度："
+msgstr "Window width: "
+
+#: templates/desktop/market_app_detail.html:101
+msgid "页面高度："
+msgstr "Window height: "
+
+#: templates/desktop/market_app_detail.html:114
+msgid "版本号："
+msgstr "Version: "
+
+#: templates/desktop/market_app_detail.html:119
+msgid "发布者："
+msgstr "Publisher: "
+
+#: templates/desktop/market_app_detail.html:124
+msgid "发布日期："
+msgstr "Release date: "
+
+#: templates/desktop/market_app_detail.html:137
+msgid "暂无特性信息"
+msgstr "No feature information"
+
+#: templates/desktop/market_app_detail.html:151
+msgid "暂无bug信息"
+msgstr "No bug information"
+
+#: templates/desktop/market_app_detail.html:159
+msgid "暂无版本信息"
+msgstr "No version information"
+
+#: templates/desktop/market_app_detail.html:168
+msgid "没有用户添加！"
+msgstr "No user added application"
+
+#: templates/desktop/market_app_detail.html:174
+msgid "应用已下架！"
+msgstr "The app has been removed!"
+
+#: templates/desktop/market_app_detail.html:176
+msgid "应用正在开发中..."
+msgstr "The app is in development..."
+
+#: templates/desktop/market_app_detail.html:178
+msgid "应用已下架"
+msgstr "The app has been removed"
+
+#: templates/desktop/market_app_detail.html:181
+msgid "应用不存在！"
+msgstr "The app does not exist."
+
+#: templates/desktop/skin.html:25 templates/desktop/wallpaper.html:25
+msgid "壁纸设置"
+msgstr "Wallpaper settings"
+
+#: templates/desktop/skin.html:26 templates/desktop/wallpaper.html:26
+msgid "皮肤设置"
+msgstr "Skin settings"
+
+#: templates/desktop/skin.html:30
+msgid "img/skins/qq/preview.png"
+msgstr "img/skins/qq/preview_en.png"
+
+#: templates/desktop/skin.html:31
+msgid "img/skins/chrome/preview.png"
+msgstr "img/skins/chrome/preview_en.png"
+
+#: templates/desktop/skin.html:32
+msgid "img/skins/default/preview.png"
+msgstr "img/skins/default/preview_en.png"
+
+#: templates/desktop/skin.html:33
+msgid "img/skins/ext/preview.png"
+msgstr "img/skins/ext/preview_en.png"
+
+#: templates/desktop/skin.html:34
+msgid "img/skins/mac/preview.png"
+msgstr "img/skins/mac/preview_en.png"
+
+#: templates/desktop/wallpaper.html:31
+msgid "系统壁纸"
+msgstr "System wallpaper"
+
+#: templates/desktop/wallpaper.html:36
+msgid "填充"
+msgstr "Fill"
+
+#: templates/desktop/wallpaper.html:37
+msgid "适应"
+msgstr "Fit"
+
+#: templates/desktop/wallpaper.html:38
+msgid "平铺"
+msgstr "Tile"
+
+#: templates/desktop/wallpaper.html:39
+msgid "拉伸"
+msgstr "Stretch"
+
+#: templates/desktop/wallpaper.html:40
+msgid "居中"
+msgstr "Center"
+
+#: templates/user_center/account.html:11
+msgid "用户角色"
+msgstr "User role"
+
+#: templates/user_center/account.html:17
+msgid "用户名"
+msgstr "Username"
+
+#: templates/user_center/account.html:24
+msgid "语言"
+msgstr "Language"
+
+#: templates/user_center/account.html:40
+msgid "时区"
+msgstr "Timezone"
+
+#: templates/user_center/account.html:53
+msgid "中文名"
+msgstr "Nickname"
+
+#: templates/user_center/account.html:59
+msgid "联系电话"
+msgstr "Phone"
+
+#: templates/user_center/account.html:65
+msgid "常用邮箱"
+msgstr "Email"
+
+#: templates/user_center/account.html:71
+msgid "QQ"
+msgstr "QQ"
+
+#: templates/user_center/account.html:80
+msgid "常用操作"
+msgstr "Common actions"
+
+#: templates/user_center/account.html:82
+#: templates/user_center/weixin_unbind.part:19
+msgid "取消"
+msgstr "Cancel"
+
+#: templates/user_center/account.html:83
+msgid "修改个人信息"
+msgstr "Modify personal info"
+
+#: templates/user_center/account.html:84
+msgid "修改密码"
+msgstr "Change password"
+
+#: templates/user_center/account.html:89 templates/user_center/account.html:95
+msgid "解绑微信"
+msgstr "Unbind WeChat"
+
+#: templates/user_center/account.html:91 templates/user_center/account.html:97
+#: templates/user_center/weixin_mp.part:10
+msgid "绑定微信"
+msgstr "Bind WeChat"
+
+#: templates/user_center/base.html:51
+msgid "账户信息"
+msgstr "Account info"
+
+#: templates/user_center/base.html:61
+msgid "API申请"
+msgstr "API application"
+
+#: templates/user_center/base.html:64
+msgid "等待审批"
+msgstr "Todo"
+
+#: templates/user_center/base.html:65
+msgid "历史审批"
+msgstr "History"
+
+#: templates/user_center/esb_approval.html:9
+#: templates/user_center/esb_history.html:9
+msgid "申请人"
+msgstr "Applicant"
+
+#: templates/user_center/esb_approval.html:10
+#: templates/user_center/esb_history.html:10
+msgid "申请时间"
+msgstr "Time"
+
+#: templates/user_center/esb_approval.html:11
+#: templates/user_center/esb_history.html:11
+msgid "申请应用"
+msgstr "App"
+
+#: templates/user_center/esb_approval.html:12
+#: templates/user_center/esb_history.html:12
+msgid "组件系统"
+msgstr "Component system"
+
+#: templates/user_center/esb_approval.html:13
+#: templates/user_center/esb_history.html:13
+msgid "组件名称"
+msgstr "Component name"
+
+#: templates/user_center/esb_approval.html:14
+msgid "操作"
+msgstr "Operation"
+
+#: templates/user_center/esb_history.html:14
+msgid "结果"
+msgstr "Result"
+
+#: templates/user_center/weixin_bind_error.html:6
+msgid "绑定失败"
+msgstr "Binding failed"
+
+#: templates/user_center/weixin_mp.part:13
+msgid "扫描二维码"
+msgstr "Scan QR code"
+
+#: templates/user_center/weixin_qy_bind_success.html:6
+msgid "微信绑定成功"
+msgstr "WeChat binding success"
+
+#: templates/user_center/weixin_qy_bind_success.html:20
+msgid "绑定成功，3秒后将自动关闭页面"
+msgstr "Bind successfully, after 3 seconds will automatically close the page"
+
+#: templates/user_center/weixin_unbind.part:10
+msgid "微信解绑确认"
+msgstr "Confirm WeChat unbundling"
+
+#: templates/user_center/weixin_unbind.part:15
+msgid "您确定要解绑该微信号码吗？"
+msgstr "Are you sure you want to unbind the WeChat number?"
+
+#: templates/user_center/weixin_unbind.part:18
+msgid "确认"
+msgstr "Yes"
+
+#: user_center/decorators.py:20
+msgid "系统管理员未启用微信通知组件"
+msgstr "System administrator did not enable WeChat notification component"
+
+#: user_center/decorators.py:22
+msgid "您已绑定微信，无需再绑定"
+msgstr "You have bound WeChat, so you do not have to bind again"
+
+#: user_center/validators.py:10
+msgid "密码不能为空"
+msgstr "Password shall not be empty"
+
+#: user_center/validators.py:12
+msgid "两次输入的新密码不一致"
+msgstr "Two passwords entered in twice are not the same"
+
+#: user_center/views.py:157
+msgid "该申请记录不存在"
+msgstr "The application record does not exist"
+
+#: user_center/views.py:160
+msgid "该申请已经审批过了"
+msgstr "The application has been approved"
+
+#: user_center/views.py:164
+#, python-format
+msgid "[%s]非正常审批结果"
+msgstr "[%s], Non-normal approval result"
+
+#: user_center/views.py:177
+msgid "调用组件审批接口出错"
+msgstr "An error occurred while calling component approval interface"
+
+#: user_center/wx_core.py:167
+msgid "验证失败：signature参数不能为空"
+msgstr "Verification failed: signature parameters cannot be empty"
+
+#: user_center/wx_core.py:169
+msgid "验证失败：timestamp参数不能为空"
+msgstr "Verification failed: timestamp parameters cannot be empty"
+
+#: user_center/wx_core.py:171
+msgid "验证失败：nonce参数不能为空"
+msgstr "Verification failed: nonce parameters cannot be empty"
+
+#: user_center/wx_core.py:175
+msgid "验证失败：signature错误"
+msgstr "Verification failed: signature error "
+
+#: user_center/wx_core.py:224
+msgid "绑定成功"
+msgstr "Binding succeeded"
+
+#: user_center/wx_utlis.py:84
+msgid "不存在该微信二维码的扫描用户"
+msgstr "There is no scanning user for the WeChat QR code"
+
+#: user_center/wx_views.py:45
+msgid "后台获取公众号二维码失败，请联系系统管理员检查微信配置"
+msgstr ""
+"Failed to get official account QR code in the background. Please contact the "
+"system administrator to check WeChat configuration"
+
+#: user_center/wx_views.py:49 user_center/wx_views.py:98
+msgid "创建记录失败，请联系系统管理员处理"
+msgstr "Create a record failed, please contact the system administrator"
+
+#: user_center/wx_views.py:83
+msgid "API请求异常，请联系管理员处理"
+msgstr "Api request abnormal, please contact the administrator to deal with"
+
+#: user_center/wx_views.py:112
+msgid "您没有权限，请联系系统管理员"
+msgstr "You have no permissions, please contact the system administrator"
+
+#: user_center/wx_views.py:117
+msgid "绑定失败，请联系系统管理员"
+msgstr "Binding failed, please contact the system administrator"
+
+#: user_center/wx_views.py:123
+msgid "绑定出错，请联系系统管理员"
+msgstr "Binding error, please contact the system administrator"

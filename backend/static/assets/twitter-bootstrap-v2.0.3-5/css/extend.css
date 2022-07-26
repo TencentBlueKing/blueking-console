@@ -1,0 +1,857 @@
+@charset"utf-8";
+/*!
+ * CSS通用样式定义 
+ */
+
+/* 基本块状元素通用样式--begin
+ --------------------------------*/
+/* body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, input, textarea, p, blockquote, th, td {margin:0; padding:0}
+table {border-collapse:collapse; border-spacing:0; text-align:center}
+img {border:0}
+address, caption, cite, code, dfn, em, th, var {font-style:normal; font-weight:normal}
+ol, ul {list-style:none}
+caption, th {text-align:left}
+input, textarea, select, button {outline:none; resize:none}
+select {font-size:12px}
+button {line-height:1.231; white-space:nowrap; vertical-align:middle; cursor:pointer}
+h1, h2, h3, h4, h5, h6 {font-size:100%; font-weight:normal} 
+*/
+body {max-width:2600px; min-width:600px; margin:0 auto; }/*padding-bottom:25px*/
+.container-fluid {max-width:1160px; margin:0 auto; padding-left:0; padding-right:0}
+span {background:transparent; margin:0; padding:0; border:0; outline:0; vertical-align:middle}
+section {padding-top:35px}
+legend {margin-bottom:15px; line-height:30px}
+/* 基本块状元素通用样式--end
+ --------------------------------*/
+a:hover { text-decoration:none }
+/* chico样式引用--begin
+ -------------------------------*/
+.ch_table tr {line-height:30px}
+.ch_table {width:100%; border:1px solid #CECECE; text-align:center;}
+.ch_table th[class*="order"] {background-color:#ADD8E6; display:block; position:relative}
+.table tr.selected {background-color:#FFC}
+.ch_table th.order .ch_table_asc, .ch_table th.order .ch_table_desc,
+.table th.selected .asc, .table th.selected .desc { background:transparent url(../img/mini-arrows.png) 0 -3px no-repeat;
+ width:7px; display:block; height:4px; overflow:hidden; position:absolute; right:10px; text-indent:99px; top:0; margin:15px 0}
+.ch_table th.order .ch_table_asc, .table th.selected .asc {background-position:0 0}
+
+/* 图标 */
+.ch_ico_attention, .ch_ico_check, .ch_ico_error, .ch_ico_help, .ch_ico_information, .ch_ico_ok, .ch_message_attention, .ch_message_check,
+.ch_message_error, .ch_message_help, .ch_message_information, .ch_message_ok, .ch_ico, .ch_message, .ico, .message ,.check_img,.check_img_check{background:url(../img/icons.png) no-repeat}
+.ch_ico_attention, .ch_ico_check, .ch_ico_error, .ch_ico_help, .ch_ico_information, .ch_ico_ok, .ch_ico, .ico {display:inline-block;
+width:16px; height:16px; text-indent:99px; overflow:hidden; background-repeat:no-repeat; vertical-align:middle}
+.ch_ico_attention, .ch-ico.ch_attention, .ico.attention {background-position:-77px -110px}
+.ch_ico_check, .ch_ico.ch_check, .ico.check {background-position:-43px -144px}
+.ch_ico_error, .ch_ico.ch_error, .ico.error {background-position:-179px -9px}
+.ch_ico_help, .ch_ico.ch_help, .ico.help {background-position:-111px -76px}
+.ch_ico_information, .ch_ico.ch_information, .ico.information {background-position:-145px -42px}	
+.ch_ico_ok, .ch_ico.ch_ok, .ico.ok {background-position:-9px -178px; height:17px}
+.ico_process,.ico_process_active{background-image: url(../img/charflow_inline_img.png); background-repeat: no-repeat; height:45px; line-height:45px; width:45px; padding-right:3px; color:#FFF; text-align:center; font-size:24px;}
+.ico_process_active{ background-position: 0px -45px; }
+.check_img, .check_img_check{display:inline-block; width:20px; height:20px; background-position:0 0}
+.check_img_check{background-position:-20px 0;}
+/* 消息图标 */
+.ch_message_attention, .ch_message_check, .ch_message_error, .ch_message_help, .ch_message_information, .ch_message_ok, .ch_message {border-radius:5px;
+	border:1px solid; padding:5px 10px 5px 34px; vertical-align:middle; *padding:8px 10px 4px 34px; text-shadow:0 1px 0 rgba(255, 255, 255, 0.5)}
+.ch_message_help, .ch_message.ch_help {background-color:#F6F9F3; background-position:-102px -71px; border-color #cccccc}
+.ch_message_attention, .ch_message.ch_attention {background-color:#FCF8CB; background-position:-68px -105px; border-color:#E4E2B8}
+.ch_message_check, .ch_message.ch_check {background-color:#E8FFD7; background-position:-34px -139px; border-color #C7DDBC; color:#487210}
+.ch_message_error, .ch_message.ch_error {background-color:#fbd9db; background-position:-170px -4px; border-color:#f7a9ae; color:#600}	
+.ch_message_information, .ch_message.ch_information {background-color:#E5EBFD; background-position:-136px -37px; border-color:#A0B1DE}
+.ch_message_ok, .ch_message.ch_ok {background-color:#E8FFD7; background-position:0 -173px; border-color:#C7DDBC}
+.ch_ico_process {display:inline-block; background:transparent url(../img/throbber.gif) center no-repeat; width:16px; height:16px; margin:1px auto}
+.ch_ico_right {display:inline-block; background:transparent url(../img/arrow/right.png) center no-repeat; width:16px; height:16px; margin:1px auto}
+.ch_ico_right_undo {display:inline-block; background:transparent url(../img/arrow/ico_right.png) center no-repeat; width:16px; height:16px; margin:1px auto}
+/* chico样式引用--end
+ -------------------------------*/
+
+/* 文本样式定义--begin
+ --------------------------------*/
+.t_s20 {font-size:20px}
+.t_s19 {font-size:19px}
+.t_s18 {font-size:18px}
+.t_s17 {font-size:17px}
+.t_s16 {font-size:16px}
+.t_s15 {font-size:15px}
+.t_s14 {font-size:14px}
+.t_s13 {font-size:13px}
+.t_s12 {font-size:12px}
+.t_l {text-align:left} 
+.t_c {text-align:center} 
+.t_r {text-align:right} 
+.t_b {font-weight:bold}
+.t_it {font-style:italic}
+.t_n {font-weight:normal} 
+.t_no {text-decoration:none}
+.t_udl {text-decoration:underline} 
+.t_del {text-decoration:line-through} 
+.t_unbr {overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.t_br {word-wrap:break-word; word-break:normal}
+.align {font-size:12px}
+.align label input {display:block}
+.align label {display:block; margin-left:20px !important; margin-left:11px; margin-top:-16px}
+/* 文本字体大小--end
+ --------------------------------*/
+.t_white{color:#FFF;}
+.t_white a{color:#FFF;}
+.t_white .active a,.t_white .active a:hover{color:#555555}
+.t_blue{color:#2985c2}
+.t_red{color:#ff0000}
+.t_yellow{color:#ff9900}
+.t_succes{color: #468847}
+.t_error{color: #b94a48}
+.t_help{color: #c09853}
+.t_info{color: #3a87ad}
+
+/* 外边距定义--begin
+ --------------------------------*/
+.mg60 {margin:60px;}
+.mg55 {margin:55px;}
+.mg50 {margin:50px;}
+.mg45 {margin:45px;}
+.mg40 {margin:40px;}
+.mg30 {margin:30px}
+.mg25 {margin:25px}
+.mg20 {margin:20px}
+.mg15 {margin:15px}
+.mg10 {margin:10px}
+.mg5 {margin:5px}
+.mg4 {margin:4px}
+.mg3 {margin:3px}
+.mg2 {margin:2px}
+.mg1 {margin:1px}
+.mg0 {margin:0}
+
+.mtb50 {margin:50px 0}
+.mtb45 {margin:45px 0}
+.mtb40 {margin:40px 0}
+.mtb35 {margin:35px 0}
+.mtb30 {margin:30px 0}
+.mtb25 {margin:25px 0}
+.mtb20 {margin:20px 0}
+.mtb15 {margin:15px 0}
+.mtb10 {margin:10px 0}
+.mtb5 {margin:5px 0}
+.mtb4 {margin:4px 0}
+.mtb3 {margin:3px 0}
+.mtb2 {margin:2px 0}
+.mtb1 {margin:1px 0}
+
+.mtr {margin:-2px 15px 0 0}
+.mlr60 {margin:0 60px}
+.mlr55 {margin:0 55px}
+.mlr50 {margin:0 50px}
+.mlr45 {margin:0 45px}
+.mlr40 {margin:0 40px}
+.mlr35 {margin:0 35px}
+.mlr30 {margin:0 30px}
+.mlr25 {margin:0 25px}
+.mlr20 {margin:0 20px}
+.mlr15 {margin:0 15px}
+.mlr10 {margin:0 10px}
+.mlr5 {margin:0 5px}
+.mlr4 {margin:0 4px}
+.mlr3 {margin:0 3px}
+.mlr2 {margin:0 2px}
+.mlr1 {margin:0 1px}
+
+.mt55 {margin-top:55px; *padding-top:55px}
+.mt50 {margin-top:50px}
+.mt40 {margin-top:40px; *padding-top:40px}
+.mt36 {margin-top:36px; *padding-top:36px}
+.mt35 {margin-top:35px}
+.mt30 {margin-top:30px}
+.mt25 {margin-top:25px}
+.mt20 {margin-top:20px}
+.mt15 {margin-top:15px}
+.mt10 {margin-top:10px}
+.mt5 {margin-top:5px}
+.mt4 {margin-top:4px}
+.mt3{margin-top:3px}
+.mt2{margin-top:2px}
+.mt1{margin-top:1px}
+.mt0 {margin-top:0}
+
+.mr50 {margin-right:50px}
+.mr45 {margin-right:45px}
+.mr40 {margin-right:40px}
+.mr35 {margin-right:35px}
+.mr30 {margin-right:30px}
+.mr25 {margin-right:25px}
+.mr20 {margin-right:20px}
+.mr15 {margin-right:15px}
+.mr10 {margin-right:10px}
+.mr5 {margin-right:5px}
+.mr4 {margin-right:4px}
+.mr3 {margin-right:3px}
+.mr2 {margin-right:2px}
+.mr1 {margin-right:1px}
+.mr0 {margin-right:0}
+
+.mb50 {margin-bottom:50px}
+.mb45 {margin-bottom:45px}
+.mb40 {margin-bottom:40px}
+.mb35 {margin-bottom:35px}
+.mb30 {margin-bottom:30px}
+.mb25 {margin-bottom:25px}
+.mb20 {margin-bottom:20px}
+.mb15 {margin-bottom:15px}
+.mb10 {margin-bottom:10px}
+.mb5 {margin-bottom:5px}
+.mb4 {margin-bottom:4px}
+.mb3 {margin-bottom:3px}
+.mb2 {margin-bottom:3px}
+.mb1 {margin-bottom:3px}
+.mb0 {margin-bottom:0}
+
+.ml50 {margin-left:50px}
+.ml45 {margin-left:45px}
+.ml40 {margin-left:40px}
+.ml35 {margin-left:35px}
+.ml30 {margin-left:30px}
+.ml25 {margin-left:25px}
+.ml20 {margin-left:20px}
+.ml15 {margin-left:15px}
+.ml10 {margin-left:10px}
+.ml5 {margin-left:5px}
+.ml4 {margin-left:4px}
+.ml3 {margin-left:3px}
+.ml2 {margin-left:2px}
+.ml1 {margin-left:1px}
+.ml0 {margin-left:0px}
+
+.m_t4 {margin-top:-4px}
+.m_l14{margin-left:-14px}
+.m_c {margin:0 auto; width:600px}
+.m_c50 {margin:0 auto; width:50%}
+.mlr_auto {margin:0 auto}
+.mr_nav {margin-top:-37px; margin-right:10px}
+/* 外边距定义--end
+ --------------------------------*/
+.cursor_point{cursor:pointer}
+.cursor_default{cursor:default}
+/* 内边距定义--begin
+ --------------------------------*/
+.pg60 {padding:60px}
+.pg55 {padding:55px}
+.pg50 {padding:50px}
+.pg45 {padding:45px}
+.pg40 {padding:40px}
+.pg35 {padding:35px}
+.pg30 {padding:30px}
+.pg25 {padding:25px}
+.pg20 {padding:20px}
+.pg15 {padding:15px}
+.pg10 {padding:10px}
+.pg5 {padding:5px}
+.pg4 {padding:4px}
+.pg3 {padding:3px}
+.pg2 {padding:2px}
+.pg1 {padding:1px}
+.pg0 {padding:0px}
+
+.ptb60 {padding:60px 0}
+.ptb55 {padding:55px 0}
+.ptb50 {padding:50px 0}
+.ptb45 {padding:45px 0}
+.ptb40 {padding:40px 0}
+.ptb35 {padding:35px 0}
+.ptb30 {padding:30px 0}
+.ptb25 {padding:25px 0}
+.ptb20 {padding:20px 0}
+.ptb15 {padding:15px 0}
+.ptb10 {padding:10px 0}
+.ptb5 {padding:5px 0}
+.ptb4 {padding:4px 0}
+.ptb3 {padding:3px 0}
+.ptb2 {padding:2px 0}
+.ptb1 {padding:1px 0}
+
+.plr60 {padding:0 60px}
+.plr55 {padding:0 55px}
+.plr50 {padding:0 50px}
+.plr45 {padding:0 45px}
+.plr40 {padding:0 40px}
+.plr35 {padding:0 35px}
+.plr30 {padding:0 30px}
+.plr25 {padding:0 25px}
+.plr20 {padding:0 20px}
+.plr15 {padding:0 15px}
+.plr10 {padding:0 10px}
+.plr5 {padding:0 5px}
+.plr4 {padding:0 4px}
+.plr3 {padding:0 3px}
+.plr2 {padding:0 2px}
+.plr1 {padding:0 1px}
+
+.pt60{padding-top:60px}
+.pt55{padding-top:55px}
+.pt50{padding-top:50px}
+.pt45{padding-top:45px}
+.pt40{padding-top:40px}
+.pt35 {padding-top:35px}
+.pt25 {padding-top:25px}
+.pt20 {padding-top:20px}
+.pt15 {padding-top:15px}
+.pt10 {padding-top:10px}
+.pt5 {padding-top:5px}
+.pt4 {padding-top:4px}
+.pt3 {padding-top:3px}
+.pt2 {padding-top:2px}
+.pt1 {padding-top:1px}
+.pt0 {padding-top:0}
+
+.pr60 {padding-right:60px}
+.pr55 {padding-right:55px}
+.pr50 {padding-right:50px}
+.pr45 {padding-right:45px}
+.pr40 {padding-right:40px}
+.pr35 {padding-right:35px}
+.pr30 {padding-right:30px}
+.pr25 {padding-right:25px}
+.pr20 {padding-right:20px}
+.pr15 {padding-right:15px}
+.pr10 {padding-right:10px}
+.pr5 {padding-right:5px}
+.pr4 {padding-right:5px}
+.pr3 {padding-right:5px}
+.pr2 {padding-right:5px}
+.pr1 {padding-right:1px}
+.pr0 {padding-right:0px}
+
+.pb60 {padding-bottom:60px}
+.pb55 {padding-bottom:55px}
+.pb50 {padding-bottom:50px}
+.pb45 {padding-bottom:45px}
+.pb40 {padding-bottom:40px}
+.pb35 {padding-bottom:35px}
+.pb30 {padding-bottom:30px}
+.pb25 {padding-bottom:25px}
+.pb20 {padding-bottom:20px}
+.pb15 {padding-bottom:15px}
+.pb10 {padding-bottom:10px}
+.pb5 {padding-bottom:5px}
+.pb4 {padding-bottom:4px}
+.pb3 {padding-bottom:3px}
+.pb2 {padding-bottom:2px}
+.pb1 {padding-bottom:1px}
+.pb0 {padding-bottom:0px}
+
+.pl60 {padding-left:60px}
+.pl55 {padding-left:55px}
+.pl50 {padding-left:50px}
+.pl45 {padding-left:45px}
+.pl40 {padding-left:40px}
+.pt37 {padding-top:36px}
+.pl35 {padding-left:35px}
+.pt30 {padding-top:30px}
+.pl25 {padding-left:25px}
+.pl20 {padding-left:20px}
+.pl15 {padding-left:15px}
+.pl10 {padding-left:10px}
+.pl5 {padding-left:5px}
+.pl4 {padding-left:4px}
+.pl3 {padding-left:3px}
+.pl2 {padding-left:2px}
+.pl1 {padding-left:1px}
+.pl0 {padding-left:0px}
+.p_all {padding:5px 15px}
+/* 内边距定义--end
+ --------------------------------*/
+
+/* 浮动元素--begin
+ --------------------------------*/
+ .f_r {float:right}
+ .f_l {float:left}
+ .f_no {float:none}
+ .f_l10 {float:left; width:10%}
+ .f_l90 {float:left; width:90%}
+/* 浮动元素--end
+ --------------------------------*/
+
+/* 清楚浮动--begin
+ --------------------------------*/
+ .c_r {clear:right}
+ .c_l {clear:left}
+ .c_b {clear:both}
+ /* 清楚浮动--end
+  --------------------------------*/
+
+/* 边框 */
+.no_border,.border_no{ border:none}
+.no_radius, .no_radius a {-webkit-border-radius:0px; -moz-border-radius:0px; border-radius:0px}
+.border {border:#ddd 1px solid}
+.border_add{border:#d7dee4 1px solid}
+.border_blue_common{border:#c1cfda}
+.border_radius {border:#ddd 1px solid; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px}
+.border_left_no {border-left:none}
+.border_right_no {border-right:none}
+.border_bottom_no,.border-bottom-no {border-bottom:none}
+.border_top_no {border-top:none}
+.border_left {border-left:1px solid #ddd}
+.border_right{border-right:1px solid #ddd}
+.border_top {border-top:1px solid #ddd}
+.border_bottom {border-bottom:1px solid #ddd}
+
+/* 自动换行 */
+.word_break {word-break:break-all; word-wrap:break-word}
+
+ /* 显示样式--begin
+  ------------------------------*/
+.dis_b {display:block}
+.dis_in {display:inline}
+.dis_inb {display:inline-block} 
+.dis_no {display:none}
+.inputs_block select[class*="span"], .inputs_block input[type="text"] {display:block; margin-bottom:9px}
+.overflow_auto {overflow:auto}
+.overflow_hidden{overflow:hidden}
+.overflow_visible {overflow:visible}
+.overflow_scroll {overflow:scroll}
+.overflow_auto_x {overflow-x:auto}
+.overflow_auto_y {overflow-y:auto}
+.overflow_visible_x {overflow-x:visible}
+.overflow_visible_y {overflow-y:visible}
+.overflow_hidden_x {overflow-x:hidden}
+.overflow_hidden_y {overflow-y:hidden}
+.overflow_scroll_x {overflow-x:scroll}
+.overflow_scroll_y {overflow-y:scroll}
+ /* 显示样式--end
+ ------------------------------*/
+
+/* 设置背景色的透明度--begin
+ -----------------------------*/
+.opacity_8 {opacity:0.8; filter:alpha(opacity=80)}
+.opacity_7 {opacity:0.7; filter:alpha(opacity=70)}
+.opacity_6 {opacity:0.6; filter:alpha(opacity=60)}
+.opacity_5 {opacity:0.5; filter:alpha(opacity=50)}
+.opacity_4 {opacity:0.4; filter:alpha(opacity=40)}
+.back_color {background-color:transparent}
+/* 设置背景色的透明度--end
+ -----------------------------*/
+
+ /* 解决.row-fluid左右两边留白问, .row-fluid解决select宽度自适应--begin
+ --------------------------------*/
+.row-fluid .width_auto ,.width_auto{width:auto}
+ /* 解决.row-fluid左右两边留白问, .row-fluid解决select宽度自适应--end
+ --------------------------------*/
+ 
+/* 表格样式 */
+table {word-break:break-all; word-wrap:break-word}
+.table thead th {vertical-align:middle}
+caption {font-size:18px; font-weight:bold; line-height:24px; margin:10px auto}
+.tab_tx_c td, .tab_tx_c th {text-align:center; vertical-align:middle}
+.tx_bold {font-weight:bold}
+.drapable {float:right; margin-right:-8px; width:10px; height:20px; border-right:1px solid #ccc}
+.ellipsis {white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:40px}
+.table_blue thead th,.backcolor_blue {background-color:#45a7e8; color:#fff}
+.table_blue_add thead th,.backcolor_blue_add {background-color:#54a5dd; color:#fff}
+.table_blue_light thead th,.backcolor_blue_light {background-color:#4cb8dc; color:#fff}
+.table_blue_common thead th,.backcolor_blue_common {background-color:#d6ebf1; color:#316f9a;}
+.table_blue_common,.backcolor_blue_common{border:#c1cfda 1px solid;}
+/* 表头颜色 */
+.gray th {background-color:#EEE}
+.gray th[class*="order"] {background-color:#cdcdcd; display:block; position:relative}
+.gray th.order .ch_table_asc, .gray th.order .ch_table_desc,
+.table th.selected .asc, .table th.selected .desc { 
+ 	width:7px; display:block; height:4px; overflow:hidden; position:absolute; right:10px; text-indent:99px; top:0; margin:15px 0}
+.gray th.order .ch_table_asc, .table th.selected .asc {background-position:0 0}
+
+/* 鼠标样式 */
+.pointer {cursor:pointer}
+table th[class*="order"] {cursor:pointer; background-color:#ADD8E6}
+
+/* 区块间隙 */
+.block_span {width:100%; height:40px; display:block}
+
+/* 分栏显示浏览器兼容性解决样式 */
+.well {*padding:19px 0}
+.well-small {*padding:9px 0}
+.well-large {*padding:24px 0}
+.row-fluid [class*="span"] {*margin-left:1.0744680846382977%}
+.ie7_ml .mrl{*margin-left:0}
+.ie7_ml .f_r{*float:right}
+.row-fluid input[class*="span"] {height:28px; height:20px \9; *height:20px; min-height:28px\9\0; min-height:20px\0/; *min-height:18px}
+@media all and (min-width:0){
+    .row-fluid input[class*="span"] {height:28px; min-height:28px\9}   /* IE9 only */
+}
+input {height:16px /*!important*/}
+input[type="button"], input[type="file"] {height:24px !important}
+/* select下拉框与输入框间隙在ie中的样式 */
+select {padding:2px \9; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px;width:auto}
+.row-fluid select[class*="span"]{min-height:100% \9}
+/* ie8，9中复选框或者单选按钮与文本对齐 */
+input[type="radio"], input[type="checkbox"] {margin:0; margin-top:-1px \9}
+.form-inline select {*margin-bottom:2px; margin-bottom:3px \9; *line-height:28px;}
+/* 不同浏览器中，checbox与文本对齐 */
+.mg_checkbox {margin-top:-4px; *margin-top:0px; margin-top:0px \9; margin-right:4px}
+
+/* 添加tab页签的X在IE中显示问题 */
+.nav li a .close {float:none \9; *float:none}
+
+/* 树形菜单样式--begin
+ --------------------------------*/
+.tree_nav {width:180px; line-height:24px; list-style-type:none; text-align:left}
+.tree_nav a {width:160px; display:block; padding-left:20px}
+.tree_nav li {background:#B0E0E6; border-bottom:#FFFFFF 1px solid; float:left}
+.tree_nav ul li + a {font-size:12px;font-weight:bold}
+.tree_nav li a:hover {background:#87CEEB}
+.tree_nav a:link {color:#666666; text-decoration:none}
+.tree_nav a:visited {color:#666666; text-decoration:none}
+.tree_nav a:hover {color:#FFFFFF; text-decoration:none; font-weight:bold}
+.tree_nav li ul {list-style:none; text-align:left; text-indent:20px; width:140px; margin:0}
+.tree_nav li ul li {background:#E0F0F0}
+.tree_nav li ul a {padding-left:20px; width:160px}
+.tree_nav li ul a:link {color:#666666; text-decoration:none}
+.tree_nav li ul a:visited {color:#666666; text-decoration:none}
+.tree_nav li ul a:hover {color:#F3F3F3; text-decoration:none; font-weight:normal; background:#87CEEB}
+.tree_nav li:hover ul {left:auto}
+.tree_nav li.sfhover ul {left:auto}
+.tree_nav ul.child_collapsed {display:none}
+/* 树形菜单样式--end
+ --------------------------------*/
+
+
+/* 树形菜单样式-有图标--begin
+ --------------------------------*/
+.tree_nav_ico {width:180px; line-height:24px; list-style-type:none; text-align:left}
+.tree_nav_ico a {width:160px; display:block; padding-left:20px}
+.tree_nav_ico li {background:#cdcdcd; border-bottom:#FFFFFF 1px solid; float:left}
+.tree_nav_ico ul li + a {font-size:12px;font-weight:bold}
+.tree_nav_ico li a:hover {background:#cdcdcd}
+.tree_nav_ico a:link {color:#666666; text-decoration:none}
+.tree_nav_ico a:visited {color:#666666; text-decoration:none}
+.tree_nav_ico a:hover {color:#000; text-decoration:none; font-weight:bold}
+.tree_nav_ico li ul {list-style:none; text-align:left; text-indent:20px; width:140px; margin:0}
+.tree_nav_ico li ul li {background:#EFEFEF}
+.tree_nav_ico li ul a {padding-left:20px; width:160px}
+.tree_nav_ico li ul a:link {color:#666666; text-decoration:none}
+.tree_nav_ico li ul a:visited {color:#666666; text-decoration:none}
+.tree_nav_ico li ul a:hover {color:#F3F3F3; text-decoration:none; font-weight:normal; background:#87CEEB}
+.tree_nav_ico li:hover ul {left:auto}
+.tree_nav_ico li.sfhover ul {left:auto}
+.tree_nav_ico ul.child_collapsed {display:none}
+[class^="tree_ico_"], [class*=" tree_ico_"] {float:right; display:inline-block; width:16px; height:16px; *margin-right:.3em; margin-top:5px; line-height:16px; vertical-align:middle;
+  background:url(../img/expando.png) 14px 14px no-repeat}
+.tree_ico_collapsed {*background-position:0 0; background-position:0 0 \9; background-position:0 0}
+.tree_ico_expanded {*background-position:0 -30px; background-position:0 -30px \9; background-position:0 -30px}
+/* 树形菜单样式-有图标--end
+ --------------------------------*/
+
+/* 分页导航样式--begin
+  -------------------------------*/
+.pg-normal {color:#000000; font-size:12px; cursor:pointer; background:#efefef; margin-right:1px; padding:4px 8px 4px 8px; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px}
+.pg-selected {color:#fff;  font-size:12px; background:#cdcdcd; padding:4px 8px 4px 8px; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px}
+/* jquery plugin */
+.paginate, .form-inline label {font-size:12px}
+.paginate a {text-decoration:none; border:solid 1px #efefef; color:#15B}
+.paginate a, .paginate span {padding:4px 8px; margin:0 1px; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px}
+.paginate .current, .paginate .current:hover {background:#cdcdcd; color:#fff; border:solid 1px #efefef; padding:4px 8px}
+.paginate a:hover, .paginate span:hover {color:#000; border-color:#efefef; background:#ababab}
+.paginate a, .paginate span {color:#000; border-color:#efefef; background:#efefef}
+/* 分页导航样式--end
+  -------------------------------*/
+
+/* select 圆角显示 */
+select[class*="span"] {height:24px \9; *height:24px; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px}
+
+/* alert消息框背景 */
+.alert-help {background-color:#F6F9F3; border-color #cccccc}
+.alert-warning {background-color:#FCF8E3; border-color #FBEED5}
+.modal-body {padding:9px 15px}
+.alert span, .modal-body p span {*float:left; *margin-top:1px}
+
+
+/* div定位样式--begin
+ ---------------------------------*/
+.top_0{top:0}
+.bottom_0{bottom:0}
+.relative{ position:relative; top:0}
+.top_right_auto{top:0; right:20px; position:absolute}
+.top_left_auto{top:0; left:20px; position:absolute}
+.left_center_auto{top:50%;left:0; position:absolute}
+.right_center_auto{top:50%;right:0;position:absolute}
+.center_auto{top:50%;right:50%;position:absolute}
+.center_auto_1{top:-50%;left:-50%;position:absolute}
+/* IE和Firefox中div定位样式 */
+.top_left {max-width:300px; top:0; left:0; position:fixed; z-index:9999}
+.top_right {max-width:300px; top:0; right:0; position:fixed; z-index:9999}
+.bottom_left {max-width:300px; bottom:0; left:0; position:fixed; z-index:9999}
+.bottom_right {max-width:300px; bottom:0; right:0; position:fixed; z-index:9999}
+.top_center {max-width:300px; top:0; left:50%; position:fixed; margin-left:-150px; z-index:9999}
+.bottom_center {max-width:300px; bottom:0; left:50%; position:fixed; margin-left:-150px; z-index:9999}
+
+/* chrome中div定位样式 */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+	.top_left {max-width:300px; top:0; left:0; position:absolute; z-index:9999}
+	.top_right {max-width:300px; top:0; right:0; position:absolute; z-index:9999}
+	.bottom_left {max-width:300px; bottom:0; left:0; position:absolute; z-index:9999}
+	.bottom_right {max-width:300px; bottom:0; right:0; position:absolute; z-index:9999}
+	.top_center {max-width:300px; top:0; left:50%; position:absolute; margin-left:-150px; z-index:9999}
+	.bottom_center {max-width:300px; bottom:0; left:50%; position:absolute; margin-left:-150px; z-index:9999}
+}
+*/
+/* div定位样式--end
+ ---------------------------------*/
+
+/* 数据加载缓冲样式 */
+.search-background {background-color:#3A3427; color:#ffffff; text-shadow:0 0 2px #ffffff; width:100%; height:100%; display:none; position:fixed; text-align:center}
+
+.accordion-heading {background:#eeeeee; background-image:-moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%); background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#eeeeee)); 
+ background-image:-o-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%)}
+
+/* 执行流程图样式--begin
+ ---------------------------------*/
+.flow_chart {margin:0 auto; *padding:25px; padding:15px 30px 30px 30px;width:auto; min-width:200px; height:auto; background:#FFFAF0; overflow:auto; border:1px solid #FFEFDB; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px}
+.flow_chart label {text-align:center; font-size:16px; font-weight:bold}
+button.close {margin:-5px}
+.flow_chart ul {list-style:none; display:block; margin:0}
+.flow_chart ul p {text-align:center; margin-bottom:1px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;font-size:14px;font-family:"微软雅黑"; max-height:58px; overflow:hidden}
+.flow_chart li .alert-help {border:1px solid #cccccc}
+.flow_chart li .mg_up {margin-top:-33px}
+.flow_chart li .alert-success {border:1px solid #C7DDBC}
+.flow_chart li .alert-info {border:1px solid #A0B1DE}
+.flow_chart li .alert-error {border:1px solid #f7a9ae}
+.flow_chart li .alert-warning {border:1px solid #E4E2B8}
+.flow_chart .success_ico {background:transparent url(../img/arrow/arrow_down4.png) center no-repeat; width:32px; height:32px; margin:1px auto}
+.flow_chart .error_ico {background:transparent url(../img/arrow/arrow_down2.png) center no-repeat; width:32px; height:32px; margin:1px auto}
+.flow_chart .success_green_ico {background:transparent url(../img/arrow/arrow_down1.png) center no-repeat; width:32px; height:32px; margin:1px auto}
+.flow_chart .success_blue_ico {background:transparent url(../img/arrow/arrow_down3.png) center no-repeat; width:32px; height:32px; margin:1px auto}
+/* 执行流程图样式--end
+ ---------------------------------*/
+
+
+/* span模拟button--begin
+ ---------------------------------*/
+.btn a {color:#000; text-decoration:none}
+.btn a:hover {color:#000; text-decoration:none}
+.nav-tabs > li > a {border-bottom:0 \9}
+/* span模拟button--end
+ ---------------------------------*/
+
+/* 删除表格选择列的宽度--begin
+ ---------------------------------*/
+.delete_tr tr th:first-child, .delete_tr tr td:first-child {width:80px}
+/* 删除表格选择列的宽度--end
+ ---------------------------------*/
+ 
+/* bootstrap subnav--begin
+ ---------------------------------*/
+ .affix {position: fixed; top:5px; left:5; z-index:9999999}
+ /* 左侧导航定位，滚动时导航位置不变
+ ---------------------------------*/
+.nav , .subnav {font-size:14px}
+.subnav {height:36px; background-color:#dfebf4; background-repeat:repeat-x; background-image:-moz-linear-gradient(top, #dfebf4 0%, #d1dce3 100%); 
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfebf4), color-stop(100%,#d1dce3)); background-image:-webkit-linear-gradient(top, #dfebf4 0%,#d1dce3 100%); 
+	background-image:-ms-linear-gradient(top, #dfebf4 0%,#d1dce3 100%); background-image:-o-linear-gradient(top, #dfebf4 0%,#d1dce3 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfebf4', endColorstr='#d1dce3',GradientType=0 );
+	background-image:linear-gradient(top, #dfebf4 0%,#d1dce3 100%); border:1px solid #bdc9d3; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px}
+.subnav a{text-decoration:none}
+.subnav .ul_inline >li, .subnav_blue_light .unstyled>li, .subnav_blue_common .unstyled >li {line-height:36px; margin:0;padding:0; height:36px; width:auto; text-align:center;min-width:50px}
+.subnav .ul_inline > li a, .subnav_blue_light .unstyled >li a .subnav_blue_common .unstyled >li a {display:block; height:100%; text-decoration:none; padding:0 15px}
+.subnav .ul_inline >li a:hover, .subnav .active,.subnav .active a { background-color:#45a7e8; color:#FFF}
+.subnav .unstyled >li:first-child {border-left:none}
+.subnav .unstyled >li:last-child {border-right:none}
+.subnav .dropdown-menu {-webkit-border-radius:0 0 4px 4px; -moz-border-radius:0 0 4px 4px; border-radius:0 0 4px 4px; color:#000;}
+.subnav .dropdown .caret {margin-top:15px}
+.subnav_blue .dropdown .caret {margin-top:10px}
+.subnav_blue_light .dropdown .caret, .subnav_blue_common .dropdown .caret {margin-top:5px}
+.subnav .brand{ float:left; padding:0 18px; font-size:20px; font-weight:bold; height:36px}
+.brand img{ max-height:100%; max-width:120px}
+/*添加的蓝色渐变导航
+-----------------------------------*/
+.subnav_blue {background-color:#84c4f4; background-image:-moz-linear-gradient(top, #84c4f4 0%, #569cca 100%); background-image:-webkit-gradient(linear, left top, left bottom, color-stop(#84c4f4), color-stop(#569cca)); background-image:-webkit-linear-gradient(top,  #84c4f4 0%,#569cca 100%); background-image:-ms-linear-gradient(top, #84c4f4 0%,#569cca 100%); background-image:-o-linear-gradient(top, #84c4f4 100%,#569cca 100%); filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#84c4f4', endColorstr='#569cca',GradientType=0 );
+background-image:linear-gradient(top, #84c4f4 0%,#569cca 100%); border:1px solid #609cce; color:#FFF}
+.subnav_blue .ul_inline >li, .subnav_blue .ul_inline> li > a { height:26px; line-height:26px; margin-top:5px; margin-right:5px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
+.subnav_blue .ul_inline> li > a {padding:0 10px; margin:0;color:#FFF}
+.subnav_blue .ul_inline> li > a:hover, .subnav_blue .ul_inline> li.active, .subnav_blue .ul_inline> li.active a { color:#458ebe; background-color:#fff}
+.subnav_blue .ul_inline> li > a:hover .icon-white, .subnav_blue .ul_inline> li.active .icon-white, .subnav_blue .ul_inline> li.active a .icon-white{ background-image: url("../img/glyphicons-halflings-blue.png")}
+.subnav .ul_inline> li > a:hover .icon-blue, .subnav .ul_inline> li.active .icon-blue, .subnav .ul_inline> li.active a .icon-blue{ background-image: url("../img/glyphicons-halflings-white.png")}
+
+/*比较鲜艳的蓝色导航
+---------------------------------*/
+.subnav_blue_light,.subnav_add_kendo {background-color:#49b4d7; background-image:-moz-linear-gradient(top, #49b4d7 0%, #2294c6 100%); background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#49b4d7), color-stop(100%,#2294c6)); background-image:-webkit-linear-gradient(top,  #49b4d7 0%,#2294c6 100%); background-image:-ms-linear-gradient(top, #49b4d7 0%,#2294c6 100%); background-image:-o-linear-gradient(top, #49b4d7 0%,#2294c6 100%); filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#49b4d7', endColorstr='#2294c6',GradientType=0 );
+ border:1px solid #609cce; color:#FFF}
+.subnav_blue_light .unstyled >li, .subnav_blue_common .unstyled >li, .subnav_blue_light .unstyled >li {line-height:16px; height:16px; margin-top:10px; padding:0 12px; color:#FFF; border-left:#1e8ebb 1px solid; border-right:#4db8e2 1px solid;}
+.subnav_blue_light .unstyled >li > a { color:#b5d8db; border:none}
+.subnav_blue_light .unstyled >li > a:hover, .subnav_blue_light .unstyled > li.active, .subnav_blue_light .unstyled > li.active > a { color:#FFF; background-color:transparent}
+.subnav_blue_light .unstyled > li.active,.subnav_blue_common .unstyled >li.active a{font-weight:bold}
+/*传统常规的淡蓝色渐变导航
+--------------------------------*/
+.subnav_blue_common {background-color:#c5e6ee; color:#2985c2; background-image:-moz-linear-gradient(top, #e6eff4 0%, #c5e6ee 100%); background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6eff4), color-stop(100%,#c5e6ee)); background-image:-webkit-linear-gradient(top,  #e6eff4 0%,#c5e6ee 100%); background-image:-ms-linear-gradient(top, #e6eff4 0%,#c5e6ee 100%); background-image:-o-linear-gradient(top, #e6eff4 0%,#c5e6ee 100%); filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6eff4', endColorstr='#c5e6ee',GradientType=0 );
+ border:1px solid #b7ccdd}
+.subnav_blue_common .unstyled >li a, .subnav_blue_common .unstyled >li {color:#195a87}
+.subnav_blue_common .unstyled >li {border-left:none; border-right:#7ea7c0 1px solid; line-height:14px; height:14px; margin-top:12px}
+.subnav_blue_common .unstyled >li a:hover,.subnav_blue_common .unstyled >li.active, .subnav_blue_common .unstyled >li.active a {color:#000; background-color:transparent}
+/* bootstrap subnav--end
+ ---------------------------------*/
+ /* bootstrap 水平排列的列表 Start
+ ---------------------------------*/
+ .ul_inline >li, .ol_inline >li, .dl_inline >dt, .dl_inline >dd {float:left;line-height:14px; height:14px;padding:0; margin:8px auto}
+ .ul_inline >li a, .ol_inline >li a, .dl_inline >dt a, .dl_inline >dd a { padding:0 15px}
+  /* bootstrap 水平排列的列表 End
+ ---------------------------------*/
+
+/* bootstrap subnav固定宽度,显示屏宽度980px以上(不兼容IE)--begin
+ ---------------------------------*/
+.navbar-fixed-top {-webkit-border-radius:0;-moz-border-radius:0; border-radius:0}
+.subnav-fixed {position:fixed; top:0; left:0; right:0; z-index:999; border-width:1px 0; -webkit-border-radius:0;
+    -moz-border-radius:0; border-radius:0; -webkit-box-shadow:inset 0 1px 0 rgba(256,256,256,.4), 0 1px 5px rgba(0,0,0,.1); -moz-box-shadow:inset 0 1px 0 rgba(256,256,256,.4), 0 1px 5px rgba(0,0,0,.1);
+    box-shadow:inset 0 1px 0 rgba(256,256,256,.4), 0 1px 5px rgba(0,0,0,.1);filter: progid:dximagetransform.microsoft.gradient(enabled=false)}
+.subnav-fixed .container-fluid{width:1200px; margin-left:0px; padding-left:0; padding-right:0}
+/*------导航全改为居左-------*/
+.subnav-fixed .nav , .subnav-fixed .ul_inline, .subnav-fixed .unstyled.ul_inline {padding:0 1px}
+.subnav-fixed .container{ margin-left:0} 
+.subnav_blue .container, .subnav_blue .container-fluid,.subnav-fixed.subnav_blue .container-fluid{ padding-left:10px; padding-right:10px }
+.subnav .nav > li:first-child > a, .subnav .nav > li:first-child > a:hover {-webkit-border-radius:0; -moz-border-radius:0; border-radius:0}
+
+ /*------导航全改为居左-------*/
+/* bootstrap subnav固定宽度,显示屏宽度980px以上(不兼容IE)--end
+
+/* 灰色线条 Start
+ --------------------------------*/
+.divider {height:1px; margin:10px auto; background-color:#e5e5e5; border-bottom:1px solid #ffffff}
+/* 灰色线条 End
+ --------------------------------*/
+
+/* 底部说明样式定义--begin
+ --------------------------------*/
+.footer {margin-top:25px; padding:20px 0 20px; border-top:1px solid #e5e5e5}
+.footer p {margin-bottom:0; color:#555}
+/* 底部说明样式定义--end
+ --------------------------------*/
+
+/* 必须填写内容 */
+.must_select {color:red; margin-left:6px}
+
+/* popover弹出内容强制换行 */
+.popover-content {word-break:break-all; word-wrap:break-word}
+
+/* 固定导航条设置白色背景 */
+.nav-tabs{background:#fff}
+
+/* bootstrap-doc样式，左侧导航固定--begin
+ --------------------------------*/
+
+.bs-docs-sidenav {width:228px; padding:0; background-color:#fff; -webkit-border-radius:6px; -moz-border-radius:6px;
+   border-radius:6px; -webkit-box-shadow:0 1px 4px rgba(0,0,0,.065); -moz-box-shadow:0 1px 4px rgba(0,0,0,.065); box-shadow:0 1px 4px rgba(0,0,0,.065)}
+.bs-docs-sidenav > li > a {display:block; *width:190px; margin:0 0 -1px; padding:8px 14px; border:1px solid #e5e5e5}
+.bs-docs-sidenav > li:first-child > a {-webkit-border-radius:6px 6px 0 0; -moz-border-radius:6px 6px 0 0; border-radius:6px 6px 0 0}
+.bs-docs-sidenav > li:last-child > a {-webkit-border-radius:0 0 6px 6px; -moz-border-radius:0 0 6px 6px; border-radius:0 0 6px 6px}
+.bs-docs-sidenav > .active > a {position:relative; z-index:2; padding:9px 15px; border:0; text-shadow:0 1px 0 rgba(0,0,0,.15);
+  -webkit-box-shadow:inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1); -moz-box-shadow:inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1); box-shadow:inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1)}
+.bs-docs-sidenav .icon-chevron-right {float:right; margin-top:2px; margin-right:-6px; opacity:.25}
+.bs-docs-sidenav > li > a:hover {background-color:#f5f5f5}
+.bs-docs-sidenav a:hover .icon-chevron-right {opacity:.5}
+.bs-docs-sidenav .active .icon-chevron-right,
+.bs-docs-sidenav .active a:hover .icon-chevron-right {background-image:url(../img/glyphicons-halflings-white.png); opacity:1}
+.bs-docs-sidenav.affix {position:fixed; top:40px; margin-right:230px}
+.bs-docs-sidenav.affix-bottom {position:absolute; top:auto; bottom:270px}
+/* 解决左侧导航固定，右侧浮动内容与左侧导航重叠 */
+.span3 {min-height:1px}   
+.page-header {*margin-top:50px}
+/* subhead样式--begin */
+.subhead {text-align:left; border-bottom:1px solid #ddd}
+.subhead h1 {font-size:36px}
+.subhead p {margin-bottom:20px}
+.subhead .navbar {display:none}
+/* subhead样式--end */
+
+/* jumbotron样式--begin */
+.jumbotron {position:relative; padding:40px 0 0; color:#fff; text-align:left; text-shadow:0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+  background:#0000EE; background:-moz-linear-gradient(45deg, #FFB5C5 0%, #FFE4E1 100%); background:-webkit-gradient(linear, left bottom, right top, color-stop(0%, #FFB5C5), color-stop(100%, #FFE4E1));
+  background:-webkit-linear-gradient(45deg, #FFB5C5 0%, #FFE4E1 100%); background: -o-linear-gradient(45deg,  #FFB5C5 0%,#FFE4E1 100%); /* Opera 11.10+ */
+  background:-ms-linear-gradient(45deg, #FFB5C5 0%, #FFE4E1 100%); background:linear-gradient(45deg, #FFB5C5 0%, #FFE4E1 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFB5C5', endColorstr='#FFE4E1', GradientType=1 );
+  -webkit-box-shadow:inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2); -moz-box-shadow:inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2); box-shadow:inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);}
+.jumbotron h1 {font-size:30px; font-weight:bold; letter-spacing:-1px; line-height:1}
+.jumbotron p {font-size:16px; font-weight:300; line-height:30px; margin-bottom:15px}
+.jumbotron a {color:#fff; color:rgba(255,255,255,.5); -webkit-transition:all .2s ease-in-out; -moz-transition:all .2s ease-in-out; transition:all .2s ease-in-out}
+.jumbotron a:hover {color:#fff; text-shadow:0 0 10px rgba(255,255,255,.25)}
+.jumbotron .container {position:relative; z-index:2}
+.jumbotron:after {content:''; display:block; position:absolute; top:0; right:0; bottom:0; left:0; opacity:.4}
+.jumbotron .container .lead {margin-bottom:10px}
+/* jumbotron样式--end */
+
+/* bootstrap-doc样式，左侧导航固定--end
+ --------------------------------*/
+
+/* bootstrap form元素间隙扩展样式--begin
+ --------------------------------*/
+.form-horizontal-small input, .form-horizontal-small textarea, .form-horizontal-small select, .form-horizontal-small .help-inline, .form-horizontal-small .uneditable-input, .form-horizontal-small .input-prepend, .form-horizontal-small .input-append 
+ {display:inline-block; *display:inline; margin-bottom:0; *zoom:1}
+.form-horizontal-small .hide {display:none}
+.form-horizontal-small .control-group {margin-bottom:8px; *zoom:1}
+.form-horizontal-small .control-group:before, .form-horizontal-small .control-group:after {display:table; content:""}
+.form-horizontal-small .control-group:after {clear:both}
+.form-horizontal-small .control-label {float:left; width:140px; padding-top:5px; text-align:right}
+.form-horizontal-small .controls {*display:inline-block; *padding-left:20px; margin-left:160px; *margin-left:0}
+.form-horizontal-small .controls:first-child {*padding-left: 160px}
+.form-horizontal-small .help-block {margin-top:9px; margin-bottom:0}
+.form-horizontal-small .form-actions {padding-left:160px}
+
+.form-horizontal input, .form-horizontal textarea, .form-horizontal select, .form-horizontal .help-inline, .form-horizontal .uneditable-input, .form-horizontal .input-prepend, .form-horizontal .input-append 
+ {display:inline-block; *display:inline; margin-bottom:0; *zoom:1}
+.form-horizontal .hide {display:none}
+.form-horizontal .control-group {margin-bottom:12px; *zoom:1}
+.form-horizontal .control-group:before, .form-horizontal .control-group:after {display:table; content:""}
+.form-horizontal .control-group:after {clear:both}
+.form-horizontal .control-label {float:left; width:140px; padding-top:5px; text-align:right}
+.form-horizontal .controls {*display:inline-block; *padding-left:20px; margin-left:160px; *margin-left:0}
+.form-horizontal .controls:first-child {*padding-left: 160px}
+.form-horizontal .help-block {margin-top:9px; margin-bottom:0}
+.form-horizontal .form-actions {padding-left:160px}
+
+.form-horizontal-large input, .form-horizontal-large textarea, .form-horizontal-large select, .form-horizontal-large .help-inline, .form-horizontal-large .uneditable-input, .form-horizontal-large .input-prepend, .form-horizontal-large .input-append 
+ {display:inline-block; *display:inline; margin-bottom:0; *zoom:1}
+.form-horizontal-large .hide {display:none}
+.form-horizontal-large .control-group {margin-bottom:18px; *zoom:1}
+.form-horizontal-large .control-group:before, .form-horizontal-large .control-group:after {display:table; content:""}
+.form-horizontal-large .control-group:after {clear:both}
+.form-horizontal-large .control-label {float:left; width:140px; padding-top:5px; text-align:right}
+.form-horizontal-large .controls {*display:inline-block; *padding-left:20px; margin-left:160px; *margin-left:0}
+.form-horizontal-large .controls:first-child {*padding-left: 160px}
+.form-horizontal-large .help-block {margin-top:9px; margin-bottom:0}
+.form-horizontal-large .form-actions {padding-left:160px}
+/* bootstrap form元素间隙扩展样式--end
+ --------------------------------*/
+
+ul.dropdown-menu li {margin-bottom:5px}
+
+/* 日历控件图标显示样式 */
+input.calendar {background:#fff url(../img/calendar.png) no-repeat right; cursor:pointer}
+
+/* 加载数据缓冲图片定位 */
+.loading_position {position:relative; min-height:300px}  /*height:100%;*/
+.loading_example {position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:100%; background-color:#eee}
+.loading_image {position:absolute; top:50%; left:50%; margin-left:-50px; margin-top:-50px}
+.controls ul.list {margin:0 0 9px 0}
+.controls ul.list li {text-align:left; list-style:none; display:inline-block; margin:5px 6px 0 0}
+/*icon图标颜色扩展*/
+.icon-check_add{ background-position:0 -161px;}
+.icon-check_add_ok{ background-position:0 -178px;}
+.icon-green {background-image: url("../img/glyphicons-halflings-green.png")}
+.icon-blue {background-image: url("../img/glyphicons-halflings-blue.png")}
+.icon-yellow {background-image: url("../img/glyphicons-halflings-yellow.png")}
+.icon-red {background-image: url("../img/glyphicons-halflings-red.png")}
+/*---添加的深蓝色按钮---*/
+.btn_add_blue {background-color: #709dba;*background-color: #709dba;background-image: -ms-linear-gradient(top, #709dba, #0f667a); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#709dba), to(#0f667a));
+  background-image: -webkit-linear-gradient(top, #709dba, #0f667a);background-image: -o-linear-gradient(top, #709dba, #0f667a);background-image: -moz-linear-gradient(top, #4d7090, #0f667a); background-image: linear-gradient(top, #709dba, #0f667a);
+  background-repeat: repeat-x;border-color: #0055cc #0055cc #338ac3;border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);filter: progid:dximagetransform.microsoft.gradient(startColorstr='#709dba', endColorstr='#0f667a', GradientType=0);filter: progid:dximagetransform.microsoft.gradient(enabled=false)}
+.btn_add_blue:hover,.btn_add_blue:active,.btn_add_blue.active,.btn_add_blue.disabled,.btn_add_blue[disabled] {background-color: #0f667a;*background-color: #0f667a}
+.btn-primary:active,.btn-primary.active { background-color: #0f667a \9}
+
+/*---添加的列表展示样式---*/
+.list_add{ padding:10px 15px;list-style:none; }
+.list_add li,.list_add dd,.list_add dt,.list_add li a{ list-style:none; line-height:20px; height:20px; overflow:hidden}
+.list_add_icon li{background: url(../img/list.png) no-repeat left 2px;  padding-left:16px}
+.list_add_icon_gray li{background-position:left -118px}
+.list_add_icon_blue li{background-position:left -178px}
+.list_add_icon_arrow_blue li{background-position:left -238px}
+.list_add_icon_arrow_yellow li{background-position:left -358px}
+.list_add_icon_arrow_yellow_border li{background-position:left -300px; padding-left:22px}
+.list_add_icon_circle li{background-position:left -418px}
+.list_add_icon_circle_light li{background-position:left -480px}
+.list_sort li{background-position:1px -601px; padding-left:0;}
+.list_sort span{ width:20px; height:18px; line-height:18px; color:#FFF; text-align:center; margin-right:3px; margin-left:1px \9; margin-top:2px; float:left; cursor:pointer; font-size:10px ;font-family: "Arial";}
+.list_sort li.red{ background-position:1px -540px}
+.list_sort li.blue{ background-position:1px -660px}

@@ -1,0 +1,363 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% trans '桌面 | 蓝鲸蓝鲸智云' %}</title>
+    <meta name="keywords" content="{% trans '开发者中心,游戏运维,运维,服务器管理,模块配置,监控,腾讯游戏,蓝鲸,智云,devops,运维开发,蓝鲸企业版,企业版,作业平台,集成平台,配置平台,管控平台' %}" />
+    <meta name="description" content="{% trans '蓝鲸智云软件企业版是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变中国运维行业，帮助企业快速达到基础运维支撑能力，并提升技术人员的DevOps能力。该版本提供了配置平台，作业平台，集成平台等强大功能，用户在使用时，请查阅并遵守《蓝鲸智云软件用户服务协议》。' %}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="Shortcut Icon" href="{{STATIC_URL}}favicon.ico">
+    <!-- 滚动条插件 -->
+    <link rel="stylesheet" href="{{STATIC_URL}}assets/mCustomScrollbar/jquery.mCustomScrollbar.css">
+    <!-- 腾讯UED提示信息&部分其他小插件 -->
+    <link rel="stylesheet" href="{{STATIC_URL}}assets/bluekingLibs/bluekinglibs.css">
+      <!-- bkdialog -->
+      <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}assets/bkDialog-1.0/css/ui-dialog.css">
+    <!-- base 基本样式 -->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/base.{{CSS_SUFFIX}}?v={{STATIC_VERSION}}">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/skins/mac.{{CSS_SUFFIX}}?v={{STATIC_VERSION}}" id="window-skin">
+    <!-- 处理图片国际化 -->
+    <style>
+        .bk-watermark{position:fixed;bottom:60px;right:20px;width:400px;height:80px;opacity:.7;background: url({{ STATIC_URL }}{% trans 'img/base_ui/watermark.png' %}) no-repeat;}
+        .appbtn span.lapp_mark{border-radius:0px;display:block;height:24px;width:24px;margin-left:25px;margin-top:-23px;background: url({{ STATIC_URL }}{% trans 'img/app_logo/light_app.png' %}) no-repeat;}
+        #appmanage .amg_close{background:url({{ STATIC_URL }}{% trans 'img/base_ui/desk_sprite.png' %}) no-repeat -350px -350px;cursor:pointer;width:90px;height:37px;position:absolute;top:25px;right:10px}
+    </style>
+</head>
+<body>
+    {% if EXTERNAL_THEME %}
+        <link rel="stylesheet" type="text/css" href="{{EXTERNAL_THEME}}">
+	{% endif %}
+
+    <div class="loading"></div>
+    <!-- 桌面 -->
+    <div id="desktop">
+        <div id="desk">
+            <div id="search-bar">
+                <input id="pageletSearchInput" class="mousetrap" placeholder="{% trans '搜索应用...' %}">
+                <input type="button" value="" id="pageletSearchButton" title="{% trans '搜索...' %}">
+            </div>
+            <div id="search-suggest">
+                <div class="resultBox-div" style="max-height:400px;">
+                    <ul class="resultBox"></ul>
+                </div>
+                <div class="resultList openAppMarket"><a href="javascript:;"><div>{% trans '去应用市场搜搜...' %}</div></a></div>
+            </div>
+            <!-- 壁纸水印 -->
+            <div  id="water-mark" class="bk-watermark"></div>
+            <!-- 顶部消息提示 start -->
+            <div class="header_notice_box" id="license_notice">
+                <div class="notice_text">
+                    <i class="notice_icon">!</i>
+                    <span class="notice_msg"></span>
+                </div>
+                <a href="javascript:;" class="notice_btn">{% trans '知道了' %}</a>
+            </div>
+            <!-- 顶部消息提示 end -->
+            <div id="desk-1" class="desktop-container">
+                <div class="desktop-apps-container"></div>
+                <div class="scrollbar scrollbar-x"></div><div class="scrollbar scrollbar-y"></div>
+            </div>
+            <div id="desk-2" class="desktop-container">
+                <div class="desktop-apps-container"></div>
+                <div class="scrollbar scrollbar-x"></div><div class="scrollbar scrollbar-y"></div>
+            </div>
+            <div id="desk-3" class="desktop-container">
+                <div class="desktop-apps-container"></div>
+                <div class="scrollbar scrollbar-x"></div><div class="scrollbar scrollbar-y"></div>
+            </div>
+            <div id="desk-4" class="desktop-container">
+                <div class="desktop-apps-container"></div>
+                <div class="scrollbar scrollbar-x"></div><div class="scrollbar scrollbar-y"></div>
+            </div>
+            <div id="desk-5" class="desktop-container">
+                <div class="desktop-apps-container"></div>
+                <div class="scrollbar scrollbar-x"></div><div class="scrollbar scrollbar-y"></div>
+            </div>
+            <div id="dock-bar">
+                <div id="dock-container">
+                    <div class="dock-middle">
+                        <!-- 系统应用  start-->
+                        <div class="dock-applist">
+                            <li class="appbtn_dock" id="market">
+                                <div><img src="{{STATIC_URL}}img/shortcut/tool_app/market.png?v=1" title="{% trans '应用市场' %}" alt="{% trans '应用市场' %}"></div>
+                                <span>{% trans '应用市场' %}</span>
+                            </li>
+                            <li class="appbtn_dock" id="user_center">
+                                <div><img src="{{STATIC_URL}}img/shortcut/tool_app/user_center.png" title="{% trans '个人中心' %}" alt="{% trans '个人中心' %}"></div>
+                                <span>{% trans '个人中心' %}</span>
+                            </li>
+                            {% if has_develope_center_view_permission %}
+                                <li class="appbtn_dock" id="developer">
+                                    <div><img src="{{STATIC_URL}}img/shortcut/tool_app/developer.png?v=1" title="{% trans '开发者中心' %}" alt="{% trans '开发者中心' %}"></div>
+                                    <span>{% trans '开发者中心' %}</span>
+                                </li>
+                            {% endif %}
+                            <li class="appbtn_dock" id="app_statistics">
+                                <div><img src="{{STATIC_URL}}img/shortcut/tool_app/app_statistics.png" title="{% trans '统计' %}" alt="{% trans '统计' %}"></div>
+                                <span>{% trans '统计' %}</span>
+                            </li>
+                            <li class="appbtn_dock" id="bk_iam">
+                                <div><img src="{{STATIC_URL}}img/shortcut/tool_app/bk_iam.png" title="{% trans '权限中心' %}" alt="{% trans '权限中心' %}"></div>
+                                <span>{% trans '权限中心' %}</span>
+                            </li>
+                            <li class="appbtn_dock" id="bk_user_manage">
+                                <div><img src="{{STATIC_URL}}img/shortcut/tool_app/bk_user_manage.png" title="{% trans '用户管理' %}" alt="{% trans '用户管理' %}"></div>
+                                <span>{% trans '用户管理' %}</span>
+                            </li>
+                        </div>
+                        <!-- 系统应用  end-->
+                        <div class="dock-tools-container">
+                            <div class="dock-tools">
+                                <a href="javascript:;" class="dock-tool-appearance" title="{% trans '外观设置' %}"></a>
+                                <a href="javascript:;" class="dock-tool-userce" title="{% trans '反馈' %}"></a>
+                            </div>
+                            <div class="dock-tools">
+                                <a href="javascript:;" class="dock-tool-appmanage" title="{% trans '全局视图' %}"></a>
+                                <a href="javascript:;" class="dock-tool-helps" title="{% trans '帮助' %}"></a>
+                            </div>
+                            <div class="dock-startbtn">
+                                <a href="javascript:;" class="dock-tool-start">
+                                    <img src="{{STATIC_URL}}img/getheadimg.jpg" onerror="javascript:this.src='{{STATIC_URL}}img/getheadimg.jpg';" class="indicator-header-img" title="{{request.user.username}}" style="width:40px;height:40px;border-radius: 25px;">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dock-pagination" id="nav-bar">
+                            <a class="pagination pagination-1" href="javascript:;" index="1" title="{% trans '切换至桌面1，快捷键：Ctrl + 1' %}">
+                                <span class="pagination-icon-bg"></span>
+                                <span class="pagination-icon pagination-icon-1">1</span>
+                            </a>
+                            <a class="pagination pagination-2" href="javascript:;" index="2" title="{% trans '切换至桌面2，快捷键：Ctrl + 2' %}">
+                                <span class="pagination-icon-bg"></span>
+                                <span class="pagination-icon pagination-icon-2">2</span>
+                            </a>
+                            <a class="pagination pagination-3" href="javascript:;" index="3" title="{% trans '切换至桌面3，快捷键：Ctrl + 3' %}">
+                                <span class="pagination-icon-bg"></span>
+                                <span class="pagination-icon pagination-icon-3">3</span>
+                            </a>
+                            <a class="pagination pagination-4" href="javascript:;" index="4" title="{% trans '切换至桌面4，快捷键：Ctrl + 4' %}">
+                                <span class="pagination-icon-bg"></span>
+                                <span class="pagination-icon pagination-icon-4">4</span>
+                            </a>
+                            <a class="pagination pagination-5" href="javascript:;" index="5" title="{% trans '切换至桌面5，快捷键：Ctrl + 5' %}">
+                                <span class="pagination-icon-bg"></span>
+                                <span class="pagination-icon pagination-icon-5">5</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="startmenu-container">
+            <div class="startmenu-selfinfo"></div>
+            <ul class="startmenu">
+                <li>
+                    <a><span class="startmenu-username">{{request.user.username}}</span></a>
+                </li>
+                <li><a href="https://bk.tencent.com/docs/markdown/PaaS平台/产品白皮书/产品简介/README.md" target="blank" class="">{% trans '产品文档' %}</a></li>
+                <li><a href="javascript:;" class="about">{% trans '蓝鲸官网' %}</a></li>
+                <li><a href="javascript:;" class="bk_service_agreement">{% trans '服务协议' %}</a></li>
+                <li class="no-click"><a class="contact_bk">{% trans 'QQ咨询（800802001）' %}</a></li>
+            </ul>
+            <div class="startmenu-exit"><a href="javascript:;" title="{% trans '注销当前用户' %}"></a></div>
+        </div>
+        <div id="appearancemenu-container">
+            <div class="appearancemenu-selfinfo"></div>
+            <ul class="appearancemenu">
+                <li><a href="javascript:;" class="theme_setting">{% trans '主题设置' %}</a></li>
+                <li><a href="javascript:;" class="layout_setting">{% trans '布局设置' %}</a></li>
+            </ul>
+        </div>
+        <div id="helpsmenu-container">
+            <div class="helpsmenu-selfinfo"></div>
+            <ul class="helpsmenu">
+                <li><a href="javascript:;" class="about_version">{% trans '版本信息' %}</a></li>
+                <li><a href="javascript:;" class="help">{% trans '桌面指引' %}</a></li>
+                <li><a href="javascript:;" class="about_hotkey">{% trans '快捷键说明' %}</a></li>
+            </ul>
+        </div>
+        <div id="task-bar-bg1"></div>
+        <div id="task-bar-bg2"></div>
+        <div id="task-bar">
+            <div id="task-next"><a href="javascript:;" id="task-next-btn" hidefocus="true"></a></div>
+            <div id="task-content">
+                <div id="task-content-inner"></div>
+            </div>
+            <div id="task-pre"><a href="javascript:;" id="task-pre-btn" hidefocus="true"></a></div>
+        </div>
+    </div>
+    <!-- add菜单 start-->
+    <div id="desk_add_menu" class="context_menu">
+        <div class="context_menu_container">
+            <ul class="context_menu_item_list">
+                <li class="context_menu_item_container">
+                    <a class="context_menu_item" href="javascript:void(0);" title="{% trans '添加应用' %}" onclick="BLUEKING.window.create_market();">
+                        <span class="context_menu_item_icon add_app_icon" style=""></span>
+                        <span class="context_menu_item_text">{% trans '添加应用' %}</span>
+                    </a>
+                </li>
+                <li class="context_menu_separator_container"><span class="context_menu_separator"></span></li>
+                <li class="context_menu_item_container">
+                    <a class="context_menu_item" href="javascript:void(0);" title="{% trans '新建文件夹' %}" onclick="BLUEKING.popupMenu.open_create_folder();">
+                        <span class="context_menu_item_icon add_folder_icon" style=""></span>
+                        <span class="context_menu_item_text">{% trans '新建文件夹' %}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- add菜单 end-->
+    <!-- 全局视图 -->
+    <div id="appmanage">
+        <a class="amg_close" href="javascript:;"></a>
+        <div id="amg_dock_container"></div>
+        <div class="amg_line_x"></div>
+        <div id="amg_folder_container">
+            <div class="folderItem">
+                <div class="folder_bg folder_bg1"></div>
+                <div class="folderOuter">
+                    <div class="folderInner" desk="1"></div>
+                    <div class="scrollBar"></div>
+                </div>
+            </div>
+            <div class="folderItem">
+                <div class="folder_bg folder_bg2"></div>
+                <div class="folderOuter">
+                    <div class="folderInner" desk="2"></div>
+                    <div class="scrollBar"></div>
+                </div>
+                <div class="amg_line_y"></div>
+            </div>
+            <div class="folderItem">
+                <div class="folder_bg folder_bg3"></div>
+                <div class="folderOuter">
+                    <div class="folderInner" desk="3"></div>
+                    <div class="scrollBar"></div>
+                </div>
+                <div class="amg_line_y"></div>
+            </div>
+            <div class="folderItem">
+                <div class="folder_bg folder_bg4"></div>
+                <div class="folderOuter">
+                    <div class="folderInner" desk="4"></div>
+                    <div class="scrollBar"></div>
+                </div>
+                <div class="amg_line_y"></div>
+            </div>
+            <div class="folderItem">
+                <div class="folder_bg folder_bg5"></div>
+                <div class="folderOuter">
+                    <div class="folderInner" desk="5"></div>
+                    <div class="scrollBar"></div>
+                </div>
+                <div class="amg_line_y"></div>
+            </div>
+        </div>
+    </div>
+    <div id="hotkey-info">
+        <a href="javascript:;" class="close" title="关闭"></a>
+        <div class="title">{% trans '快捷键使用说明' %}</div>
+        <div class="body">
+            <p>
+                {% blocktrans trimmed %}
+                Alt+d：显示桌面（最小化所有应用窗口）</br>
+                Ctrl+up：显示全局视图</br>
+                Ctrl+1~Ctrl+5：切换显示桌面1~5</br>
+                Ctrl+left：逆序切换显示桌面</br>
+                Ctrl+right：顺序切换显示桌面</br>
+                Alt+1~Alt+9：切换显示应用窗口1~9</br>
+                Alt+up：逆序切换显示应用窗口</br>
+                Alt+right：顺序切换显示应用窗口</br>
+                {% endblocktrans %}
+            </p>
+        </div>
+    </div>
+    <div id="version-info">
+        <a href="javascript:;" class="close" title="关闭"></a>
+        <div class="title">{% trans '版本信息' %}</div>
+        <div class="body"></div>
+    </div>
+	<!-- 判断浏览器版本  -->
+	<p id="browser_version" style="line-height:20px;display:none;">
+        {% blocktrans trimmed %}
+		为了不影响您使用蓝鲸，建议您:<br/>
+		&nbsp;&nbsp;&nbsp;1. 使用高级浏览器：<strong>Chrome</strong>, <strong>Firefox</strong>, <strong>Opera</strong>等;<br/>
+		&nbsp;&nbsp;&nbsp;2. 如果您使用的是<strong>IE</strong>，请使用<strong>IE8</strong>及以上版本;<br/>
+		&nbsp;&nbsp;&nbsp;3. 如果您使用的是<strong>IE</strong>，请使用<strong>IE8</strong>及以上文档模式;<br/>
+		&nbsp;&nbsp;&nbsp;4. 如果您使用的是<strong>IE</strong>，<span class="color_red">请不要使用<strong>"兼容模式"</strong>!</span>
+        {% endblocktrans %}
+	</p>
+    <script type="text/javascript">
+        var bk_paas3_url = "{{BK_PAAS3_URL}}";
+        var bk_user_app_code = "{{BK_USER_APP_CODE}}";
+    </script>
+    <!-- js 国际化 -->
+    <script type="text/javascript" src="{{SITE_URL}}jsi18n/i18n/"></script>
+    <!-- jQery库 公共脚本 -->
+    <script src="{{STATIC_URL}}assets/jquery-1.8.3.min.js"></script>
+    <!-- 滚动条插件 -->
+    <script src="{{STATIC_URL}}assets/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- 腾讯UED提示信息&部分其他小插件 -->
+    <script src="{{STATIC_URL}}assets/bluekingLibs/bluekinglibs.js"></script>
+    <!-- 表单验证插件 -->
+	<script src="{{STATIC_URL}}assets/validform/Validform_v5.3.2_min.js"></script>
+	<!-- 扩展现有JS对象方法插件-->
+	<script src="{{STATIC_URL}}assets/sugar/sugar-1.4.1.min.js"></script>
+    <!-- bkdialog -->
+    <script src="{{STATIC_URL}}assets/bkDialog-1.0/js/dialog.js"></script>
+	<!-- 复制插件 -->
+	<script src="{{STATIC_URL}}assets/clipboard-v2.0.0/clipboard.min.js"></script>
+	<!-- Django框架对使用jQuery的ajax POST请求 处理CSRFTOKEN脚本-->
+	<script src="{{STATIC_URL}}js/csrftoken.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<!-- 蓝鲸工作台核心脚本 -->
+	<script src="{{STATIC_URL}}js/blueking.core.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.app.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.appmanage.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.base.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.desktop.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.dock.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.folderView.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.grid.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.hotkey.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <script src="{{STATIC_URL}}js/blueking.version.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <script src="{{STATIC_URL}}js/blueking.license.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.maskBox.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.popupMenu.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.searchbar.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.docktool.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.taskbar.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.templates.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.wallpaper.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.window.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.index.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <!-- 数据统计 -->
+    <script src="{{STATIC_URL}}js/analysis.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+    <!-- 兼容性设置 -->
+    <!--[if lt IE 6]>\xe8\x93\x9d\xe9\xb2\xb8\xe6\x99\xba\xe8\x90\xa5\x20\xe7\x89\x88\xe6\x9d\x83\xe6\x89\x80\xe6\x9c\x89<![endif]-->
+	<script type="text/javascript">
+		// 判断浏览器版本
+		try{
+			if($.browser.msie && ($.browser.version < 8 || document.documentMode < 8) ){
+				art.dialog({
+				    title: "Tips",
+				    width: 350,
+				    icon: 'warning',
+				    lock: true,
+				    content: $("#browser_version").get(0)
+				});
+			}
+		}catch(err){}
+	</script>
+	<script>
+	$(function(){
+		//IE下禁止选中
+		document.body.onselectstart = document.body.ondrag = function(){return false;}
+		//隐藏加载遮罩层
+		$('.loading').hide();
+		$('#desktop').show();
+		//初始化一些桌面信息
+		BLUEKING.base.init();
+	});
+	</script>
+</body>
+</html>

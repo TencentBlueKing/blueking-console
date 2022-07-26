@@ -1,0 +1,45 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% trans '统计' %}</title>
+	<link href="{{STATIC_URL}}assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/daterangepicker-2.0.5/daterangepicker.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/select2-3.5.2/select2.css" rel="stylesheet">
+	<link rel="stylesheet" href="{{STATIC_URL}}app_statistics/css/index.{{CSS_SUFFIX}}?v={{STATIC_VERSION}}">
+</head>
+<body>
+    {% if EXTERNAL_THEME %}
+        <link rel="stylesheet" type="text/css" href="{{EXTERNAL_THEME}}">
+	{% endif %}
+
+	<div class="page-content">
+		<div class="subnav clearfix">
+			<ul>
+				{% load tostartswith %}
+				<li {% if SITE_URL|add:'app_statistics/online_time/'|tostartswith:APP_PATH or SITE_URL|add:'app_statistics/' == APP_PATH %} class="active" {% endif %}><a href="{{SITE_URL}}app_statistics/online_time/">{% trans '在线时长统计' %}</a></li>
+				<li {% if SITE_URL|add:'app_statistics/visit/'|tostartswith:APP_PATH %} class="active" {% endif %}><a href="{{SITE_URL}}app_statistics/visit/">{% trans '访问量统计' %}</a></li>
+				<li {% if SITE_URL|add:'app_statistics/liveness/'|tostartswith:APP_PATH %} class="active" {% endif %}><a href="{{SITE_URL}}app_statistics/liveness/">{% trans '活跃度统计' %}</a></li>
+				<li {% if SITE_URL|add:'app_statistics/app_update/'|tostartswith:APP_PATH %} class="active" {% endif %}><a href="{{SITE_URL}}app_statistics/app_update/">{% trans '应用更新情况统计' %}</a></li>
+			</ul>
+		</div>
+		{% block maincontent %}{% endblock %}
+	</div>
+</body>
+<script type="text/javascript">
+	var site_url = "{{SITE_URL}}";
+	var static_url = "{{STATIC_URL}}";
+</script>
+<!-- js 国际化 -->
+<script type="text/javascript" src="{{SITE_URL}}jsi18n/i18n/"></script>
+<script src="{{STATIC_URL}}assets/jquery-1.10.2.min.js"></script>
+<script src="{{STATIC_URL}}assets/daterangepicker-2.0.5/moment.min.js"></script>
+<script src="{{STATIC_URL}}assets/daterangepicker-2.0.5/daterangepicker.js"></script>
+<script src="{{STATIC_URL}}assets/select2-3.5.2/select2.js"></script>
+<script src="{{STATIC_URL}}assets/echarts-3.6.1/echarts.min.js"></script>
+<script src="{{STATIC_URL}}assets/echarts-3.6.1/theme/macarons.js"></script>
+<script src="{{STATIC_URL}}app_statistics/js/base.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+<script src="{{STATIC_URL}}app_statistics/js/app_common_analysis.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+{% block pravite_js %}{% endblock %}
+</html>

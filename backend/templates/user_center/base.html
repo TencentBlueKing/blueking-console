@@ -1,0 +1,102 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% trans '个人中心' %}</title>
+	<link href="{{STATIC_URL}}assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="{{STATIC_URL}}assets/datatables-1.10.7/dataTables.bootstrap.css" rel="stylesheet"/>
+    <link href="{{STATIC_URL}}assets/select2-3.5.2/select2.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}assets/bk-icon-1.1/iconfont.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}user_center/css/bk.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}user_center/css/bk_pro.css" rel="stylesheet">
+	<link rel="stylesheet" href="{{STATIC_URL}}user_center/css/index.{{CSS_SUFFIX}}?v={{STATIC_VERSION}}">
+      <!-- bkdialog -->
+      <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}assets/bkDialog-1.0/css/ui-dialog.css">
+    {% block pravite_css %}{% endblock %}
+</head>
+<body>
+    {% if EXTERNAL_THEME %}
+        <link rel="stylesheet" type="text/css" href="{{EXTERNAL_THEME}}">
+	{% endif %}
+	<div class="page-personal">
+		<!-- 头部 start -->
+		<div class="personal-header clearfix">
+			<span class="title">{% trans '个人中心' %}</span>
+			<div class="img-box">
+				<img src="{{STATIC_URL}}user_center/img/getheadimg.jpg">
+				<a>{{request.user.username}}</a>
+			</div>
+		</div>
+		<!-- 头部 end -->
+		<!-- 左边nav start -->
+		<div class="king-flex-slide slide-open">
+	        <div class="slide-switch">
+	            <svg class="icon" width="200px" height="187.55px" viewBox="0 0 1092 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M493.234912 295.322034h433.354665v48.1508H493.234912v-48.1508zM493.229843 487.923966h433.354665v48.1508H493.229843v-48.1508zM493.234912 680.527166h433.354665v48.1508H493.234912v-48.1508zM233.78172 511.901156l145.135435-145.135434v-67.527959L166.253762 511.901156l212.663393 212.663393v-67.526691z"></path>
+	            </svg>
+	        </div>
+	        <div class="nav-list">
+	            <ul>
+	                {% load tostartswith %}
+	                <!-- 没有二级菜单的导航添加'pureLink'类 -->
+	                <li class="pureLink {% if SITE_URL|add:'user_center/account/'|tostartswith:APP_PATH or SITE_URL|add:'user_center/' == APP_PATH %} open {% endif %}">
+	                  <a href="{{SITE_URL}}user_center/account/">
+	                      <span class="icon-panel">
+	                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="200px" height="200px" viewBox="6.641 0 200 200" enable-background="new 6.641 0 200 200" xml:space="preserve">
+	                            <g>
+	                                <path d="M106.645,8.922l-0.907,0.846L8.561,100.361c-1.181,1.101-1.861,2.595-1.917,4.208c-0.054,1.611,0.521,3.147,1.622,4.322   c1.138,1.218,2.749,1.915,4.418,1.915c1.535,0,2.998-0.576,4.118-1.624l89.834-83.744l89.84,84.001   c1.125,1.051,2.59,1.63,4.127,1.63c1.667,0,3.274-0.697,4.41-1.913c1.101-1.175,1.68-2.712,1.626-4.323   c-0.053-1.611-0.732-3.104-1.91-4.205l-97.176-90.86L106.645,8.922L106.645,8.922z"></path>
+	                                <path d="M174.166,102.137c-3.33,0-6.039,2.707-6.039,6.034v70.838h-35.033v-48.875v-1.328h-1.328H81.514h-1.328v1.328v48.875   H45.153v-70.838c0-3.327-2.71-6.034-6.039-6.034c-3.331,0-6.041,2.707-6.041,6.034v81.579v1.328h1.328h56.533h1.328v-1.328v-48.874   h28.751v48.874v1.328h1.328h56.532h1.328v-1.328v-81.579c0-1.611-0.628-3.127-1.769-4.266   C177.294,102.764,175.778,102.137,174.166,102.137L174.166,102.137z"></path>
+	                                <path d="M180.205,25.266h-1.328h-37.689c-3.331,0-6.041,2.707-6.041,6.034c0,1.612,0.628,3.128,1.771,4.269   c1.141,1.138,2.658,1.767,4.27,1.767h26.938v23.773c0,3.329,2.71,6.035,6.039,6.035c3.33,0,6.038-2.708,6.038-6.035V26.594v-1.328   H180.205z"></path>
+	                            </g>
+	                        </svg>
+	                      </span>
+	                      <span class="nav-name">{% trans '账户信息' %}</span>
+	                  </a>
+	                </li>
+	                {% if request.user.is_superuser %}
+	                <li>
+	                    <a href="###">
+	                        <span class="icon-panel">
+	                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="200px" height="200px" viewBox="0 -6.225 200 200" enable-background="new 0 -6.225 200 200" xml:space="preserve">
+	                            <path d="M100-6.225c-55.229,0-100,44.772-100,100s44.771,100,100,100c55.228,0,100-44.772,100-100S155.229-6.225,100-6.225z   M100,182.011c-48.731,0-88.236-39.505-88.236-88.236c0-48.731,39.504-88.236,88.236-88.236c48.731,0,88.236,39.504,88.236,88.236  C188.236,142.506,148.731,182.011,100,182.011L100,182.011z M100,76.128c-9.747,0-17.648,7.901-17.648,17.647  c0,9.746,7.901,17.647,17.648,17.647c9.746,0,17.647-7.901,17.647-17.647C117.647,84.029,109.746,76.128,100,76.128z M100,99.657  c-3.249,0-5.882-2.634-5.882-5.882c0-3.249,2.634-5.882,5.882-5.882c3.249,0,5.882,2.634,5.882,5.882  C105.882,97.024,103.249,99.657,100,99.657z M151.2,64.791c4.361,8.815,7.624,18.445,7.624,28.983c0,11.796,11.765,11.249,11.765,0  c0-12.71-3.003-24.848-9.238-34.938C157.336,52.343,147.952,58.227,151.2,64.791z M129.267,42.737  c-8.533-5.102-18.612-7.786-29.267-7.786c-32.488,0-58.824,26.337-58.824,58.824c0,11.796-11.765,11.69-11.765,0  c0-38.985,31.604-70.588,70.589-70.588c12.905,0,25.502,2.673,35.411,9.511C142.286,37.442,136.233,46.903,129.267,42.737z   M83.394,110.801c2.297,2.296,2.297,6.021,0,8.319l-4.159,4.159c-2.297,2.298-6.022,2.298-8.318,0c-2.298-2.297-2.298-6.021,0-8.319  l4.159-4.159C77.373,108.503,81.096,108.503,83.394,110.801z M158.264,35.93c2.298,2.297,2.298,6.022,0,8.319l-33.275,33.275  c-2.298,2.298-6.022,2.298-8.319,0c-2.296-2.296-2.296-6.021,0-8.318l33.277-33.276C152.242,33.633,155.968,33.633,158.264,35.93z"/>
+	                          </svg></span>
+	                        <span class="nav-name">{% trans 'API申请' %}</span>
+	                    </a>
+	                    <div class="flex-subnavs" {% if SITE_URL|add:'user_center/esb_apply/'|tostartswith:APP_PATH %} style="display: block;" {% endif %}>
+	                        <a href="{{SITE_URL}}user_center/esb_apply/approval/" {% if SITE_URL|add:'user_center/esb_apply/approval/'|tostartswith:APP_PATH %} class="on" {% endif %}><i></i>{% trans '等待审批' %}</a>
+	                        <a href="{{SITE_URL}}user_center/esb_apply/history/" {% if SITE_URL|add:'user_center/esb_apply/history/'|tostartswith:APP_PATH %} class="on" {% endif %}><i></i>{% trans '历史审批' %}</a>
+	                    </div>
+	                </li>
+	                {% endif %}
+	            </ul>
+	        </div>
+	    </div>
+		<!-- 左边nav end -->
+		<div class="content-personal clearfix">
+			<!-- 右边内容 start -->
+			<div class="content-right">
+				<div class="content-control ">
+					{% block maincontent %}{% endblock %}
+				</div>
+			</div>
+			<!-- 右边内容 end -->
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var site_url = "{{SITE_URL}}";
+	var static_url = "{{STATIC_URL}}";
+</script>
+<!-- js 国际化 -->
+<script type="text/javascript" src="{{SITE_URL}}jsi18n/i18n/"></script>
+<script src="{{STATIC_URL}}assets/jquery-1.10.2.min.js"></script>
+<script src="{{STATIC_URL}}assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}assets/datatables-1.10.7/jquery.dataTables.js"></script>
+<script src="{{STATIC_URL}}assets/datatables-1.10.7/dataTables.bootstrap.js"></script>
+<script src="{{STATIC_URL}}assets/select2-3.5.2/select2.js"></script>
+<!-- bkdialog -->
+<script src="{{STATIC_URL}}assets/bkDialog-1.0/js/dialog.js"></script>
+<script src="{{STATIC_URL}}js/csrftoken.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+<script src="{{STATIC_URL}}user_center/js/base.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+{% block pravite_js %}{% endblock %}
+</html>

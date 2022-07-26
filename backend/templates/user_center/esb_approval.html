@@ -1,0 +1,24 @@
+{% extends "user_center/base.html" %}
+{% block maincontent %}
+{% load i18n %}
+<!-- API申等待审核 start-->
+<div style="padding:20px;position:relative;">
+	<table id="esb_approval" class="table table-striped table-hover" style="width: 100%">
+	    <thead>
+	        <tr>
+	            <th>{% trans '申请人' %}</th>
+	            <th>{% trans '申请时间' %}</th>
+	            <th>{% trans '申请应用' %}</th>
+	            <th>{% trans '组件系统' %}</th>
+	            <th>{% trans '组件名称' %}</th>
+	            <th>{% trans '操作' %}</th>
+	        </tr>
+	    </thead>
+	    <tbody></tbody>
+	</table>
+</div>
+<!-- API申请等待审核 end-->
+{% endblock %}
+{% block pravite_js %}
+<script src="{{STATIC_URL}}user_center/js/esb_approval.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+{% endblock %}

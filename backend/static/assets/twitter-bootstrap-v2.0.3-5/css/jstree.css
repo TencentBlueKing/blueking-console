@@ -1,0 +1,206 @@
+@charset"utf-8";
+/*!
+ * jstree样式定义
+ * Supported features: dots/no-dots, icons/no-icons, focused, loading
+ * Supported plugins: ui (hovered, clicked), checkbox, contextmenu, search
+ */
+
+/* 通用样式定义--begin
+-----------------------------------------*/
+html, body {margin:0; padding:0}
+body, td, th, pre, code, select, option, input, textarea {font-family:"lucida grande",tahoma,verdana,arial,sans-serif; font-size:10pt}
+h1 {margin:0 0 0 0px; padding:0; font-size:14pt; font-family:Georgia; margin-bottom:1em; text-align:center; text-transform:uppercase}
+h2 {margin:0.5em 0 0.5em 0; padding:0.5em 0 0.5em 20px; font-size:12pt; font-family:Georgia; color:white; background:silver; text-shadow:1px 1px 2px gray; clear:both;
+	-moz-border-radius:5px; border-radius:5px; -webkit-border-radius:5px}
+h3 {margin:0; padding:0.5em 0 0.5em 0; font-size:11.5pt; font-family:Georgia; color:gray; clear:both}
+p {padding:0em 0 0.5em 0; margin:0; line-height:1.8em}
+p.meta {font-size:9pt; color:gray; margin-top:-5px}
+.arguments .tp, p code {color:green; padding:0 4px; font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+	font-weight: normal !important; font-style: normal !important; font-size:13px}
+.demo {width:255px; float:left; margin:0; border:1px solid gray; background:white; overflow:auto}
+ul.demos li, ul.plugins li {width:220px; text-align:left; padding:5px 0}
+ul.demos li a, ul.plugins li a {text-decoration:none; color:#3B5998}
+ul.demos li a:hover, ul.plugins li a:hover {text-decoration:underline}
+ul.plugins li p {text-align:left; font-size:9px; color:#333; margin:0 5px 0 0}
+ul.demos li {width:auto}
+.demo, .demo input, .jstree-dnd-helper, #vakata-contextmenu {font-size:10px; font-family:Verdana}
+#demo_body .demo, #demo_body .code {width:auto; float:none; clear:both; margin:10px auto}
+#demo_body .code {margin-bottom:20px}
+ul.jstree {width:700px; margin:0px auto 15px auto; padding:0}
+ul.jstree li {margin:0; padding:2px 0}
+ul.jstree li a {color:#3B5998; text-decoration:underline}
+/* 通用样式定义--end
+-----------------------------------------*/
+
+/* jstree-apple--begin
+-----------------------------------------*/
+.jstree-apple li, .jstree-apple ins {background-image:url(../img/d.png); background-repeat:no-repeat; background-color:transparent}
+.jstree-apple li {background-position:-90px 0; background-repeat:repeat-y}
+.jstree-apple li.jstree-last {background:transparent}
+.jstree-apple .jstree-open > ins {background-position:-72px 0}
+.jstree-apple .jstree-closed > ins {background-position:-54px 0}
+.jstree-apple .jstree-leaf > ins {background-position:-36px 0}
+.jstree-apple .jstree-hovered {background:#e7f4f9; border:1px solid #d8f0fa; padding:0 2px 0 1px}
+.jstree-apple .jstree-clicked {background:#beebff; border:1px solid #99defd; padding:0 2px 0 1px}
+.jstree-apple a .jstree-icon {background-position:-56px -19px}
+.jstree-apple a.jstree-loading .jstree-icon {background:url(../img/throbber.gif) center center no-repeat !important}
+.jstree-apple.jstree-focused {background:#ffffee}
+.jstree-apple .jstree-no-dots li, .jstree-apple .jstree-no-dots .jstree-leaf > ins {background:transparent}                                                                                                                                 
+.jstree-apple .jstree-no-dots .jstree-open > ins {background-position:-18px 0}
+.jstree-apple .jstree-no-dots .jstree-closed > ins {background-position:0 0}
+.jstree-apple .jstree-no-icons a .jstree-icon {display:none}
+.jstree-apple .jstree-search {font-style:italic}
+.jstree-apple .jstree-no-icons .jstree-checkbox {display:inline-block}
+.jstree-apple .jstree-no-checkboxes .jstree-checkbox {display:none !important}
+.jstree-apple .jstree-checked > a > .jstree-checkbox {background-position:-38px -19px}
+.jstree-apple .jstree-unchecked > a > .jstree-checkbox {background-position:-2px -19px}
+.jstree-apple .jstree-undetermined > a > .jstree-checkbox {background-position:-20px -19px}
+.jstree-apple .jstree-checked > a > .jstree-checkbox:hover {background-position:-38px -37px}
+.jstree-apple .jstree-unchecked > a > .jstree-checkbox:hover {background-position:-2px -37px}
+.jstree-apple .jstree-undetermined > a > .jstree-checkbox:hover {background-position:-20px -37px}
+#vakata-dragged.jstree-apple ins {background:transparent !important}
+#vakata-dragged.jstree-apple .jstree-ok {background:url(../img/d.png) -2px -53px no-repeat !important}
+#vakata-dragged.jstree-apple .jstree-invalid {background:url(../img/d.png) -18px -53px no-repeat !important}
+#jstree-marker.jstree-apple {background:url(../img/d.png) -41px -57px no-repeat !important; text-indent:-100px}
+.jstree-apple a.jstree-search {color:aqua}
+.jstree-apple .jstree-locked a {color:silver; cursor:default}
+#vakata-contextmenu.jstree-apple-context, #vakata-contextmenu.jstree-apple-context li ul {background:#f0f0f0; border:1px solid #979797; 
+	-moz-box-shadow: 1px 1px 2px #999; -webkit-box-shadow: 1px 1px 2px #999; box-shadow: 1px 1px 2px #999}
+#vakata-contextmenu.jstree-apple-context a {color:black}
+#vakata-contextmenu.jstree-apple-context a:hover, #vakata-contextmenu.jstree-apple-context .vakata-hover > a {padding:0 5px; background:#e8eff7; border:1px solid #aecff7; 
+	color:black; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px}
+#vakata-contextmenu.jstree-apple-context li.jstree-contextmenu-disabled a, #vakata-contextmenu.jstree-apple-context li.jstree-contextmenu-disabled a:hover {color:silver; background:transparent; border:0; padding:1px 4px}
+#vakata-contextmenu.jstree-apple-context li.vakata-separator {background:white; border-top:1px solid #e0e0e0; margin:0}
+#vakata-contextmenu.jstree-apple-context li ul {margin-left:-4px}
+
+/* IE6 BEGIN */
+.jstree-apple li, .jstree-apple ins, #vakata-dragged.jstree-apple .jstree-invalid, #vakata-dragged.jstree-apple .jstree-ok, #jstree-marker.jstree-apple {_background-image:url(../img/d.gif)}
+.jstree-apple .jstree-open ins {_background-position:-72px 0}
+.jstree-apple .jstree-closed ins {_background-position:-54px 0}
+.jstree-apple .jstree-leaf ins {_background-position:-36px 0}
+.jstree-apple a ins.jstree-icon {_background-position:-56px -19px}
+#vakata-contextmenu.jstree-apple-context ins {_display:none}
+#vakata-contextmenu.jstree-apple-context li {_zoom:1}
+.jstree-apple .jstree-undetermined a .jstree-checkbox {_background-position:-20px -19px}
+.jstree-apple .jstree-checked a .jstree-checkbox {_background-position:-38px -19px}
+.jstree-apple .jstree-unchecked a .jstree-checkbox {_background-position:-2px -19px}
+/* IE6 END */
+
+/* jstree-apple--end
+-----------------------------------------*/
+
+/* jstree-classic--begin
+-----------------------------------------*/
+.jstree-classic li, .jstree-classic ins {background-image:url(../img/d.png); background-repeat:no-repeat; background-color:transparent}
+.jstree-classic li {background-position:-90px 0; background-repeat:repeat-y}
+.jstree-classic li.jstree-last {background:transparent}
+.jstree-classic .jstree-open > ins {background-position:-72px 0}
+.jstree-classic .jstree-closed > ins {background-position:-54px 0}
+.jstree-classic .jstree-leaf > ins {background-position:-36px 0}
+.jstree-classic .jstree-hovered {background:#e7f4f9; border:1px solid #e7f4f9; padding:0 2px 0 1px}
+.jstree-classic .jstree-clicked {background:navy; border:1px solid navy; padding:0 2px 0 1px; color:white}
+.jstree-classic a .jstree-icon {background-position:-56px -19px}
+.jstree-classic .jstree-open > a .jstree-icon {background-position:-56px -36px}
+.jstree-classic a.jstree-loading .jstree-icon {background:url(../img/throbber.gif) center center no-repeat !important}
+.jstree-classic.jstree-focused {background:white}
+.jstree-classic .jstree-no-dots li, .jstree-classic .jstree-no-dots .jstree-leaf > ins {background:transparent}
+.jstree-classic .jstree-no-dots .jstree-open > ins {background-position:-18px 0}
+.jstree-classic .jstree-no-dots .jstree-closed > ins {background-position:0 0}
+.jstree-classic .jstree-no-icons a .jstree-icon {display:none}
+.jstree-classic .jstree-search {font-style:italic}
+.jstree-classic .jstree-no-icons .jstree-checkbox {display:inline-block}
+.jstree-classic .jstree-no-checkboxes .jstree-checkbox {display:none !important}
+.jstree-classic .jstree-checked > a > .jstree-checkbox {background-position:-38px -19px}
+.jstree-classic .jstree-unchecked > a > .jstree-checkbox {background-position:-2px -19px}
+.jstree-classic .jstree-undetermined > a > .jstree-checkbox {background-position:-20px -19px}
+.jstree-classic .jstree-checked > a > .jstree-checkbox:hover {background-position:-38px -37px}
+.jstree-classic .jstree-unchecked > a > .jstree-checkbox:hover {background-position:-2px -37px}
+.jstree-classic .jstree-undetermined > a > .jstree-checkbox:hover {background-position:-20px -37px}
+#vakata-dragged.jstree-classic ins {background:transparent !important}
+#vakata-dragged.jstree-classic .jstree-ok {background:url(../img/d.png) -2px -53px no-repeat !important}
+#vakata-dragged.jstree-classic .jstree-invalid {background:url(../img/d.png) -18px -53px no-repeat !important}
+#jstree-marker.jstree-classic {background:url(../img/d.png) -41px -57px no-repeat !important; text-indent:-100px}
+.jstree-classic a.jstree-search {color:aqua}
+.jstree-classic .jstree-locked a {color:silver; cursor:default}
+#vakata-contextmenu.jstree-classic-context, #vakata-contextmenu.jstree-classic-context li ul {background:#f0f0f0; border:1px solid #979797; 
+	-moz-box-shadow: 1px 1px 2px #999; -webkit-box-shadow: 1px 1px 2px #999; box-shadow: 1px 1px 2px #999}
+#vakata-contextmenu.jstree-classic-context a {color:black}
+#vakata-contextmenu.jstree-classic-context a:hover, #vakata-contextmenu.jstree-classic-context .vakata-hover > a {padding:0 5px; background:#e8eff7;
+	border:1px solid #aecff7; color:black; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px}
+#vakata-contextmenu.jstree-classic-context li.jstree-contextmenu-disabled a, #vakata-contextmenu.jstree-classic-context li.jstree-contextmenu-disabled a:hover {color:silver; background:transparent; border:0; padding:1px 4px}
+#vakata-contextmenu.jstree-classic-context li.vakata-separator {background:white; border-top:1px solid #e0e0e0; margin:0}
+#vakata-contextmenu.jstree-classic-context li ul {margin-left:-4px}
+
+/* IE6 BEGIN */
+.jstree-classic li, .jstree-classic ins, #vakata-dragged.jstree-classic .jstree-invalid, #vakata-dragged.jstree-classic .jstree-ok, #jstree-marker.jstree-classic {_background-image:url(../img/d.gif)}
+.jstree-classic .jstree-open ins {_background-position:-72px 0}
+.jstree-classic .jstree-closed ins {_background-position:-54px 0}
+.jstree-classic .jstree-leaf ins {_background-position:-36px 0}
+.jstree-classic .jstree-open a ins.jstree-icon {_background-position:-56px -36px}
+.jstree-classic .jstree-closed a ins.jstree-icon {_background-position:-56px -19px}
+.jstree-classic .jstree-leaf a ins.jstree-icon {_background-position:-56px -19px}
+#vakata-contextmenu.jstree-classic-context ins {_display:none}
+#vakata-contextmenu.jstree-classic-context li {_zoom:1}
+.jstree-classic .jstree-undetermined a .jstree-checkbox {_background-position:-20px -19px}
+.jstree-classic .jstree-checked a .jstree-checkbox {_background-position:-38px -19px}
+.jstree-classic .jstree-unchecked a .jstree-checkbox {_background-position:-2px -19px}
+/* IE6 END */
+
+/* jstree-classic--end
+-----------------------------------------*/
+
+/* jstree-default--begin
+-----------------------------------------*/
+.jstree-default li, .jstree-default ins {background-image:url(../img/d.png); background-repeat:no-repeat; background-color:transparent}
+.jstree-default li {background-position:-90px 0; background-repeat:repeat-y}
+.jstree-default li.jstree-last {background:transparent}
+.jstree-default .jstree-open > ins {background-position:-72px 0}
+.jstree-default .jstree-closed > ins {background-position:-54px 0}
+.jstree-default .jstree-leaf > ins {background-position:-36px 0}
+.jstree-default .jstree-hovered {background:#e7f4f9; border:1px solid #d8f0fa; padding:0 2px 0 1px}
+.jstree-default .jstree-clicked {background:#beebff; border:1px solid #99defd; padding:0 2px 0 1px}
+.jstree-default a .jstree-icon {background-position:-56px -19px}
+.jstree-default a.jstree-loading .jstree-icon {background:url(../img/throbber.gif) center center no-repeat !important}
+.jstree-default.jstree-focused {background:#ffffee}
+.jstree-default .jstree-no-dots li, .jstree-default .jstree-no-dots .jstree-leaf > ins {background:transparent}
+.jstree-default .jstree-no-dots .jstree-open > ins {background-position:-18px 0}
+.jstree-default .jstree-no-dots .jstree-closed > ins {background-position:0 0}
+.jstree-default .jstree-no-icons a .jstree-icon {display:none}
+.jstree-default .jstree-search {font-style:italic}
+.jstree-default .jstree-no-icons .jstree-checkbox {display:inline-block}
+.jstree-default .jstree-no-checkboxes .jstree-checkbox {display:none !important}
+.jstree-default .jstree-checked > a > .jstree-checkbox {background-position:-38px -19px}
+.jstree-default .jstree-unchecked > a > .jstree-checkbox {background-position:-2px -19px}
+.jstree-default .jstree-undetermined > a > .jstree-checkbox {background-position:-20px -19px}
+.jstree-default .jstree-checked > a > .jstree-checkbox:hover {background-position:-38px -37px}
+.jstree-default .jstree-unchecked > a > .jstree-checkbox:hover {background-position:-2px -37px}
+.jstree-default .jstree-undetermined > a > .jstree-checkbox:hover {background-position:-20px -37px}
+#vakata-dragged.jstree-default ins {background:transparent !important}
+#vakata-dragged.jstree-default .jstree-ok {background:url(../img/d.png) -2px -53px no-repeat !important}
+#vakata-dragged.jstree-default .jstree-invalid {background:url(../img/d.png) -18px -53px no-repeat !important}
+#jstree-marker.jstree-default {background:url(../img/d.png) -41px -57px no-repeat !important; text-indent:-100px}
+.jstree-default a.jstree-search {color:aqua}
+.jstree-default .jstree-locked a {color:silver; cursor:default}
+#vakata-contextmenu.jstree-default-context, #vakata-contextmenu.jstree-default-context li ul {background:#f0f0f0; border:1px solid #979797;
+	-moz-box-shadow: 1px 1px 2px #999; -webkit-box-shadow: 1px 1px 2px #999; box-shadow: 1px 1px 2px #999}
+#vakata-contextmenu.jstree-default-context a {color:black}
+#vakata-contextmenu.jstree-default-context a:hover, 
+#vakata-contextmenu.jstree-default-context .vakata-hover > a {padding:0 5px; background:#e8eff7; border:1px solid #aecff7; color:black; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px}
+#vakata-contextmenu.jstree-default-context li.jstree-contextmenu-disabled a, #vakata-contextmenu.jstree-default-context li.jstree-contextmenu-disabled a:hover {color:silver; background:transparent; border:0; padding:1px 4px}
+#vakata-contextmenu.jstree-default-context li.vakata-separator {background:white; border-top:1px solid #e0e0e0; margin:0}
+#vakata-contextmenu.jstree-default-context li ul {margin-left:-4px}
+
+/* IE6 BEGIN */
+.jstree-default li, .jstree-default ins, #vakata-dragged.jstree-default .jstree-invalid, #vakata-dragged.jstree-default .jstree-ok, #jstree-marker.jstree-default {_background-image:url(../img/d.gif)}
+.jstree-default .jstree-open ins {_background-position:-72px 0}
+.jstree-default .jstree-closed ins {_background-position:-54px 0}
+.jstree-default .jstree-leaf ins {_background-position:-36px 0}
+.jstree-default a ins.jstree-icon {_background-position:-56px -19px}
+#vakata-contextmenu.jstree-default-context ins {_display:none}
+#vakata-contextmenu.jstree-default-context li {_zoom:1}
+.jstree-default .jstree-undetermined a .jstree-checkbox {_background-position:-20px -19px}
+.jstree-default .jstree-checked a .jstree-checkbox {_background-position:-38px -19px}
+.jstree-default .jstree-unchecked a .jstree-checkbox {_background-position:-2px -19px}
+/* IE6 END */
+/* jstree-default--end
+-----------------------------------------*/

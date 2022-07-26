@@ -1,0 +1,25 @@
+{% load i18n %}
+<!-- 微信解绑层 -->
+<div id="unbind_weixin" class="modal" tabindex="-1" role="dialog" style="margin-top:50px;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{% trans '微信解绑确认' %}</h4>
+            </div>
+            <form method='post' action="{{SITE_URL}}user_center/weixin/unbind_wx_user_info/">
+            <div style="display:none;"><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}"></div>
+            <div class="modal-body">
+                <p class="code_tip">{% trans '您确定要解绑该微信号码吗？' %}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">{% trans '确认' %}</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans '取消' %}</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 微信解绑层 end -->

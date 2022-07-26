@@ -1,0 +1,168 @@
+
+@font-face {font-family: "bkfont";
+  src: url('./font/iconfont.eot?t=1493968053898'); /* IE9*/
+  src: url('./font/iconfont.eot?t=1493968053898#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./font/iconfont.woff?t=1493968053898') format('woff'), /* chrome, firefox */
+  url('./font/iconfont.ttf?t=1493968053898') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('./font/iconfont.svg?t=1493968053898#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.bk-icon {
+  font-family:"bkfont" !important;
+  font-size: inherit;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*兼容fa处理*/
+.fa{
+  font-family: FontAwesome !important;
+}
+
+.icon-angle-left:before { content: "\e601"; }
+
+.icon-angle-down:before { content: "\e606"; }
+
+.icon-angle-up:before { content: "\e607"; }
+
+.icon-area-chart:before { content: "\e608"; }
+
+.icon-bk:before { content: "\e609"; }
+
+.icon-apps:before { content: "\e60a"; }
+
+.icon-angle-right:before { content: "\e60b"; }
+
+.icon-circle:before { content: "\e60c"; }
+
+.icon-check1:before { content: "\e60d"; }
+
+.icon-check2:before { content: "\e60e"; }
+
+.icon-clipboard:before { content: "\e60f"; }
+
+.icon-calendar:before { content: "\e610"; }
+
+.icon-chain:before { content: "\e611"; }
+
+.icon-clock:before { content: "\e612"; }
+
+.icon-close2:before { content: "\e613"; }
+
+.icon-close1:before { content: "\e614"; }
+
+.icon-dashboard2:before { content: "\e615"; }
+
+.icon-dashboard1:before { content: "\e616"; }
+
+.icon-data2:before { content: "\e617"; }
+
+.icon-data1:before { content: "\e618"; }
+
+.icon-dedent:before { content: "\e619"; }
+
+.icon-download:before { content: "\e61a"; }
+
+.icon-email:before { content: "\e61b"; }
+
+.icon-edit:before { content: "\e61c"; }
+
+.icon-empty:before { content: "\e61d"; }
+
+.icon-end:before { content: "\e61e"; }
+
+.icon-exclamation-circle:before { content: "\e61f"; }
+
+.icon-exclamation-triangle:before { content: "\e620"; }
+
+.icon-eye-slash:before { content: "\e621"; }
+
+.icon-file:before { content: "\e622"; }
+
+.icon-file-plus:before { content: "\e623"; }
+
+.icon-eye:before { content: "\e624"; }
+
+.icon-folder-plus:before { content: "\e625"; }
+
+.icon-folder:before { content: "\e626"; }
+
+.icon-home:before { content: "\e627"; }
+
+.icon-indent:before { content: "\e628"; }
+
+.icon-id:before { content: "\e629"; }
+
+.icon-info-circle:before { content: "\e62a"; }
+
+.icon-key:before { content: "\e62b"; }
+
+.icon-list:before { content: "\e62c"; }
+
+.icon-lock:before { content: "\e62d"; }
+
+.icon-minus-circle:before { content: "\e62e"; }
+
+.icon-mobile:before { content: "\e62f"; }
+
+.icon-minus-square:before { content: "\e630"; }
+
+.icon-pc:before { content: "\e631"; }
+
+.icon-pie-chart:before { content: "\e632"; }
+
+.icon-password:before { content: "\e633"; }
+
+.icon-move:before { content: "\e634"; }
+
+.icon-play:before { content: "\e635"; }
+
+.icon-plus:before { content: "\e636"; }
+
+.icon-plus-circle:before { content: "\e637"; }
+
+.icon-plus-square:before { content: "\e638"; }
+
+.icon-qq:before { content: "\e639"; }
+
+.icon-refresh:before { content: "\e63a"; }
+
+.icon-save:before { content: "\e63b"; }
+
+.icon-sina:before { content: "\e63c"; }
+
+.icon-sitemap:before { content: "\e63d"; }
+
+.icon-sort:before { content: "\e63e"; }
+
+.icon-star:before { content: "\e63f"; }
+
+.icon-upload:before { content: "\e640"; }
+
+.icon-unlock:before { content: "\e641"; }
+
+.icon-user:before { content: "\e642"; }
+
+.icon-weixin:before { content: "\e643"; }
+
+.icon-ba-chart:before { content: "\e644"; }
+
+.icon-info:before { content: "\e645"; }
+
+.icon-exclamation:before { content: "\e646"; }
+
+.icon-search:before { content: "\e647"; }
+
+.icon-line_chart:before { content: "\e648"; }
+
+.icon-cog:before { content: "\e649"; }
+
+.icon-heart:before { content: "\e64a"; }
+
+.icon-next:before { content: "\e64b"; }
+
+.icon-last:before { content: "\e64c"; }
+
+.icon-prev:before { content: "\e64d"; }
+
+.icon-first:before { content: "\e64e"; }
