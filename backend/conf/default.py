@@ -55,7 +55,7 @@ PAAS_APP_ID = "bk_paas"
 SECRET_KEY = "u39(-@%)6qf1&(d8i!1x_fpzb@n4dgbzkd6y-2bqxdj0f&l^3w"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
