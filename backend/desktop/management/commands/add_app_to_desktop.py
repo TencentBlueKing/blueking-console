@@ -1,9 +1,14 @@
+import logging
+
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand
 from django.db import models, transaction
 
 from account.models import BkUser
 from app.models import App
 from desktop.models import UserApp, UserSettings, Wallpaper
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
