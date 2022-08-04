@@ -75,11 +75,9 @@ urlpatterns += i18n_patterns(
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 static_serve = login_exempt(django.views.static.serve)
 urlpatterns.append(url(r"^media/(?P<path>.*)$", static_serve, {"document_root": settings.MEDIA_ROOT}))
+urlpatterns.append(url(r"^console/static/(?P<path>.*)$", static_serve, {"document_root": settings.STATIC_ROOT}))
 
 # for pormetheus metrics
 from django_prometheus import exports  # noqa
 
 urlpatterns.append(url(r"^metrics$", login_exempt(exports.ExportToDjangoView), name="prometheus-django-metrics"))
-
-# for static
-urlpatterns += staticfiles_urlpatterns()

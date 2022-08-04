@@ -73,7 +73,7 @@ BLUEKING.base = (function(){
 			    ok: function () {
 					BLUEKING.base.logout_handler();
 			    },
-			    cancel: true
+				cancel: function () { }
 			});
 		},
 		setLanguage: function(language, callback){
