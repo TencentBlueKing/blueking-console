@@ -70,7 +70,7 @@ class UserSettings(models.Model):
     dockpos = models.CharField(u"应用码头位置", choices=DOCKPOS_CHOICES, max_length=20, default="left")
     skin = models.CharField(u"窗口皮肤", choices=SKIN_CHOICES, max_length=20, default="mac")
     wallpaper_id = models.IntegerField(u"壁纸ID", default=1)
-    wallpaper_type = models.CharField(u"壁纸显示方式", choices=WALLPAPER_TYPE_CHOICES, max_length=20, default="tianchong")
+    wallpaper_type = models.CharField(u"壁纸显示方式", choices=WALLPAPER_TYPE_CHOICES, max_length=20, default="lashen")
     dock = models.TextField(u"[应用码头]应用id", default="", blank=True, null=True, help_text=u"用“,”相连")  # 应用拖动的时候需要用
     desk1 = models.TextField(u"[桌面1]应用id", default="", blank=True, null=True, help_text=u"用“,”相连")  # 应用拖动的时候需要用
     desk2 = models.TextField(u"[桌面2]应用id", default="", blank=True, null=True, help_text=u"用“,”相连")  # 应用拖动的时候需要用

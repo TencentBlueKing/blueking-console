@@ -117,7 +117,7 @@ def wallpaper(request):
     """
     # 获取默认壁纸
     wallpaper_id_default = Wallpaper.objects.get_default_wallpaper()
-    wallpaper_type_default = "tianchong"
+    wallpaper_type_default = "lashen"
     # 查询目前的壁纸设置
     try:
         user_settings = UserSettings.objects.get(user=request.user)
@@ -143,7 +143,7 @@ def get_wallpaper(request):
     """
     # 获取默认壁纸
     wallpaper_id_default = Wallpaper.objects.get_default_wallpaper()
-    wallpaper_type_default = "tianchong"
+    wallpaper_type_default = "lashen"
     try:
         # 查询用户的壁纸信息,如果为空，则使用默认值
         try:
@@ -162,9 +162,7 @@ def get_wallpaper(request):
         wallpaper = "1<{|}>%s<{|}>%s<{|}>%d<{|}>%d" % (wp_url, wallpaper_type, user_wp.width, user_wp.height)
     except Exception as error:
         logger.error("An error occurred in getting wallpaper, Error message: %s" % error)
-        wallpaper = (
-            "1<{|}>" + settings.STATIC_URL + "img/wallpaper/wallpaper1.jpg<{|}>tianchong<{|}>1920<{|}>1080"
-        )  # 默认值
+        wallpaper = "1<{|}>" + settings.STATIC_URL + "img/wallpaper/wallpaper1.jpg<{|}>lashen<{|}>1920<{|}>1080"  # 默认值
     return HttpResponse(wallpaper)
 
 
@@ -175,7 +173,7 @@ def set_wallpaper(request):
     # 选择的壁纸(1,2,3,4,5,6,7,8...)
     wp = request.POST.get("wp", "")
     # 壁纸的显示方式(tianchong,lashen...)
-    wptype = request.POST.get("wptype", "tianchong")
+    wptype = request.POST.get("wptype", "lashen")
     # 修改wallpaper的设置, note:如果wp为空，则表示不修改该属性
     UserSettings.objects.update_user_wallpaper(request.user, wp, wptype)
     return HttpResponse()

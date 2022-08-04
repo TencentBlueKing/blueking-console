@@ -137,7 +137,7 @@ class App(models.Model):
     use_count = models.IntegerField(u"使用人数", default=0, help_text=u"添加了该应用的人数，note：用户卸载应用后，要相应的减1")
     is_default = models.BooleanField(u"是否为默认应用", default=False, help_text=u"默认应用将在用户首次进入工作台时自动到用户桌面")
     is_display = models.BooleanField(u"是否在桌面展示", default=True, help_text=u"选项: true(有)，false(无)")
-    open_mode = models.CharField(u"应用打开方式", max_length=20, choices=OPENMODE_CHOICES, default="desktop")
+    open_mode = models.CharField(u"应用打开方式", max_length=20, choices=OPENMODE_CHOICES, default="new_tab")
 
     # 第三方应用
     is_third = models.BooleanField("是否为第三方应用", default=False, help_text=u"第三方应用，即外部应用，不走自动部署")

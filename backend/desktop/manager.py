@@ -168,7 +168,7 @@ class UserSettingsManager(models.Manager):
             if not user_set:
                 # 获取默认的壁纸
                 wallpaper_id_default = Wallpaper.objects.get_default_wallpaper()
-                wallpaper_type_default = "tianchong"
+                wallpaper_type_default = "lashen"
                 self.model(user=user, wallpaper_id=wallpaper_id_default, wallpaper_type=wallpaper_type_default).save()
                 # 将（已上线）默认应用添加到用户桌面
                 default_app = App.objects.filter(is_already_online=True, state__gt=1, is_default=True).values_list(

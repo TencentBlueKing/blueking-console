@@ -5,27 +5,27 @@ repos:
         name: Check sensitive info
         verbose: true
         language: script
-        entry: pre_commit_hooks/rtx.sh
+        entry: backend/pre_commit_hooks/rtx.sh
       - id: IP check
         name: Check sensitive info
         verbose: true
         language: script
-        entry: pre_commit_hooks/ip.sh
+        entry: backend/pre_commit_hooks/ip.sh
       - id: isort
         name: isort
         language: python
         types: [python]
         pass_filenames: false
-        entry: isort --settings-path=pyproject.toml .
+        entry: isort --settings-path=backend/pyproject.toml .
       - id: black
         name: black
         language: python
         types: [python]
         pass_filenames: false
-        entry: black --config=pyproject.toml .
-      - id: flake8
-        name: flak8
-        language: python
-        types: [python]
-        pass_filenames: false
-        entry: pflake8 --config=pyproject.toml
+        entry: black --config=backend/pyproject.toml .
+      # - id: flake8
+      #   name: flak8
+      #   language: python
+      #   types: [python]
+      #   pass_filenames: false
+      #   entry: pflake8 --config=backend/pyproject.toml

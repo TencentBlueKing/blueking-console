@@ -25,6 +25,9 @@ import urllib3
 
 env = environ.Env()
 
+# Generic Django project settings
+DEBUG = env.bool("DEBUG", False)
+
 # 数据库配置信息
 DATABASES = {
     "default": {
