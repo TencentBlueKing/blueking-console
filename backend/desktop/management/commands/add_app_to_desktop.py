@@ -47,6 +47,6 @@ class Command(BaseCommand):
 
             # 将用户添加的所有应用更新都桌面
             app_id_list = UserApp.objects.filter(user=user).values_list('id', flat=True)
-            # app_id_list = [str(app_id) for app_id in app_id_list]
+            app_id_list = [str(app_id) for app_id in app_id_list]
             user_setting.desk1 = ",".join(app_id_list)
             user_setting.save()
