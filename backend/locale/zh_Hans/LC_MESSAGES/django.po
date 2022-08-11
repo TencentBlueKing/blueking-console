@@ -653,7 +653,7 @@ msgstr ""
 #: templates/desktop/desk_setting.html:6 templates/desktop/index.html:6
 #: templates/desktop/market.html:6 templates/desktop/market_app_detail.html:6
 #: templates/desktop/skin.html:6 templates/desktop/wallpaper.html:6
-msgid "桌面 | 蓝鲸蓝鲸智云"
+msgid "桌面 | 腾讯蓝鲸智云"
 msgstr ""
 
 #: templates/desktop/desk_setting.html:7 templates/desktop/index.html:7

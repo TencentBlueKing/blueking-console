@@ -28,9 +28,9 @@ from components import usermgr
 
 def _get_response(request):
     next = request.POST.get("next", request.GET.get("next"))
-    if not is_safe_url(url=next, host=request.get_host()):
+    if not is_safe_url(next, request.get_host()):
         next = request.META.get("HTTP_REFERER")
-        if not is_safe_url(url=next, host=request.get_host()):
+        if not is_safe_url(next, request.get_host()):
             next = "/"
     return HttpResponseRedirect(next)
 
