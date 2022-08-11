@@ -3,6 +3,7 @@ import logging
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand
 from django.db import models, transaction
+from django.db.models import F
 
 from account.models import BkUser
 from app.models import App
@@ -34,10 +35,8 @@ class Command(BaseCommand):
                 user=user, app=app, defaults={'desk_app_type': 0, 'app_position': 'desk1'}
             )
 
-            # 新添加的应用，则将使用数添加 1
-            if _user_app_create:
-                app.use_count = app.use_count + 1
-                app.save()
+            # app use_count 加1， 不能使用 save 方法，save 方法会自动重新 logo
+            App.objects.filter(code=app_code).update(use_count=F("use_count") + 1)
 
             # 将应用添加到用户的桌面设置中
             user_setting, _c = UserSettings.objects.get_or_create(
