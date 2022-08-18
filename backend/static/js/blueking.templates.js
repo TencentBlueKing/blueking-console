@@ -224,9 +224,7 @@ var helpTemp = template.compile(
 // 版本信息
 var versionInfoTemp = template.compile(
 	'<p>'+
-	    gettext('名称：企业版</br>')+
+		gettext('名称：蓝鲸智云</br>')+
 	    gettext('版本号：<%=version%></br>')+
-	    gettext('有效期：<%=valid_period%></br></br>')+
-	    gettext('温馨提示：当前版本将于<%=expired_time%>过期，请联系技术服务商激活。</br>')+
 	'</p>'
 );

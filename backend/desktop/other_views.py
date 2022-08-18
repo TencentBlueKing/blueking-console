@@ -65,12 +65,7 @@ def get_version_info(request):
         }
         expired_time = valid_end_time.strftime(DATETIME_FORMAT_STRING)
 
-    # get version info from db
-    version = "--"
-    if settings.IS_BK_SUITE_ENABLED:
-        bksuite_info = get_bksuite_info()
-        if bksuite_info and len(bksuite_info) == 1 and bksuite_info[0].get("version"):
-            version = bksuite_info[0]["version"]
+    version = settings.BK_VERSION
     return JsonResponse(
         {
             "result": True,

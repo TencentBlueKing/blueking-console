@@ -94,3 +94,6 @@ IS_IAM_ENABLED = env.bool("IS_IAM_ENABLED", False)
 HOST_CC = env.str("BK_CMDB_ADDR", "")
 # host for job
 HOST_JOB = env.str("BK_JOB_ADDR", "")
+
+# 蓝鲸版本号
+BK_VERSION = env.str("BK_VERSION", "7.0")

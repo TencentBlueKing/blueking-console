@@ -639,8 +639,8 @@ msgid "&nbsp;完&nbsp;成&nbsp;"
 msgstr "&nbsp; Finished &nbsp;"
 
 #: static/js/blueking.templates.js:227 static/js/blueking.templates.min.js:1
-msgid "名称：企业版</br>"
-msgstr "Name: Enterprise Edtion</br>"
+msgid "名称：蓝鲸智云</br>"
+msgstr "Name: BlueKing</br>"
 
 #: static/js/blueking.templates.js:228 static/js/blueking.templates.min.js:1
 msgid "版本号：<%=version%></br>"
