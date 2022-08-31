@@ -166,61 +166,6 @@ class App(models.Model):
         if os.path.exists(_file):
             os.remove(_file)
 
-    def save(self, *args, **kwargs):
-        """
-        保存前修改 logo 存放路径
-        """
-        if not self.logo:
-            return super(App, self).save(*args, **kwargs)
-        # 修改图片名称
-        logo_ext = ".png"
-        # 判断logo名称
-        if self.logo.name.find("\\") >= 0:
-            logo_name = APP_LOGO_IMG_RELATED + "\\" + str(self.code) + logo_ext
-        elif self.logo.name.find("/") >= 0:
-            logo_name = APP_LOGO_IMG_RELATED + "/" + str(self.code) + logo_ext
-        else:
-            logo_name = APP_LOGO_IMG_RELATED + "/" + str(self.code) + logo_ext
-        # 判断图片路径与旧图路径名称是否相同
-        if cmp(logo_name, self.logo.name):
-            logo_name = APP_LOGO_IMG_RELATED + "/" + str(self.code) + logo_ext
-            self._del_exist_file(logo_name)
-            # 指定图片名称
-            self.logo.name = APP_LOGO_IMG_RELATED + "/" + str(self.code) + logo_ext
-        # save操作
-        super(App, self).save(*args, **kwargs)
-
-    @property
-    def logo_url(self):
-        if self.logo:
-            return "%s?v=%s" % (self.logo.url, time.time())
-        else:
-            # 判断 以 app_code 命名的 logo 图片是否存在
-            logo_name = "%s/%s.png" % (APP_LOGO_IMG_RELATED, self.code)
-            logo_path = os.path.join(settings.MEDIA_ROOT, logo_name)
-            if os.path.exists(logo_path):
-                return "%s%s" % (settings.MEDIA_URL, logo_name)
-
-            # 判断是否是上传saas解压生成的文件, 存在的话使用之(saas内置应用上传包中带的logo)
-            logo_name = "%s/%s.png" % (SAAS_APP_LOGO_IMG_RELATED, self.code)
-            logo_path = os.path.join(settings.MEDIA_ROOT, logo_name)
-            if os.path.exists(logo_path):
-                return "%s%s" % (settings.MEDIA_URL, logo_name)
-
-            return "%simg/app_logo/default.png" % settings.STATIC_URL
-
-    @property
-    def get_logo_url(self):
-        if self.logo:
-            return "%s?v=%s" % (self.logo.url, time.time())
-        else:
-            # 判断 以 app_code 命名的 logo 图片是否存在
-            logo_name = "%s/%s.png" % (APP_LOGO_IMG_RELATED, self.code)
-            logo_path = os.path.join(settings.MEDIA_ROOT, logo_name)
-            if os.path.exists(logo_path):
-                return "%s%s" % (settings.MEDIA_URL, logo_name)
-            return "%simg/app_logo/default.png" % settings.STATIC_URL
-
     def tag_name(self):
         if self.tags and self.tags.name_display:
             return self.tags.name_display
