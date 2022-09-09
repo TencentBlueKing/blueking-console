@@ -17,8 +17,8 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
-
 import datetime
+import json
 from builtins import object
 
 from django.db import models
@@ -112,6 +112,42 @@ class ESBChannel(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def channel_conf(self):
+        return {
+            "id": self.id,
+            "perm_level": self.perm_level,
+            "rate_limit_required": self.rate_limit_required,
+            "rate_limit_conf": json.loads(self.rate_limit_conf or "{}"),
+        }
+
+    @property
+    def comp_conf_dict(self):
+        try:
+            if not self.comp_conf:
+                comp_conf = None
+            else:
+                comp_conf = json.loads(self.comp_conf)
+        except Exception:
+            comp_conf = None
+
+        if not comp_conf:
+            return None
+
+        if self.path == "/cmsi/send_weixin/":
+            comp_conf = dict(comp_conf)
+            return {
+                "wx_type": comp_conf.get("wx_type", ""),
+                "wx_app_id": comp_conf.get("wx_app_id", ""),
+                "wx_secret": comp_conf.get("wx_secret", ""),
+                "wx_token": comp_conf.get("wx_token", ""),
+                "wx_qy_corpid": comp_conf.get("wx_qy_corpid", ""),
+                "wx_qy_corpsecret": comp_conf.get("wx_qy_corpsecret", ""),
+                "wx_qy_agentid": comp_conf.get("wx_qy_agentid", ""),
+            }
+
+        return comp_conf
 
 
 class FunctionController(models.Model):

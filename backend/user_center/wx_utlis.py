@@ -31,6 +31,7 @@ def get_wx_config():
     获取微信相关配置
     """
     wx_comp_path = "/cmsi/send_weixin/"
+
     # 检查是否配置了微信通知组件
     if not ESBChannel.objects.filter(path=wx_comp_path).exists():
         return None
