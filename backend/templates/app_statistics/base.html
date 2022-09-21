@@ -20,7 +20,6 @@
 				{% load tostartswith %}
 				<li {% if SITE_URL|add:'app_statistics/online_time/'|tostartswith:APP_PATH or SITE_URL|add:'app_statistics/' == APP_PATH %} class="active" {% endif %}><a href="{{SITE_URL}}app_statistics/online_time/">{% trans '在线时长统计' %}</a></li>
 				<li {% if SITE_URL|add:'app_statistics/visit/'|tostartswith:APP_PATH %} class="active" {% endif %}><a href="{{SITE_URL}}app_statistics/visit/">{% trans '访问量统计' %}</a></li>
-				<li {% if SITE_URL|add:'app_statistics/liveness/'|tostartswith:APP_PATH %} class="active" {% endif %}><a href="{{SITE_URL}}app_statistics/liveness/">{% trans '活跃度统计' %}</a></li>
 				<li {% if SITE_URL|add:'app_statistics/app_update/'|tostartswith:APP_PATH %} class="active" {% endif %}><a href="{{SITE_URL}}app_statistics/app_update/">{% trans '应用更新情况统计' %}</a></li>
 			</ul>
 		</div>
