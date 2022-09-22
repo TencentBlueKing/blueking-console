@@ -29,7 +29,6 @@ from app.constants import OpenModeEnum
 from app.models import App
 from common.constants import DESKTOP_DEFAULT_APP_HEIGHT, DESKTOP_DEFAULT_APP_WIDTH
 from common.exceptions import ConsoleErrorCodes
-from common.filters.auth import has_access_developer_center_permission
 from common.log import logger
 from desktop.constants import DEFALUT_FOLDER_ICO
 from desktop.models import UserApp, UserSettings, Wallpaper
@@ -40,11 +39,7 @@ def index(request):
     """
     桌面首页
     """
-
-    has_develope_center_view_permission = has_access_developer_center_permission(request.user.username)
-    return render(
-        request, "desktop/index.html", {"has_develope_center_view_permission": has_develope_center_view_permission}
-    )
+    return render(request, "desktop/index.html")
 
 
 def desk_setting(request):

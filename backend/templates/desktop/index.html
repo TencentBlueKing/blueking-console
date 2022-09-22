@@ -87,12 +87,10 @@
                                 <div><img src="{{STATIC_URL}}img/shortcut/tool_app/user_center.png" title="{% trans '个人中心' %}" alt="{% trans '个人中心' %}"></div>
                                 <span>{% trans '个人中心' %}</span>
                             </li>
-                            {% if has_develope_center_view_permission %}
-                                <li class="appbtn_dock" id="developer">
-                                    <div><img src="{{STATIC_URL}}img/shortcut/tool_app/developer.png?v=1" title="{% trans '开发者中心' %}" alt="{% trans '开发者中心' %}"></div>
-                                    <span>{% trans '开发者中心' %}</span>
-                                </li>
-                            {% endif %}
+                            <li class="appbtn_dock" id="developer">
+                                <div><img src="{{STATIC_URL}}img/shortcut/tool_app/developer.png?v=1" title="{% trans '开发者中心' %}" alt="{% trans '开发者中心' %}"></div>
+                                <span>{% trans '开发者中心' %}</span>
+                            </li>
                             <li class="appbtn_dock" id="app_statistics">
                                 <div><img src="{{STATIC_URL}}img/shortcut/tool_app/app_statistics.png" title="{% trans '统计' %}" alt="{% trans '统计' %}"></div>
                                 <span>{% trans '统计' %}</span>
