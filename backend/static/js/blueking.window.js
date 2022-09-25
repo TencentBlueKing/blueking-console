@@ -276,6 +276,8 @@ BLUEKING.window = (function(){
 									}
 								}
 							}
+							// 记录app使用信息
+							BLUEKING.api.app_record_by_user(options.realappid);
 							if(options.open_mode == "new_tab") {
 								// 新标签打开
 								window.open(_url, "_blank");
@@ -355,8 +357,6 @@ BLUEKING.window = (function(){
 							  }).time(2)
 								$('.popup-menu').hide();
 							});
-							// 记录app使用信息
-							BLUEKING.api.app_record_by_user(options.realappid);
 							break;
 						case 'folder':
 							//新增任务栏
