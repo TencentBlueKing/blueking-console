@@ -26,7 +26,7 @@ The BlueKing Console is the display and access portal of BlueKing SaaS. BlueKing
 
 ## Support
 
-- [FAQ(In Chinese)](https://github.com/Tencent/bk-PaaS/wiki/FAQ)
+- [FAQ(In Chinese)](https://bk.tencent.com/docs/markdown/PaaS平台/产品白皮书/常见问题/FAQ.md)
 - [white paper(In Chinese)](https://bk.tencent.com/docs/markdown/PaaS平台/产品白皮书/产品功能/PersonalWorkbenchEE.md)
 - [bk forum](https://bk.tencent.com/s-mart/community)
 - [bk DevOps online video tutorial(In Chinese)](https://bk.tencent.com/s-mart/video/)
