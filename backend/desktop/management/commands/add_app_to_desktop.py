@@ -2,7 +2,7 @@ import logging
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand
-from django.db import models, transaction
+from django.db import models, transaction  # noqa
 from django.db.models import F
 
 from account.models import BkUser

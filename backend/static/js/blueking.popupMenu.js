@@ -251,8 +251,8 @@ BLUEKING.popupMenu = (function(){
 			});
 			// 重命名文件夹
 			$('.folder-menu a[menu="rename"]').off('click').on('click', function(){
-				$.dialog({
-					id : 'addfolder',
+				art.dialog({
+					lock: true,
 					title : gettext('重命名“') + obj.find('span').text() + gettext('”文件夹'),
 					padding : 0,
 					content : editFolderDialogTemp({
@@ -286,7 +286,7 @@ BLUEKING.popupMenu = (function(){
 							return false;
 						}
 					},
-					cancel : true,
+					cancel: function () { },
 					okVal: gettext('确定'),
                 	cancelVal: gettext('取消'),
 				});
@@ -386,10 +386,9 @@ BLUEKING.popupMenu = (function(){
 		 * 新建文件夹
 		*/
 		open_create_folder: function(){
-			$.dialog({
-				id : 'addfolder',
+			art.dialog({
+				lock: true,
 				title : gettext('新建文件夹'),
-				padding : 0,
 				content : editFolderDialogTemp({
 					'name' : gettext('新建文件夹'),
 					'src' : staticUrl + 'img/base_ui/folder_default.png'
@@ -427,7 +426,7 @@ BLUEKING.popupMenu = (function(){
 						return false;
 					}
 				},
-				cancel : true,
+				cancel: function () { },
 				okVal: gettext('确定'),
                 cancelVal: gettext('取消'),
 			});

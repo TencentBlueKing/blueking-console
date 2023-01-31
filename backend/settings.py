@@ -22,13 +22,7 @@ import os
 from conf.default import *  # noqa
 
 """
-You can load different configurations depending on yourcurrent environment.
-
- This can be the following values:
-
-      development
-      testing
-      production
+The configuration of different environments can be distinguished by configuring environment variables
 """
 
 ENVIRONMENT = os.environ.get("BK_ENV", "env")

@@ -97,3 +97,9 @@ HOST_JOB = env.str("BK_JOB_ADDR", "")
 
 # 蓝鲸版本号
 BK_VERSION = env.str("BK_VERSION", "7.0")
+
+
+try:
+    from conf.local_settings import *  # noqa
+except ImportError:
+    pass

@@ -18,15 +18,14 @@ We undertake not to change the open source license (MIT license) applicable
 to the current version of the project delivered to anyone in the future.
 """
 import os
-import time
-from builtins import object, str
+from builtins import object, str  # noqa
 
 from django.conf import settings
 from django.db import models
 from django.db.models.deletion import SET_NULL
 from django.utils import timezone
 from django.utils.translation import ugettext as _
-from past.builtins import cmp
+from past.builtins import cmp  # noqa
 
 from app.constants import (
     BLUEKING_CREATER_DICT,

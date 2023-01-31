@@ -648,7 +648,7 @@ BLUEKING.app = (function(){
 		checkIsMoving : function(){
 			var rtn = false;
 			if(BLUEKING.VAR.isAppMoving){
-				$.dialog({
+				art.dialog({
 					title : gettext('温馨提示'),
 					icon : 'warning',
 					content : gettext('数据正在处理中，请稍后。'),
@@ -661,7 +661,7 @@ BLUEKING.app = (function(){
 			return rtn;
 		},
 		dataWarning : function(){
-			$.dialog({
+			art.dialog({
 				title : gettext('温馨提示'),
 				icon : 'warning',
 				content : gettext('数据错误，请刷新后重试。'),

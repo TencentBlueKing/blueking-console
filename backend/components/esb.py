@@ -47,10 +47,14 @@ def _call_esb_api(http_func, url_path, data, timeout=30):
     url = "http://{}{}".format(settings.PAAS_INNER_DOMAIN, url_path)
 
     ok, resp_data = http_func(url, data, headers=headers)
+
+    # 调用 API 的返回数据中有 request_id，出错时需要将 request_id 记录到日志中方便排查
+    request_id = resp_data.get("request_id", "")
     if not ok:
         message = resp_data["error"]
         logger.error(
-            "call esb api failed! %s %s, data: %s, error: %s",
+            "call esb api failed! request_id:%s, %s %s, data: %s, error: %s",
+            request_id,
             http_func.__name__,
             url,
             _remove_sensitive_info(data),
@@ -70,7 +74,8 @@ def _call_esb_api(http_func, url_path, data, timeout=30):
         return True, 0, "ok", resp_data["data"]
 
     logger.error(
-        "call esb api error! %s %s, data: %s, code: %s, message: %s",
+        "call esb api error! request_id:%s, %s %s, data: %s, code: %s, message: %s",
+        request_id,
         http_func.__name__,
         url,
         _remove_sensitive_info(data),
