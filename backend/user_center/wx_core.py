@@ -27,6 +27,7 @@ from builtins import object, str
 
 import requests
 from django.conf import settings
+from django.utils.encoding import force_bytes
 from django.utils.http import urlencode
 from django.utils.translation import ugettext as _
 
@@ -187,7 +188,7 @@ class WeiXinMpApi(WeiXinApiBase):
         if not nonce:
             return False, _(u"验证失败：nonce参数不能为空")
         raw = "".join(sorted([self.token, timestamp, nonce]))
-        _sign = hashlib.sha1(raw).hexdigest()
+        _sign = hashlib.sha1(force_bytes(raw)).hexdigest()
         if _sign != signature:
             return False, _(u"验证失败：signature错误")
         return True, ""
