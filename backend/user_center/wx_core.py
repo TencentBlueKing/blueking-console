@@ -187,7 +187,7 @@ class WeiXinMpApi(WeiXinApiBase):
         if not nonce:
             return False, _(u"验证失败：nonce参数不能为空")
         raw = "".join(sorted([self.token, timestamp, nonce]))
-        _sign = hashlib.sha1(raw).hexdigest()
+        _sign = hashlib.sha1(raw.encode('utf-8')).hexdigest()
         if _sign != signature:
             return False, _(u"验证失败：signature错误")
         return True, ""
