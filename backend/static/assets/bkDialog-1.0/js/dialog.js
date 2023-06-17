@@ -12,9 +12,9 @@
             zIndex: 1024,
             quickClose: false,
             content: '',
-            okValue: '确定',
+            okValue: gettext('确定'),
             ok: null,
-            cancelValue: '取消',
+            cancelValue: gettext('取消'),
             cancel: null,
             onshow: null,
             onclose: null
