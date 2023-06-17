@@ -54,9 +54,6 @@ CREATOR_TAG_CHOICES = [
     (AppCreatorTagEnum.EEUSER, _(u"用户自建")),
     (AppCreatorTagEnum.BLUEKING, _(u"蓝鲸智云")),
     (AppCreatorTagEnum.JIAWEI, _(u"嘉为蓝鲸")),
-    (AppCreatorTagEnum.QIZHI, _(u"齐治科技")),
-    (AppCreatorTagEnum.HAOXI, _(u"皓西科技")),
-    (AppCreatorTagEnum.HONGYUCHUANGZHANG, _(u"红雨创展")),
     (AppCreatorTagEnum.OTHER, _(u"其它")),
 ]
 

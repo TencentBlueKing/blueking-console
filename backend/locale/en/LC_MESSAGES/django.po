@@ -112,18 +112,6 @@ msgstr "BlueKing"
 msgid "嘉为蓝鲸"
 msgstr "CanWay"
 
-#: app/constants.py:80 desktop/constants.py:38
-msgid "齐治科技"
-msgstr "Qizhi Technology"
-
-#: app/constants.py:81 desktop/constants.py:39
-msgid "皓西科技"
-msgstr "OneOaaS"
-
-#: app/constants.py:82 desktop/constants.py:40
-msgid "红雨创展"
-msgstr "R2cd"
-
 #: app_esb_auth/constants.py:5
 msgid "无限制"
 msgstr "No limits"
@@ -186,13 +174,13 @@ msgstr ""
 
 #: app_statistics/views.py:157
 msgid "在线时长分应用统计"
-msgstr "Online duration statistics by app"
+msgstr "Online duration statistics by APP"
 
 #: app_statistics/views.py:158
 #, python-format
 msgid "%(range_time)s （总量：%(total_hour)s 小时，应用总数：%(total_app)s）"
 msgstr ""
-"%(range_time)s (Total: %(total_hour)s hours, Total number of apps: "
+"%(range_time)s (Total: %(total_hour)s hours, Total number of APPs: "
 "%(total_app)s)"
 
 #: app_statistics/views.py:195
@@ -210,13 +198,13 @@ msgstr "Views"
 
 #: app_statistics/views.py:227
 msgid "访问量分应用统计"
-msgstr "Views statistics by app"
+msgstr "Views statistics by APP"
 
 #: app_statistics/views.py:228
 #, python-format
 msgid "%(range_time)s （总量：%(total_visit)s 次，应用总数：%(total_app)s）"
 msgstr ""
-"%(range_time)s (Total: %(total_visit)s, Total number of apps: %(total_app)s) "
+"%(range_time)s (Total: %(total_visit)s, Total number of APPs: %(total_app)s) "
 
 #: app_statistics/views.py:262
 msgid "活跃度分时间统计"
@@ -233,18 +221,18 @@ msgstr "Activity"
 
 #: app_statistics/views.py:293
 msgid "活跃度分应用统计"
-msgstr "Activity statistics by app"
+msgstr "Activity statistics by APP"
 
 #: app_statistics/views.py:294
 #, python-format
 msgid "%(range_time)s （总量：%(total_liveness)s 次，应用总数：%(total_app)s）"
 msgstr ""
-"%(range_time)s (Total: %(total_liveness)s, Total number of apps: "
+"%(range_time)s (Total: %(total_liveness)s, Total number of APPs: "
 "%(total_app)s) "
 
 #: app_statistics/views.py:345
 msgid "开发者开发应用个数统计"
-msgstr "App statistics by developer"
+msgstr "APP statistics by developer"
 
 #: app_statistics/views.py:346
 #, python-format
@@ -253,20 +241,20 @@ msgstr "%(range_time)s (Total number of developers: %(total_developer)s) "
 
 #: app_statistics/views.py:348
 msgid "应用个数"
-msgstr "Number of apps"
+msgstr "Number of APPs"
 
 #: app_statistics/views.py:383
 msgid "新上线应用数量统计"
-msgstr "Statistics of the number of New apps online"
+msgstr "Statistics of the number of New APPs online"
 
 #: app_statistics/views.py:384
 #, python-format
 msgid "%(range_time)s （应用个数：%(total)s 个）"
-msgstr "%(range_time)s (Number of apps: %(total)s) "
+msgstr "%(range_time)s (Number of APPs: %(total)s) "
 
 #: app_statistics/views.py:386
 msgid "新上线应用个数"
-msgstr "The number of new apps online"
+msgstr "The number of new APPs online"
 
 #: common/bk_iam.py:38
 msgid "访问开发者中心"
@@ -278,7 +266,7 @@ msgstr "Develop SaaS"
 
 #: common/bk_iam.py:40
 msgid "管理S-mart应用"
-msgstr "Manage S-mart App"
+msgstr "Manage S-mart APP"
 
 #: common/bk_iam.py:41
 msgid "系统维护"
@@ -286,7 +274,7 @@ msgstr "PaaS System Maintain"
 
 #: common/bk_iam.py:42
 msgid "API网关维护"
-msgstr "API Gateway Maintain"
+msgstr "APIGateway Maintain"
 
 #: common/bk_iam.py:50
 msgid "应用"
@@ -359,7 +347,7 @@ msgstr "简体中文"
 
 #: desktop/constants.py:18
 msgid "应用创建者"
-msgstr "App creator"
+msgstr "APP creator"
 
 #: desktop/constants.py:19
 msgid "应用分类"
@@ -381,15 +369,15 @@ msgstr "No"
 
 #: desktop/other_views.py:28
 #, python-format
-msgid "当前企业版的有效期至%s，请提前15个工作日联系软件供应商提供技术支持"
+msgid "当前版本的有效期至%s，请提前15个工作日联系软件供应商提供技术支持"
 msgstr ""
-"Validity of the current enterprise version is until % s, please contact the "
+"Validity of the current version is until % s, please contact the "
 "software vendor 15 days in advance to provide technical support"
 
 #: desktop/other_views.py:30
 #, python-format
 msgid "%s，请联系管理员处理！"
-msgstr "%s, Contact administrator to handle this problem"
+msgstr "%s, Contact administrator to handle this problem!"
 
 #: desktop/other_views.py:44
 #, python-format
@@ -466,27 +454,27 @@ msgstr "Initialize APP code"
 
 #: release/constants.py:35 release/constants.py:50
 msgid "删除APP"
-msgstr "Delete App"
+msgstr "Delete APP"
 
 #: release/constants.py:49
 msgid "APP创建"
-msgstr "Create App"
+msgstr "Create APP"
 
 #: release/constants.py:51
 msgid "APP提测"
-msgstr "App-Test"
+msgstr "APP-Test"
 
 #: release/constants.py:52
 msgid "APP上线"
-msgstr "App-Online"
+msgstr "APP-Online"
 
 #: release/constants.py:53
 msgid "APP下架"
-msgstr "App-Removal"
+msgstr "APP-Removal"
 
 #: templates/401.html:6
 msgid "未登录蓝鲸智云平台(401页)"
-msgstr "Have not logged in BlueKing platform (page 401)"
+msgstr "Have not logged in BlueKing (page 401)"
 
 #: templates/401.html:20
 msgid "您需要登录蓝鲸智云"
@@ -604,7 +592,7 @@ msgstr "Activity statistics"
 
 #: templates/app_statistics/base.html:24
 msgid "应用更新情况统计"
-msgstr "App update statistics"
+msgstr "APP update statistics"
 
 #: templates/app_statistics/developer.html:6
 msgid "按开发负责人"
@@ -612,7 +600,7 @@ msgstr "By developer"
 
 #: templates/app_statistics/developer.html:22
 msgid "应用状态"
-msgstr "App status"
+msgstr "APP status"
 
 #: templates/app_statistics/liveness.html:6
 #: templates/app_statistics/online_time.html:6
@@ -634,7 +622,7 @@ msgstr "By app"
 #: templates/app_statistics/visit.html:19
 #: templates/app_statistics/visit.html:38
 msgid "应用名称"
-msgstr "App name"
+msgstr "APP name"
 
 #: templates/app_statistics/online_time.html:7
 msgid "按用户"
@@ -691,23 +679,23 @@ msgstr "Desktop | Tencent BlueKing"
 #: templates/desktop/skin.html:7 templates/desktop/wallpaper.html:7
 msgid ""
 "开发者中心,游戏运维,运维,服务器管理,模块配置,监控,腾讯游戏,蓝鲸,智云,devops,"
-"运维开发,蓝鲸企业版,企业版,作业平台,集成平台,配置平台,管控平台"
+"运维开发,作业平台,集成平台,配置平台,管控平台"
 msgstr ""
 "Developer Center, Game OPS, OPS, Server Management, Module Configuration, "
-"Monitoring, Tencent Game, BlueKing, DevOps, OPS Development, BlueKing "
-"Enterprise, Enterprise, Job System, Integration System, Configuration "
+"Monitoring, Tencent Game, BlueKing, DevOps, OPS Development,"
+"Job System, Integration System, Configuration "
 "System, Control System"
 
 #: templates/desktop/desk_setting.html:8 templates/desktop/index.html:8
 #: templates/desktop/market.html:8 templates/desktop/market_app_detail.html:8
 #: templates/desktop/skin.html:8 templates/desktop/wallpaper.html:8
 msgid ""
-"蓝鲸智云软件企业版是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变"
+"蓝鲸智云软件是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变"
 "中国运维行业，帮助企业快速达到基础运维支撑能力，并提升技术人员的DevOps能力。"
 "该版本提供了配置平台，作业平台，集成平台等强大功能，用户在使用时，请查阅并遵"
 "守《蓝鲸智云软件用户服务协议》。"
 msgstr ""
-"BlueKing Enterprise is a PaaS-based technology solution developed by "
+"BlueKing is a PaaS-based technology solution developed by "
 "BlueKing team, aiming at changing the OPS industry in China, helping "
 "enterprises rapidly achieve basic OPS support capability and enhancing "
 "technical staff's DevOps capabilities. It supports CC/JOB/PaaS."
@@ -730,7 +718,7 @@ msgstr "Vertical"
 
 #: templates/desktop/desk_setting.html:33
 msgid "应用码头设置"
-msgstr "App dock settings"
+msgstr "APP dock settings"
 
 #: templates/desktop/desk_setting.html:40
 msgid "顶部"
@@ -759,7 +747,7 @@ msgstr "img/base_ui/desk_sprite_en.png"
 
 #: templates/desktop/index.html:35
 msgid "搜索应用..."
-msgstr "Search app..."
+msgstr "Search APP..."
 
 #: templates/desktop/index.html:36
 msgid "搜索..."
@@ -767,7 +755,7 @@ msgstr "Search..."
 
 #: templates/desktop/index.html:42
 msgid "去应用市场搜搜..."
-msgstr "Go to search in app market"
+msgstr "Go to search in APP market"
 
 #: templates/desktop/index.html:52
 msgid "知道了"
@@ -775,7 +763,7 @@ msgstr "I know"
 
 #: templates/desktop/index.html:81 templates/desktop/index.html:82
 msgid "应用市场"
-msgstr "App market"
+msgstr "APP market"
 
 #: templates/desktop/index.html:85 templates/desktop/index.html:86
 #: templates/user_center/base.html:6 templates/user_center/base.html:23
@@ -875,7 +863,7 @@ msgstr "Hot key instructions"
 #: templates/desktop/index.html:192 templates/desktop/index.html:194
 #: templates/desktop/market_app_detail.html:50
 msgid "添加应用"
-msgstr "Add app"
+msgstr "Add APP"
 
 #: templates/desktop/index.html:199 templates/desktop/index.html:201
 msgid "新建文件夹"
@@ -892,11 +880,11 @@ msgid ""
 "顺序切换显示桌面</br> Alt+1~Alt+9：切换显示应用窗口1~9</br> Alt+up：逆序切换"
 "显示应用窗口</br> Alt+right：顺序切换显示应用窗口</br>"
 msgstr ""
-"Alt+d: Show desktop(Minimize all window of app)</br> Ctrl+up: Show global "
-"view</br> Ctrl+1~Ctrl+5: Switch the display desktop 1~5</br> Ctrl+left: "
-"Switch previous desktop</br> Ctrl+right: Switch next desktop</br> Alt+1~Alt"
-"+9: Switch the display app window</br> Alt+up: Switch previous app window</"
-"br> Alt+right: Switch next app window"
+"Alt+d: Show Desktop(Minimize all APPs)</br> Ctrl+up: Show global "
+"view</br> Ctrl+1~Ctrl+5: Switch the display Desktop 1~5</br> Ctrl+left: "
+"Switch previous Desktop</br> Ctrl+right: Switch next Desktop</br> Alt+1~Alt"
+"+9: Switch the display APP window</br> Alt+up: Switch previous APP window</"
+"br> Alt+right: Switch next APP window"
 
 #: templates/desktop/index.html:280
 msgid ""
@@ -920,11 +908,11 @@ msgstr ""
 
 #: templates/desktop/market.html:32
 msgid "按应用名称、应用ID、开发负责人搜索"
-msgstr "Search by app name, app id or developer"
+msgstr "Search by APP name, APP id or developer"
 
 #: templates/desktop/market.html:33
 msgid "搜索应用"
-msgstr "Search app"
+msgstr "Search APP"
 
 #: templates/desktop/market.html:33
 msgid "搜索"
@@ -948,11 +936,11 @@ msgstr "Developer"
 
 #: templates/desktop/market.html:54
 msgid "设置失败，请联系管理员！"
-msgstr "Category setting failed, please contact administrator"
+msgstr "Category setting failed, please contact administrator!"
 
 #: templates/desktop/market.html:61
 msgid "全部应用"
-msgstr "All app"
+msgstr "All APP"
 
 #: templates/desktop/market.html:85
 msgid "最近打开"
@@ -960,15 +948,15 @@ msgstr "Recently Opened"
 
 #: templates/desktop/market.html:91
 msgid "我是开发者"
-msgstr "I Am a Developer"
+msgstr "I am a developer"
 
 #: templates/desktop/market.html:94
-msgid "我要开发SaaS"
-msgstr "Develop SaaS"
+msgid "我要开发"
+msgstr "Go to Develop"
 
 #: templates/desktop/market.html:106
 msgid "最新应用"
-msgstr "Latest app"
+msgstr "Latest APP"
 
 #: templates/desktop/market.html:107
 msgid "最热门"
@@ -984,7 +972,7 @@ msgid ""
 "<span class=\"app-desc\"><i>%(app_use_count)s</i> 人添加 &nbsp; &nbsp; "
 "&nbsp; &nbsp; 本月有&nbsp;<i>%(app_visit_count)s</i>&nbsp;次访问&nbsp;</span>"
 msgstr ""
-"<span class=\"app-desc\">Number of user added app: <i>%(app_use_count)s</i> "
+"<span class=\"app-desc\">Added users: <i>%(app_use_count)s</i> "
 "&nbsp; &nbsp; Monthly Views: <i>%(app_visit_count)s</i>&nbsp;</span>"
 
 #: templates/desktop/market_app_detail.html:45
@@ -994,7 +982,7 @@ msgstr "Copy links"
 #: templates/desktop/market_app_detail.html:47
 #: templates/desktop/market_app_detail.html:49
 msgid "打开应用"
-msgstr "Open app"
+msgstr "Open APP"
 
 #: templates/desktop/market_app_detail.html:55
 msgid "基本信息"
@@ -1002,16 +990,16 @@ msgstr "Basic info"
 
 #: templates/desktop/market_app_detail.html:56
 msgid "属性信息"
-msgstr "Property info"
+msgstr "Properties"
 
 #: templates/desktop/market_app_detail.html:58
 msgid "已添加用户"
-msgstr "User added to app"
+msgstr "User added to APP"
 
 #: templates/desktop/market_app_detail.html:66
 #: templates/desktop/market_app_detail.html:99
 msgid "应用编码："
-msgstr "App ID: "
+msgstr "APP ID: "
 
 #: templates/desktop/market_app_detail.html:67
 msgid "应用分类："
@@ -1037,11 +1025,11 @@ msgstr "Recent online time: "
 
 #: templates/desktop/market_app_detail.html:83
 msgid "应用简介"
-msgstr "App brief"
+msgstr "APP brief"
 
 #: templates/desktop/market_app_detail.html:93
 msgid "应用名称："
-msgstr "App name: "
+msgstr "APP name: "
 
 #: templates/desktop/market_app_detail.html:94
 msgid "窗口是否可拉伸："
@@ -1089,23 +1077,23 @@ msgstr "No version information"
 
 #: templates/desktop/market_app_detail.html:168
 msgid "没有用户添加！"
-msgstr "No user added application"
+msgstr "No user added APP!"
 
 #: templates/desktop/market_app_detail.html:174
 msgid "应用已下架！"
-msgstr "The app has been removed!"
+msgstr "The APP has been removed!"
 
 #: templates/desktop/market_app_detail.html:176
 msgid "应用正在开发中..."
-msgstr "The app is in development..."
+msgstr "The APP is in development..."
 
 #: templates/desktop/market_app_detail.html:178
 msgid "应用已下架"
-msgstr "The app has been removed"
+msgstr "The APP has been removed"
 
 #: templates/desktop/market_app_detail.html:181
 msgid "应用不存在！"
-msgstr "The app does not exist."
+msgstr "The APP does not exist!"
 
 #: templates/desktop/skin.html:25 templates/desktop/wallpaper.html:25
 msgid "壁纸设置"
@@ -1246,7 +1234,7 @@ msgstr "Time"
 #: templates/user_center/esb_approval.html:11
 #: templates/user_center/esb_history.html:11
 msgid "申请应用"
-msgstr "App"
+msgstr "APP"
 
 #: templates/user_center/esb_approval.html:12
 #: templates/user_center/esb_history.html:12
@@ -1363,7 +1351,7 @@ msgstr "Create a record failed, please contact the system administrator"
 
 #: user_center/wx_views.py:83
 msgid "API请求异常，请联系管理员处理"
-msgstr "Api request abnormal, please contact the administrator to deal with"
+msgstr "API request abnormal, please contact the administrator to deal with"
 
 #: user_center/wx_views.py:112
 msgid "您没有权限，请联系系统管理员"

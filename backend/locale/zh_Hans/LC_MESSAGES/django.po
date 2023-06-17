@@ -114,18 +114,6 @@ msgstr ""
 msgid "嘉为蓝鲸"
 msgstr ""
 
-#: app/constants.py:80 desktop/constants.py:38
-msgid "齐治科技"
-msgstr ""
-
-#: app/constants.py:81 desktop/constants.py:39
-msgid "皓西科技"
-msgstr ""
-
-#: app/constants.py:82 desktop/constants.py:40
-msgid "红雨创展"
-msgstr ""
-
 #: app_esb_auth/constants.py:5
 msgid "无限制"
 msgstr ""
@@ -373,7 +361,7 @@ msgstr ""
 
 #: desktop/other_views.py:28
 #, python-format
-msgid "当前企业版的有效期至%s，请提前15个工作日联系软件供应商提供技术支持"
+msgid "当前版本的有效期至%s，请提前15个工作日联系软件供应商提供技术支持"
 msgstr ""
 
 #: desktop/other_views.py:30
@@ -661,14 +649,14 @@ msgstr ""
 #: templates/desktop/skin.html:7 templates/desktop/wallpaper.html:7
 msgid ""
 "开发者中心,游戏运维,运维,服务器管理,模块配置,监控,腾讯游戏,蓝鲸,智云,devops,"
-"运维开发,蓝鲸企业版,企业版,作业平台,集成平台,配置平台,管控平台"
+"运维开发,作业平台,集成平台,配置平台,管控平台"
 msgstr ""
 
 #: templates/desktop/desk_setting.html:8 templates/desktop/index.html:8
 #: templates/desktop/market.html:8 templates/desktop/market_app_detail.html:8
 #: templates/desktop/skin.html:8 templates/desktop/wallpaper.html:8
 msgid ""
-"蓝鲸智云软件企业版是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变"
+"蓝鲸智云软件是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变"
 "中国运维行业，帮助企业快速达到基础运维支撑能力，并提升技术人员的DevOps能力。"
 "该版本提供了配置平台，作业平台，集成平台等强大功能，用户在使用时，请查阅并遵"
 "守《蓝鲸智云软件用户服务协议》。"
@@ -911,7 +899,7 @@ msgid "我是开发者"
 msgstr ""
 
 #: templates/desktop/market.html:94
-msgid "我要开发SaaS"
+msgid "我要开发"
 msgstr ""
 
 #: templates/desktop/market.html:106
