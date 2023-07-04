@@ -159,18 +159,18 @@ msgstr "Removed"
 
 #: static/js/blueking.app.js:264 static/js/blueking.app.min.js:1
 msgid "文件夹中有存在的应用，不能删除！"
-msgstr "There are existing applications in the folder, which cannot be deleted"
+msgstr "There are existing applications in the folder, which cannot be deleted!"
 
 #: static/js/blueking.app.js:266 static/js/blueking.app.min.js:1
 msgid "您早就删除了该应用(或文件夹)，建议刷新桌面！"
 msgstr ""
-"If you have long since deleted the app (or folder) , it is recommended to "
-"refresh the desktop"
+"If you have long since deleted the APP (or folder) , it is recommended to "
+"refresh the Desktop!"
 
 #: static/js/blueking.app.js:269 static/js/blueking.app.min.js:1
 #: static/js/blueking.marketApp.js:52 static/js/blueking.marketApp.min.js:1
 msgid "删除失败！"
-msgstr "Delete failed"
+msgstr "Delete failed!"
 
 #: static/js/blueking.app.js:652 static/js/blueking.app.js:665
 #: static/js/blueking.app.min.js:1 static/js/blueking.marketBase.js:66
@@ -212,28 +212,28 @@ msgstr "The system is abnormal: "
 #: static/js/blueking.core.js:370 static/js/blueking.core.js:388
 #: static/js/blueking.core.min.js:1
 msgid "应用不存在！"
-msgstr "App does not exist. "
+msgstr "APP does not exist!"
 
 #: static/js/blueking.core.js:270 static/js/blueking.core.js:328
 #: static/js/blueking.core.js:372 static/js/blueking.core.min.js:1
 #: static/js/blueking.window.js:429 static/js/blueking.window.min.js:1
 msgid "应用加载失败，请重试"
-msgstr "App loading failed, please try again"
+msgstr "APP loading failed, please try again"
 
 #: static/js/blueking.core.js:272 static/js/blueking.core.js:330
 #: static/js/blueking.core.js:374 static/js/blueking.core.min.js:1
 msgid "您没有操作该应用的权限！"
-msgstr "You have no permissions to operate this app"
+msgstr "You have no permissions to operate this APP!"
 
 #: static/js/blueking.core.js:274 static/js/blueking.core.js:332
 #: static/js/blueking.core.js:376 static/js/blueking.core.min.js:1
 msgid "应用已下架！"
-msgstr "The app has been removed"
+msgstr "The APP has been removed!"
 
 #: static/js/blueking.core.js:276 static/js/blueking.core.js:334
 #: static/js/blueking.core.js:378 static/js/blueking.core.min.js:1
 msgid "应用正在开发中！"
-msgstr "The app is in development"
+msgstr "The APP is in development!"
 
 #: static/js/blueking.folderView.js:63 static/js/blueking.folderView.min.js:1
 msgid "文件夹为空"
@@ -241,19 +241,19 @@ msgstr "Empty folder"
 
 #: static/js/blueking.marketApp.js:39 static/js/blueking.marketApp.min.js:1
 msgid "您早就添加了该应用，请不要重复添加！"
-msgstr "You've long since added this app, so do not add it again! "
+msgstr "You've long since added this APP, so do not add it again!"
 
 #: static/js/blueking.marketApp.js:41 static/js/blueking.marketApp.min.js:1
 msgid "添加失败！"
-msgstr "Add failed"
+msgstr "Add failed!"
 
 #: static/js/blueking.marketApp.js:57 static/js/blueking.marketApp.min.js:1
 msgid "您早就删除了该应用，请不要重复操作！"
-msgstr "You've long since deleted this app, so do not delete it again! "
+msgstr "You've long since deleted this APP, so do not delete it again!"
 
 #: static/js/blueking.marketApp.js:105 static/js/blueking.marketApp.min.js:1
 msgid "<p>最近一个月里</p><p>您还没有打开任何应用哦！</p>"
-msgstr "<p>In the last month </p><p>You have not opened any apps yet! "
+msgstr "<p>In the last month </p><p>You have not opened any APPs yet!"
 
 #: static/js/blueking.marketApp.js:117 static/js/blueking.marketApp.min.js:1
 msgid "正在加载中，请稍后..."
@@ -299,7 +299,7 @@ msgstr "Loading, please wait"
 #: static/js/blueking.window.js:148 static/js/blueking.window.js:344
 #: static/js/blueking.window.min.js:1
 msgid "复制成功！您可以使用ctrl+v进行粘贴！"
-msgstr "Copy succeeded! You can paste it by ctrl+v"
+msgstr "Copy succeeded! You can paste it by ctrl+v!"
 
 #: static/js/blueking.marketBase.js:72 static/js/blueking.marketBase.min.js:1
 #: static/js/blueking.popupMenu.js:85 static/js/blueking.popupMenu.js:358
@@ -323,23 +323,23 @@ msgstr "Developer: "
 #: static/js/blueking.marketTemplate.js:21
 #: static/js/blueking.marketTemplate.min.js:1
 msgid "<%=use_count%> 人添加"
-msgstr "Number of users added app: <%=use_count%>"
+msgstr "Added users for this APP: <%=use_count%>"
 
 #: static/js/blueking.marketTemplate.js:23
 #: static/js/blueking.marketTemplate.js:26
 #: static/js/blueking.marketTemplate.min.js:1
 msgid "打开应用"
-msgstr "Open app"
+msgstr "Open APP"
 
 #: static/js/blueking.marketTemplate.js:24
 #: static/js/blueking.marketTemplate.min.js:1
 msgid "卸载应用"
-msgstr "Uninstall app"
+msgstr "Uninstall APP"
 
 #: static/js/blueking.marketTemplate.js:27
 #: static/js/blueking.marketTemplate.min.js:1
 msgid "添加应用"
-msgstr "Add app"
+msgstr "Add APP"
 
 #: static/js/blueking.maskBox.js:17 static/js/blueking.maskBox.min.js:1
 msgid "拖放至顶部"
@@ -467,7 +467,7 @@ msgstr "Folder name already exists"
 
 #: static/js/blueking.popupMenu.js:421 static/js/blueking.popupMenu.min.js:1
 msgid "文件夹创建失败！"
-msgstr "Failed to create a new folder"
+msgstr "Failed to create a new folder!"
 
 #: static/js/blueking.popupMenu.js:425 static/js/blueking.popupMenu.min.js:1
 #: static/js/blueking.templates.js:171 static/js/blueking.templates.min.js:1
@@ -476,7 +476,7 @@ msgstr "Folder name cannot only contain null characters "
 
 #: static/js/blueking.popupMenu.js:443 static/js/blueking.popupMenu.min.js:1
 msgid "显示桌面"
-msgstr "Show desktop"
+msgstr "Show Desktop"
 
 #: static/js/blueking.popupMenu.js:444 static/js/blueking.popupMenu.min.js:1
 #: static/js/blueking.templates.js:61 static/js/blueking.templates.js:103
@@ -487,7 +487,7 @@ msgstr "Refresh"
 
 #: static/js/blueking.popupMenu.js:445 static/js/blueking.popupMenu.min.js:1
 msgid "关闭所有应用"
-msgstr "Close all apps"
+msgstr "Close all APPs"
 
 #: static/js/blueking.popupMenu.js:447 static/js/blueking.popupMenu.min.js:1
 msgid "新建"
@@ -564,7 +564,7 @@ msgstr "Refresh current page"
 
 #: static/js/blueking.templates.js:61 static/js/blueking.templates.min.js:1
 msgid "刷新应用"
-msgstr "Refresh app"
+msgstr "Refresh APP"
 
 #: static/js/blueking.templates.js:63 static/js/blueking.templates.min.js:1
 msgid "复制当前页面链接"
@@ -585,7 +585,7 @@ msgstr "Welcome to use BlueKing"
 #: static/js/blueking.templates.js:182 static/js/blueking.templates.min.js:1
 msgid "下面我会简单介绍如何使用，以便您快速上手"
 msgstr ""
-"Here I will briefly introduce how to use, so you can get started quickly"
+"A quick guide to get you started"
 
 #: static/js/blueking.templates.js:183 static/js/blueking.templates.min.js:1
 msgid "我已了解"
@@ -603,15 +603,15 @@ msgstr "Desktop"
 
 #: static/js/blueking.templates.js:191 static/js/blueking.templates.min.js:1
 msgid "您可以在应用市场添加自己需要的应用到桌面"
-msgstr "You can add the apps you need from the app market to your desktop"
+msgstr "You can add the APPs you need from the APP market to your Desktop"
 
 #: static/js/blueking.templates.js:192 static/js/blueking.templates.min.js:1
 msgid "单击桌面的图标，就能打开应用"
-msgstr "Click the icon on the desktop to open the app"
+msgstr "Click the icon on the Desktop to open the APP"
 
 #: static/js/blueking.templates.js:199 static/js/blueking.templates.min.js:1
 msgid "应用码头"
-msgstr "App dock"
+msgstr "APP dock"
 
 #: static/js/blueking.templates.js:200 static/js/blueking.templates.min.js:1
 msgid "展示蓝鲸智云系统应用"
@@ -623,7 +623,7 @@ msgstr "Switch Desktop"
 
 #: static/js/blueking.templates.js:209 static/js/blueking.templates.min.js:1
 msgid "您可以快速切换当前桌面"
-msgstr "You can quickly switch the current desktop"
+msgstr "You can quickly switch the current Desktop"
 
 #: static/js/blueking.templates.js:216 static/js/blueking.templates.min.js:1
 msgid "任务栏"
@@ -632,7 +632,7 @@ msgstr "Taskbar"
 #: static/js/blueking.templates.js:217 static/js/blueking.templates.min.js:1
 msgid "打开应用后，任务栏中就会出现对应的缩略图"
 msgstr ""
-"As the app is opened, corresponding thumbnails will appear in the taskbar"
+"As the APP is opened, corresponding thumbnails will appear in the taskbar"
 
 #: static/js/blueking.templates.js:218 static/js/blueking.templates.min.js:1
 msgid "&nbsp;完&nbsp;成&nbsp;"
@@ -672,12 +672,12 @@ msgstr "Application does not exist, it is recommended to uninstall"
 #: static/js/blueking.window.js:437 static/js/blueking.window.min.js:1
 msgid "您没有操作该应用的权限，正在为您卸载该应用..."
 msgstr ""
-"You have no permissions to operate this app. This app is being uninstalled "
+"You have no permissions to operate this APP. This APP is being uninstalled "
 "for you"
 
 #: static/js/blueking.window.js:450 static/js/blueking.window.min.js:1
 msgid "应用已经下架，正在为您卸载该应用..."
-msgstr "The app has been removed. This app is being uninstalled for you"
+msgstr "The APP has been removed. This APP is being uninstalled for you"
 
 #: static/js/blueking.window.js:478 static/js/blueking.window.min.js:1
 msgid "数据拉取失败"
@@ -695,12 +695,12 @@ msgstr "Do not refresh"
 
 #: static/js/blueking.window.js:901 static/js/blueking.window.min.js:1
 msgid "对不起，该应用没有任何详细介绍"
-msgstr "Sorry, this app does not provide any detailed introductions"
+msgstr "Sorry, this APP does not provide any detailed introductions"
 
 #: static/js/blueking.window.js:1106 static/js/blueking.window.js:1123
 #: static/js/blueking.window.min.js:1
 msgid "应用市场"
-msgstr "App market"
+msgstr "APP market"
 
 #: static/js/blueking.window.js:1156 static/js/blueking.window.min.js:1
 msgid "统计"
@@ -794,7 +794,7 @@ msgstr "Every page shows _MENU_ records"
 
 #: static/user_center/js/base.js:41 static/user_center/js/base.min.js:1
 msgid "没找到相应的数据！"
-msgstr "Did not find the corresponding data"
+msgstr "Did not find the corresponding data!"
 
 #: static/user_center/js/base.js:42 static/user_center/js/base.min.js:1
 msgid "分页 _PAGE_ / _PAGES_ 共_TOTAL_条"
@@ -901,4 +901,4 @@ msgstr "Unbind WeChat"
 #~ msgstr ""
 #~ "Your browser is currently in a \"%s\"status, which may cause abnormal "
 #~ "display; you can press \"ctrl + 0\" on the keyboard to restore to its "
-#~ "original status"
+#~ "original status!"

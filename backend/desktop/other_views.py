@@ -42,7 +42,7 @@ def get_license_notice(request):
         return JsonResponse({"result": True, "message": ""})
     # 许可证有效，但有效期小于1年 则需要提示
     if is_ok:
-        tip_msg = _(u"当前企业版的有效期至%s，请提前15个工作日联系软件供应商提供技术支持") % valid_end_time.strftime("%Y-%m-%d")
+        tip_msg = _(u"当前版本的有效期至%s，请提前15个工作日联系软件供应商提供技术支持") % valid_end_time.strftime("%Y-%m-%d")
         return JsonResponse({"result": False, "message": tip_msg})
     return JsonResponse({"result": False, "message": _(u"%s，请联系管理员处理！") % message})
 
