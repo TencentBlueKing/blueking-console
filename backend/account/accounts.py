@@ -62,7 +62,7 @@ class Account(AccountSingleton):
         bk_token = request.COOKIES.get(settings.BK_COOKIE_NAME, None)
         if not bk_token:
             return False, None
-        ret, data = self.verify_bk_login(bk_token, request)
+        ret, data = self.verify_bk_login(bk_token)
         # bk_token 无效
         if not ret:
             return False, None
@@ -71,24 +71,32 @@ class Account(AccountSingleton):
         user_model = get_user_model()
         try:
             user = user_model._default_manager.get_by_natural_key(username)
+            is_created_user = False
         except user_model.DoesNotExist:
             user = user_model.objects.create_user(username)
+            is_created_user = True
         finally:
             try:
-                ret, data = self.get_bk_user_info(bk_token, request)
+                ret, data = self.get_bk_user_info(bk_token)
                 # 若获取用户信息失败，则用户可登录，但用户其他信息为空
                 user.chname = data.get("chname", "")
+
+                # 用户隐私信息置空，需要的时候直接从用户管理 API 中获取
                 user.company = data.get("company", "")
-                user.qq = data.get("qq", "")
-                user.phone = data.get("phone", "")
-                user.email = data.get("email", "")
-                role = data.get("role", "")
-                # 用户权限更新
-                is_superuser = True if role == "1" else False
-                user.is_superuser = is_superuser
-                user.is_staff = is_superuser
-                user.role = role
+                user.qq = ""
+                user.phone = ""
+                user.email = ""
+                user.role = ""
+
+                # 仅新用户从用户管理同步权限
+                # 用户创建后直接在桌面管理用户是否能进入到 admin 页面的权限
+                if is_created_user:
+                    role = data.get("role", "")
+                    is_superuser = True if role == "1" else False
+                    user.is_superuser = is_superuser
+                    user.is_staff = is_superuser
                 user.save()
+
                 # 设置timezone session
                 request.session[settings.TIMEZONE_SESSION_KEY] = data.get("time_zone")
                 # 设置language session
@@ -97,7 +105,7 @@ class Account(AccountSingleton):
                 logger.error("Get and record user information failed：%s" % e)
         return True, user
 
-    def verify_bk_login(self, bk_token, request):
+    def verify_bk_login(self, bk_token):
         """请求平台接口验证登录是否失效"""
         param = {"bk_token": bk_token}
         if settings.LOGIN_DOMAIN:
@@ -114,7 +122,7 @@ class Account(AccountSingleton):
             return False, {}
         return True, resp.get("data", {})
 
-    def get_bk_user_info(self, bk_token, request):
+    def get_bk_user_info(self, bk_token):
         """请求平台接口获取用户信息"""
         param = {"bk_token": bk_token}
         if settings.LOGIN_DOMAIN:
