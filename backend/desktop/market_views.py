@@ -297,9 +297,7 @@ def market_app_detail(request, app_id):
         if user_app:
             app_info["is_has"] = True
             app_info["user_app_id"] = user_app[0].id
-        # 添加应用的用户
-        all_user_app = UserApp.objects.filter(desk_app_type=0, app=app).values_list("user__username", flat=True)
-        app_user = ", ".join(all_user_app)
+
         # app的版本信息
         app_version_list = []
         all_app_version = App_version.objects.filter(app=app).order_by("-pubdate")[0:5]
@@ -331,7 +329,7 @@ def market_app_detail(request, app_id):
         logger.error(error_message)
         app_info = {}  # 该应用基本信息
         app_version_list = []  # 应用版本信息
-    ctx = {"app": app_info, "app_version": app_version_list, "app_user": app_user}
+    ctx = {"app": app_info, "app_version": app_version_list}
     return render(request, "desktop/market_app_detail.html", ctx)
 
 
