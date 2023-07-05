@@ -57,7 +57,6 @@
                                 <li class="active"  con_id="base_info"><a href="#base_info" data-toggle="tab">{% trans '基本信息' %}</a></li>
                                 <li con_id="attribute"><a href="#attribute" data-toggle="tab">{% trans '属性信息' %}</a></li>
                                 <li con_id="version"><a href="#version" data-toggle="tab">{% trans '版本信息' %}</a></li>
-                                <li con_id="user"><a href="#user" style="color:#86BF4E;font-weight:bold" data-toggle="tab">{% trans '已添加用户' %}</a></li>
                             </ul>
                             <div class="tab-content" style="margin-bottom:30px;height: 357px;">
                                 <!--基本信息-->
@@ -160,17 +159,6 @@
                                     {% else %}
                                         <div class="" style="margin:10px">{% trans '暂无版本信息' %}<hr/></div>
                                     {% endif %}
-                                </div>
-                                <!--使用人员-->
-                                <div class="tab-pane" id="user">
-                                    <div id="user_like" class="" style="margin:10px;">
-                                        {% if app_user %}
-                                            <span style='font-size:14px'>{{app_user}}</span>
-                                        {% else %}
-                                            <span>{% trans '没有用户添加！' %}</span>
-                                        {% endif %}
-                                    </div><hr/>
-                                    </div>
                                 </div>
                         {% elif app.state == 0 %}
                             <div class="detail_tips">{% trans '应用已下架！' %}</div>

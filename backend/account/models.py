@@ -17,7 +17,7 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
-from builtins import object, str
+from builtins import object
 
 from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
@@ -26,8 +26,6 @@ from django.db import models
 from django.utils import timezone
 from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
-
-from common.constants import ROLECODE_DICT, RoleCodeEnum
 
 
 class BkUserManager(BaseUserManager):
@@ -89,23 +87,6 @@ class BkUser(AbstractBaseUser, PermissionsMixin):
     class Meta(object):
         verbose_name = _("user")
         verbose_name_plural = _("users")
-
-    @property
-    def has_developer_perm(self):
-        return self.role in [str(RoleCodeEnum.SUPERUSER), str(RoleCodeEnum.DEVELOPER)]
-
-    @property
-    def is_staff_role(self):
-        """
-        是否普通用户角色
-        """
-        return not self.role.isdigit() or int(self.role) == RoleCodeEnum.STAFF
-
-    @property
-    def role_display(self):
-        if self.role.isdigit():
-            return ROLECODE_DICT.get(int(self.role)) or ROLECODE_DICT[RoleCodeEnum.STAFF]
-        return ROLECODE_DICT[RoleCodeEnum.STAFF]
 
     def check_password(self, raw_password):
         """
