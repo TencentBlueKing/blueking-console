@@ -196,12 +196,6 @@ def market_get_list(request):
         for app in all_app_limit:
             # 自建应用展示开发者，SaaS应用或者蓝鲸提供应用展示创建者
             developers_value_name = app.creater_display
-            # NOTE 2020-04-14 don't query developers from db, while the iam can't get the developers too
-            # if not app.is_saas and not app.is_platform:
-            #     # TODO: fix here, should get developers from iam or ?
-            #     # 获取开发者信息(取前2个)
-            #     developers_value_name_list = app.developer.all().values_list('username', flat=True)[0:2]
-            #     developers_value_name = ';'.join(developers_value_name_list) if developers_value_name_list else '--'
 
             app_name = app.name_display
             introduction = app.introduction_display
@@ -250,19 +244,8 @@ def market_app_detail(request, app_id):
         app_visit_count = AppUseRecord.objects.filter(
             app=app, use_time__gte=date_time_one, use_time__lte=date_time_now
         ).count()
-        # 开发负责人
-        # developers_value_name_list = app.developer.all().values_list('username', flat=True)
-        # developers_value_name = ';'.join(developers_value_name_list)
-
-        # get developers from iam
-        developers_value_name = ""
-        if not (app.is_saas or app.is_platform):
-            # app_developers = Permission().app_developers(app.code)
-            # developers_value_name = subjects_display(app_developers)
-            developers_value_name = ""
-        else:
-            pass
-            # app_developers = []
+        # 自建应用展示开发者，SaaS应用或者蓝鲸提供应用展示创建者
+        developers_value_name = app.creater_display
 
         try:
             newst_online_time = (
@@ -314,9 +297,7 @@ def market_app_detail(request, app_id):
         if user_app:
             app_info["is_has"] = True
             app_info["user_app_id"] = user_app[0].id
-        # 添加应用的用户
-        all_user_app = UserApp.objects.filter(desk_app_type=0, app=app).values_list("user__username", flat=True)
-        app_user = ", ".join(all_user_app)
+
         # app的版本信息
         app_version_list = []
         all_app_version = App_version.objects.filter(app=app).order_by("-pubdate")[0:5]
@@ -348,7 +329,7 @@ def market_app_detail(request, app_id):
         logger.error(error_message)
         app_info = {}  # 该应用基本信息
         app_version_list = []  # 应用版本信息
-    ctx = {"app": app_info, "app_version": app_version_list, "app_user": app_user}
+    ctx = {"app": app_info, "app_version": app_version_list}
     return render(request, "desktop/market_app_detail.html", ctx)
 
 

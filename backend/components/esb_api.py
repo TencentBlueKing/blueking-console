@@ -17,22 +17,14 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
-from django.conf import settings
+from components.esb import _call_esb_api
+from components.http import http_get
 
-from common.constants import ROLECODE_DICT, RoleCodeEnum
 
-
-def get_smart_paas_domain():
+def get_weixin_config():
     """
-    智能获取paas域名，80端口去除
+    获取微信配置
     """
-    host_port = settings.PAAS_DOMAIN.split(":")
-    port = host_port[1] if len(host_port) >= 2 else ""
-    paas_domain = host_port[0] if port in ["80"] else settings.PAAS_DOMAIN
-    return paas_domain
-
-
-def get_role_display(role):
-    if role.isdigit():
-        return ROLECODE_DICT.get(int(role)) or ROLECODE_DICT[RoleCodeEnum.STAFF]
-    return ROLECODE_DICT[RoleCodeEnum.STAFF]
+    path = '/api/c/compapi/esb/get_weixin_config/'
+    _ok, _, _message, data = _call_esb_api(http_get, path, {})
+    return data

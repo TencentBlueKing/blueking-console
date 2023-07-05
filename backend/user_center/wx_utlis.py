@@ -21,7 +21,7 @@ from django.utils.translation import ugettext as _
 
 from common.log import logger
 from components import usermgr
-from esb.bkcore.models import ESBChannel
+from components.esb_api import get_weixin_config
 from user_center.constants import WxTypeEnum
 from user_center.models import WxBkUserTmpRecord
 
@@ -30,14 +30,10 @@ def get_wx_config():
     """
     获取微信相关配置
     """
-    wx_comp_path = "/cmsi/send_weixin/"
-
-    # 检查是否配置了微信通知组件
-    if not ESBChannel.objects.filter(path=wx_comp_path).exists():
+    comp_conf = get_weixin_config()
+    if not comp_conf:
         return None
 
-    esb_channel = ESBChannel.objects.get(path=wx_comp_path)
-    comp_conf = esb_channel.comp_conf_dict
     # 检查微信配置的完整性
     if not comp_conf or not isinstance(comp_conf, dict):
         logger.error("WeChat notification component configuration is empty")

@@ -95,7 +95,4 @@ OPENMODE_DICT = dict(OPENMODE_CHOICES)
 BLUEKING_CREATER_DICT = {
     u"蓝鲸智云": _(u"蓝鲸智云"),
     u"嘉为蓝鲸": _(u"嘉为蓝鲸"),
-    u"齐治科技": _(u"齐治科技"),
-    u"皓西科技": _(u"皓西科技"),
-    u"红雨创展": _(u"红雨创展"),
 }

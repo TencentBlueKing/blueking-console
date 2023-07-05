@@ -25,6 +25,7 @@ from django.shortcuts import render
 from django.utils import timezone, translation
 from django.utils.translation import ugettext as _
 
+from account.accounts import Account
 from account.decorators import is_superuser_perm
 from app.models import App
 from app_esb_auth.models import EsbAuthApplyReocrd
@@ -33,6 +34,7 @@ from blueking.component.shortcuts import get_client_by_request
 from common.constants import ApprovalResultEnum
 from common.log import logger
 from components import usermgr
+from user_center.utils import get_role_display
 from user_center.validators import validate_password
 from user_center.wx_utlis import get_user_wx_info
 
@@ -53,17 +55,21 @@ def account(request):
     # 微信相关
     wx_type, wx_userid = get_user_wx_info(request)
 
+    # 获取用户基本信息
+    bk_token = request.COOKIES.get(settings.BK_COOKIE_NAME, None)
+    _, data = Account().get_bk_user_info(bk_token)
+    role = data.get("role", "")
+
     context = {
         "username": username,
-        "chname": request.user.chname or "--",
-        "qq": request.user.qq or "--",
-        "phone": request.user.phone or "--",
-        "email": request.user.email or "--",
-        "is_superuser": request.user.is_superuser,
+        "chname": data.get('chname', '--'),
+        "qq": data.get('qq', '--'),
+        "phone": data.get('phone', '--'),
+        "email": data.get('email', '--'),
+        "role": role,
+        "role_display": get_role_display(role),
         "user_manage_url": user_manage_url,
         "reset_password_url": reset_password_url,
-        "role": request.user.role,
-        "role_display": request.user.role_display,
         "wx_type": wx_type,
         "wx_userid": wx_userid,
         "timezones": TIME_ZONE_LIST,
@@ -95,9 +101,6 @@ def modify_user_info(request):
             user_model = get_user_model()
             user = user_model._default_manager.get_by_natural_key(username)
             user.chname = chname
-            user.phone = phone
-            user.email = email
-            user.qq = qq
             user.save()
         except Exception:
             logger.exception("save user info to db fail after update success from usermgr")
