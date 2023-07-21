@@ -119,7 +119,7 @@ class Account(AccountSingleton):
             logger.info("No access permission: %s" % message)
             raise AccessPermissionDenied(message)
 
-        logger.info("Verification of user login token is invalid: %s" % message)
+        logger.error("Verification of user login token is invalid, code: %s,  message: %s" % (code, message))
         return False, {}
 
     def get_bk_user_info(self, bk_token):
@@ -132,7 +132,9 @@ class Account(AccountSingleton):
             logger.info("No access permission: %s" % message)
             raise AccessPermissionDenied(message)
 
-        logger.error("Get user information from the request platform interface failed: %s" % message)
+        logger.error(
+            "Get user information from the request platform interface failed, code: %s,  message: %s" % (code, message)
+        )
         return False, {}
 
     def build_callback_url(self, request, jump_url):
