@@ -21,10 +21,13 @@ to the current version of the project delivered to anyone in the future.
 from django.conf import settings
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import AnonymousUser
+from django.http import HttpResponseForbidden
 from django.middleware.csrf import get_token as get_csrf_token
+from django.template.loader import get_template
 from django.utils.deprecation import MiddlewareMixin
 
 from account.accounts import Account
+from account.exceptions import AccessPermissionDenied
 
 
 class LoginMiddleware(MiddlewareMixin):
@@ -35,7 +38,13 @@ class LoginMiddleware(MiddlewareMixin):
         if full_path.startswith(settings.STATIC_URL) or full_path == "/robots.txt":
             return None
 
-        user = authenticate(request=request)
+        try:
+            user = authenticate(request=request)
+        except AccessPermissionDenied as e:
+            template = get_template("no_permission.html")
+            html = template.render({'detail': str(e)}, request)
+            return HttpResponseForbidden(html, content_type="text/html")
+
         request.user = user or AnonymousUser()
 
     def process_view(self, request, view, args, kwargs):

@@ -28,9 +28,10 @@ from django.contrib.auth.views import redirect_to_login
 from django.http import HttpResponse
 from django.utils import translation
 
+from account.exceptions import AccessPermissionDenied
 from bk_i18n.constants import BK_LANG_TO_DJANGO_LANG
-from common.http import http_get
 from common.log import logger
+from components.login import get_user, is_login
 
 
 class AccountSingleton(object):
@@ -57,6 +58,9 @@ class Account(AccountSingleton):
     else:
         BK_LOGIN_URL = "/login/"
 
+    # 蓝鲸统一登录约定的错误码, 表示用户认证成功，但用户无应用访问权限
+    ACCESS_PERMISSION_DENIED_CODE = 1302403
+
     def is_bk_token_valid(self, request):
         """验证用户登录态."""
         bk_token = request.COOKIES.get(settings.BK_COOKIE_NAME, None)
@@ -67,7 +71,7 @@ class Account(AccountSingleton):
         if not ret:
             return False, None
         # 检查用户是否存在用户表中
-        username = data.get("username", "")
+        username = data.get("bk_username", "")
         user_model = get_user_model()
         try:
             user = user_model._default_manager.get_by_natural_key(username)
@@ -91,8 +95,8 @@ class Account(AccountSingleton):
                 # 仅新用户从用户管理同步权限
                 # 用户创建后直接在桌面管理用户是否能进入到 admin 页面的权限
                 if is_created_user:
-                    role = data.get("role", "")
-                    is_superuser = True if role == "1" else False
+                    role = data.get("bk_role", "")
+                    is_superuser = True if role == 1 else False
                     user.is_superuser = is_superuser
                     user.is_staff = is_superuser
                 user.save()
@@ -107,39 +111,29 @@ class Account(AccountSingleton):
 
     def verify_bk_login(self, bk_token):
         """请求平台接口验证登录是否失效"""
-        param = {"bk_token": bk_token}
-        if settings.LOGIN_DOMAIN:
-            verfy_url = "%saccounts/is_login/" % self.BK_LOGIN_URL
-        else:
-            verfy_url = "%s/login/accounts/is_login/" % settings.LOGIN_HOST
+        code, message, data = is_login(bk_token)
+        if code == 0:
+            return True, data
 
-        result, resp = http_get(verfy_url, param)
-        resp = resp if result and resp else {}
-        ret = resp.get("result", False)
-        # 验证失败
-        if not ret:
-            logger.info(u"Verification of user login token is invalid: %s" % resp.get("message", ""))
-            return False, {}
-        return True, resp.get("data", {})
+        if code == self.ACCESS_PERMISSION_DENIED_CODE:
+            logger.info("No access permission: %s" % message)
+            raise AccessPermissionDenied(message)
+
+        logger.info("Verification of user login token is invalid: %s" % message)
+        return False, {}
 
     def get_bk_user_info(self, bk_token):
         """请求平台接口获取用户信息"""
-        param = {"bk_token": bk_token}
-        if settings.LOGIN_DOMAIN:
-            get_user_url = "%saccounts/get_user/" % self.BK_LOGIN_URL
-        else:
-            get_user_url = "%s/login/accounts/get_user/" % settings.LOGIN_HOST
+        code, message, data = get_user(bk_token)
+        if code == 0:
+            return True, data
 
-        result, resp = http_get(get_user_url, param)
-        resp = resp if result and resp else {}
-        ret = resp.get("result", False) if result and resp else False
-        # 获取用户信息失败
-        if not ret:
-            logger.error(
-                u"Get user information from the request platform interface failed：%s" % resp.get("message", "")
-            )
-            return False, {}
-        return True, resp.get("data", {})
+        if code == self.ACCESS_PERMISSION_DENIED_CODE:
+            logger.info("No access permission: %s" % message)
+            raise AccessPermissionDenied(message)
+
+        logger.error("Get user information from the request platform interface failed: %s" % message)
+        return False, {}
 
     def build_callback_url(self, request, jump_url):
         callback = request.build_absolute_uri()

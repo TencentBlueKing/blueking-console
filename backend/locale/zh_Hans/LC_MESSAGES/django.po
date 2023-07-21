@@ -618,6 +618,10 @@ msgid ""
 "\"show_way\" type=\"hidden\" style=\"width:183px;\"> </label>"
 msgstr ""
 
+#: templates/csrf_failure.html:6 templates/no_permission.html:20
+msgid "无该应用访问权限"
+msgstr ""
+
 #: templates/csrf_failure.html:6 templates/csrf_failure.html:20
 msgid "CSRF验证失败"
 msgstr ""
