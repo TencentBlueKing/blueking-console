@@ -23,6 +23,7 @@ from __future__ import unicode_literals
 import copy
 
 from django.conf import settings
+from django.utils.translation import get_language
 
 from common.log import logger
 
@@ -31,6 +32,7 @@ def _call_esb_api(http_func, url_path, data, timeout=30):
     # 默认请求头
     headers = {
         "Content-Type": "application/json",
+        "blueking-language": get_language(),
     }
 
     # Note: 目前企业版ESB调用的鉴权信息都是与接口的参数一起的，并非在header头里

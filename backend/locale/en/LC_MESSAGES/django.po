@@ -642,6 +642,10 @@ msgstr ""
 "<label style=\"margin-left:-17px;\"> <span>Display mode</span> <input class="
 "\"show_way\" type=\"hidden\" style=\"width:183px;\"> </label>"
 
+#: templates/csrf_failure.html:6 templates/no_permission.html:20
+msgid "无该应用访问权限"
+msgstr "No access permission for this application."
+
 #: templates/csrf_failure.html:6 templates/csrf_failure.html:20
 msgid "CSRF验证失败"
 msgstr "CSRF verification failed"

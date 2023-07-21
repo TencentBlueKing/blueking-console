@@ -58,7 +58,7 @@ def account(request):
     # 获取用户基本信息
     bk_token = request.COOKIES.get(settings.BK_COOKIE_NAME, None)
     _, data = Account().get_bk_user_info(bk_token)
-    role = data.get("role", "")
+    role = data.get("bk_role")
 
     context = {
         "username": username,

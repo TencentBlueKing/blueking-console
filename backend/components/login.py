@@ -17,24 +17,23 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
-from typing import Optional
-
-from django.conf import settings
-
-from common.constants import ROLECODE_DICT, RoleCodeEnum
+from components.esb import _call_esb_api
+from components.http import http_get
 
 
-def get_smart_paas_domain():
+def is_login(bk_token):
     """
-    智能获取paas域名，80端口去除
+    校验登录态
     """
-    host_port = settings.PAAS_DOMAIN.split(":")
-    port = host_port[1] if len(host_port) >= 2 else ""
-    paas_domain = host_port[0] if port in ["80"] else settings.PAAS_DOMAIN
-    return paas_domain
+    path = '/api/c/compapi/v2/bk_login/is_login/'
+    _, code, message, data = _call_esb_api(http_get, path, {"bk_token": bk_token})
+    return code, message, data
 
 
-def get_role_display(role: Optional[int]) -> str:
-    if not role:
-        return ROLECODE_DICT[RoleCodeEnum.STAFF]
-    return ROLECODE_DICT.get(role) or ROLECODE_DICT[RoleCodeEnum.STAFF]
+def get_user(bk_token):
+    """
+    校验登录态
+    """
+    path = '/api/c/compapi/v2/bk_login/get_user/'
+    _, code, message, data = _call_esb_api(http_get, path, {"bk_token": bk_token})
+    return code, message, data
