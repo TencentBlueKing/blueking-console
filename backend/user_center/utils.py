@@ -86,7 +86,8 @@ def desensitize_phone_number(phone_number):
         area_code, local_number = re.sub(mainland_landline_pattern, r'\1 \2', phone_number).split()
         return area_code + "****" + local_number[-4:]
     else:
-        return phone_number
+        # 没匹配到的展示前2后2，中间 4 个 * 代替
+        return phone_number[:2] + "****" + phone_number[-2:]
 
 
 def desensitize_email(email: Optional[str]) -> str:
