@@ -34,7 +34,7 @@ from blueking.component.shortcuts import get_client_by_request
 from common.constants import ApprovalResultEnum
 from common.log import logger
 from components import usermgr
-from user_center.utils import get_role_display
+from user_center import utils
 from user_center.validators import validate_password
 from user_center.wx_utlis import get_user_wx_info
 
@@ -44,13 +44,18 @@ def account(request):
     账号信息页面
     """
     username = request.user.username
-    # 用户管理首页，用桌面的宣传链接打开
-    user_manage_url = "%s://%s/console/?app=%s" % (settings.HTTP_SCHEMA, request.get_host(), settings.BK_USER_APP_CODE)
-    # 用户管理是新标签页打开，无法通过宣传链接定位到修改密码的页面
     if settings.BK_USER_URL:
         reset_password_url = "%s/change_password/" % (settings.BK_USER_URL)
+        user_manage_url = settings.BK_USER_URL
     else:
+        # 用户管理是新标签页打开，无法通过宣传链接定位到修改密码的页面
         reset_password_url = "%s://%s/o/bk_user_manage/change_password" % (settings.HTTP_SCHEMA, request.get_host())
+        # 用户管理首页，用桌面的宣传链接打开
+        user_manage_url = "%s://%s/console/?app=%s" % (
+            settings.HTTP_SCHEMA,
+            request.get_host(),
+            settings.BK_USER_APP_CODE,
+        )
 
     # 微信相关
     wx_type, wx_userid = get_user_wx_info(request)
@@ -63,11 +68,11 @@ def account(request):
     context = {
         "username": username,
         "chname": data.get('chname', '--'),
-        "qq": data.get('qq', '--'),
-        "phone": data.get('phone', '--'),
-        "email": data.get('email', '--'),
+        "qq": utils.desensitize_qq(data.get('qq')),
+        "phone": utils.desensitize_phone_number(data.get('phone')),
+        "email": utils.desensitize_email(data.get('email')),
         "role": role,
-        "role_display": get_role_display(role),
+        "role_display": utils.get_role_display(role),
         "user_manage_url": user_manage_url,
         "reset_password_url": reset_password_url,
         "wx_type": wx_type,

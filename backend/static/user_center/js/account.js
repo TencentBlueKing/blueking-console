@@ -48,15 +48,8 @@ $('.from-content #modify-info').on('click',function(){
             qq: qq
         },function(data){
             if(data.result){
-                $('.editor-content').find('.from-content input').removeClass('br');
-                $('.editor-content').find('.from-content input').attr('disabled', true);
-                $('.editor-content').find('.from-content input').each(function(i){
-                    $(this).attr('data', $(this).val());
-                });
-                $(".other_operate").show();
-                $("#cancel-modify").hide();
-                $('#modify-info').attr('data-type', 'modify');
-                $('#modify-info').text(gettext('修改个人信息'));
+                // 保存成功后刷新页面
+                window.location.reload();
             }else{
                 $("#error_tip").text(data.message);
             }
