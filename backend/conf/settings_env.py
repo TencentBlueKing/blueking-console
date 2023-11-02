@@ -98,6 +98,9 @@ HOST_JOB = env.str("BK_JOB_ADDR", "")
 # 蓝鲸版本号
 BK_VERSION = env.str("BK_VERSION", "7.0")
 
+# 是否开启评分功能
+IS_APP_STAR_ENABLED = env.bool("IS_APP_STAR_ENABLED", False)
+
 
 try:
     from conf.local_settings import *  # noqa

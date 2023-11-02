@@ -152,6 +152,8 @@ class App(models.Model):
 
     # NOTE: should be visiable_labels, without _
     visiable_labels = models.CharField(u"可见范围标签", max_length=1024, blank=True, null=True)
+    # 应用评分
+    star_num = models.DecimalField(u"星级评分", default=0.00, max_digits=5, decimal_places=2)
 
     # 在 PaaS3.0 上创建的应用，ESB/APIGW 会从这个表获取应用鉴权信息，所以需要把 PaaS3.0 应用的 app_code/app_secret 同步到这个表中
     from_paasv3 = models.BooleanField(u"是否 Paas3.0 上创建的应用", default=False)
@@ -285,3 +287,24 @@ class SecureInfo(models.Model):
         db_table = "paas_app_secureinfo"
         verbose_name = u"应用安全相关信息"
         verbose_name_plural = u"应用安全相关信息"
+
+
+class AppStar(models.Model):
+    """
+    app星级评分
+    """
+
+    app = models.ForeignKey(App, null=True, on_delete=SET_NULL, verbose_name=u"应用")
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, blank=True, null=True, on_delete=SET_NULL, verbose_name=u"评分的用户"
+    )
+    star_num = models.DecimalField(u"星级评分", default=0.00, max_digits=5, decimal_places=2)
+    star_time = models.DateTimeField(u"评分时间", auto_now_add=True)
+
+    def __unicode__(self):
+        return "%s-%s-%s" % (self.app, self.user, self.star_num)
+
+    class Meta:
+        db_table = "paas_app_star"
+        verbose_name = u'应用评分信息'
+        verbose_name_plural = u'应用评分信息'

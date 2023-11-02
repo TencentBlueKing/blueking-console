@@ -91,6 +91,29 @@ BLUEKING.marketBase = (function(){
                     }
                 }catch(err){console.log(err)}
             });
+			//评分
+			$('.grade-box ul li').click(function () {
+				var num = $(this).attr('num');
+				if (!isNaN(num) && /^[1-5]$/.test(num)) {
+					$.ajax({
+						type: 'POST',
+						url: urlPrefix + 'update_app_star/' + $("#app_id").val() + '/',
+						data: 'star_num=' + num,
+						success: function (result) {
+							msg = result.result;
+							if (msg == 1) {
+								ZENG.msgbox.show(gettext("打分成功！"), 4, 2000);
+								window.location.reload();
+							} else if (msg == 2) {
+								ZENG.msgbox.show(gettext("你已经打过分了！"), 1, 2000);
+							} else {
+								ZENG.msgbox.show(gettext("打分出错！"), 1, 2000);
+							}
+
+						}
+					});
+				}
+			});
 		},
 	}
 })();
