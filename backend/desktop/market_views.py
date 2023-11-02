@@ -34,7 +34,13 @@ from app.models import App, AppStar, AppTags
 from common.constants import DESKTOP_DEFAULT_APP_HEIGHT, DESKTOP_DEFAULT_APP_WIDTH
 from common.exceptions import ConsoleErrorCodes
 from common.log import logger
-from desktop.constants import BK_CREATOR_TAG_LIST, BK_CREATOR_TAG_STR_LIST, CREATOR_TAG_DICT, AppCreatorTagEnum
+from desktop.constants import (
+    BK_CREATOR_TAG_LIST,
+    BK_CREATOR_TAG_STR_LIST,
+    CREATOR_TAG_DICT,
+    AppCreatorTagEnum,
+    AppStarOperatorResult,
+)
 from desktop.market_utils import get_market_nav_and_tag_list
 from desktop.models import UserApp, UserSettings
 from desktop.utils import get_app_logo_url, get_visiable_labels
@@ -378,16 +384,15 @@ def update_app_star(request, app_id):
     """
     应用评分
     @param app_id: app的id
-    @return: 1: 评分成功; 2: 已经打过分了; -1: 应用不存在; 0: 出错
     """
     try:
         app = App.objects.get(id=app_id)
     except App.DoesNotExist:
-        return JsonResponse({"result": -1})
+        return JsonResponse({"result": AppStarOperatorResult.NOTEXIST})
 
     # 判断用户是否已经打过分
     if AppStar.objects.filter(user=request.user, app=app).exists():
-        return JsonResponse({"result": 2})
+        return JsonResponse({"result": AppStarOperatorResult.STARED})
 
     try:
         with transaction.atomic():
@@ -396,10 +401,9 @@ def update_app_star(request, app_id):
             AppStar.objects.create(app=app, user=request.user, star_num=star_num)
             # 更新应用的平均分
             app_average_star = AppStar.objects.filter(app=app).aggregate(Avg('star_num'))
-            print('1' * 80, app_average_star)
             app.star_num = app_average_star['star_num__avg']
             app.save()
-            return JsonResponse({"result": 1})
+            return JsonResponse({"result": AppStarOperatorResult.SUCCESS})
     except Exception as error:
         logger.exception("An error occurred while saving App star num%s" % error)
-        return JsonResponse({"result": 0})
+        return JsonResponse({"result": AppStarOperatorResult.SYSERROR})
