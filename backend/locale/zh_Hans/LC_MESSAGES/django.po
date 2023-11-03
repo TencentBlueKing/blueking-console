@@ -946,6 +946,26 @@ msgstr ""
 msgid "已添加用户"
 msgstr ""
 
+#: templates/desktop/market_app_detail.html:59
+msgid "不好用，体验很差"
+msgstr ""
+
+#: templates/desktop/market_app_detail.html:60
+msgid "一般，还能接受"
+msgstr ""
+
+#: templates/desktop/market_app_detail.html:61
+msgid "体验比较好"
+msgstr ""
+
+#: templates/desktop/market_app_detail.html:62
+msgid "体验很好"
+msgstr ""
+
+#: templates/desktop/market_app_detail.html:63
+msgid "非常好，体验一级棒"
+msgstr ""
+
 #: templates/desktop/market_app_detail.html:66
 #: templates/desktop/market_app_detail.html:99
 msgid "应用编码："

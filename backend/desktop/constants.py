@@ -61,3 +61,11 @@ CREATOR_TAG_DICT = dict(CREATOR_TAG_CHOICES)
 
 # 蓝鲸和蓝鲸服务商创建者列表
 BK_CREATOR_TAG_LIST, BK_CREATOR_TAG_STR_LIST = list(zip(*CREATOR_TAG_CHOICES[1:-1]))
+
+# 应用评分操作结果
+AppStarOperatorResult = enum(
+    SUCCESS=1,
+    STARED=2,
+    NOTEXIST=-1,
+    SYSERROR=0,
+)

@@ -52,6 +52,19 @@
                                     <a href="javascript:;" app_id="{{app.app_id}}" app_code="{{app.code}}" app_type="{{app.display_type}}" style="background-color: #90c322;border-radius: 3px;" class="btn-add">{% trans '添加应用' %}</a>
                                 {% endif %}
                                 <input type="hidden" id="app_id" value="{{app.app_id}}" />
+                                {% if is_app_star_enabled %}
+                                <div class="grade-box" style="margin-top: 6px">
+                                    <div class="star-box"><i style="width:{% widthratio app.star_num 1 20 %}%"></i>
+                                        <ul>
+                                            <li class="grade-1" num="1"><a href="javascript:;"><em>{% trans '不好用，体验很差' %}</em></a></li>
+                                            <li class="grade-2" num="2"><a href="javascript:;"><em>{% trans '一般，还能接受' %}</em></a></li>
+                                            <li class="grade-3" num="3"><a href="javascript:;"><em>{% trans '体验比较好' %}</em></a></li>
+                                            <li class="grade-4" num="4"><a href="javascript:;"><em>{% trans '体验很好' %}</em></a></li>
+                                            <li class="grade-5" num="5"><a href="javascript:;"><em>{% trans '非常好，体验一级棒' %}</em></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% endif %}
                             </div>
                             <ul class="nav nav-tabs" style="margin:5px;margin-top:10px" id="detail_app">
                                 <li class="active"  con_id="base_info"><a href="#base_info" data-toggle="tab">{% trans '基本信息' %}</a></li>

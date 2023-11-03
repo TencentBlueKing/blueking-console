@@ -81,4 +81,5 @@ urlpatterns += [
     url(r"^market_get_list/$", market_views.market_get_list),  # 应用市场APP查询（分页查询）
     url(r"^market_app_detail/(?P<app_id>\d+)/$", market_views.market_app_detail),  # 应用市场APP详细信息
     url(r"^market_get_nearest_open_app/$", market_views.market_get_nearest_open_app),  # 应用市场最近打开的应用
+    url(r"^update_app_star/(?P<app_id>\d+)/$", market_views.update_app_star),  # 应用评分
 ]

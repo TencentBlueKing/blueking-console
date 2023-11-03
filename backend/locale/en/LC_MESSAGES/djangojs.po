@@ -310,6 +310,18 @@ msgstr "Copy succeeded! You can paste it by ctrl+v!"
 msgid "关闭"
 msgstr "Close"
 
+#: static/js/blueking.marketBase.js:105 static/js/blueking.marketBase.min.js:1
+msgid "打分成功！"
+msgstr "Scored Successfully!"
+
+#: static/js/blueking.marketBase.js:105 static/js/blueking.marketBase.min.js:1
+msgid "你已经打过分了！"
+msgstr "You have already scored!"
+
+#: static/js/blueking.marketBase.js:105 static/js/blueking.marketBase.min.js:1
+msgid "打分出错！"
+msgstr "Scoring error!"
+
 #: static/js/blueking.marketTemplate.js:15
 #: static/js/blueking.marketTemplate.min.js:1
 msgid "本月访问量："

@@ -21,18 +21,26 @@ import datetime
 import operator
 from functools import reduce
 
-from django.db.models import Count, Q
+from django.conf import settings
+from django.db import transaction
+from django.db.models import Avg, Count, Q
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils import timezone, translation
 from django.utils.translation import ugettext as _
 
 from analysis.models import AppUseRecord
-from app.models import App, AppTags
+from app.models import App, AppStar, AppTags
 from common.constants import DESKTOP_DEFAULT_APP_HEIGHT, DESKTOP_DEFAULT_APP_WIDTH
 from common.exceptions import ConsoleErrorCodes
 from common.log import logger
-from desktop.constants import BK_CREATOR_TAG_LIST, BK_CREATOR_TAG_STR_LIST, CREATOR_TAG_DICT, AppCreatorTagEnum
+from desktop.constants import (
+    BK_CREATOR_TAG_LIST,
+    BK_CREATOR_TAG_STR_LIST,
+    CREATOR_TAG_DICT,
+    AppCreatorTagEnum,
+    AppStarOperatorResult,
+)
 from desktop.market_utils import get_market_nav_and_tag_list
 from desktop.models import UserApp, UserSettings
 from desktop.utils import get_app_logo_url, get_visiable_labels
@@ -208,6 +216,7 @@ def market_get_list(request):
                 "code": app.code,  # 应用编码
                 "introduction": introduction,  # 应用简介
                 "use_count": app.use_count,  # 应用人气数
+                "star_num": int(app.star_num),  # 应用评分
                 "user_app_id": all_user_app.get(app.code, "") if app.code in all_user_app else "",  # 应用对应的user_app id
                 "relapp_id": app.id,  # 应用id
                 "logo_url": get_app_logo_url(app.code),  # 应用logo
@@ -269,6 +278,7 @@ def market_app_detail(request, app_id):
             "code": app.code,
             "tag": app.tag_name,
             "use_count": app.use_count,
+            "star_num": int(app.star_num),
             "width": "%s px" % (app.width if app.width else DESKTOP_DEFAULT_APP_WIDTH),
             "height": "%s px" % (app.height if app.height else DESKTOP_DEFAULT_APP_HEIGHT),
             "is_max": _(u"是") if app.is_max else _(u"否"),
@@ -329,7 +339,7 @@ def market_app_detail(request, app_id):
         logger.error(error_message)
         app_info = {}  # 该应用基本信息
         app_version_list = []  # 应用版本信息
-    ctx = {"app": app_info, "app_version": app_version_list}
+    ctx = {"app": app_info, "app_version": app_version_list, 'is_app_star_enabled': settings.IS_APP_STAR_ENABLED}
     return render(request, "desktop/market_app_detail.html", ctx)
 
 
@@ -368,3 +378,32 @@ def market_get_nearest_open_app(request):
                 break
     ctx = {"app_list": app_list, "total": len(app_list)}
     return JsonResponse(ctx)
+
+
+def update_app_star(request, app_id):
+    """
+    应用评分
+    @param app_id: app的id
+    """
+    try:
+        app = App.objects.get(id=app_id)
+    except App.DoesNotExist:
+        return JsonResponse({"result": AppStarOperatorResult.NOTEXIST})
+
+    # 判断用户是否已经打过分
+    if AppStar.objects.filter(user=request.user, app=app).exists():
+        return JsonResponse({"result": AppStarOperatorResult.STARED})
+
+    try:
+        with transaction.atomic():
+            # 记录用户的评分
+            star_num = request.POST.get('star_num')
+            AppStar.objects.create(app=app, user=request.user, star_num=star_num)
+            # 更新应用的平均分
+            app_average_star = AppStar.objects.filter(app=app).aggregate(Avg('star_num'))
+            app.star_num = app_average_star['star_num__avg']
+            app.save()
+            return JsonResponse({"result": AppStarOperatorResult.SUCCESS})
+    except Exception as error:
+        logger.exception("An error occurred while saving App star num%s" % error)
+        return JsonResponse({"result": AppStarOperatorResult.SYSERROR})
