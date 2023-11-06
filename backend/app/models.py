@@ -153,7 +153,7 @@ class App(models.Model):
     # NOTE: should be visiable_labels, without _
     visiable_labels = models.CharField(u"可见范围标签", max_length=1024, blank=True, null=True)
     # 应用评分
-    star_num = models.DecimalField(u"星级评分", default=0.00, max_digits=5, decimal_places=2)
+    star_num = models.DecimalField(u"星级评分", default=0.00, max_digits=5, decimal_places=2, null=True)
 
     # 在 PaaS3.0 上创建的应用，ESB/APIGW 会从这个表获取应用鉴权信息，所以需要把 PaaS3.0 应用的 app_code/app_secret 同步到这个表中
     from_paasv3 = models.BooleanField(u"是否 Paas3.0 上创建的应用", default=False)
