@@ -145,7 +145,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, "static_files")
 STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, "static"),)
 
 
-STATIC_VERSION = "0.2.15"
+STATIC_VERSION = "0.2.16"
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
 MEDIA_URL = "/media/"
@@ -265,6 +265,9 @@ REQUESTS_POOL_MAXSIZE = 20
 
 # 默认数据库AUTO字段类型
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+# 是否开启评分功能
+IS_APP_STAR_ENABLED = False
 
 ##################
 # 企业证书校验相关 #
