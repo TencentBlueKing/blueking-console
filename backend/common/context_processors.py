@@ -41,4 +41,5 @@ def site_settings(request):
         # PaaS3.0 的访问地址
         "BK_PAAS3_URL": settings.BK_PAAS3_URL,
         "BK_USER_APP_CODE": settings.BK_USER_APP_CODE,
+        "BK_DOCS_URL_PREFIX": settings.BK_DOCS_URL_PREFIX,
     }

@@ -21,6 +21,7 @@ to the current version of the project delivered to anyone in the future.
 from __future__ import unicode_literals
 
 import copy
+import json
 
 from django.conf import settings
 from django.utils.translation import get_language
@@ -29,22 +30,19 @@ from common.log import logger
 
 
 def _call_esb_api(http_func, url_path, data, timeout=30):
-    # 默认请求头
-    headers = {
-        "Content-Type": "application/json",
-        "blueking-language": get_language(),
-    }
-
-    # Note: 目前企业版ESB调用的鉴权信息都是与接口的参数一起的，并非在header头里
+    # ESB调用的鉴权信息
     common_params = {
         "bk_app_code": "bk_paas",
         "bk_app_secret": settings.ESB_TOKEN,
         "bk_username": "admin",  # 存在后台任务，无法使用登录态的方式
-        # 兼容TE版
-        "app_code": "bk_paas",
-        "app_secret": settings.ESB_TOKEN,
     }
-    data.update(common_params)
+
+    # 默认请求头
+    headers = {
+        "Content-Type": "application/json",
+        "blueking-language": get_language(),
+        "X-Bkapi-Authorization": json.dumps(common_params),
+    }
 
     url = "http://{}{}".format(settings.PAAS_INNER_DOMAIN, url_path)
 

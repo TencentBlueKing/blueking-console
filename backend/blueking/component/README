@@ -36,3 +36,9 @@
      )
      kwargs = {'app_id': 1}
      result = client.cc.get_app_host_list(kwargs)
+
+3. ESB 影响的功能点：
+- 登录认证
+- 切换语言
+- 个人中心：获取微信配置
+- 个人中心：获取用户信息、更新用户信息
