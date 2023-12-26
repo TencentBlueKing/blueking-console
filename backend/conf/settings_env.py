@@ -95,9 +95,11 @@ HOST_CC = env.str("BK_CMDB_ADDR", "")
 # host for job
 HOST_JOB = env.str("BK_JOB_ADDR", "")
 
+
 # 蓝鲸版本号
 BK_VERSION = env.str("BK_VERSION", "7.0")
-
+# 蓝鲸文档中心地址，默认为官网地址
+BK_DOCS_URL_PREFIX = env.str("BK_DOCS_URL_PREFIX", "https://bk.tencent.com/docs")
 
 try:
     from conf.local_settings import *  # noqa
