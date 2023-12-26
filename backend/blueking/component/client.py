@@ -21,16 +21,12 @@ Component API Client
 """
 import json
 import logging
-import random
-import time
-import urllib.parse
 from builtins import object
 
 import requests
 
 from . import collections, conf
 from .constants import LANG_COMPATIBLE_INFO, SUPPORTED_LANG
-from .utils import get_signature
 
 # shutdown urllib3's warning
 try:
@@ -62,6 +58,12 @@ class BaseComponentClient(object):
         self._cached_collections = {}
         self.use_test_env = use_test_env
         self.language = language or self.get_cur_language()
+        self._bkapi_authorization = dict(
+            self.common_args.copy(), bk_app_code=self.app_code, bk_app_secret=self.app_secret
+        )
+
+    def update_bkapi_authorization(self, **auth):
+        self._bkapi_authorization.update(auth)
 
     def set_use_test_env(self, use_test_env):
         """Change the value of use_test_env
@@ -134,9 +136,21 @@ class BaseComponentClient(object):
         if self.language:
             headers["blueking-language"] = self.get_supported_language_variant(self.language)
 
-        params, data = self.merge_params_data_with_common_args(method, params, data, enable_app_secret=True)
+        # kwargs headers 实际为空，因为调用方 ComponentAPI 没有传 headers 这个参数，
+        # 因此这里没有从 headers 中获取 x-bkapi-authorization 并将其与 self._bkapi_authorization 合并
+        headers['x-bkapi-authorization'] = json.dumps(self._bkapi_authorization)
+        params, data = self._handle_params_and_data(method, params, data)
+
         logger.debug("Calling %s %s with params=%s, data=%s, headers=%s", method, url, params, data, headers)
         return requests.request(method, url, params=params, data=data, verify=False, headers=headers, **kwargs)
+
+    def _handle_params_and_data(self, method, params, data):
+        if method == 'GET':
+            params = params or {}
+        elif method == 'POST':
+            data = json.dumps(data or {})
+
+        return params, data
 
     def __getattr__(self, key):
         if key not in self.available_collections:
@@ -148,40 +162,5 @@ class BaseComponentClient(object):
         return self._cached_collections[key]
 
 
-class ComponentClientWithSignature(BaseComponentClient):
-    """Client class for component with signature"""
-
-    def request(self, method, url, params=None, data=None, **kwargs):
-        """Send request, will add "signature" parameter."""
-        # determine whether access test environment of third-party system
-        headers = kwargs.pop("headers", {})
-        if self.use_test_env:
-            headers["x-use-test-env"] = "1"
-        if self.language:
-            headers["blueking-language"] = self.language
-
-        params, data = self.merge_params_data_with_common_args(method, params, data, enable_app_secret=False)
-        if method == "POST":
-            params = {}
-
-        url_path = urllib.parse.urlparse(url).path
-        # signature always in GET params
-        params.update(
-            {
-                "bk_timestamp": int(time.time()),
-                "bk_nonce": random.randint(1, 2147483647),
-            }
-        )
-        params["signature"] = get_signature(method, url_path, self.app_secret, params=params, data=data)
-
-        logger.debug("Calling %s %s with params=%s, data=%s", method, url, params, data)
-        return requests.request(method, url, params=params, data=data, verify=False, headers=headers, **kwargs)
-
-
-# 根据是否开启signature来判断使用的Client版本
-if conf.CLIENT_ENABLE_SIGNATURE:
-    ComponentClient = ComponentClientWithSignature
-else:
-    ComponentClient = BaseComponentClient
-
+ComponentClient = BaseComponentClient
 ComponentClient.setup_components(collections.AVAILABLE_COLLECTIONS)
