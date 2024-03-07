@@ -216,7 +216,7 @@ def market_get_list(request):
                 "code": app.code,  # 应用编码
                 "introduction": introduction,  # 应用简介
                 "use_count": app.use_count,  # 应用人气数
-                "star_num": int(app.star_num),  # 应用评分
+                "star_num": int(app.star_num) if app.star_num else 0,  # 应用评分
                 "user_app_id": all_user_app.get(app.code, "") if app.code in all_user_app else "",  # 应用对应的user_app id
                 "relapp_id": app.id,  # 应用id
                 "logo_url": get_app_logo_url(app.code),  # 应用logo
@@ -278,7 +278,7 @@ def market_app_detail(request, app_id):
             "code": app.code,
             "tag": app.tag_name,
             "use_count": app.use_count,
-            "star_num": int(app.star_num),
+            "star_num": int(app.star_num) if app.star_num else 0,
             "width": "%s px" % (app.width if app.width else DESKTOP_DEFAULT_APP_WIDTH),
             "height": "%s px" % (app.height if app.height else DESKTOP_DEFAULT_APP_HEIGHT),
             "is_max": _(u"是") if app.is_max else _(u"否"),
