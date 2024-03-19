@@ -62,6 +62,8 @@ urlpatterns = [
     url(r"^console/ping/", healthz_views.ping),
     # 国际化设置相关
     url(r"^console/i18n/", include("bk_i18n.urls")),
+    # 通知中心
+    url(r"^console/notice/", include(("bk_notice_sdk.urls", "notice"), namespace="notice")),
     # admin
     path("admin/", admin.site.urls),
 ]

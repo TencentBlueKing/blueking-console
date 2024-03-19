@@ -23,6 +23,8 @@ to the current version of the project delivered to anyone in the future.
 import environ
 import urllib3
 
+from conf.default import APP_ID, LANGUAGE_COOKIE_NAME
+
 env = environ.Env()
 
 # Generic Django project settings
@@ -69,6 +71,7 @@ BK_COOKIE_DOMAIN = "." + env.str("BK_DOMAIN")
 LOGIN_HOST = env.str("BK_LOGIN_API_URL", "http://bk-login-web")
 BK_COMPONENT_API_URL = env.str("BK_COMPONENT_API_URL", "http://bkapi.example.com")
 BK_IAM_API_URL = env.str("BK_IAM_API_URL", "http://bkiam-web")
+BK_API_URL_TMPL = env.str("BK_API_URL_TMPL", "http://bkapi.example.com/api/{api_name}")
 
 # 登录访问的域名，代码中会自动拼接 /login/ 地址
 # LOGIN_DOMAIN = env.str("BK_LOGIN_DOMAIN", "paas.example.com")
@@ -98,6 +101,20 @@ HOST_JOB = env.str("BK_JOB_ADDR", "")
 # 蓝鲸版本号
 BK_VERSION = env.str("BK_VERSION", "7.0")
 
+# 通知中心的功能可通过配置开启
+IS_BK_NOTICE_ENABLED = env.bool("IS_BK_NOTICE_ENABLED", False)
+BK_NOTICE_ENV = env.str("BK_NOTICE_ENV", "prod")
+BK_NOTICE = {
+    "STAGE": BK_NOTICE_ENV,
+    "LANGUAGE_COOKIE_NAME": LANGUAGE_COOKIE_NAME,
+    "DEFAULT_LANGUAGE": "en",
+    "PLATFORM": APP_ID,  # 平台注册的 code，用于获取系统通知消息时进行过滤
+    "BK_API_APP_CODE": APP_ID,  # 用于调用 apigw 认证
+    "BK_API_SECRET_KEY": ESB_TOKEN,
+    "BK_API_URL_TMPL": BK_API_URL_TMPL,
+}
+
+JS_SUFFIX = env.str("JS_SUFFIX", "min.js")
 
 try:
     from conf.local_settings import *  # noqa

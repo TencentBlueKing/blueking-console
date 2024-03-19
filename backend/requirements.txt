@@ -8,6 +8,7 @@ gevent==21.1.2
 pytz==2016.6.1
 python-dateutil==2.8.1
 cachetools==3.1.1
+bk-notice-sdk>=1.2.0
 
 # for config
 django-environ==0.4.5

@@ -266,6 +266,10 @@ REQUESTS_POOL_MAXSIZE = 20
 # 默认数据库AUTO字段类型
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
+# 通知中心的功能可通过配置开启
+IS_BK_NOTICE_ENABLED = False
+BK_NOTICE_ENV = "prod"
+
 ##################
 # 企业证书校验相关 #
 ##################

@@ -12,11 +12,11 @@ BLUEKING.license = (function(){
         get : function(callback){
 		    // 获取许可证信息是否提示
 			$.ajax({
-				type : 'POST',
-				url : urlPrefix + 'get_license_notice/',
+				type : 'GET',
+				url: urlPrefix + 'notice/announcements/',
 				success : function(res){
-				    if(!res.result){
-    					callback && callback(res.message);
+				    if(res.result){
+						callback && callback(res.data[0].title);
                     }
 				}
 			});
