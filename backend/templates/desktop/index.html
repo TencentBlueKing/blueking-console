@@ -10,6 +10,8 @@
     <link rel="Shortcut Icon" href="{{STATIC_URL}}favicon.ico">
     <!-- 滚动条插件 -->
     <link rel="stylesheet" href="{{STATIC_URL}}assets/mCustomScrollbar/jquery.mCustomScrollbar.css">
+    <!-- 通知中心样式 -->
+    <link rel="stylesheet" href="{{STATIC_URL}}assets/bk-notice/notice-center.css">
     <!-- 腾讯UED提示信息&部分其他小插件 -->
     <link rel="stylesheet" href="{{STATIC_URL}}assets/bluekingLibs/bluekinglibs.css">
       <!-- bkdialog -->
@@ -30,6 +32,32 @@
 	{% endif %}
 
     <div class="loading"></div>
+    <!-- 通知中心跑马灯 -->
+    <div class="bk-notice-component-alert">
+        <img class="notice-icon" src="{{STATIC_URL}}img/alert.svg" width="14" height="14" />
+        <div class="bk-notice-content-container">
+            <p class="bk-notice-content">
+            </p>
+        </div>
+        <div class="alert-notice-pagination">
+            <span class="operate-icon alert-prev-icon" :class="{ disabled: alertIndex <= 0}"
+                onclick="BKNOTICE.changeAlertNoticeIndex('prev')">
+                &lt
+            </span>
+            <span class="alert-notice-num">
+            </span>
+            <span class="operate-icon alert-next-icon" :class="{ disabled: alertIndex >= alertNoticeList.length - 1}"
+                onclick="BKNOTICE.changeAlertNoticeIndex('next')">
+                >
+            </span>
+        </div>
+        <svg onclick="BKNOTICE.closeAlertNotice()" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16px"
+            height="16px" style="fill: #979BA5; cursor: pointer; margin-left: 32px;">
+            <path
+                d="M828.8 738.24L602.56 512 828.8 285.76 738.24 195.2 512 421.44 285.76 195.2 195.2 285.76 421.44 512 195.2 738.24l90.56 90.56L512 602.56 738.24 828.8Z">
+            </path>
+        </svg>
+    </div>
     <!-- 桌面 -->
     <div id="desktop">
         <div id="desk">
@@ -46,14 +74,6 @@
             <!-- 壁纸水印 -->
             <div  id="water-mark" class="bk-watermark"></div>
             <!-- 顶部消息提示 start -->
-            <div class="header_notice_box" id="license_notice">
-                <div class="notice_text">
-                    <i class="notice_icon">!</i>
-                    <span class="notice_msg"></span>
-                </div>
-                <a href="javascript:;" class="notice_btn">{% trans '知道了' %}</a>
-            </div>
-            <!-- 顶部消息提示 end -->
             <div id="desk-1" class="desktop-container">
                 <div class="desktop-apps-container"></div>
                 <div class="scrollbar scrollbar-x"></div><div class="scrollbar scrollbar-y"></div>
@@ -292,6 +312,9 @@
 	<script src="{{STATIC_URL}}assets/validform/Validform_v5.3.2_min.js"></script>
 	<!-- 扩展现有JS对象方法插件-->
 	<script src="{{STATIC_URL}}assets/sugar/sugar-1.4.1.min.js"></script>
+    <!-- 消息通知中心插件-->
+    <script src="{{STATIC_URL}}assets/bk-notice/dompurity-2.3.3.min.js"></script>
+    <script src="{{STATIC_URL}}assets/bk-notice/notice-center.js?v={{STATIC_VERSION}}"></script>
     <!-- bkdialog -->
     <script src="{{STATIC_URL}}assets/bkDialog-1.0/js/dialog.js"></script>
 	<!-- 复制插件 -->
@@ -346,6 +369,8 @@
 		$('#desktop').show();
 		//初始化一些桌面信息
 		BLUEKING.base.init();
+        //获取通知消息
+        BKNOTICE.init();
 	});
 	</script>
 </body>
