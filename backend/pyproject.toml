@@ -21,6 +21,7 @@ django-prometheus = "2.1.0"
 future = "0.18.3"
 urllib3 = "<2.0"
 Pillow = "10.3.0"
+bk-notice-sdk = ">=1.2.0"
 
 
 [tool.poetry.dev-dependencies]

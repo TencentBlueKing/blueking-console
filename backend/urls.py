@@ -60,6 +60,8 @@ urlpatterns = [
     # 检测桌面是否正常运行
     url(r"^console/healthz/", include("healthz.urls")),
     url(r"^console/ping/", healthz_views.ping),
+    # 通知中心
+    url(r"^console/notice/", include(("bk_notice_sdk.urls", "notice"), namespace="notice")),
     # 国际化设置相关
     url(r"^console/i18n/", include("bk_i18n.urls")),
     # admin
