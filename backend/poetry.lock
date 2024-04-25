@@ -51,6 +51,35 @@ requests = "*"
 six = ">=1.11.0"
 
 [[package]]
+name = "bk-notice-sdk"
+version = "1.3.1"
+description = "A project for fetching and displaying announcement notifications."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+bkapi-client-core = ">=1.0.2,<2.0.0"
+
+[[package]]
+name = "bkapi-client-core"
+version = "1.2.0"
+description = "A toolkit for buiding blueking API clients."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+
+[package.dependencies]
+curlify = ">=2.0"
+requests = ">=2.20"
+six = "*"
+typing-extensions = ">=3.7.4"
+
+[package.extras]
+django = ["bkoauth (>=0.0.10)", "prometheus-client (>=0.9.0)"]
+monitor = ["prometheus-client (>=0.9.0)"]
+
+[[package]]
 name = "black"
 version = "22.12.0"
 description = "The uncompromising code formatter."
@@ -706,7 +735,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.13"
-content-hash = "e18d37dbea8989c6a565ba2f6d44704617bf2d5f668be954e8753ad417e703c1"
+content-hash = "0058ec5eeb64e0d6d44c4985a423eb2af7d2deb5918afb4b162e69c9b8ad363c"
 
 [metadata.files]
 asgiref = []
@@ -716,6 +745,8 @@ bk-iam = [
     {file = "bk-iam-1.1.9.tar.gz", hash = "sha256:6a2850bafa775852ec512353780115778c609725ad36ee389d59c318c5d1f4be"},
     {file = "bk_iam-1.1.9-py2.py3-none-any.whl", hash = "sha256:20aab35995ed0be136a05104a1b4aa072cf85a51006941626655797ef5a3114a"},
 ]
+bk-notice-sdk = []
+bkapi-client-core = []
 black = []
 cachetools = [
     {file = "cachetools-3.1.1-py2.py3-none-any.whl", hash = "sha256:428266a1c0d36dc5aca63a2d7c5942e88c2c898d72139fca0e97fdd2380517ae"},

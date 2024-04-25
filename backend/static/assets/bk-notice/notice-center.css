@@ -1,0 +1,70 @@
+.bk-notice-component-alert {
+    z-index: 10000;
+    padding: 0 40px;
+    height: 40px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background: #FAF0D2;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #63656E;
+}
+
+.bk-notice-component-alert .notice-icon {
+    color: #E6AA00;
+    margin-right: 8px;
+}
+
+.bk-notice-content-container {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.bk-notice-content-container * {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+.bk-notice-content {
+    display: inline-block;
+    transition: all .2s linear;
+}
+
+.bk-notice-content * {
+    display: inline-block;
+}
+
+.alert-notice-pagination {
+    display: none;
+    width: 100px;
+    text-align: right;
+    margin-left: 8px;
+}
+
+.alert-notice-pagination span {
+    padding: 4px;
+    font-size: 12px;
+}
+
+.alert-notice-pagination .alert-notice-num {
+    cursor: default;
+    color: #979BA5;
+}
+
+.alert-notice-pagination .operate-icon {
+    cursor: pointer;
+    font-weight: 800;
+    color: #3A84FF;
+}
+
+.alert-notice-pagination .operate-icon.icon-disabled {
+    cursor: not-allowed;
+    color: #A3C5FD;
+}
