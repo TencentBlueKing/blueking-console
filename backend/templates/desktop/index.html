@@ -368,8 +368,10 @@
 		$('#desktop').show();
 		//初始化一些桌面信息
 		BLUEKING.base.init();
-        //获取通知消息
-        BKNOTICE.init();
+        {% if IS_BK_NOTICE_ENABLED %}
+            //获取通知消息
+            BKNOTICE.init();
+	    {% endif %}
 	});
 	</script>
 </body>

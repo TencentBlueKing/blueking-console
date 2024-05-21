@@ -42,4 +42,5 @@ def site_settings(request):
         "BK_PAAS3_URL": settings.BK_PAAS3_URL,
         "BK_USER_APP_CODE": settings.BK_USER_APP_CODE,
         "BK_DOCS_URL_PREFIX": settings.BK_DOCS_URL_PREFIX,
+        "IS_BK_NOTICE_ENABLED": settings.IS_BK_NOTICE_ENABLED,
     }
