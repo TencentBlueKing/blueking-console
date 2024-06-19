@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>{% trans '桌面 | 腾讯蓝鲸智云' %}</title>
+    <title></title>
     <meta name="keywords" content="{% trans '开发者中心,游戏运维,运维,服务器管理,模块配置,监控,腾讯游戏,蓝鲸,智云,devops,运维开发,作业平台,集成平台,配置平台,管控平台' %}" />
     <meta name="description" content="{% trans '蓝鲸智云软件是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变中国运维行业，帮助企业快速达到基础运维支撑能力，并提升技术人员的DevOps能力。该版本提供了配置平台，作业平台，集成平台等强大功能，用户在使用时，请查阅并遵守《蓝鲸智云软件用户服务协议》。' %}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -375,15 +375,20 @@
             BKNOTICE.init();
         {% endif %}
 
-        {% if BK_SHARED_RES_URL %}
-            (async () => {
-                const data = await PlatformConfig.getPlatformConfig('{{BK_SHARED_RES_URL}}/bk_paas/base.js');
-                if(data.i18n.name){
-                    // 远程配置文件中配置了产品名称等信息，则更新产品的 title 设置
-                    PlatformConfig.setDocumentTitle(data.i18n);
-                }
-            })();
-	    {% endif %}
+        (async () => {
+            const defaultConfig = { name: '桌面', nameEn: 'Desktop', brandName: '腾讯蓝鲸智云', brandNameEn: 'BlueKing' };
+            let configReq;
+            {% if BK_SHARED_RES_URL %}
+                configReq = PlatformConfig.getPlatformConfig('{{BK_SHARED_RES_URL}}/bk_paas/base.js', defaultConfig);
+            {% else %}
+                configReq = PlatformConfig.getPlatformConfig(defaultConfig);
+            {% endif %}
+            const data = await configReq;
+            if(data.i18n.name){
+                // 远程配置文件中配置了产品名称等信息，则更新产品的 title 设置
+                PlatformConfig.setDocumentTitle(data.i18n);
+            }
+        })();
 	});
 	</script>
 </body>
