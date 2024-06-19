@@ -120,6 +120,9 @@ BK_NOTICE = {
     "BK_API_URL_TMPL": BK_API_URL_TMPL,
 }
 
+# 产品 title/footer/name/logo 等资源自定义配置的路径
+BK_SHARED_RES_URL = env.str("BK_SHARED_RES_URL", "")
+
 try:
     from conf.local_settings import *  # noqa
 except ImportError:

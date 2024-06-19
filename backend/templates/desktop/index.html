@@ -3,11 +3,10 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>{% trans '桌面 | 腾讯蓝鲸智云' %}</title>
+    <title></title>
     <meta name="keywords" content="{% trans '开发者中心,游戏运维,运维,服务器管理,模块配置,监控,腾讯游戏,蓝鲸,智云,devops,运维开发,作业平台,集成平台,配置平台,管控平台' %}" />
     <meta name="description" content="{% trans '蓝鲸智云软件是由蓝鲸智云团队提供的一套基于PaaS的技术解决方案，旨在改变中国运维行业，帮助企业快速达到基础运维支撑能力，并提升技术人员的DevOps能力。该版本提供了配置平台，作业平台，集成平台等强大功能，用户在使用时，请查阅并遵守《蓝鲸智云软件用户服务协议》。' %}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <link rel="Shortcut Icon" href="{{STATIC_URL}}favicon.ico">
     <!-- 滚动条插件 -->
     <link rel="stylesheet" href="{{STATIC_URL}}assets/mCustomScrollbar/jquery.mCustomScrollbar.css">
     <!-- 通知中心样式 -->
@@ -21,7 +20,6 @@
     <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/skins/mac.{{CSS_SUFFIX}}?v={{STATIC_VERSION}}" id="window-skin">
     <!-- 处理图片国际化 -->
     <style>
-        .bk-watermark{position:fixed;bottom:60px;right:20px;width:400px;height:80px;opacity:.7;background: url({{ STATIC_URL }}{% trans 'img/base_ui/watermark.png' %}) no-repeat;}
         .appbtn span.lapp_mark{border-radius:0px;display:block;height:24px;width:24px;margin-left:25px;margin-top:-23px;background: url({{ STATIC_URL }}{% trans 'img/app_logo/light_app.png' %}) no-repeat;}
         #appmanage .amg_close{background:url({{ STATIC_URL }}{% trans 'img/base_ui/desk_sprite.png' %}) no-repeat -350px -350px;cursor:pointer;width:90px;height:37px;position:absolute;top:25px;right:10px}
     </style>
@@ -314,6 +312,8 @@
     <!-- 消息通知中心插件-->
     <script src="{{STATIC_URL}}assets/bk-notice/dompurity-2.3.3.min.js"></script>
     <script src="{{STATIC_URL}}assets/bk-notice/notice-center.js?v={{STATIC_VERSION}}"></script>
+    <!-- 全局配置插件-->
+    <script src="{{STATIC_URL}}assets/platform-config/platform-config.umd.cjs?v={{STATIC_VERSION}}"></script>
     <!-- bkdialog -->
     <script src="{{STATIC_URL}}assets/bkDialog-1.0/js/dialog.js"></script>
 	<!-- 复制插件 -->
@@ -368,10 +368,26 @@
 		$('#desktop').show();
 		//初始化一些桌面信息
 		BLUEKING.base.init();
+    
         {% if IS_BK_NOTICE_ENABLED %}
             //获取通知消息
             BKNOTICE.init();
-	    {% endif %}
+        {% endif %}
+
+        (async () => {
+            const defaultConfig = { name: '桌面', nameEn: 'Desktop', brandName: '腾讯蓝鲸智云', brandNameEn: 'BlueKing', favicon: "{{STATIC_URL}}favicon.ico"};
+            let configReq;
+            {% if BK_SHARED_RES_URL %}
+                configReq = PlatformConfig.getPlatformConfig('{{BK_SHARED_RES_URL}}/bk_paas/base.js', defaultConfig);
+            {% else %}
+                configReq = PlatformConfig.getPlatformConfig(defaultConfig);
+            {% endif %}
+            const data = await configReq;
+            // 设置 title
+            PlatformConfig.setDocumentTitle(data.i18n);
+            // 设置 favicon
+            PlatformConfig.setShortcutIcon(data.favicon);
+        })();
 	});
 	</script>
 </body>
