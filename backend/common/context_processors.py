@@ -43,4 +43,6 @@ def site_settings(request):
         "BK_USER_APP_CODE": settings.BK_USER_APP_CODE,
         "BK_DOCS_URL_PREFIX": settings.BK_DOCS_URL_PREFIX,
         "IS_BK_NOTICE_ENABLED": settings.IS_BK_NOTICE_ENABLED,
+        # 产品 title/footer/name/logo 等资源自定义配置的路径
+        "BK_SHARED_RES_URL": settings.BK_SHARED_RES_URL,
     }
