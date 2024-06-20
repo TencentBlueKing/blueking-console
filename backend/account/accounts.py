@@ -19,13 +19,13 @@ to the current version of the project delivered to anyone in the future.
 账号体系相关的基类Account.
 """
 from builtins import object
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlunparse
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth import logout as auth_logout
-from django.contrib.auth.views import redirect_to_login
-from django.http import HttpResponse
+from django.http import HttpResponse, QueryDict
+from django.shortcuts import render, resolve_url
 from django.utils import translation
 
 from account.exceptions import AccessPermissionDenied
@@ -147,19 +147,35 @@ class Account(AccountSingleton):
             callback = request.get_full_path()
         return callback
 
+    def _redirect_to_login_page(self, request, next, login_url, redirect_field_name):
+        """
+        通过 next 拼接完整的登录地址
+        由于页面都是通过 IFrame 嵌入，所以需要刷新 parent 的页面，否则页面会一直重定向
+        """
+        resolved_url = resolve_url(login_url or settings.LOGIN_URL)
+
+        login_url_parts = list(urlparse(resolved_url))
+        if redirect_field_name:
+            querystring = QueryDict(login_url_parts[4], mutable=True)
+            querystring[redirect_field_name] = next
+            login_url_parts[4] = querystring.urlencode(safe='/')
+
+        final_login_url = urlunparse(login_url_parts)
+        ctx = {"login_url": final_login_url}
+        return render(request, "redirect_to_login.html", ctx)
+
     def _redirect_login(self, request, is_login=True):
         """
         跳转平台进行登录
         """
         login_url = self.BK_LOGIN_URL
-        if is_login:
-            # 登录
-            callback = self.build_callback_url(request, self.BK_LOGIN_URL)
-        else:
-            # 登出
+        # 退出登录需要添加指定的参数
+        if not is_login:
             login_url = "%s?%s" % (self.BK_LOGIN_URL, "is_from_logout=1")
-            callback = self.http_referer(request)
-        return redirect_to_login(callback, login_url, settings.REDIRECT_FIELD_NAME)
+
+        # 所有页面重新登录成功后都是回调到桌面首页
+        callback = self.http_referer(request)
+        return self._redirect_to_login_page(request, callback, login_url, settings.REDIRECT_FIELD_NAME)
 
     def redirect_login(self, request):
         """

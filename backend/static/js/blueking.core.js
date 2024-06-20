@@ -50,7 +50,7 @@ $.ajaxSetup({
         // 401未授权
         401: function(xhr) {
             // 重新加载页面后跳转到登录页面，重新获取登录态
-            window.location.reload();
+			window.top.location.reload();
         },
         // 402 权限验证不通过
         402:function(xhr){
