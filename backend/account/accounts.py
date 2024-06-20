@@ -19,13 +19,13 @@ to the current version of the project delivered to anyone in the future.
 账号体系相关的基类Account.
 """
 from builtins import object
-from urllib.parse import urlparse
+from urllib.parse import urlencode, urlparse
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth import logout as auth_logout
-from django.contrib.auth.views import redirect_to_login
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.utils import translation
 
 from account.exceptions import AccessPermissionDenied
@@ -152,14 +152,18 @@ class Account(AccountSingleton):
         跳转平台进行登录
         """
         login_url = self.BK_LOGIN_URL
-        if is_login:
-            # 登录
-            callback = self.build_callback_url(request, self.BK_LOGIN_URL)
-        else:
-            # 登出
-            login_url = "%s?%s" % (self.BK_LOGIN_URL, "is_from_logout=1")
-            callback = self.http_referer(request)
-        return redirect_to_login(callback, login_url, settings.REDIRECT_FIELD_NAME)
+        redirect_field_name = settings.REDIRECT_FIELD_NAME
+        # 所有页面重新登录成功后都是回调到桌面首页
+        redirect_url = settings.SITE_URL
+
+        query_params = {redirect_field_name: redirect_url}
+        # 退出登录需要添加指定的参数
+        if not is_login:
+            query_params["is_from_logout"] = 1
+
+        full_login_url = f"{login_url}?{urlencode(query_params)}"
+        # 由于页面都是通过 IFrame 嵌入，所以需要刷新 parent 的页面，否则页面会一直重定向
+        return render(request, "redirect_to_login.html", {"login_url": full_login_url})
 
     def redirect_login(self, request):
         """

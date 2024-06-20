@@ -145,7 +145,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, "static_files")
 STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, "static"),)
 
 
-STATIC_VERSION = "0.2.17"
+STATIC_VERSION = "0.2.18"
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
 MEDIA_URL = "/media/"
