@@ -24,13 +24,9 @@ from django.db import migrations
 
 
 def load_data(apps, schema_editor):
+    """桌面不再初始化应用，在开发者中心中统一处理
     """
-    添加 作业平台和配置平台的创建者
-    """
-    App = apps.get_model("app", "App")
-
-    # 添加 作业平台和配置平台的创建者
-    App.objects.filter(code__in=['bk_cc', 'bk_job']).update(creater=u"蓝鲸智云")
+    pass
 
 
 class Migration(migrations.Migration):

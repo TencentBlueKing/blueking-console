@@ -49,12 +49,6 @@ def load_data(apps, schema_editor):
         # 所有已存在的应用 设置为其他分类
         other_tag = AppTags.objects.get(code='Other')
         App.objects.filter().update(tags=other_tag)
-
-        # 设置内置应用的类别（cc,job）
-        opstools_tag = AppTags.objects.get(code='OpsTools')
-        App.objects.filter(code='bk_job').update(tags=opstools_tag)
-        confmanage_tag = AppTags.objects.get(code='ConfManage')
-        App.objects.filter(code='bk_cc').update(tags=confmanage_tag)
     except Exception as error:
         print(error)
 
