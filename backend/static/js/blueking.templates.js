@@ -7,7 +7,7 @@ var appbtnTemp = template.compile(
 			'<span class="lapp_mark"></span>'+
 			'<% } %>'+
 		'</div>'+
-		'<span><%=name%></span>'+
+		'<span style="word-wrap:break-word;"><%=name%></span>'+
 	'</li>'
 );
 //桌面"添加应用"应用

@@ -108,7 +108,7 @@ input{-moz-user-select:text;-webkit-user-select:text;user-select:text}
 #shortcut_shadow2 img,
 #shortcut_shadow2 span{filter:alpha(opacity=50);opacity:0.5}
 .appbtn span,
-#shortcut_shadow span{background:none repeat scroll 0 0 rgba(0, 0, 0, 0.3);border-radius:10px;filter:none;color:#fff;display:inline-block;max-width:69px;height:20px;line-height:20px;margin-top:6px;overflow:hidden;padding:0 8px;position:relative;text-align:center;text-overflow:ellipsis;white-space:nowrap;z-index:1;word-wrap:break-word;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/img/base_ui/shortcut_text.png', sizingMethod='scale')}
+#shortcut_shadow span{background:none repeat scroll 0 0 rgba(0, 0, 0, 0.3);border-radius:10px;filter:none;color:#fff;display:inline-block;max-width:69px;height:20px;line-height:20px;margin-top:6px;overflow:hidden;padding:0 8px;position:relative;text-align:center;text-overflow:ellipsis;white-space:nowrap;z-index:1;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/img/base_ui/shortcut_text.png', sizingMethod='scale')}
 
 .smallIcon .desktop-container .appbtn,
 .smallIcon #shortcut_shadow{width:58px;height:58px}
