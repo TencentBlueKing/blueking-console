@@ -18,13 +18,9 @@ from django.conf import settings
 
 def load_data(apps, schema_editor):
     """
-    添加 作业平台和配置平台的创建者
+    桌面不再初始化应用，在开发者中心中统一处理
     """
-    App = apps.get_model("app", "App")
-
-    # 修改 作业平台和配置平台的链接为https, 且用新标签页打开
-    App.objects.filter(code='bk_cmdb').update(external_url='%s://%s' % (settings.HTTP_SCHEMA, settings.HOST_CC), open_mode="new_tab")
-    App.objects.filter(code='bk_job').update(external_url='%s://%s' % (settings.HTTP_SCHEMA, settings.HOST_JOB), open_mode="new_tab")
+    pass
 
 
 class Migration(migrations.Migration):

@@ -355,7 +355,7 @@ msgstr "Category"
 
 #: desktop/constants.py:35
 msgid "用户自建"
-msgstr "User self-built"
+msgstr "My Apps"
 
 #: desktop/market_views.py:277 desktop/market_views.py:289
 #: desktop/market_views.py:290

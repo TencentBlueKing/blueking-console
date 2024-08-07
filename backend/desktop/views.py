@@ -507,7 +507,18 @@ def search_apps(request):
                 | Q(developer__username__icontains=search)
                 | Q(developer__chname__icontains=search)
             )
-        apps = [{"name": i.name_display, "code": i.code, "type": "app", "appid": 0} for i in all_app]
+
+        is_en = translation.get_language() == "en"
+        apps = [
+            {
+                "name": (i.name_en_display if i.name_en_display else i.code) if is_en else i.name_display,
+                "code": i.code,
+                "type": "app",
+                "appid": 0,
+            }
+            for i in all_app
+        ]
+
     except Exception as error:
         logger.error("An error occurred in desktop search for apps, error：%s" % error)
         apps = []
