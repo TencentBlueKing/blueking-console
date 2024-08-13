@@ -375,7 +375,7 @@
         {% endif %}
 
         (async () => {
-            const defaultConfig = { name: '桌面', nameEn: 'Desktop', brandName: '腾讯蓝鲸智云', brandNameEn: 'BlueKing', favicon: "{{STATIC_URL}}favicon.ico"};
+            const defaultConfig = { name: '桌面', nameEn: 'Desktop', brandName: '蓝鲸智云', brandNameEn: 'Tencent BlueKing', favicon: "{{STATIC_URL}}favicon.ico"};
             let configReq;
             {% if BK_SHARED_RES_URL %}
                 configReq = PlatformConfig.getPlatformConfig('{{BK_SHARED_RES_URL}}/bk_paas/base.js', defaultConfig);
