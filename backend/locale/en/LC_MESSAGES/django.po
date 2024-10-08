@@ -824,8 +824,8 @@ msgid "切换至桌面5，快捷键：Ctrl + 5"
 msgstr "Switch to desktop 5, hot key: Ctrl + 5"
 
 #: templates/desktop/index.html:155
-msgid "产品文档"
-msgstr "PaaS Docs"
+msgid "文档中心"
+msgstr "Document Center"
 
 #: templates/desktop/index.html:156
 msgid "蓝鲸官网"

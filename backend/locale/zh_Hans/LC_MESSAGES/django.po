@@ -786,7 +786,7 @@ msgid "切换至桌面5，快捷键：Ctrl + 5"
 msgstr ""
 
 #: templates/desktop/index.html:155
-msgid "产品文档"
+msgid "文档中心"
 msgstr ""
 
 #: templates/desktop/index.html:156
