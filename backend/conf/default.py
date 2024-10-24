@@ -32,15 +32,20 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import sys
 
+import urllib3
 from django.utils.functional import SimpleLazyObject
 
 try:
     import pymysql
 
-    pymysql.version_info = (1, 4, 2, "final", 0)
+    pymysql.version_info = (1, 4, 6, "final", 0)
     pymysql.install_as_MySQLdb()
 except Exception:
     pass
+
+# Patch the SSL module for compatibility with legacy CA credentials.
+# https://stackoverflow.com/questions/72479812/how-to-change-tweak-python-3-10-default-ssl-settings-for-requests-sslv3-alert
+urllib3.util.ssl_.DEFAULT_CIPHERS = "ALL:@SECLEVEL=1"
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT, PROJECT_MODULE_NAME = os.path.split(PROJECT_PATH)
