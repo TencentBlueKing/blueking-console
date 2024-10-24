@@ -18,14 +18,14 @@ We undertake not to change the open source license (MIT license) applicable
 to the current version of the project delivered to anyone in the future.
 """
 from builtins import object
+from urllib.parse import quote
 
 from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.core.mail import send_mail
 from django.db import models
 from django.utils import timezone
-from django.utils.http import urlquote
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 class BkUserManager(BaseUserManager):
@@ -104,7 +104,7 @@ class BkUser(AbstractBaseUser, PermissionsMixin):
         return check_password(raw_password, self.password, setter)
 
     def get_absolute_url(self):
-        return "/users/%s/" % urlquote(self.email)
+        return "/users/%s/" % quote(self.email)
 
     def get_full_name(self):
         """

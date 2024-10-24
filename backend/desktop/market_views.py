@@ -27,7 +27,7 @@ from django.db.models import Avg, Count, Q
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils import timezone, translation
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from analysis.models import AppUseRecord
 from app.models import App, AppStar, AppTags

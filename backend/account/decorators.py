@@ -22,7 +22,7 @@ from functools import wraps
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from app.models import App
 from common.log import logger

@@ -33,7 +33,20 @@ import os
 import sys
 
 import urllib3
-from django.utils.functional import SimpleLazyObject
+from django.db.backends.mysql.features import DatabaseFeatures
+from django.utils.functional import SimpleLazyObject, cached_property
+
+
+class PatchFeatures:
+    @cached_property
+    def minimum_database_version(self):
+        if self.connection.mysql_is_mariadb:
+            return (10, 4)
+        else:
+            return (5, 7)
+
+
+DatabaseFeatures.minimum_database_version = PatchFeatures.minimum_database_version
 
 try:
     import pymysql
@@ -42,6 +55,7 @@ try:
     pymysql.install_as_MySQLdb()
 except Exception:
     pass
+
 
 # Patch the SSL module for compatibility with legacy CA credentials.
 # https://stackoverflow.com/questions/72479812/how-to-change-tweak-python-3-10-default-ssl-settings-for-requests-sslv3-alert
@@ -68,9 +82,9 @@ ALLOWED_HOSTS = ["*"]
 CSRF_COOKIE_NAME = "bk_csrftoken"
 # CSRF 验证失败处理函数
 CSRF_FAILURE_VIEW = "account.views.csrf_failure"
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "unsafe-none"
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -226,6 +240,8 @@ LANGUAGE_COOKIE_DOMAIN = SimpleLazyObject(
 LANGUAGE_COOKIE_NAME = "blueking_language"
 LANGUAGE_COOKIE_PATH = "/"
 LOCALE_PATHS = (os.path.join(PROJECT_ROOT, "locale"),)
+# 在 Django 4.0 及以后的版本中，LANGUAGE_SESSION_KEY 从 django.utils.translation 中被移除了
+LANGUAGE_SESSION_KEY = "django_language"
 
 
 ##################

@@ -29,7 +29,7 @@ import requests
 from django.conf import settings
 from django.utils.encoding import force_bytes
 from django.utils.http import urlencode
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from blueking.component.shortcuts import get_client_by_user
 from common.exceptions import ConsoleErrorCodes

@@ -23,8 +23,8 @@ import uuid
 from builtins import object
 
 from django.db import models
-from django.utils.translation import ugettext as _
-from django.utils.translation import ugettext_lazy as _l
+from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _l
 
 from common.log import logger
 from engine.constants import (

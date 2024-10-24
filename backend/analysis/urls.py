@@ -17,16 +17,16 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
-from django.conf.urls import url
+from django.urls import re_path
 
 from analysis import views
 
 # 分析统计
 urlpatterns = [
     # 保存app的访问信息
-    url(r"^app_record_by_user/(?P<app_id_or_code>[a-z0-9_-]+)/$", views.app_record_by_user),
+    re_path(r"^app_record_by_user/(?P<app_id_or_code>[a-z0-9_-]+)/$", views.app_record_by_user),
     # 保存app点击量
-    url(r"^app_liveness_save/$", views.app_liveness_save),
+    re_path(r"^app_liveness_save/$", views.app_liveness_save),
     # 保存app在线时长
-    url(r"^app_online_time_save/$", views.app_online_time_save),
+    re_path(r"^app_online_time_save/$", views.app_online_time_save),
 ]

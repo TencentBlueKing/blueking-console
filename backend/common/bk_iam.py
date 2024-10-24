@@ -20,7 +20,7 @@ to the current version of the project delivered to anyone in the future.
 from builtins import object
 
 from django.conf import settings
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from iam import IAM, Action, Request, Resource, Subject
 from iam.apply.models import (
     ActionWithoutResources,

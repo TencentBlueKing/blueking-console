@@ -17,12 +17,11 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
-
-from django.conf.urls import url
+from django.urls import re_path
 
 from api import views
 
 urlpatterns = [
     # 应用基本信息API(已接入ESB)
-    url(r"^app_info/$", views.get_app_info),
+    re_path(r"^app_info/$", views.get_app_info),
 ]

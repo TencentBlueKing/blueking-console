@@ -26,7 +26,6 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth import logout as auth_logout
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.utils import translation
 
 from account.exceptions import AccessPermissionDenied
 from bk_i18n.constants import BK_LANG_TO_DJANGO_LANG
@@ -104,7 +103,7 @@ class Account(AccountSingleton):
                 # 设置timezone session
                 request.session[settings.TIMEZONE_SESSION_KEY] = data.get("time_zone")
                 # 设置language session
-                request.session[translation.LANGUAGE_SESSION_KEY] = BK_LANG_TO_DJANGO_LANG[data.get("language")]
+                request.session[settings.LANGUAGE_SESSION_KEY] = BK_LANG_TO_DJANGO_LANG[data.get("language")]
             except Exception as e:
                 logger.error("Get and record user information failed：%s" % e)
         return True, user
