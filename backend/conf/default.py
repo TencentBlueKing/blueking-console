@@ -46,11 +46,14 @@ class PatchFeatures:
             return (5, 7)
 
 
+# Django 4.2+ 不再官方支持 Mysql 5.7，但目前 Django 仅是对 5.7 做了软性的不兼容改动，
+# 在没有使用 8.0 特异的功能时，对 5.7 版本的使用无影响，为兼容存量的 Mysql 5.7 DB 做此 Patch
 DatabaseFeatures.minimum_database_version = PatchFeatures.minimum_database_version
 
 try:
     import pymysql
 
+    # Patch version info to force pass Django client check
     pymysql.version_info = (1, 4, 6, "final", 0)
     pymysql.install_as_MySQLdb()
 except Exception:
@@ -82,6 +85,7 @@ ALLOWED_HOSTS = ["*"]
 CSRF_COOKIE_NAME = "bk_csrftoken"
 # CSRF 验证失败处理函数
 CSRF_FAILURE_VIEW = "account.views.csrf_failure"
+# Django4.0 中 SecurityMiddleware 默认值为:same-origin，会影响桌面窗口打开其他应用和退出登录的功能
 SECURE_CROSS_ORIGIN_OPENER_POLICY = "unsafe-none"
 
 # Application definition
