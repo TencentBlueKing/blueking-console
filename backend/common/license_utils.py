@@ -25,7 +25,7 @@ from builtins import str
 from django.conf import settings
 from django.core.cache import cache
 from django.utils import timezone, translation
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from common.constants import DATETIME_FORMAT_STRING, LICENSE_VAILD_CACHE_KEY
 from common.http import http_post

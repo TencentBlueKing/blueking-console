@@ -19,8 +19,8 @@ to the current version of the project delivered to anyone in the future.
 """
 from django.conf import settings
 from django.http import HttpResponseRedirect
-from django.utils.http import is_safe_url
-from django.utils.translation import LANGUAGE_SESSION_KEY, check_for_language
+from django.utils.http import url_has_allowed_host_and_scheme
+from django.utils.translation import check_for_language
 
 from bk_i18n.constants import DJANGO_LANG_TO_BK_LANG, TIME_ZONE_LIST
 from components import usermgr
@@ -28,9 +28,9 @@ from components import usermgr
 
 def _get_response(request):
     next = request.POST.get("next", request.GET.get("next"))
-    if not is_safe_url(next, request.get_host()):
+    if not url_has_allowed_host_and_scheme(next, request.get_host()):
         next = request.META.get("HTTP_REFERER")
-        if not is_safe_url(next, request.get_host()):
+        if not url_has_allowed_host_and_scheme(next, request.get_host()):
             next = "/"
     return HttpResponseRedirect(next)
 
@@ -44,7 +44,7 @@ def set_language(request):
             username = request.user.username
             is_success, message = usermgr.reset_user_i18n_language(username, DJANGO_LANG_TO_BK_LANG[language])
             if is_success:
-                request.session[LANGUAGE_SESSION_KEY] = language
+                request.session[settings.LANGUAGE_SESSION_KEY] = language
                 response.set_cookie(
                     settings.LANGUAGE_COOKIE_NAME,
                     DJANGO_LANG_TO_BK_LANG[language],

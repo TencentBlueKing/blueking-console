@@ -26,8 +26,8 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.db import models
 from django.utils import timezone
-from django.utils.translation import ugettext as _
-from django.utils.translation import ugettext_lazy as _l
+from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _l
 
 from app.models import App
 from common.constants import APP_LOGO_IMG_RELATED, SAAS_APP_LOGO_IMG_RELATED

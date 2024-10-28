@@ -11,14 +11,14 @@
 
 ## 准备 Python 开发环境
 
-1. 安装 Python 3.8
+1. 安装 Python 3.11
 
 可以使用 [pyenv](https://github.com/pyenv/pyenv) 管理本地的 python 环境
 - 依照 [相关指引](https://github.com/pyenv/pyenv#getting-pyenv) 安装 pyenv
-- 使用 pyenv 安装 Python 3.8
+- 使用 pyenv 安装 Python 3.11
 
 ```bash
-❯ pyenv install 3.8.13
+❯ pyenv install 3.11.10
 ```
 
 2. 安装项目依赖

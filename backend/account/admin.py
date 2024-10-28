@@ -20,7 +20,7 @@ to the current version of the project delivered to anyone in the future.
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from account.forms import BkUserChangeForm, BkUserCreationForm
 from account.models import Loignlog

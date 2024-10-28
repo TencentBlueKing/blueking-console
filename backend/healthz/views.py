@@ -24,7 +24,7 @@ from builtins import str
 import requests
 from django.conf import settings
 from django.http import HttpResponse, JsonResponse
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from account.decorators import login_exempt
 from common.exceptions import ConsoleErrorCodes

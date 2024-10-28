@@ -22,7 +22,7 @@ from builtins import range, zip
 
 from django.contrib.auth import get_user_model
 from django.utils import timezone
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from common.log import logger
 from common.utils.time import parse_local_datetime

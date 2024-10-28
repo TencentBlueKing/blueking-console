@@ -32,15 +32,37 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import sys
 
-from django.utils.functional import SimpleLazyObject
+import urllib3
+from django.db.backends.mysql.features import DatabaseFeatures
+from django.utils.functional import SimpleLazyObject, cached_property
+
+
+class PatchFeatures:
+    @cached_property
+    def minimum_database_version(self):
+        if self.connection.mysql_is_mariadb:
+            return (10, 4)
+        else:
+            return (5, 7)
+
+
+# Django 4.2+ 不再官方支持 Mysql 5.7，但目前 Django 仅是对 5.7 做了软性的不兼容改动，
+# 在没有使用 8.0 特异的功能时，对 5.7 版本的使用无影响，为兼容存量的 Mysql 5.7 DB 做此 Patch
+DatabaseFeatures.minimum_database_version = PatchFeatures.minimum_database_version
 
 try:
     import pymysql
 
-    pymysql.version_info = (1, 4, 2, "final", 0)
+    # Patch version info to force pass Django client check
+    pymysql.version_info = (1, 4, 6, "final", 0)
     pymysql.install_as_MySQLdb()
 except Exception:
     pass
+
+
+# Patch the SSL module for compatibility with legacy CA credentials.
+# https://stackoverflow.com/questions/72479812/how-to-change-tweak-python-3-10-default-ssl-settings-for-requests-sslv3-alert
+urllib3.util.ssl_.DEFAULT_CIPHERS = "ALL:@SECLEVEL=1"
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT, PROJECT_MODULE_NAME = os.path.split(PROJECT_PATH)
@@ -63,9 +85,10 @@ ALLOWED_HOSTS = ["*"]
 CSRF_COOKIE_NAME = "bk_csrftoken"
 # CSRF 验证失败处理函数
 CSRF_FAILURE_VIEW = "account.views.csrf_failure"
+# Django4.0 中 SecurityMiddleware 默认值为:same-origin，会影响桌面窗口打开其他应用和退出登录的功能
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "unsafe-none"
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -221,6 +244,8 @@ LANGUAGE_COOKIE_DOMAIN = SimpleLazyObject(
 LANGUAGE_COOKIE_NAME = "blueking_language"
 LANGUAGE_COOKIE_PATH = "/"
 LOCALE_PATHS = (os.path.join(PROJECT_ROOT, "locale"),)
+# 在 Django 4.0 及以后的版本中，LANGUAGE_SESSION_KEY 从 django.utils.translation 中被移除了
+LANGUAGE_SESSION_KEY = "django_language"
 
 
 ##################

@@ -20,7 +20,7 @@ to the current version of the project delivered to anyone in the future.
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.views.decorators.csrf import csrf_exempt
 
 from account.decorators import login_exempt

@@ -19,7 +19,7 @@ to the current version of the project delivered to anyone in the future.
 """
 
 from django.http import JsonResponse
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 try:
     from functools import wraps

@@ -20,7 +20,7 @@ to the current version of the project delivered to anyone in the future.
 from functools import wraps
 
 from django.http import JsonResponse
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from user_center.wx_utlis import get_user_wx_info
 

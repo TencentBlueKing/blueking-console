@@ -20,7 +20,7 @@ to the current version of the project delivered to anyone in the future.
 from builtins import zip
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from common.constants import enum
 

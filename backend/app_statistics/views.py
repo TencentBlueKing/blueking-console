@@ -23,7 +23,7 @@ from builtins import str
 from django.db.models import Count, Q, Sum
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from analysis.models import AppLiveness, AppOnlineTimeRecord, AppUseRecord
 from app.constants import AppStateEnum

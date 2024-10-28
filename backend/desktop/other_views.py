@@ -22,7 +22,7 @@ import datetime
 from django.conf import settings
 from django.http import JsonResponse
 from django.utils import timezone
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from common.constants import DATETIME_FORMAT_STRING
 from common.license_utils import check_license

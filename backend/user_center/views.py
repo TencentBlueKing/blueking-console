@@ -23,7 +23,7 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils import timezone, translation
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from account.accounts import Account
 from account.decorators import is_superuser_perm

@@ -1,4 +1,4 @@
-FROM python:3.8.13-slim-buster
+FROM python:3.11.10-slim-bullseye
 USER root
 
 RUN apt-get update && apt-get install -y wget file gcc curl procps -y
@@ -9,7 +9,7 @@ ENV LC_ALL=C.UTF-8 \
     LANG=C.UTF-8
 
 RUN pip install --upgrade pip
-RUN pip install poetry==1.4.2
+RUN pip install poetry==1.8.3
 
 # Change security level of openssl to lower value in order to avoid "CA_MD_TOO_WEAK" error
 # See https://stackoverflow.com/questions/52218876/how-to-fix-ssl-issue-ssl-ctx-use-certificate-ca-md-too-weak-on-python-zeep?rq=1

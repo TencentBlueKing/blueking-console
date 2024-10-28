@@ -18,10 +18,10 @@ We undertake not to change the open source license (MIT license) applicable
 to the current version of the project delivered to anyone in the future.
 """
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from account import views
 
 urlpatterns = [
-    url(r"^logout/$", views.logout, name="logout"),
+    re_path(r"^logout/$", views.logout, name="logout"),
 ]
