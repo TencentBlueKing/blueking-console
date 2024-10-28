@@ -53,16 +53,6 @@ var windowTemp = template.compile(
 				'<iframe id="<%=id%>_iframe" frameborder="0" src="<%=url%>" name="<%=id%>_iframe" org_url="<%=org_url%>"></iframe>'+
 			'</div>'+
 			'<div class="set-bar">'+
-				'<div class="fl">'+
-					'<% if(issetbar && !isthird){ %>'+
-						'<a class="btn go_back ml3"><i class="icon icon63" title="' + gettext('返回上一页') + '"></i><span class="btn-con">' + gettext('返回上一页') + '</span></a>'+
-						'<a class="btn refresh_current"><i class="icon icon79" title="' + gettext('刷新当前页面') + '"></i><span class="btn-con">' + gettext('刷新当前页面') + '</span></a>'+
-					'<% } %>'+
-					'<a class="btn refresh"><i class="icon icon158" title="' + gettext('刷新') + '"></i><span class="btn-con">' + gettext('刷新应用') + '</span></a>'+
-					'<% if(issetbar && !isthird){ %>'+
-						'<a class="btn copy_current_url" id="<%=id%>_copy_url"><i class="icon icon80" title="' + gettext('复制当前页面链接') + '"></i><span class="btn-con">' + gettext('复制当前页面链接') + '</span></a>'+
-					'<% } %>'+
-				'</div>'+
 				'<div class="fr">'+
 				'<% if(issetbar){ %>'+
 					'<a class="btn detail"><i class="icon icon120" title="' + gettext('详情') + '"></i><span class="btn-con">' + gettext('详情') + '</span></a>'+
