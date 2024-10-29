@@ -164,13 +164,16 @@ class Account(AccountSingleton):
         # 由于页面都是通过 IFrame 嵌入，所以需要刷新 parent 的页面，否则页面会一直重定向
         return render(request, "redirect_to_login.html", {"login_url": full_login_url})
 
+    def _is_ajax(self, request):
+        return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
     def redirect_login(self, request):
         """
         重定向到登录页面.
         登录态验证不通过时调用
         """
         # ajax跳401
-        if request.is_ajax():
+        if self._is_ajax(request=request):
             return HttpResponse(status=401)
         # 非ajax请求 跳转至平台登录
         return self._redirect_login(request)
