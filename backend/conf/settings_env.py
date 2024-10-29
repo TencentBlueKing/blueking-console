@@ -65,6 +65,10 @@ HTTP_SCHEMA = env.str("BK_PAAS_HTTP_SCHEMA", "http")
 
 # cookie访问域
 BK_COOKIE_DOMAIN = "." + env.str("BK_DOMAIN")
+# Django 4.0 会参考 Origin Header，如果使用了 CSRF_COOKIE_NAME，就需要在 settings 中额外配置 CSRF_TRUSTED_ORIGINS
+# 且必须配置协议和域名
+# https://docs.djangoproject.com/en/dev/releases/4.0/#format-change
+CSRF_TRUSTED_ORIGINS = [f"http://*{BK_COOKIE_DOMAIN}", f"https://*{BK_COOKIE_DOMAIN}"]
 
 # 内部访问地址，在配置的时候就添加上协议，防止与上面的 HTTP_SCHEMA 概念冲突
 # 统一登录服务API访问地址
