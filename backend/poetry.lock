@@ -679,7 +679,7 @@ python-versions = ">=2"
 
 [[package]]
 name = "urllib3"
-version = "2.2.1"
+version = "2.2.2"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "main"
 optional = false
@@ -730,7 +730,7 @@ testing = ["coverage", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.11,<3.12"
-content-hash = "dfbd125884a495d837bd96d944a97f586cf77a487e2be3653c683b2e3c6cd332"
+content-hash = "60532be70f4bae4373a8193f31aa00d402044269451be8c75f2dee1dbc815294"
 
 [metadata.files]
 asgiref = []
