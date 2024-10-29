@@ -542,7 +542,7 @@ six = ">=1.5"
 
 [[package]]
 name = "pytz"
-version = "2016.6.1"
+version = "2024.2"
 description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
@@ -730,7 +730,7 @@ testing = ["coverage", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.11,<3.12"
-content-hash = "eab78522c1d03b3843a3406a570e0a80042202edc8243e38d3926608bface06b"
+content-hash = "c68b94666c31cea5ff7ad03493d9c5624c0dcbc9645b08f89b5038ecbdd53cb6"
 
 [metadata.files]
 asgiref = []
