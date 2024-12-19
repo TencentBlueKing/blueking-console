@@ -76,8 +76,8 @@ ResourceTypeNameDict = {
 }
 
 # 线上环境走内网，开发环境配置host
-BK_IAM_HOST = "%s://%s" % ("http", settings.HOST_IAM_NEW)
-BK_PAAS_HOST = "%s://%s" % ("http", settings.PAAS_INNER_DOMAIN)
+BK_IAM_HOST = settings.BK_IAM_API_URL
+BK_PAAS_HOST = settings.BK_PAAS3_URL
 # bk_paas
 SYSTEM_ID = settings.PAAS_APP_ID
 
