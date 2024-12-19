@@ -52,9 +52,11 @@ class Account(AccountSingleton):
     提供通用的账号功能
     """
 
+    # 本地开发时会配置 LOGIN_DOMAIN
     if settings.LOGIN_DOMAIN:
-        BK_LOGIN_URL = "http://%s/login/" % settings.LOGIN_DOMAIN
+        BK_LOGIN_URL = f"{settings.HTTP_SCHEMA}://{settings.LOGIN_DOMAIN}/login/"
     else:
+        # 线上 LOGIN_DOMAIN 为空
         BK_LOGIN_URL = "/login/"
 
     # 蓝鲸统一登录约定的错误码, 表示用户认证成功，但用户无应用访问权限

@@ -21,7 +21,6 @@ to the current version of the project delivered to anyone in the future.
 """
 
 import environ
-import urllib3
 
 from conf.default import APP_ID, LANGUAGE_COOKIE_NAME
 
@@ -104,8 +103,6 @@ BK_API_URL_TMPL = env.str("BK_API_URL_TMPL", "http://bkapi.example.com/api/{api_
 BK_PAAS3_URL = env.str("BK_PAAS3_URL", "")
 
 # 兼容二进制版本的变量
-PAAS_INNER_DOMAIN = urllib3.util.parse_url(BK_COMPONENT_API_URL).host
-HOST_IAM_NEW = urllib3.util.parse_url(BK_IAM_API_URL).host
 BK_USER_APP_CODE = "bk_usermgr"
 # 用户管理访问地址
 BK_USER_URL = env.str("BK_USER_URL", "")
