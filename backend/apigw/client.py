@@ -54,5 +54,4 @@ class BkLoginClient:
                 raise BkLoginNoAccessPermisson(e.response.json()["error"]["message"])
             raise BkLoginGatewayServiceError("call bk login api error")
 
-        # 状态码为 200 则表示验证成功
         return resp["data"]

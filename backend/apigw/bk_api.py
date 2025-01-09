@@ -17,7 +17,6 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
-# -*- coding: utf-8 -*-
 from bkapi_client_core.apigateway import APIGatewayClient, Operation, OperationGroup, bind_property
 
 
