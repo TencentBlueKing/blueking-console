@@ -28,9 +28,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from account.exceptions import AccessPermissionDenied
+from apigw.client import BkLoginClient
+from apigw.exceptions import BkLoginNoAccessPermission
 from bk_i18n.constants import BK_LANG_TO_DJANGO_LANG
 from common.log import logger
-from components.login import get_user, is_login
 
 
 class AccountSingleton(object):
@@ -59,47 +60,36 @@ class Account(AccountSingleton):
         # 线上 LOGIN_DOMAIN 为空
         BK_LOGIN_URL = "/login/"
 
-    # 蓝鲸统一登录约定的错误码, 表示用户认证成功，但用户无应用访问权限
-    ACCESS_PERMISSION_DENIED_CODE = 1302403
-
     def is_bk_token_valid(self, request):
         """验证用户登录态."""
         bk_token = request.COOKIES.get(settings.BK_COOKIE_NAME, None)
         if not bk_token:
             return False, None
-        ret, data = self.verify_bk_login(bk_token)
-        # bk_token 无效
-        if not ret:
+
+        # 校验并获取用户信息
+        try:
+            data = BkLoginClient().get_user(bk_token)
+        except BkLoginNoAccessPermission as e:
+            raise AccessPermissionDenied(e)
+        except Exception:
             return False, None
+
         # 检查用户是否存在用户表中
         username = data.get("bk_username", "")
         user_model = get_user_model()
         try:
             user = user_model._default_manager.get_by_natural_key(username)
-            is_created_user = False
         except user_model.DoesNotExist:
             user = user_model.objects.create_user(username)
-            is_created_user = True
         finally:
             try:
-                ret, data = self.get_bk_user_info(bk_token)
-                # 若获取用户信息失败，则用户可登录，但用户其他信息为空
-                user.chname = data.get("chname", "")
-
+                user.chname = data.get("display_name", username)
                 # 用户隐私信息置空，需要的时候直接从用户管理 API 中获取
                 user.company = data.get("company", "")
                 user.qq = ""
                 user.phone = ""
                 user.email = ""
                 user.role = ""
-
-                # 仅新用户从用户管理同步权限
-                # 用户创建后直接在桌面管理用户是否能进入到 admin 页面的权限
-                if is_created_user:
-                    role = data.get("bk_role", "")
-                    is_superuser = True if role == 1 else False
-                    user.is_superuser = is_superuser
-                    user.is_staff = is_superuser
                 user.save()
 
                 # 设置timezone session
@@ -109,34 +99,6 @@ class Account(AccountSingleton):
             except Exception as e:
                 logger.error("Get and record user information failed：%s" % e)
         return True, user
-
-    def verify_bk_login(self, bk_token):
-        """请求平台接口验证登录是否失效"""
-        code, message, data = is_login(bk_token)
-        if code == 0:
-            return True, data
-
-        if code == self.ACCESS_PERMISSION_DENIED_CODE:
-            logger.info("No access permission: %s" % message)
-            raise AccessPermissionDenied(message)
-
-        logger.error("Verification of user login token is invalid, code: %s,  message: %s" % (code, message))
-        return False, {}
-
-    def get_bk_user_info(self, bk_token):
-        """请求平台接口获取用户信息"""
-        code, message, data = get_user(bk_token)
-        if code == 0:
-            return True, data
-
-        if code == self.ACCESS_PERMISSION_DENIED_CODE:
-            logger.info("No access permission: %s" % message)
-            raise AccessPermissionDenied(message)
-
-        logger.error(
-            "Get user information from the request platform interface failed, code: %s,  message: %s" % (code, message)
-        )
-        return False, {}
 
     def build_callback_url(self, request, jump_url):
         callback = request.build_absolute_uri()

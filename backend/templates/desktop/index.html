@@ -125,7 +125,7 @@
                             </div>
                             <div class="dock-startbtn">
                                 <a href="javascript:;" class="dock-tool-start">
-                                    <img src="{{STATIC_URL}}img/getheadimg.jpg" onerror="javascript:this.src='{{STATIC_URL}}img/getheadimg.jpg';" class="indicator-header-img" title="{{request.user.username}}" style="width:40px;height:40px;border-radius: 25px;">
+                                    <img src="{{STATIC_URL}}img/getheadimg.jpg" onerror="javascript:this.src='{{STATIC_URL}}img/getheadimg.jpg';" class="indicator-header-img" title="{{request.user.chname}}" style="width:40px;height:40px;border-radius: 25px;">
                                 </a>
                             </div>
                         </div>
@@ -159,7 +159,7 @@
             <div class="startmenu-selfinfo"></div>
             <ul class="startmenu">
                 <li>
-                    <a><span class="startmenu-username">{{request.user.username}}</span></a>
+                    <a><span class="startmenu-username">{{request.user.chname}}</span></a>
                 </li>
                 <li><a href="{{BK_DOCS_URL_PREFIX}}" target="blank" class="">{% trans '文档中心' %}</a></li>
                 <li><a href="javascript:;" class="about">{% trans '蓝鲸官网' %}</a></li>

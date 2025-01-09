@@ -55,6 +55,7 @@ if IS_BK_SUITE_ENABLED:
 
 # 与 ESB 通信的密钥
 ESB_TOKEN = env.str("BK_PAAS_SECRET_KEY")
+BK_APP_SECRET = env.str("BK_PAAS_SECRET_KEY")
 
 # website
 # domain
@@ -77,7 +78,7 @@ BK_IAM_API_URL = env.str("BK_IAM_API_URL", "http://bkiam-web")
 BK_API_URL_TMPL = env.str("BK_API_URL_TMPL", "http://bkapi.example.com/api/{api_name}")
 
 # 登录访问的域名，代码中会自动拼接 /login/ 地址
-# LOGIN_DOMAIN = env.str("BK_LOGIN_DOMAIN", "paas.example.com")
+LOGIN_DOMAIN = env.str("BK_LOGIN_DOMAIN", "")
 # PaaS3.0 开发者中心的访问地址，不填则展示 PaaS2.0 开发者中心访问地址
 BK_PAAS3_URL = env.str("BK_PAAS3_URL", "")
 
