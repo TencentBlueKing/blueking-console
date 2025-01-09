@@ -17,23 +17,3 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
-from components.esb import _call_esb_api
-from components.http import http_get
-
-
-def is_login(bk_token):
-    """
-    校验登录态
-    """
-    path = '/api/c/compapi/v2/bk_login/is_login/'
-    _, code, message, data = _call_esb_api(http_get, path, {"bk_token": bk_token})
-    return code, message, data
-
-
-def get_user(bk_token):
-    """
-    校验登录态
-    """
-    path = '/api/c/compapi/v2/bk_login/get_user/'
-    _, code, message, data = _call_esb_api(http_get, path, {"bk_token": bk_token})
-    return code, message, data

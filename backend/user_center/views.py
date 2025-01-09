@@ -25,8 +25,8 @@ from django.shortcuts import render
 from django.utils import timezone, translation
 from django.utils.translation import gettext as _
 
-from account.accounts import Account
 from account.decorators import is_superuser_perm
+from apigw.client import BkLoginClient
 from app.models import App
 from app_esb_auth.models import EsbAuthApplyReocrd
 from bk_i18n.constants import TIME_ZONE_LIST
@@ -62,7 +62,7 @@ def account(request):
 
     # 获取用户基本信息
     bk_token = request.COOKIES.get(settings.BK_COOKIE_NAME, None)
-    _, data = Account().get_bk_user_info(bk_token)
+    data = BkLoginClient().get_user(bk_token)
     role = data.get("bk_role")
 
     context = {
