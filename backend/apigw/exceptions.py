@@ -32,5 +32,5 @@ class BkLoginApiError(BkLoginGatewayServiceError):
     """
 
 
-class BkLoginNoAccessPermisson(BkLoginGatewayServiceError):
+class BkLoginNoAccessPermission(BkLoginGatewayServiceError):
     """User login verification passed, but no access permission."""

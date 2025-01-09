@@ -23,7 +23,7 @@ from bkapi_client_core.exceptions import APIGatewayResponseError, ResponseError
 from django.conf import settings
 
 from apigw.bk_api import Client
-from apigw.exceptions import BkLoginGatewayServiceError, BkLoginNoAccessPermisson
+from apigw.exceptions import BkLoginGatewayServiceError, BkLoginNoAccessPermission
 
 logger = logging.getLogger(__name__)
 
@@ -51,7 +51,7 @@ class BkLoginClient:
             logger.exception(f"call bk login api error, detail: {e}")
             # 用户无权限时需要单独处理
             if e.response.status_code == 403:
-                raise BkLoginNoAccessPermisson(e.response.json()["error"]["message"])
+                raise BkLoginNoAccessPermission(e.response.json()["error"]["message"])
             raise BkLoginGatewayServiceError("call bk login api error")
 
         return resp["data"]

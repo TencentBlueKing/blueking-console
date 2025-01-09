@@ -29,7 +29,7 @@ from django.shortcuts import render
 
 from account.exceptions import AccessPermissionDenied
 from apigw.client import BkLoginClient
-from apigw.exceptions import BkLoginNoAccessPermisson
+from apigw.exceptions import BkLoginNoAccessPermission
 from bk_i18n.constants import BK_LANG_TO_DJANGO_LANG
 from common.log import logger
 
@@ -69,7 +69,7 @@ class Account(AccountSingleton):
         # 校验并获取用户信息
         try:
             data = BkLoginClient().get_user(bk_token)
-        except BkLoginNoAccessPermisson as e:
+        except BkLoginNoAccessPermission as e:
             raise AccessPermissionDenied(e)
         except Exception:
             return False, None
@@ -83,7 +83,7 @@ class Account(AccountSingleton):
             user = user_model.objects.create_user(username)
         finally:
             try:
-                user.chname = data.get("display_name", "")
+                user.chname = data.get("display_name", username)
                 # 用户隐私信息置空，需要的时候直接从用户管理 API 中获取
                 user.company = data.get("company", "")
                 user.qq = ""
