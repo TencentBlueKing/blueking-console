@@ -333,7 +333,6 @@ def market_app_detail(request, app_id):
                 }
             )
     except Exception as error:
-        breakpoint()
         error_message = "%s, An error occurred while getting app detail page data, Error message:%s, App_id: %s" % (
             ConsoleErrorCodes.E1303102_MARKET_APP_DETAIL_QUERY_FAIL,
             error,
