@@ -31,7 +31,7 @@ from django.utils.translation import gettext as _
 
 from analysis.models import AppUseRecord
 from app.models import App, AppStar, AppTags
-from common.constants import DESKTOP_DEFAULT_APP_HEIGHT, DESKTOP_DEFAULT_APP_WIDTH
+from common.constants import DESKTOP_DEFAULT_APP_HEIGHT, DESKTOP_DEFAULT_APP_WIDTH, AppTenantMode
 from common.exceptions import ConsoleErrorCodes
 from common.log import logger
 from desktop.constants import (
@@ -99,10 +99,9 @@ def _get_hot_apps():
     return hot_app_dict
 
 
-def _make_query(username, search_tag, search_other):
-
+def _make_query(username, search_tag, search_other, tenant_id):
     # 所有应用（过滤已下架应用（state=0）、开发中应用（state=1））
-    all_app = App.objects.filter(state__gt=1, is_already_online=True)
+    all_app = App.objects.filter_by_tenant_id(tenant_id=tenant_id).filter(state__gt=1, is_already_online=True)
 
     # 筛选创建者类型
     if search_tag == AppCreatorTagEnum.EEUSER:
@@ -174,8 +173,9 @@ def market_get_list(request):
         return JsonResponse({"app_info_list": app_info_list, "total": total})
 
     username = request.user.username
+    tenant_id = request.user.tenant_id
     try:
-        all_app = _make_query(username, search_tag, search_other)
+        all_app = _make_query(username, search_tag, search_other, tenant_id)
         if not all_app:
             app_info_list = []
             total = 0
@@ -301,6 +301,8 @@ def market_app_detail(request, app_id):
             "state": app.state,
             "app_visit_count": app_visit_count,
             "islapp": app.is_lapp,
+            "app_tenant_id": app.app_tenant_id,
+            "app_tenant_mode": _("全租户") if app.app_tenant_mode == AppTenantMode.GLOBAL else _("单租户"),
         }
         # 判断用户是否添加了该应用
         user_app = UserApp.objects.filter(user=request.user, desk_app_type=0, app=app)
@@ -331,6 +333,7 @@ def market_app_detail(request, app_id):
                 }
             )
     except Exception as error:
+        breakpoint()
         error_message = "%s, An error occurred while getting app detail page data, Error message:%s, App_id: %s" % (
             ConsoleErrorCodes.E1303102_MARKET_APP_DETAIL_QUERY_FAIL,
             error,

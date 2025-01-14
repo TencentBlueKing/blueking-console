@@ -79,6 +79,14 @@ class BkUser(AbstractBaseUser, PermissionsMixin):
 
     role = models.CharField(u"用户角色", max_length=32, default="0", help_text=u"用户角色表示字符串")
 
+    tenant_id = models.CharField(
+        verbose_name="租户 ID",
+        max_length=32,
+        blank=True,
+        null=True,
+        help_text="用户所属的租户 ID",
+    )
+
     objects = BkUserManager()
 
     USERNAME_FIELD = "username"

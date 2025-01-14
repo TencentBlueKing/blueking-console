@@ -65,3 +65,12 @@ ModeEnum = enum(TEST="test", PROD="prod", ALL="all")
 APP_LOGO_IMG_RELATED = "applogo"
 # saas内置应用logo解压目录
 SAAS_APP_LOGO_IMG_RELATED = "saaslogo"
+
+AppTenantMode = enum(
+    # 全租户可用，即所有租户都可以看到这个应用
+    GLOBAL="global",
+    SINGLE="single",
+)
+
+# 没有开启多租户模式，则应用的租户 ID 为: default，仅用于存量版本升级的数据初始化
+DEFAULT_TENANT_ID = "default"

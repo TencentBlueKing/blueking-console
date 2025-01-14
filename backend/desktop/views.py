@@ -224,9 +224,11 @@ def get_my_app(request):
     desk_list = ["desk1", "desk2", "desk3", "desk4", "desk5"]
     # 用户初次登录时， user_settings中插入用户记录
     UserSettings.objects.init_user_settings(user)
-    # 获取用户各桌面应用（不做过滤）
-
-    user_app_dict, user_app_set, folder_dict = UserApp.objects.get_user_desktop_app_info(user=user)
+    # 获取用户各桌面应用，需要按租户做过滤
+    tenant_id = request.user.tenant_id
+    user_app_dict, user_app_set, folder_dict = UserApp.objects.get_user_desktop_app_info(
+        user=user, tenant_id=tenant_id
+    )
 
     # 根据user_settings查询desk下的app
     try:
@@ -498,8 +500,9 @@ def search_apps(request):
         search = request.GET.get("search", "")
         all_app = []
         if search:
+            tenant_id = request.user.tenant_id
             # 所有应用（过滤已下架应用（state=0）、开发中应用（state=1））
-            all_app = App.objects.filter(state__gt=1, is_already_online=True)
+            all_app = App.objects.filter_by_tenant_id(tenant_id=tenant_id).filter(state__gt=1, is_already_online=True)
             # 组装搜索框中多个搜索条件
             all_app = all_app.filter(
                 Q(code__icontains=search)

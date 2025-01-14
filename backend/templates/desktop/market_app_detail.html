@@ -79,6 +79,10 @@
                                             <div class="span6" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:20px;">
                                                 <em>{% trans '应用编码：' %}</em>{{app.code}}<br/>
                                                 <em>{% trans '应用分类：' %}</em>{{app.tag}}<br/>
+                                                {% if ENABLE_MULTI_TENANT_MODE %}
+                                                    <em>{% trans '租户类型：' %}</em>{{app.app_tenant_mode}}<br/>
+                                                    <em>{% trans '所属租户：' %}</em>{{app.app_tenant_id}}<br/>
+                                                {% endif %}
                                                 {% if app.is_saas or app.is_platform %}
                                                     <em>{% trans '开发负责人：' %}{% if app.creater %} {{app.creater}} {% else %} -- {% endif %}</em><br/>
                                                 {% else %}

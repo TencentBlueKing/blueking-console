@@ -50,8 +50,6 @@ urlpatterns = [
     re_path(r"^console/accounts/", include("account.urls")),
     # app应用数据（点击量，访问量，在线时长等）
     re_path(r"^console/analysis/", include("analysis.urls")),
-    # app 统计分析图表（点击量，访问量，在线时长等）
-    re_path(r"^console/app_statistics/", include("app_statistics.urls")),
     # 个人中心
     re_path(r"^console/user_center/", include("user_center.urls")),
     # 蓝鲸工作台

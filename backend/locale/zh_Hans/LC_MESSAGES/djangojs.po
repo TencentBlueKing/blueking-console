@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-12 11:50+0800\n"
+"POT-Creation-Date: 2025-01-14 10:58+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,145 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/app_statistics/js/app_common_analysis.js:7
-#: static/app_statistics/js/app_common_analysis.min.js:1
-msgid "数据正在加载，请稍等..."
-msgstr "数据正在加载，请稍等..."
-
-#: static/app_statistics/js/base.js:19 static/app_statistics/js/base.min.js:1
-#: static/js/blueking.base.js:79 static/js/blueking.base.min.js:1
-#: static/js/blueking.popupMenu.js:290 static/js/blueking.popupMenu.js:431
-#: static/js/blueking.popupMenu.min.js:1
+#: static/assets/bkDialog-1.0/js/dialog.js:15 static/js/blueking.base.js:71
+#: static/js/blueking.base.min.js:1 static/js/blueking.popupMenu.js:290
+#: static/js/blueking.popupMenu.js:430 static/js/blueking.popupMenu.min.js:1
 msgid "确定"
 msgstr "确定"
 
-#: static/app_statistics/js/base.js:20 static/app_statistics/js/base.min.js:1
-#: static/js/blueking.base.js:80 static/js/blueking.base.min.js:1
-#: static/js/blueking.popupMenu.js:291 static/js/blueking.popupMenu.js:432
-#: static/js/blueking.popupMenu.min.js:1 static/user_center/js/account.js:101
-#: static/user_center/js/account.min.js:1
+#: static/assets/bkDialog-1.0/js/dialog.js:17 static/js/blueking.base.js:72
+#: static/js/blueking.base.min.js:1 static/js/blueking.popupMenu.js:291
+#: static/js/blueking.popupMenu.js:431 static/js/blueking.popupMenu.min.js:1
+#: static/user_center/js/account.js:101 static/user_center/js/account.min.js:1
 msgid "取消"
 msgstr "取消"
-
-#: static/app_statistics/js/base.js:21 static/app_statistics/js/base.min.js:1
-msgid "周"
-msgstr "周"
-
-#: static/app_statistics/js/base.js:22 static/app_statistics/js/base.min.js:1
-msgid "自定义"
-msgstr "自定义"
-
-#: static/app_statistics/js/base.js:24 static/app_statistics/js/base.min.js:1
-msgid "日"
-msgstr "日"
-
-#: static/app_statistics/js/base.js:25 static/app_statistics/js/base.min.js:1
-msgid "一"
-msgstr "一"
-
-#: static/app_statistics/js/base.js:26 static/app_statistics/js/base.min.js:1
-msgid "二"
-msgstr "二"
-
-#: static/app_statistics/js/base.js:27 static/app_statistics/js/base.min.js:1
-msgid "三"
-msgstr "三"
-
-#: static/app_statistics/js/base.js:28 static/app_statistics/js/base.min.js:1
-msgid "四"
-msgstr "四"
-
-#: static/app_statistics/js/base.js:29 static/app_statistics/js/base.min.js:1
-msgid "五"
-msgstr "五"
-
-#: static/app_statistics/js/base.js:30 static/app_statistics/js/base.min.js:1
-msgid "六"
-msgstr "六"
-
-#: static/app_statistics/js/base.js:33 static/app_statistics/js/base.min.js:1
-msgid "一月"
-msgstr "一月"
-
-#: static/app_statistics/js/base.js:34 static/app_statistics/js/base.min.js:1
-msgid "二月"
-msgstr "二月"
-
-#: static/app_statistics/js/base.js:35 static/app_statistics/js/base.min.js:1
-msgid "三月"
-msgstr "三月"
-
-#: static/app_statistics/js/base.js:36 static/app_statistics/js/base.min.js:1
-msgid "四月"
-msgstr "四月"
-
-#: static/app_statistics/js/base.js:37 static/app_statistics/js/base.min.js:1
-msgid "五月"
-msgstr "五月"
-
-#: static/app_statistics/js/base.js:38 static/app_statistics/js/base.min.js:1
-msgid "六月"
-msgstr "六月"
-
-#: static/app_statistics/js/base.js:39 static/app_statistics/js/base.min.js:1
-msgid "七月"
-msgstr "七月"
-
-#: static/app_statistics/js/base.js:40 static/app_statistics/js/base.min.js:1
-msgid "八月"
-msgstr "八月"
-
-#: static/app_statistics/js/base.js:41 static/app_statistics/js/base.min.js:1
-msgid "九月"
-msgstr "九月"
-
-#: static/app_statistics/js/base.js:42 static/app_statistics/js/base.min.js:1
-msgid "十月"
-msgstr "十月"
-
-#: static/app_statistics/js/base.js:43 static/app_statistics/js/base.min.js:1
-msgid "十一月"
-msgstr "十一月"
-
-#: static/app_statistics/js/base.js:44 static/app_statistics/js/base.min.js:1
-msgid "十二月"
-msgstr "十二月"
-
-#: static/app_statistics/js/base.js:52 static/app_statistics/js/base.js:54
-#: static/app_statistics/js/base.js:59 static/app_statistics/js/base.js:63
-#: static/app_statistics/js/base.js:67 static/app_statistics/js/base.js:73
-#: static/app_statistics/js/base.js:80 static/app_statistics/js/base.js:90
-#: static/app_statistics/js/base.js:100 static/app_statistics/js/base.min.js:1
-msgid "全部"
-msgstr "全部"
-
-#: static/app_statistics/js/base.js:58 static/app_statistics/js/base.min.js:1
-msgid "按月"
-msgstr "按月"
-
-#: static/app_statistics/js/base.js:58 static/app_statistics/js/base.min.js:1
-msgid "按周"
-msgstr "按周"
-
-#: static/app_statistics/js/base.js:58 static/app_statistics/js/base.min.js:1
-msgid "按日"
-msgstr "按日"
-
-#: static/app_statistics/js/base.js:68 static/app_statistics/js/base.min.js:1
-msgid "已上线"
-msgstr "已上线"
-
-#: static/app_statistics/js/base.js:69 static/app_statistics/js/base.min.js:1
-msgid "已提测"
-msgstr "已提测"
-
-#: static/app_statistics/js/base.js:70 static/app_statistics/js/base.min.js:1
-msgid "开发中"
-msgstr "开发中"
-
-#: static/app_statistics/js/base.js:71 static/app_statistics/js/base.min.js:1
-msgid "已下架"
-msgstr "已下架"
 
 #: static/js/blueking.app.js:264 static/js/blueking.app.min.js:1
 msgid "文件夹中有存在的应用，不能删除！"
@@ -172,10 +45,10 @@ msgid "删除失败！"
 msgstr "删除失败！"
 
 #: static/js/blueking.app.js:652 static/js/blueking.app.js:665
-#: static/js/blueking.app.min.js:1 static/js/blueking.marketBase.js:66
+#: static/js/blueking.app.min.js:1 static/js/blueking.marketBase.js:58
 #: static/js/blueking.marketBase.min.js:1 static/js/blueking.popupMenu.js:79
 #: static/js/blueking.popupMenu.min.js:1 static/js/blueking.window.js:143
-#: static/js/blueking.window.js:339 static/js/blueking.window.js:497
+#: static/js/blueking.window.js:349 static/js/blueking.window.js:506
 #: static/js/blueking.window.min.js:1
 msgid "温馨提示"
 msgstr "温馨提示"
@@ -188,11 +61,11 @@ msgstr "数据正在处理中，请稍后。"
 msgid "数据错误，请刷新后重试。"
 msgstr "数据错误，请刷新后重试。"
 
-#: static/js/blueking.base.js:74 static/js/blueking.base.min.js:1
+#: static/js/blueking.base.js:66 static/js/blueking.base.min.js:1
 msgid "注销确认"
 msgstr "注销确认"
 
-#: static/js/blueking.base.js:75 static/js/blueking.base.min.js:1
+#: static/js/blueking.base.js:67 static/js/blueking.base.min.js:1
 msgid "注销蓝鲸后需要重新登录，您确认注销?"
 msgstr "注销蓝鲸后需要重新登录，您确认注销?"
 
@@ -205,30 +78,30 @@ msgstr "提示"
 msgid "系统出现异常："
 msgstr "系统出现异常："
 
-#: static/js/blueking.core.js:268 static/js/blueking.core.js:326
-#: static/js/blueking.core.js:370 static/js/blueking.core.js:388
+#: static/js/blueking.core.js:272 static/js/blueking.core.js:327
+#: static/js/blueking.core.js:371 static/js/blueking.core.js:389
 #: static/js/blueking.core.min.js:1
 msgid "应用不存在！"
 msgstr "应用不存在！"
 
-#: static/js/blueking.core.js:270 static/js/blueking.core.js:328
-#: static/js/blueking.core.js:372 static/js/blueking.core.min.js:1
-#: static/js/blueking.window.js:429 static/js/blueking.window.min.js:1
+#: static/js/blueking.core.js:274 static/js/blueking.core.js:329
+#: static/js/blueking.core.js:373 static/js/blueking.core.min.js:1
+#: static/js/blueking.window.js:437 static/js/blueking.window.min.js:1
 msgid "应用加载失败，请重试"
 msgstr "应用加载失败，请重试"
 
-#: static/js/blueking.core.js:272 static/js/blueking.core.js:330
-#: static/js/blueking.core.js:374 static/js/blueking.core.min.js:1
+#: static/js/blueking.core.js:276 static/js/blueking.core.js:331
+#: static/js/blueking.core.js:375 static/js/blueking.core.min.js:1
 msgid "您没有操作该应用的权限！"
 msgstr "您没有操作该应用的权限！"
 
-#: static/js/blueking.core.js:274 static/js/blueking.core.js:332
-#: static/js/blueking.core.js:376 static/js/blueking.core.min.js:1
+#: static/js/blueking.core.js:278 static/js/blueking.core.js:333
+#: static/js/blueking.core.js:377 static/js/blueking.core.min.js:1
 msgid "应用已下架！"
 msgstr "应用已下架！"
 
-#: static/js/blueking.core.js:276 static/js/blueking.core.js:334
-#: static/js/blueking.core.js:378 static/js/blueking.core.min.js:1
+#: static/js/blueking.core.js:280 static/js/blueking.core.js:335
+#: static/js/blueking.core.js:379 static/js/blueking.core.min.js:1
 msgid "应用正在开发中！"
 msgstr "应用正在开发中！"
 
@@ -289,18 +162,18 @@ msgstr "第%s页"
 msgid "正在载入中，请稍后..."
 msgstr "正在载入中，请稍后..."
 
-#: static/js/blueking.marketBase.js:71 static/js/blueking.marketBase.min.js:1
+#: static/js/blueking.marketBase.js:63 static/js/blueking.marketBase.min.js:1
 #: static/js/blueking.popupMenu.js:84 static/js/blueking.popupMenu.min.js:1
-#: static/js/blueking.window.js:148 static/js/blueking.window.js:344
+#: static/js/blueking.window.js:148 static/js/blueking.window.js:354
 #: static/js/blueking.window.min.js:1
 msgid "复制成功！您可以使用ctrl+v进行粘贴！"
 msgstr "复制成功！您可以使用ctrl+v进行粘贴！"
 
-#: static/js/blueking.marketBase.js:72 static/js/blueking.marketBase.min.js:1
+#: static/js/blueking.marketBase.js:64 static/js/blueking.marketBase.min.js:1
 #: static/js/blueking.popupMenu.js:85 static/js/blueking.popupMenu.js:358
 #: static/js/blueking.popupMenu.min.js:1 static/js/blueking.templates.js:47
-#: static/js/blueking.templates.js:96 static/js/blueking.templates.min.js:1
-#: static/js/blueking.window.js:149 static/js/blueking.window.js:345
+#: static/js/blueking.templates.js:86 static/js/blueking.templates.min.js:1
+#: static/js/blueking.window.js:149 static/js/blueking.window.js:355
 #: static/js/blueking.window.min.js:1
 msgid "关闭"
 msgstr "关闭"
@@ -309,11 +182,11 @@ msgstr "关闭"
 msgid "打分成功！"
 msgstr "打分成功！"
 
-#: static/js/blueking.marketBase.js:105 static/js/blueking.marketBase.min.js:1
+#: static/js/blueking.marketBase.js:108 static/js/blueking.marketBase.min.js:1
 msgid "你已经打过分了！"
 msgstr "你已经打过分了！"
 
-#: static/js/blueking.marketBase.js:105 static/js/blueking.marketBase.min.js:1
+#: static/js/blueking.marketBase.js:110 static/js/blueking.marketBase.min.js:1
 msgid "打分出错！"
 msgstr "打分出错！"
 
@@ -327,23 +200,18 @@ msgstr "本月访问量："
 msgid "开发负责人："
 msgstr "开发负责人："
 
-#: static/js/blueking.marketTemplate.js:21
-#: static/js/blueking.marketTemplate.min.js:1
-msgid "<%=use_count%> 人添加"
-msgstr "<%=use_count%> 人添加"
-
-#: static/js/blueking.marketTemplate.js:23
-#: static/js/blueking.marketTemplate.js:26
+#: static/js/blueking.marketTemplate.js:22
+#: static/js/blueking.marketTemplate.js:25
 #: static/js/blueking.marketTemplate.min.js:1
 msgid "打开应用"
 msgstr "打开应用"
 
-#: static/js/blueking.marketTemplate.js:24
+#: static/js/blueking.marketTemplate.js:23
 #: static/js/blueking.marketTemplate.min.js:1
 msgid "卸载应用"
 msgstr "卸载应用"
 
-#: static/js/blueking.marketTemplate.js:27
+#: static/js/blueking.marketTemplate.js:26
 #: static/js/blueking.marketTemplate.min.js:1
 msgid "添加应用"
 msgstr "添加应用"
@@ -361,7 +229,7 @@ msgid "拖放至右侧"
 msgstr "拖放至右侧"
 
 #: static/js/blueking.popupMenu.js:45 static/js/blueking.popupMenu.js:193
-#: static/js/blueking.popupMenu.min.js:1 static/js/blueking.templates.js:140
+#: static/js/blueking.popupMenu.min.js:1 static/js/blueking.templates.js:130
 #: static/js/blueking.templates.min.js:1
 msgid "打开"
 msgstr "打开"
@@ -424,7 +292,7 @@ msgstr "重命名“"
 msgid "”文件夹"
 msgstr "”文件夹"
 
-#: static/js/blueking.popupMenu.js:266 static/js/blueking.popupMenu.js:401
+#: static/js/blueking.popupMenu.js:266 static/js/blueking.popupMenu.js:400
 #: static/js/blueking.popupMenu.min.js:1
 #, fuzzy
 #| msgid "文件夹名称不能超过8个字符"
@@ -452,93 +320,92 @@ msgid "向右停靠"
 msgstr "向右停靠"
 
 #: static/js/blueking.popupMenu.js:356 static/js/blueking.popupMenu.min.js:1
-#: static/js/blueking.templates.js:42 static/js/blueking.templates.js:94
+#: static/js/blueking.templates.js:42 static/js/blueking.templates.js:84
 #: static/js/blueking.templates.min.js:1
 msgid "还原"
 msgstr "还原"
 
 #: static/js/blueking.popupMenu.js:357 static/js/blueking.popupMenu.min.js:1
-#: static/js/blueking.templates.js:39 static/js/blueking.templates.js:91
+#: static/js/blueking.templates.js:39 static/js/blueking.templates.js:81
 #: static/js/blueking.templates.min.js:1
 msgid "最小化"
 msgstr "最小化"
 
-#: static/js/blueking.popupMenu.js:391 static/js/blueking.popupMenu.js:394
-#: static/js/blueking.popupMenu.js:449 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:391 static/js/blueking.popupMenu.js:393
+#: static/js/blueking.popupMenu.js:448 static/js/blueking.popupMenu.min.js:1
 msgid "新建文件夹"
 msgstr "新建文件夹"
 
-#: static/js/blueking.popupMenu.js:418 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:417 static/js/blueking.popupMenu.min.js:1
 msgid "文件夹名已存在"
 msgstr "文件夹名已存在"
 
-#: static/js/blueking.popupMenu.js:421 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:420 static/js/blueking.popupMenu.min.js:1
 msgid "文件夹创建失败！"
 msgstr "文件夹创建失败！"
 
-#: static/js/blueking.popupMenu.js:425 static/js/blueking.popupMenu.min.js:1
-#: static/js/blueking.templates.js:171 static/js/blueking.templates.min.js:1
+#: static/js/blueking.popupMenu.js:424 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.templates.js:161 static/js/blueking.templates.min.js:1
 msgid "文件夹名称不能只包含空字符"
 msgstr "文件夹名称不能只包含空字符"
 
-#: static/js/blueking.popupMenu.js:443 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:442 static/js/blueking.popupMenu.min.js:1
 msgid "显示桌面"
 msgstr "显示桌面"
 
-#: static/js/blueking.popupMenu.js:444 static/js/blueking.popupMenu.min.js:1
-#: static/js/blueking.templates.js:61 static/js/blueking.templates.js:103
-#: static/js/blueking.templates.min.js:1 static/js/blueking.window.js:502
-#: static/js/blueking.window.min.js:1
+#: static/js/blueking.popupMenu.js:443 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.templates.js:93 static/js/blueking.templates.min.js:1
+#: static/js/blueking.window.js:511 static/js/blueking.window.min.js:1
 msgid "刷新"
 msgstr "刷新"
 
-#: static/js/blueking.popupMenu.js:445 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:444 static/js/blueking.popupMenu.min.js:1
 msgid "关闭所有应用"
 msgstr "关闭所有应用"
 
-#: static/js/blueking.popupMenu.js:447 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:446 static/js/blueking.popupMenu.min.js:1
 msgid "新建"
 msgstr "新建"
 
-#: static/js/blueking.popupMenu.js:452 static/js/blueking.popupMenu.min.js:1
-#: static/js/blueking.window.js:1135 static/js/blueking.window.min.js:1
+#: static/js/blueking.popupMenu.js:451 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.window.js:1144 static/js/blueking.window.min.js:1
 msgid "主题设置"
 msgstr "主题设置"
 
-#: static/js/blueking.popupMenu.js:453 static/js/blueking.popupMenu.min.js:1
-#: static/js/blueking.window.js:1145 static/js/blueking.window.min.js:1
+#: static/js/blueking.popupMenu.js:452 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.window.js:1154 static/js/blueking.window.min.js:1
 msgid "布局设置"
 msgstr "布局设置"
 
-#: static/js/blueking.popupMenu.js:454 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:453 static/js/blueking.popupMenu.min.js:1
 msgid "语言"
 msgstr "语言"
 
-#: static/js/blueking.popupMenu.js:456 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:455 static/js/blueking.popupMenu.min.js:1
 msgid "English"
 msgstr "English"
 
-#: static/js/blueking.popupMenu.js:457 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:456 static/js/blueking.popupMenu.min.js:1
 msgid "简体中文"
 msgstr "简体中文"
 
-#: static/js/blueking.popupMenu.js:461 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:460 static/js/blueking.popupMenu.min.js:1
 msgid "图标设置"
 msgstr "图标设置"
 
-#: static/js/blueking.popupMenu.js:464 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:463 static/js/blueking.popupMenu.min.js:1
 msgid "排列"
 msgstr "排列"
 
-#: static/js/blueking.popupMenu.js:466 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:465 static/js/blueking.popupMenu.min.js:1
 msgid "横向排列"
 msgstr "横向排列"
 
-#: static/js/blueking.popupMenu.js:467 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:466 static/js/blueking.popupMenu.min.js:1
 msgid "纵向排列"
 msgstr "纵向排列"
 
-#: static/js/blueking.popupMenu.js:472 static/js/blueking.popupMenu.min.js:1
+#: static/js/blueking.popupMenu.js:471 static/js/blueking.popupMenu.min.js:1
 msgid "注销"
 msgstr "注销"
 
@@ -550,7 +417,7 @@ msgstr "设置成功，正在切换皮肤，如果长时间没更新，请刷新
 msgid "添加"
 msgstr "添加"
 
-#: static/js/blueking.templates.js:41 static/js/blueking.templates.js:93
+#: static/js/blueking.templates.js:41 static/js/blueking.templates.js:83
 #: static/js/blueking.templates.min.js:1
 msgid "最大化"
 msgstr "最大化"
@@ -560,159 +427,121 @@ msgid "全屏"
 msgstr "全屏"
 
 #: static/js/blueking.templates.js:58 static/js/blueking.templates.min.js:1
-msgid "返回上一页"
-msgstr "返回上一页"
-
-#: static/js/blueking.templates.js:59 static/js/blueking.templates.min.js:1
-msgid "刷新当前页面"
-msgstr "刷新当前页面"
-
-#: static/js/blueking.templates.js:61 static/js/blueking.templates.min.js:1
-msgid "刷新应用"
-msgstr "刷新应用"
-
-#: static/js/blueking.templates.js:63 static/js/blueking.templates.min.js:1
-msgid "复制当前页面链接"
-msgstr "复制当前页面链接"
-
-#: static/js/blueking.templates.js:68 static/js/blueking.templates.min.js:1
 msgid "详情"
 msgstr "详情"
 
-#: static/js/blueking.templates.js:169 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:159 static/js/blueking.templates.min.js:1
 msgid "请输入文件夹名称："
 msgstr "请输入文件夹名称："
 
-#: static/js/blueking.templates.js:181 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:171 static/js/blueking.templates.min.js:1
 msgid "欢迎您使用蓝鲸"
 msgstr "欢迎您使用蓝鲸"
 
-#: static/js/blueking.templates.js:182 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:172 static/js/blueking.templates.min.js:1
 msgid "下面我会简单介绍如何使用，以便您快速上手"
 msgstr "下面我会简单介绍如何使用，以便您快速上手"
 
-#: static/js/blueking.templates.js:183 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:173 static/js/blueking.templates.min.js:1
 msgid "我已了解"
 msgstr "我已了解"
 
-#: static/js/blueking.templates.js:184 static/js/blueking.templates.js:193
-#: static/js/blueking.templates.js:201 static/js/blueking.templates.js:210
+#: static/js/blueking.templates.js:174 static/js/blueking.templates.js:183
+#: static/js/blueking.templates.js:191 static/js/blueking.templates.js:200
 #: static/js/blueking.templates.min.js:1
 msgid "下一步"
 msgstr "下一步"
 
-#: static/js/blueking.templates.js:190 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:180 static/js/blueking.templates.min.js:1
 msgid "桌面"
 msgstr "桌面"
 
-#: static/js/blueking.templates.js:191 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:181 static/js/blueking.templates.min.js:1
 msgid "您可以在应用市场添加自己需要的应用到桌面"
 msgstr "您可以在应用市场添加自己需要的应用到桌面"
 
-#: static/js/blueking.templates.js:192 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:182 static/js/blueking.templates.min.js:1
 msgid "单击桌面的图标，就能打开应用"
 msgstr "单击桌面的图标，就能打开应用"
 
-#: static/js/blueking.templates.js:199 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:189 static/js/blueking.templates.min.js:1
 msgid "应用码头"
 msgstr "应用码头"
 
-#: static/js/blueking.templates.js:200 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:190 static/js/blueking.templates.min.js:1
 msgid "展示蓝鲸智云系统应用"
 msgstr "展示蓝鲸智云系统应用"
 
-#: static/js/blueking.templates.js:208 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:198 static/js/blueking.templates.min.js:1
 msgid "翻页导航"
 msgstr "翻页导航"
 
-#: static/js/blueking.templates.js:209 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:199 static/js/blueking.templates.min.js:1
 msgid "您可以快速切换当前桌面"
 msgstr "您可以快速切换当前桌面"
 
-#: static/js/blueking.templates.js:216 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:206 static/js/blueking.templates.min.js:1
 msgid "任务栏"
 msgstr "任务栏"
 
-#: static/js/blueking.templates.js:217 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:207 static/js/blueking.templates.min.js:1
 msgid "打开应用后，任务栏中就会出现对应的缩略图"
 msgstr "打开应用后，任务栏中就会出现对应的缩略图"
 
-#: static/js/blueking.templates.js:218 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:208 static/js/blueking.templates.min.js:1
 msgid "&nbsp;完&nbsp;成&nbsp;"
 msgstr "&nbsp;完&nbsp;成&nbsp;"
 
-#: static/js/blueking.templates.js:227 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:217 static/js/blueking.templates.min.js:1
 msgid "名称：蓝鲸智云</br>"
 msgstr "名称：蓝鲸智云</br>"
 
-#: static/js/blueking.templates.js:228 static/js/blueking.templates.min.js:1
+#: static/js/blueking.templates.js:218 static/js/blueking.templates.min.js:1
 msgid "版本号：<%=version%></br>"
 msgstr "版本号：<%=version%></br>"
 
-#: static/js/blueking.templates.js:229 static/js/blueking.templates.min.js:1
-msgid "有效期：<%=valid_period%></br></br>"
-msgstr "有效期：<%=valid_period%></br></br>"
-
-#: static/js/blueking.templates.js:230 static/js/blueking.templates.min.js:1
-msgid ""
-"温馨提示：当前版本将于<%=expired_time%>过期，请联系技术服务商激活。</br>"
-msgstr ""
-"温馨提示：当前版本将于<%=expired_time%>过期，请联系技术服务商激活。</br>"
-
-#: static/js/blueking.window.js:413 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:421 static/js/blueking.window.min.js:1
 msgid "应用正在加载中，请耐心等待..."
 msgstr "应用正在加载中，请耐心等待..."
 
-#: static/js/blueking.window.js:424 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:432 static/js/blueking.window.min.js:1
 msgid "文件夹不存在，建议删除"
 msgstr "文件夹不存在，建议删除"
 
-#: static/js/blueking.window.js:426 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:434 static/js/blueking.window.min.js:1
 msgid "应用不存在，建议卸载"
 msgstr "应用不存在，建议卸载"
 
-#: static/js/blueking.window.js:437 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:445 static/js/blueking.window.min.js:1
 msgid "您没有操作该应用的权限，正在为您卸载该应用..."
 msgstr "您没有操作该应用的权限，正在为您卸载该应用..."
 
-#: static/js/blueking.window.js:450 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:458 static/js/blueking.window.min.js:1
 msgid "应用已经下架，正在为您卸载该应用..."
 msgstr "应用已经下架，正在为您卸载该应用..."
 
-#: static/js/blueking.window.js:478 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:487 static/js/blueking.window.min.js:1
 msgid "数据拉取失败"
 msgstr "数据拉取失败"
 
-#: static/js/blueking.window.js:501 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:510 static/js/blueking.window.min.js:1
 msgid "该应用已经打开，是否刷新到应用首页？"
 msgstr "该应用已经打开，是否刷新到应用首页？"
 
-#: static/js/blueking.window.js:506 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:515 static/js/blueking.window.min.js:1
 msgid "不刷新"
 msgstr "不刷新"
 
-#: static/js/blueking.window.js:901 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:910 static/js/blueking.window.min.js:1
 msgid "对不起，该应用没有任何详细介绍"
 msgstr "对不起，该应用没有任何详细介绍"
 
-#: static/js/blueking.window.js:1106 static/js/blueking.window.js:1123
+#: static/js/blueking.window.js:1115 static/js/blueking.window.js:1132
 #: static/js/blueking.window.min.js:1
 msgid "应用市场"
 msgstr "应用市场"
 
-#: static/js/blueking.window.js:1156 static/js/blueking.window.min.js:1
-msgid "统计"
-msgstr "统计"
-
-#: static/js/blueking.window.js:1170 static/js/blueking.window.min.js:1
-msgid "权限中心"
-msgstr "权限中心"
-
-#: static/js/blueking.window.js:1184 static/js/blueking.window.min.js:1
-msgid "用户管理"
-msgstr "用户管理"
-
-#: static/js/blueking.window.js:1198 static/js/blueking.window.min.js:1
+#: static/js/blueking.window.js:1173 static/js/blueking.window.min.js:1
 msgid "个人中心"
 msgstr "个人中心"
 
@@ -732,8 +561,11 @@ msgstr "仅支持中国大陆手机号码（11位数字）"
 msgid "请输入正确的邮箱格式"
 msgstr "请输入正确的邮箱格式"
 
-#: static/user_center/js/account.js:52 static/user_center/js/account.js:71
-#: static/user_center/js/account.min.js:1
+#: static/user_center/js/account.js:39 static/user_center/js/account.min.js:1
+msgid "仅支持合法的QQ号码"
+msgstr ""
+
+#: static/user_center/js/account.js:71 static/user_center/js/account.min.js:1
 msgid "修改个人信息"
 msgstr "修改个人信息"
 
@@ -807,19 +639,19 @@ msgstr "首页"
 msgid "尾页"
 msgstr "尾页"
 
-#: static/user_center/js/esb_approval.js:45
+#: static/user_center/js/esb_approval.js:39
 #: static/user_center/js/esb_approval.min.js:1
 #: static/user_center/js/esb_history.js:41
 #: static/user_center/js/esb_history.min.js:1
 msgid "同意"
 msgstr "同意"
 
-#: static/user_center/js/esb_approval.js:46
+#: static/user_center/js/esb_approval.js:40
 #: static/user_center/js/esb_approval.min.js:1
 msgid "驳回"
 msgstr "驳回"
 
-#: static/user_center/js/esb_approval.js:62
+#: static/user_center/js/esb_approval.js:56
 #: static/user_center/js/esb_approval.min.js:1
 msgid "审批成功"
 msgstr "审批成功"
@@ -840,6 +672,128 @@ msgstr "查询，模糊查询，支持：申请人、组件"
 #: static/user_center/js/weixin_qy.min.js:1
 msgid "解绑微信"
 msgstr "解绑微信"
+
+#~ msgid "数据正在加载，请稍等..."
+#~ msgstr "数据正在加载，请稍等..."
+
+#~ msgid "周"
+#~ msgstr "周"
+
+#~ msgid "自定义"
+#~ msgstr "自定义"
+
+#~ msgid "日"
+#~ msgstr "日"
+
+#~ msgid "一"
+#~ msgstr "一"
+
+#~ msgid "二"
+#~ msgstr "二"
+
+#~ msgid "三"
+#~ msgstr "三"
+
+#~ msgid "四"
+#~ msgstr "四"
+
+#~ msgid "五"
+#~ msgstr "五"
+
+#~ msgid "六"
+#~ msgstr "六"
+
+#~ msgid "一月"
+#~ msgstr "一月"
+
+#~ msgid "二月"
+#~ msgstr "二月"
+
+#~ msgid "三月"
+#~ msgstr "三月"
+
+#~ msgid "四月"
+#~ msgstr "四月"
+
+#~ msgid "五月"
+#~ msgstr "五月"
+
+#~ msgid "六月"
+#~ msgstr "六月"
+
+#~ msgid "七月"
+#~ msgstr "七月"
+
+#~ msgid "八月"
+#~ msgstr "八月"
+
+#~ msgid "九月"
+#~ msgstr "九月"
+
+#~ msgid "十月"
+#~ msgstr "十月"
+
+#~ msgid "十一月"
+#~ msgstr "十一月"
+
+#~ msgid "十二月"
+#~ msgstr "十二月"
+
+#~ msgid "全部"
+#~ msgstr "全部"
+
+#~ msgid "按月"
+#~ msgstr "按月"
+
+#~ msgid "按周"
+#~ msgstr "按周"
+
+#~ msgid "按日"
+#~ msgstr "按日"
+
+#~ msgid "已上线"
+#~ msgstr "已上线"
+
+#~ msgid "已提测"
+#~ msgstr "已提测"
+
+#~ msgid "开发中"
+#~ msgstr "开发中"
+
+#~ msgid "已下架"
+#~ msgstr "已下架"
+
+#~ msgid "<%=use_count%> 人添加"
+#~ msgstr "<%=use_count%> 人添加"
+
+#~ msgid "返回上一页"
+#~ msgstr "返回上一页"
+
+#~ msgid "刷新当前页面"
+#~ msgstr "刷新当前页面"
+
+#~ msgid "刷新应用"
+#~ msgstr "刷新应用"
+
+#~ msgid "复制当前页面链接"
+#~ msgstr "复制当前页面链接"
+
+#~ msgid "有效期：<%=valid_period%></br></br>"
+#~ msgstr "有效期：<%=valid_period%></br></br>"
+
+#~ msgid ""
+#~ "温馨提示：当前版本将于<%=expired_time%>过期，请联系技术服务商激活。</br>"
+#~ msgstr ""
+#~ "温馨提示：当前版本将于<%=expired_time%>过期，请联系技术服务商激活。</br>"
+
+#~ msgid "统计"
+#~ msgstr "统计"
+
+#~ msgid "权限中心"
+#~ msgstr "权限中心"
+
+#~ msgid "用户管理"
+#~ msgstr "用户管理"
 
 #~ msgid "密码重置成功"
 #~ msgstr "密码重置成功"

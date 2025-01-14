@@ -21,9 +21,10 @@ to the current version of the project delivered to anyone in the future.
 from builtins import str
 
 from django.db import models, transaction
-from django.db.models import F
+from django.db.models import F, Q
 from django.utils import translation
 
+from common.constants import AppTenantMode
 from common.log import logger
 from desktop.constants import DEFALUT_FOLDER_ICO, MarketNavEnum
 from desktop.utils import get_app_logo_url
@@ -170,9 +171,12 @@ class UserSettingsManager(models.Manager):
                 wallpaper_id_default = Wallpaper.objects.get_default_wallpaper()
                 wallpaper_type_default = "lashen"
                 self.model(user=user, wallpaper_id=wallpaper_id_default, wallpaper_type=wallpaper_type_default).save()
-                # 将（已上线）默认应用添加到用户桌面
-                default_app = App.objects.filter(is_already_online=True, state__gt=1, is_default=True).values_list(
-                    "id", flat=True
+                # 将（已上线）默认应用添加到用户桌面，且需要按租户进行过滤
+                tenant_id = user.tenant_id
+                default_app = (
+                    App.objects.filter_by_tenant_id(tenant_id=tenant_id)
+                    .filter(is_already_online=True, state__gt=1, is_default=True)
+                    .values_list("id", flat=True)
                 )
                 for app_id in default_app:
                     UserApp.objects.add_app(user, "desk1", app_id)
@@ -658,9 +662,9 @@ class UserAppManager(models.Manager):
             final_return_code = 0
         return final_return_code
 
-    def get_user_desktop_app_info(self, user):
+    def get_user_desktop_app_info(self, user, tenant_id):
         """
-        获取用户各桌面应用（不做过滤）
+        获取用户各桌面应用，需要按租户过滤
         """
         folder_dict = {}
         user_app_dict = {}
@@ -669,6 +673,10 @@ class UserAppManager(models.Manager):
             user_app_by_desk = (
                 self.select_related("app", "user", "parent")
                 .filter(user=user)
+                .filter(
+                    Q(app__app_tenant_mode=AppTenantMode.GLOBAL)
+                    | Q(app__app_tenant_mode=AppTenantMode.SINGLE, app__app_tenant_id=tenant_id)
+                )
                 .values(
                     "id",
                     "desk_app_type",
@@ -681,9 +689,10 @@ class UserAppManager(models.Manager):
                     "app__id",
                     "app__state",
                     "app__is_lapp",
+                    "app__app_tenant_mode",
+                    "app__app_tenant_id",
                 )
             )
-
             is_en = translation.get_language() == "en"
             for user_app in user_app_by_desk:
                 # 应用或文件夹信息
@@ -706,6 +715,8 @@ class UserAppManager(models.Manager):
                     "parentid": user_app["parent__id"],
                     "isoutline": "gray" if user_app["app__state"] == 0 else "",
                     "islapp": 1 if user_app["app__is_lapp"] else 0,
+                    "app_tenant_mode": user_app["app__app_tenant_mode"],
+                    "app_tenant_id": user_app["app__app_tenant_id"],
                 }
                 user_app_dict[user_app["id"]] = user_app_info
                 user_app_set.add(user_app["id"])

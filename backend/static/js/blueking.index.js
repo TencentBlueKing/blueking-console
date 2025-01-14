@@ -26,9 +26,6 @@ $(function(){
 				case 'market':
 					BLUEKING.window.create_market(app_url);
 					break;
-				case 'app_statistics':
-					BLUEKING.window.create_app_statistics(app_url);
-					break;
 				case 'user_center':
 					BLUEKING.window.create_user_center(app_url);
 					break;

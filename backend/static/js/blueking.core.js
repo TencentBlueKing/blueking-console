@@ -3,7 +3,7 @@
 */
 var TEMP      = {};
 var BLUEKING      = {};
-var tool_apps = ["market", "app_statistics", "user_center", "bk_iam", "bk_user_manage"];
+var tool_apps = ["market", "user_center", "bk_iam", "bk_user_manage"];
 BLUEKING.CONFIG = {
     desk            : 1,        //当前显示桌面
     dockPos         : 'left',   //应用码头位置，参数有：top,left,right
@@ -304,9 +304,6 @@ BLUEKING.api = (function(){
 				switch(app_code){
 					case 'market':
 						BLUEKING.window.create_market(app_url);
-						break;
-					case 'app_statistics':
-						BLUEKING.window.create_app_statistics(app_url);
 						break;
 					case 'user_center':
 						BLUEKING.window.create_user_center(app_url);

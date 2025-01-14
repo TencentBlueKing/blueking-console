@@ -1157,20 +1157,6 @@ BLUEKING.window = (function(){
 				height : 520,
 			});
 		},
-		// 创建统计分析应用窗口
-		create_app_statistics : function(app_url){
-			BLUEKING.window.createTemp({
-				appid : 'bk-tj',
-				app_code: 'app_statistics',
-				title : gettext('统计'),
-				url : urlPrefix + 'app_statistics/',
-				width : 1115,
-				height: 720,
-				isresize : true,
-				imgsrc : staticUrl + 'img/shortcut/tool_app/app_statistics.png',
-				refresh : false
-			}, app_url);
-		},
 		// 创建权限中心应用窗口
 		create_bk_iam: function(app_url){
 			BLUEKING.api.open_app_by_desk('bk_iam', app_url)
