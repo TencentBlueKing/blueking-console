@@ -20,6 +20,7 @@ to the current version of the project delivered to anyone in the future.
 
 from builtins import str
 
+from django.conf import settings
 from django.db import models, transaction
 from django.db.models import F, Q
 from django.utils import translation
@@ -670,28 +671,27 @@ class UserAppManager(models.Manager):
         user_app_dict = {}
         user_app_set = set()
         try:
-            user_app_by_desk = (
-                self.select_related("app", "user", "parent")
-                .filter(user=user)
-                .filter(
+            user_app_queryset = self.select_related("app", "user", "parent").filter(user=user)
+            #  开启多租户则过滤出：全租户应用 + 本租户的应用
+            if settings.ENABLE_MULTI_TENANT_MODE:
+                user_app_queryset = user_app_queryset.filter(
                     Q(app__app_tenant_mode=AppTenantMode.GLOBAL)
                     | Q(app__app_tenant_mode=AppTenantMode.SINGLE, app__app_tenant_id=tenant_id)
                 )
-                .values(
-                    "id",
-                    "desk_app_type",
-                    "app_position",
-                    "folder_name",
-                    "parent__id",
-                    "app__name",
-                    "app__name_en",
-                    "app__code",
-                    "app__id",
-                    "app__state",
-                    "app__is_lapp",
-                    "app__app_tenant_mode",
-                    "app__app_tenant_id",
-                )
+            user_app_by_desk = user_app_queryset.values(
+                "id",
+                "desk_app_type",
+                "app_position",
+                "folder_name",
+                "parent__id",
+                "app__name",
+                "app__name_en",
+                "app__code",
+                "app__id",
+                "app__state",
+                "app__is_lapp",
+                "app__app_tenant_mode",
+                "app__app_tenant_id",
             )
             is_en = translation.get_language() == "en"
             for user_app in user_app_by_desk:

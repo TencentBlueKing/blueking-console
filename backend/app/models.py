@@ -86,6 +86,9 @@ class AppManager(models.Manager):
 
     def filter_by_tenant_id(self, tenant_id: str):
         """按租户过滤应用"""
+        if not settings.ENABLE_MULTI_TENANT_MODE:
+            return self.get_queryset()
+
         # 返回全租户应用 + 本租户的应用
         return self.get_queryset().filter(
             Q(app_tenant_mode=AppTenantMode.GLOBAL) | Q(app_tenant_mode=AppTenantMode.SINGLE, app_tenant_id=tenant_id)
