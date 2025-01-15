@@ -45,4 +45,6 @@ def site_settings(request):
         "IS_BK_NOTICE_ENABLED": settings.IS_BK_NOTICE_ENABLED,
         # 产品 title/footer/name/logo 等资源自定义配置的路径
         "BK_SHARED_RES_URL": settings.BK_SHARED_RES_URL,
+        # 是否开启多租户
+        "ENABLE_MULTI_TENANT_MODE": settings.ENABLE_MULTI_TENANT_MODE,
     }

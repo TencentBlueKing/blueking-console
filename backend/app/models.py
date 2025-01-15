@@ -22,6 +22,7 @@ from builtins import object, str  # noqa
 
 from django.conf import settings
 from django.db import models
+from django.db.models import Q
 from django.db.models.deletion import SET_NULL
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -37,6 +38,7 @@ from app.constants import (
     VCS_TYPE_CHOICES,
 )
 from app.manager import AppTagManager
+from common.constants import DEFAULT_TENANT_ID, AppTenantMode
 
 APP_LOGO_IMG_RELATED = "applogo"
 
@@ -82,20 +84,30 @@ class AppManager(models.Manager):
         """
         return super(AppManager, self).get_queryset().filter(is_sysapp=False, is_display=True)
 
+    def filter_by_tenant_id(self, tenant_id: str):
+        """按租户过滤应用"""
+        if not settings.ENABLE_MULTI_TENANT_MODE:
+            return self.get_queryset()
+
+        # 返回全租户应用 + 本租户的应用
+        return self.get_queryset().filter(
+            Q(app_tenant_mode=AppTenantMode.GLOBAL) | Q(app_tenant_mode=AppTenantMode.SINGLE, app_tenant_id=tenant_id)
+        )
+
 
 class App(models.Model):
     """
     应用基本信息表
     """
 
-    name = models.CharField(u"应用名称", max_length=20, unique=True)
+    name = models.CharField(u"应用名称", max_length=20)
     code = models.CharField(u"应用编码", max_length=30, unique=True, help_text=u"此处请用英文字母")
     introduction = models.TextField(u"应用简介")
 
     name_en = models.CharField(u"英文应用名称", max_length=30, blank=True, null=True)
     introduction_en = models.TextField(u"英文应用简介", blank=True, null=True)
 
-    creater = models.CharField(u"创建者", max_length=20)
+    creater = models.CharField(u"创建者", max_length=20, blank=True, null=True)
     # 等于, 新增记录的时间
     created_date = models.DateTimeField(u"创建时间", auto_now_add=True, blank=True, null=True, db_index=True)
 
@@ -159,6 +171,40 @@ class App(models.Model):
     from_paasv3 = models.BooleanField(u"是否 Paas3.0 上创建的应用", default=False)
     # 已经迁移到 PaaS3.0 的应用，则 PaaS2.0 的开发中心不再展示这些应用
     migrated_to_paasv3 = models.BooleanField(u"是否已经迁移到 Paas3.0", default=False)
+
+    # app_tenant_mode 和 app_tenant_id 字段共同控制了应用的“可用范围”，可能的组合包括：
+    #
+    # - app_tenant_mode: "global", app_tenant_id: ""，表示应用在全租户范围内可用。
+    # - app_tenant_mode: "single", app_tenant_id: "foo"，表示应用仅在 foo 租户范围内可用。
+    #
+    # 应用的“可用范围”将影响对应租户的用户是否可在桌面上看到此应用，以及是否能通过应用链接访问
+    # 应用（不在“可用范围”内的用户请求将被拦截）。
+    #
+    # ## app_tenant_id 和 tenant_id 字段的区别
+    #
+    # 虽然这两个字段都存储“租户”，且值可能相同，但二者有本质区别。tenant_id 是系统级字段，值
+    # 总是等于当前这条数据的所属租户，它确定了数据的所有权。而 app_tenant_id 是业务功能层面的
+    # 字段，它和 app_tenant_mode 共同控制前面提到的业务功能——应用“可用范围”。
+    #
+    app_tenant_mode = models.CharField(
+        verbose_name="应用租户模式",
+        max_length=16,
+        default=AppTenantMode.GLOBAL,
+        help_text="应用在租户层面的可用范围，可选值：全租户、指定租户",
+    )
+    app_tenant_id = models.CharField(
+        verbose_name="应用租户 ID",
+        max_length=32,
+        default="",
+        help_text="应用对哪个租户的用户可用，当应用租户模式为全租户时，本字段值为空",
+    )
+    tenant_id = models.CharField(
+        verbose_name="租户 ID",
+        max_length=32,
+        db_index=True,
+        default=DEFAULT_TENANT_ID,
+        help_text="本条数据的所属租户",
+    )
 
     objects = AppManager()
 
@@ -248,6 +294,8 @@ class App(models.Model):
         db_table = "paas_app"
         verbose_name = u"应用基本信息"
         verbose_name_plural = u"应用基本信息"
+        # 应用名称租户内唯一
+        unique_together = ("app_tenant_id", "name")
 
 
 class SecureInfo(models.Model):

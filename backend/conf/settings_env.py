@@ -125,6 +125,10 @@ BK_NOTICE = {
 # 产品 title/footer/name/logo 等资源自定义配置的路径
 BK_SHARED_RES_URL = env.str("BK_SHARED_RES_URL", "")
 
+# 是否开启多租户
+ENABLE_MULTI_TENANT_MODE = env.str("ENABLE_MULTI_TENANT_MODE", False)
+
+
 try:
     from conf.local_settings import *  # noqa
 except ImportError:

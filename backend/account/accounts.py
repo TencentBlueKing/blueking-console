@@ -84,6 +84,7 @@ class Account(AccountSingleton):
         finally:
             try:
                 user.chname = data.get("display_name", username)
+                user.tenant_id = data.get("tenant_id")
                 # 用户隐私信息置空，需要的时候直接从用户管理 API 中获取
                 user.company = data.get("company", "")
                 user.qq = ""

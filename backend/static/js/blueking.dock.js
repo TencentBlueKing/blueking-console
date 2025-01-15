@@ -49,12 +49,6 @@ BLUEKING.dock = (function(){
 			}).on('click', function(e){
 				BLUEKING.window.create_user_center();
 			});
-			// 打开统计
-			$("#dock-container #app_statistics").on('mousedown', function(){
-				return false;
-			}).on('click', function(e){
-				BLUEKING.window.create_app_statistics();
-			});
       // 打开权限中心
 			$("#dock-container #bk_iam").on('mousedown', function(){
 				return false;
