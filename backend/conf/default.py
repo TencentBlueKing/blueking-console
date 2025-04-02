@@ -109,7 +109,6 @@ INSTALLED_APPS = [
     "analysis",
     "api",
     "app_esb_auth",
-    "user_center",
     "audit",
     "esb.bkcore",
 ]
