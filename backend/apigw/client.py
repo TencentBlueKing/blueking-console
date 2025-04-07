@@ -22,7 +22,8 @@ import logging
 from bkapi_client_core.exceptions import APIGatewayResponseError, ResponseError
 from django.conf import settings
 
-from apigw.bk_api import Client
+from apigw.bk_login import Client as LoginClient
+from apigw.bk_user import Client as UserClient
 from apigw.exceptions import BkLoginGatewayServiceError, BkLoginNoAccessPermission
 
 logger = logging.getLogger(__name__)
@@ -30,7 +31,7 @@ logger = logging.getLogger(__name__)
 
 class BkLoginClient:
     def __init__(self):
-        client = Client(endpoint=settings.BK_API_URL_TMPL, stage="prod")
+        client = LoginClient(endpoint=settings.BK_API_URL_TMPL, stage="prod")
         client.update_bkapi_authorization(
             bk_app_code="bk_paas",
             bk_app_secret=settings.BK_APP_SECRET,
@@ -55,3 +56,75 @@ class BkLoginClient:
             raise BkLoginGatewayServiceError("call bk login api error")
 
         return resp["data"]
+
+
+class BkUserAPIClient:
+    def __init__(self, tenant_id: str):
+        client = UserClient(endpoint=settings.BK_API_URL_TMPL, stage="prod")
+        client.update_bkapi_authorization(
+            bk_app_code="bk_paas",
+            bk_app_secret=settings.BK_APP_SECRET,
+        )
+        client.update_headers(self._prepare_headers())
+        self.client = client.api
+        self.tenant_id = tenant_id
+
+    def _prepare_headers(self) -> dict:
+        return {
+            # 只能查询 tenant_id 租户下的用户信息
+            "X-Bk-Tenant-Id": self.tenant_id,
+        }
+
+    def batch_query_user_display_info(self, username_list: list) -> dict:
+        """批量查询用户展示信息
+
+        :param username_list: 用户名列表
+        """
+        bk_usernames = ",".join(username_list)
+        try:
+            resp = self.client.batch_query_user_display_info(params={"bk_usernames": bk_usernames})
+        except (APIGatewayResponseError, ResponseError) as e:
+            logger.exception(f"call bk user api batch_query_user_display_info error, detail: {e}")
+            raise BkLoginGatewayServiceError("call bk user api batch_query_user_display_info error")
+
+        user_data = resp.get("data", [])
+        return {
+            user["bk_username"]: user["display_name"]
+            for user in user_data
+            if user.get("bk_username") and user.get("display_name")
+        }
+
+    def get_user_department_ids(self, username: str) -> list:
+        """获取用户部门 ID 列表，包含所有父部门
+
+        :param username: 用户名
+        """
+        try:
+            # 包括所有祖先部门
+            resp = self.client.list_user_department(
+                path_params={"bk_username": username}, params={"with_ancestors": True}
+            )
+        except (APIGatewayResponseError, ResponseError) as e:
+            logger.exception(f"call bk user api list_user_department error, detail: {e}")
+            raise BkLoginGatewayServiceError("call bk user api list_user_department error")
+
+        data = resp.get("data", [])
+        department_ids = set()
+        for d in data:
+            department_ids.add(d["id"])
+
+            if d.get("family"):
+                for f in d.get("ancestors"):
+                    department_ids.add(f["id"])
+
+        department_ids = list(department_ids)
+        return department_ids
+
+    def reset_user_i18n_language(self, username: str, language: str) -> bool:
+        """重置用户语言设置
+
+        :param username: 用户名
+        :param language: 语言
+        """
+        # TODO 需要用户管理提供 API
+        pass

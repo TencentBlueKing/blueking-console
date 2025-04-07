@@ -22,8 +22,8 @@ from django.http import HttpResponseRedirect
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import check_for_language
 
-from bk_i18n.constants import DJANGO_LANG_TO_BK_LANG, TIME_ZONE_LIST
-from components import usermgr
+from apigw.client import BkUserAPIClient
+from bk_i18n.constants import DJANGO_LANG_TO_BK_LANG
 
 
 def _get_response(request):
@@ -42,7 +42,8 @@ def set_language(request):
         if language and check_for_language(language):
             # 调用login接口设置
             username = request.user.username
-            is_success, message = usermgr.reset_user_i18n_language(username, DJANGO_LANG_TO_BK_LANG[language])
+            client = BkUserAPIClient(request.user.tenant_id)
+            is_success = client.reset_user_i18n_language(username, DJANGO_LANG_TO_BK_LANG[language])
             if is_success:
                 request.session[settings.LANGUAGE_SESSION_KEY] = language
                 response.set_cookie(
@@ -52,18 +53,4 @@ def set_language(request):
                     path=settings.LANGUAGE_COOKIE_PATH,
                     domain=settings.LANGUAGE_COOKIE_DOMAIN,
                 )
-    return response
-
-
-def set_timezone(request):
-    response = _get_response(request)
-    if request.method == "POST":
-        timezone = request.POST.get("timezone", None)
-        if timezone and timezone in TIME_ZONE_LIST:
-            # 调用login接口设置
-            username = request.user.username
-            is_success, message = usermgr.reset_user_i18n_timezone(username, timezone)
-            if is_success:
-                request.session[settings.TIMEZONE_SESSION_KEY] = timezone
-
     return response

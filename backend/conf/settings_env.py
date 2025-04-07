@@ -128,6 +128,8 @@ BK_SHARED_RES_URL = env.str("BK_SHARED_RES_URL", "")
 # 是否开启多租户
 ENABLE_MULTI_TENANT_MODE = env.str("ENABLE_MULTI_TENANT_MODE", False)
 
+# 全租户应用的开发者负责人展示信息，未设置则展示租户 ID
+GLOBAL_TENANT_APP_DEVELOPER = env.str("MULTI_TENANT_APP_DEVELOPER", "")
 
 try:
     from conf.local_settings import *  # noqa

@@ -17,14 +17,29 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
-from components.esb import _call_esb_api
-from components.http import http_get
+from bkapi_client_core.apigateway import APIGatewayClient, Operation, OperationGroup, bind_property
 
 
-def get_weixin_config():
-    """
-    获取微信配置
-    """
-    path = '/api/c/compapi/esb/get_weixin_config/'
-    _ok, _, _message, data = _call_esb_api(http_get, path, {})
-    return data
+class Group(OperationGroup):
+    # 批量查询用户展示信息
+    batch_query_user_display_info = bind_property(
+        Operation,
+        name="batch_query_user_display_info",
+        method="GET",
+        path="/api/v3/open/tenant/users/-/display_info/",
+    )
+    # 查询用户所在部门列表
+    list_user_department = bind_property(
+        Operation,
+        name="list_user_department",
+        method="GET",
+        path="/api/v3/open/tenant/users/{bk_username}/departments/",
+    )
+
+
+class Client(APIGatewayClient):
+    """Bkapi bk-user client"""
+
+    _api_name = "bk-user"
+
+    api = bind_property(Group, name="api")

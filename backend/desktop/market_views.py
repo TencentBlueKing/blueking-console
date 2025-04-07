@@ -41,7 +41,11 @@ from desktop.constants import (
     AppCreatorTagEnum,
     AppStarOperatorResult,
 )
-from desktop.market_utils import get_market_nav_and_tag_list
+from desktop.market_utils import (
+    get_creator_display_names,
+    get_market_nav_and_tag_list,
+    get_single_creator_display_name,
+)
 from desktop.models import UserApp, UserSettings
 from desktop.utils import get_app_logo_url, get_visiable_labels
 from release.models import Record as App_release_record
@@ -134,7 +138,7 @@ def _make_query(username, search_tag, search_other, tenant_id):
         )
 
     # via username to fetch user_id / [dpid1, dpid2, dpid3]
-    visiable_labels = get_visiable_labels(username)
+    visiable_labels = get_visiable_labels(username, tenant_id)
     if not visiable_labels:
         logger.error("get visiable_labels from usermgr fail!")
         # return None
@@ -199,11 +203,14 @@ def market_get_list(request):
         all_user_app = _get_user_apps(request.user)
         all_app_limit = all_app[start_index:end_index]
 
+        # 获取所有应用创建者的展示名称
+        display_mapping = get_creator_display_names(all_app_limit)
+
         app_info_list = []  # 应用信息列表
         is_en = translation.get_language() == "en"
         for app in all_app_limit:
-            # 自建应用展示开发者，SaaS应用或者蓝鲸提供应用展示创建者
-            developers_value_name = app.creater_display
+            # 开发负责人
+            developers_value_name = display_mapping(app.creater, app.creater_display)
 
             app_name = app.name_display
             introduction = app.introduction_display
@@ -253,8 +260,7 @@ def market_app_detail(request, app_id):
         app_visit_count = AppUseRecord.objects.filter(
             app=app, use_time__gte=date_time_one, use_time__lte=date_time_now
         ).count()
-        # 自建应用展示开发者，SaaS应用或者蓝鲸提供应用展示创建者
-        developers_value_name = app.creater_display
+        creator_display_name = get_single_creator_display_name(app)
 
         try:
             newst_online_time = (
@@ -286,8 +292,8 @@ def market_app_detail(request, app_id):
             "is_third": app.is_third,
             "is_platform": app.is_platform,
             "introduction": introduction,
-            "creater": app.creater_display,
-            "developer": developers_value_name,
+            "creater": creator_display_name,
+            "developer": creator_display_name,
             "display_type": "app",
             "first_test_time": app.first_test_time or "--",
             "first_online_time": app.first_online_time or "--",
