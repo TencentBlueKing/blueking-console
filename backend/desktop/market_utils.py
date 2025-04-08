@@ -71,10 +71,6 @@ def get_creator_display(apps, user_tenant_id):
     else:
         app_list = apps
 
-    # 未开启多租户模式直接返回
-    if not settings.ENABLE_MULTI_TENANT_MODE:
-        return {app.id: app.creater_display for app in app_list}
-
     display_mapping = {}
     tenant_apps_map = defaultdict(list)
 

@@ -6,8 +6,8 @@ contains:
 relations:
 - rationale: "用户认证及登录页"
   requires:
-  - "bkauth^0.0.13"
-  - "usermgr^2.5.4"
+  - "bkauth^1.1.0"
+  - "usermgr^3.0.1"
 - rationale: "ESB"
   requires:
   - "bkpaas^2.14.0 OR bk-apigateway^1.12.0"
