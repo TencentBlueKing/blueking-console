@@ -74,3 +74,6 @@ AppTenantMode = enum(
 
 # 没有开启多租户模式，则应用的租户 ID 为: default，仅用于存量版本升级的数据初始化
 DEFAULT_TENANT_ID = "default"
+
+# 运营租户 ID，多租户模式下仅运营租户可以创建全租户应用
+OP_TYPE_TENANT_ID = "system"

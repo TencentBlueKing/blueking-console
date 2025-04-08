@@ -60,6 +60,7 @@ class BkLoginClient:
 
 class BkUserAPIClient:
     def __init__(self, tenant_id: str):
+        self.tenant_id = tenant_id
         client = UserClient(endpoint=settings.BK_API_URL_TMPL, stage="prod")
         client.update_bkapi_authorization(
             bk_app_code="bk_paas",
@@ -67,7 +68,6 @@ class BkUserAPIClient:
         )
         client.update_headers(self._prepare_headers())
         self.client = client.api
-        self.tenant_id = tenant_id
 
     def _prepare_headers(self) -> dict:
         return {

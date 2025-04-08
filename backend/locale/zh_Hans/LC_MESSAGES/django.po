@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 10:57+0800\n"
+"POT-Creation-Date: 2025-04-08 13:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -272,11 +272,11 @@ msgstr ""
 msgid "证书校验成功"
 msgstr ""
 
-#: conf/default.py:237
+#: conf/default.py:236
 msgid "English"
 msgstr ""
 
-#: conf/default.py:238
+#: conf/default.py:237
 msgid "简体中文"
 msgstr ""
 
@@ -292,21 +292,21 @@ msgstr ""
 msgid "用户自建"
 msgstr ""
 
-#: desktop/market_views.py:285 desktop/market_views.py:297
-#: desktop/market_views.py:298
+#: desktop/market_views.py:288 desktop/market_views.py:300
+#: desktop/market_views.py:301
 msgid "是"
 msgstr ""
 
-#: desktop/market_views.py:285 desktop/market_views.py:297
-#: desktop/market_views.py:298
+#: desktop/market_views.py:288 desktop/market_views.py:300
+#: desktop/market_views.py:301
 msgid "否"
 msgstr ""
 
-#: desktop/market_views.py:306
+#: desktop/market_views.py:309
 msgid "全租户"
 msgstr ""
 
-#: desktop/market_views.py:306
+#: desktop/market_views.py:309
 msgid "单租户"
 msgstr ""
 
@@ -535,7 +535,7 @@ msgstr ""
 msgid "蓝鲸智云应用编码"
 msgstr ""
 
-#: esb/bkcore/models.py:179 templates/user_center/account.html:17
+#: esb/bkcore/models.py:179
 msgid "用户名"
 msgstr ""
 
@@ -920,7 +920,6 @@ msgid "应用市场"
 msgstr ""
 
 #: templates/desktop/index.html:104 templates/desktop/index.html:105
-#: templates/user_center/base.html:6 templates/user_center/base.html:25
 msgid "个人中心"
 msgstr ""
 
@@ -1038,7 +1037,7 @@ msgid ""
 msgstr ""
 
 #: templates/desktop/market.html:34
-msgid "按应用名称、应用ID、开发负责人搜索"
+msgid "按应用名称、应用 ID 搜索"
 msgstr ""
 
 #: templates/desktop/market.html:35
@@ -1298,220 +1297,4 @@ msgstr ""
 
 #: templates/no_permission.html:6 templates/no_permission.html:20
 msgid "无该应用访问权限"
-msgstr ""
-
-#: templates/user_center/account.html:11
-msgid "用户角色"
-msgstr ""
-
-#: templates/user_center/account.html:24
-msgid "语言"
-msgstr ""
-
-#: templates/user_center/account.html:40
-msgid "时区"
-msgstr ""
-
-#: templates/user_center/account.html:53
-msgid "中文名"
-msgstr ""
-
-#: templates/user_center/account.html:59
-msgid "联系电话"
-msgstr ""
-
-#: templates/user_center/account.html:65
-msgid "常用邮箱"
-msgstr ""
-
-#: templates/user_center/account.html:71
-msgid "QQ"
-msgstr ""
-
-#: templates/user_center/account.html:80
-msgid "常用操作"
-msgstr ""
-
-#: templates/user_center/account.html:82
-#: templates/user_center/weixin_unbind.part:19
-msgid "取消"
-msgstr ""
-
-#: templates/user_center/account.html:83
-msgid "修改个人信息"
-msgstr ""
-
-#: templates/user_center/account.html:84
-msgid "修改密码"
-msgstr ""
-
-#: templates/user_center/account.html:89 templates/user_center/account.html:95
-msgid "解绑微信"
-msgstr ""
-
-#: templates/user_center/account.html:91 templates/user_center/account.html:97
-#: templates/user_center/weixin_mp.part:10
-msgid "绑定微信"
-msgstr ""
-
-#: templates/user_center/account.html:102
-msgid "用户管理"
-msgstr ""
-
-#: templates/user_center/base.html:53
-msgid "账户信息"
-msgstr ""
-
-#: templates/user_center/base.html:63
-msgid "API申请"
-msgstr ""
-
-#: templates/user_center/base.html:66
-msgid "等待审批"
-msgstr ""
-
-#: templates/user_center/base.html:67
-msgid "历史审批"
-msgstr ""
-
-#: templates/user_center/esb_approval.html:9
-#: templates/user_center/esb_history.html:9
-msgid "申请人"
-msgstr ""
-
-#: templates/user_center/esb_approval.html:10
-#: templates/user_center/esb_history.html:10
-msgid "申请时间"
-msgstr ""
-
-#: templates/user_center/esb_approval.html:11
-#: templates/user_center/esb_history.html:11
-msgid "申请应用"
-msgstr ""
-
-#: templates/user_center/esb_approval.html:12
-#: templates/user_center/esb_history.html:12
-msgid "组件系统"
-msgstr ""
-
-#: templates/user_center/esb_approval.html:13
-#: templates/user_center/esb_history.html:13
-msgid "组件名称"
-msgstr ""
-
-#: templates/user_center/esb_approval.html:14
-msgid "操作"
-msgstr ""
-
-#: templates/user_center/esb_history.html:14
-msgid "结果"
-msgstr ""
-
-#: templates/user_center/weixin_bind_error.html:6
-msgid "绑定失败"
-msgstr ""
-
-#: templates/user_center/weixin_mp.part:13
-msgid "扫描二维码"
-msgstr ""
-
-#: templates/user_center/weixin_qy_bind_success.html:6
-msgid "微信绑定成功"
-msgstr ""
-
-#: templates/user_center/weixin_qy_bind_success.html:20
-msgid "绑定成功，3秒后将自动关闭页面"
-msgstr ""
-
-#: templates/user_center/weixin_unbind.part:10
-msgid "微信解绑确认"
-msgstr ""
-
-#: templates/user_center/weixin_unbind.part:15
-msgid "您确定要解绑该微信号码吗？"
-msgstr ""
-
-#: templates/user_center/weixin_unbind.part:18
-msgid "确认"
-msgstr ""
-
-#: user_center/decorators.py:37
-msgid "系统管理员未启用微信通知组件"
-msgstr ""
-
-#: user_center/decorators.py:39
-msgid "您已绑定微信，无需再绑定"
-msgstr ""
-
-#: user_center/validators.py:28
-msgid "密码不能为空"
-msgstr ""
-
-#: user_center/validators.py:30
-msgid "两次输入的新密码不一致"
-msgstr ""
-
-#: user_center/views.py:187
-msgid "该申请记录不存在"
-msgstr ""
-
-#: user_center/views.py:190
-msgid "该申请已经审批过了"
-msgstr ""
-
-#: user_center/views.py:194
-#, python-format
-msgid "[%s]非正常审批结果"
-msgstr ""
-
-#: user_center/views.py:207
-msgid "调用组件审批接口出错"
-msgstr ""
-
-#: user_center/wx_core.py:185
-msgid "验证失败：signature参数不能为空"
-msgstr ""
-
-#: user_center/wx_core.py:187
-msgid "验证失败：timestamp参数不能为空"
-msgstr ""
-
-#: user_center/wx_core.py:189
-msgid "验证失败：nonce参数不能为空"
-msgstr ""
-
-#: user_center/wx_core.py:193
-msgid "验证失败：signature错误"
-msgstr ""
-
-#: user_center/wx_core.py:242
-msgid "绑定成功"
-msgstr ""
-
-#: user_center/wx_utlis.py:99
-msgid "不存在该微信二维码的扫描用户"
-msgstr ""
-
-#: user_center/wx_views.py:63
-msgid "后台获取公众号二维码失败，请联系系统管理员检查微信配置"
-msgstr ""
-
-#: user_center/wx_views.py:67 user_center/wx_views.py:116
-msgid "创建记录失败，请联系系统管理员处理"
-msgstr ""
-
-#: user_center/wx_views.py:101
-msgid "API请求异常，请联系管理员处理"
-msgstr ""
-
-#: user_center/wx_views.py:130
-msgid "您没有权限，请联系系统管理员"
-msgstr ""
-
-#: user_center/wx_views.py:135
-msgid "绑定失败，请联系系统管理员"
-msgstr ""
-
-#: user_center/wx_views.py:141
-msgid "绑定出错，请联系系统管理员"
 msgstr ""
