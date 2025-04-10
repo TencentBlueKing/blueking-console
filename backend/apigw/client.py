@@ -19,11 +19,12 @@ to the current version of the project delivered to anyone in the future.
 """
 import logging
 
-from bkapi_client_core.exceptions import APIGatewayResponseError, ResponseError
+from bkapi_client_core.exceptions import APIGatewayResponseError, JSONResponseError, ResponseError
 from django.conf import settings
 
 from apigw.bk_login import Client as LoginClient
 from apigw.bk_user import Client as UserClient
+from apigw.bk_user_web import Client as UserWebClient
 from apigw.exceptions import BkLoginGatewayServiceError, BkLoginNoAccessPermission
 
 logger = logging.getLogger(__name__)
@@ -62,10 +63,11 @@ class BkUserAPIClient:
     def __init__(self, tenant_id: str):
         self.tenant_id = tenant_id
         client = UserClient(endpoint=settings.BK_API_URL_TMPL, stage="prod")
-        client.update_bkapi_authorization(
-            bk_app_code="bk_paas",
-            bk_app_secret=settings.BK_APP_SECRET,
-        )
+        authorization = {
+            "bk_app_code": "bk_paas",
+            "bk_app_secret": settings.BK_APP_SECRET,
+        }
+        client.update_bkapi_authorization(**authorization)
         client.update_headers(self._prepare_headers())
         self.client = client.api
 
@@ -120,11 +122,36 @@ class BkUserAPIClient:
         department_ids = list(department_ids)
         return department_ids
 
-    def reset_user_i18n_language(self, username: str, language: str) -> bool:
+
+class BkUserWebAPIClient:
+    def __init__(self, tenant_id: str, bk_token: str):
+        self.tenant_id = tenant_id
+        client = UserWebClient(endpoint=settings.BK_API_URL_TMPL, stage="prod")
+        authorization = {
+            "bk_app_code": "bk_paas",
+            "bk_app_secret": settings.BK_APP_SECRET,
+            settings.BK_COOKIE_NAME: bk_token,
+        }
+        client.update_bkapi_authorization(**authorization)
+        client.update_headers(self._prepare_headers())
+        self.client = client.api
+
+    def _prepare_headers(self) -> dict:
+        return {
+            # 只能查询 tenant_id 租户下的用户信息
+            "X-Bk-Tenant-Id": self.tenant_id,
+        }
+
+    def update_current_user_language(self, language: str):
         """重置用户语言设置
 
-        :param username: 用户名
         :param language: 语言
         """
-        # TODO 需要用户管理提供 API
-        pass
+        try:
+            # 包括所有祖先部门
+            self.client.update_current_user_language(json={"language": language})
+        except JSONResponseError:
+            return
+        except (APIGatewayResponseError, ResponseError) as e:
+            logger.exception(f"call bk user api update_current_user_language error, detail: {e}")
+            raise BkLoginGatewayServiceError("call bk user api update_current_user_language error")
