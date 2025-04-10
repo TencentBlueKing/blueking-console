@@ -22,6 +22,7 @@ import re
 
 from django.conf import settings
 from django.utils.deprecation import MiddlewareMixin
+from django_prometheus.middleware import PrometheusAfterMiddleware
 
 from common.log import logger
 from common.utils.xss.escape_function import html_escape, texteditor_escape, url_escape
@@ -140,3 +141,14 @@ class CheckXssMiddleware(MiddlewareMixin):
         }
         use_texteditor_paths = {}
         return (use_url_paths, use_texteditor_paths)
+
+
+class PrometheusAfterWithExclusionMiddleware(PrometheusAfterMiddleware, MiddlewareMixin):
+    """自定义指标中间件，排除特定路径的指标统计"""
+
+    def process_response(self, request, response):
+        """处理响应时跳过指定路径"""
+        # 排除 /console/ping/ 路径的 Metric 指标统计
+        if request.path == '/console/ping/':
+            return response
+        return super().process_response(request, response)
