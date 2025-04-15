@@ -127,7 +127,8 @@ MIDDLEWARE = [
     "bk_i18n.middlewares.LanguageMiddleware",
     "bk_i18n.middlewares.TimezoneMiddleware",
     "common.middlewares.CheckXssMiddleware",
-    "django_prometheus.middleware.PrometheusAfterMiddleware",
+    # 继承 django_prometheus.middleware.PrometheusAfterMiddleware 中间件，并添加路径豁免功能
+    "common.middlewares.PrometheusAfterWithExclusionMiddleware",
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
