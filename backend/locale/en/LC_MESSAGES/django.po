@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 10:57+0800\n"
+"POT-Creation-Date: 2025-04-08 13:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -281,11 +281,11 @@ msgstr ""
 msgid "证书校验成功"
 msgstr "Certificate validation succeeded"
 
-#: conf/default.py:237
+#: conf/default.py:236
 msgid "English"
 msgstr "Engilsh"
 
-#: conf/default.py:238
+#: conf/default.py:237
 msgid "简体中文"
 msgstr "简体中文"
 
@@ -301,21 +301,21 @@ msgstr "Category"
 msgid "用户自建"
 msgstr "My Apps"
 
-#: desktop/market_views.py:285 desktop/market_views.py:297
-#: desktop/market_views.py:298
+#: desktop/market_views.py:288 desktop/market_views.py:300
+#: desktop/market_views.py:301
 msgid "是"
 msgstr "Yes"
 
-#: desktop/market_views.py:285 desktop/market_views.py:297
-#: desktop/market_views.py:298
+#: desktop/market_views.py:288 desktop/market_views.py:300
+#: desktop/market_views.py:301
 msgid "否"
 msgstr "No"
 
-#: desktop/market_views.py:306
+#: desktop/market_views.py:309
 msgid "全租户"
 msgstr "Global Tenant"
 
-#: desktop/market_views.py:306
+#: desktop/market_views.py:309
 msgid "单租户"
 msgstr "Single Tenant"
 
@@ -550,7 +550,7 @@ msgstr ""
 msgid "蓝鲸智云应用编码"
 msgstr "BlueKing"
 
-#: esb/bkcore/models.py:179 templates/user_center/account.html:17
+#: esb/bkcore/models.py:179
 msgid "用户名"
 msgstr "Username"
 
@@ -970,7 +970,6 @@ msgid "应用市场"
 msgstr "APP market"
 
 #: templates/desktop/index.html:104 templates/desktop/index.html:105
-#: templates/user_center/base.html:6 templates/user_center/base.html:25
 msgid "个人中心"
 msgstr "Profile"
 
@@ -1102,8 +1101,8 @@ msgstr ""
 "you're using <strong>IE</strong>"
 
 #: templates/desktop/market.html:34
-msgid "按应用名称、应用ID、开发负责人搜索"
-msgstr "Search by APP name, APP id or developer"
+msgid "按应用名称、应用 ID 搜索"
+msgstr "Search by APP name, APP id"
 
 #: templates/desktop/market.html:35
 msgid "搜索应用"
@@ -1366,223 +1365,164 @@ msgstr "Center"
 msgid "无该应用访问权限"
 msgstr "No access permission for this application."
 
-#: templates/user_center/account.html:11
-msgid "用户角色"
-msgstr "User role"
+#~ msgid "用户角色"
+#~ msgstr "User role"
 
-#: templates/user_center/account.html:24
-msgid "语言"
-msgstr "Language"
+#~ msgid "语言"
+#~ msgstr "Language"
 
-#: templates/user_center/account.html:40
-msgid "时区"
-msgstr "Timezone"
+#~ msgid "时区"
+#~ msgstr "Timezone"
 
-#: templates/user_center/account.html:53
-msgid "中文名"
-msgstr "Nickname"
+#~ msgid "中文名"
+#~ msgstr "Nickname"
 
-#: templates/user_center/account.html:59
-msgid "联系电话"
-msgstr "Phone"
+#~ msgid "联系电话"
+#~ msgstr "Phone"
 
-#: templates/user_center/account.html:65
-msgid "常用邮箱"
-msgstr "Email"
+#~ msgid "常用邮箱"
+#~ msgstr "Email"
 
-#: templates/user_center/account.html:71
-msgid "QQ"
-msgstr "QQ"
+#~ msgid "QQ"
+#~ msgstr "QQ"
 
-#: templates/user_center/account.html:80
-msgid "常用操作"
-msgstr "Common actions"
+#~ msgid "常用操作"
+#~ msgstr "Common actions"
 
-#: templates/user_center/account.html:82
-#: templates/user_center/weixin_unbind.part:19
-msgid "取消"
-msgstr "Cancel"
+#~ msgid "取消"
+#~ msgstr "Cancel"
 
-#: templates/user_center/account.html:83
-msgid "修改个人信息"
-msgstr "Modify personal info"
+#~ msgid "修改个人信息"
+#~ msgstr "Modify personal info"
 
-#: templates/user_center/account.html:84
-msgid "修改密码"
-msgstr "Change password"
+#~ msgid "修改密码"
+#~ msgstr "Change password"
 
-#: templates/user_center/account.html:89 templates/user_center/account.html:95
-msgid "解绑微信"
-msgstr "Unbind WeChat"
+#~ msgid "解绑微信"
+#~ msgstr "Unbind WeChat"
 
-#: templates/user_center/account.html:91 templates/user_center/account.html:97
-#: templates/user_center/weixin_mp.part:10
-msgid "绑定微信"
-msgstr "Bind WeChat"
+#~ msgid "绑定微信"
+#~ msgstr "Bind WeChat"
 
-#: templates/user_center/account.html:102
-msgid "用户管理"
-msgstr "User Management"
+#~ msgid "用户管理"
+#~ msgstr "User Management"
 
-#: templates/user_center/base.html:53
-msgid "账户信息"
-msgstr "Account info"
+#~ msgid "账户信息"
+#~ msgstr "Account info"
 
-#: templates/user_center/base.html:63
-msgid "API申请"
-msgstr "API application"
+#~ msgid "API申请"
+#~ msgstr "API application"
 
-#: templates/user_center/base.html:66
-msgid "等待审批"
-msgstr "Todo"
+#~ msgid "等待审批"
+#~ msgstr "Todo"
 
-#: templates/user_center/base.html:67
-msgid "历史审批"
-msgstr "History"
+#~ msgid "历史审批"
+#~ msgstr "History"
 
-#: templates/user_center/esb_approval.html:9
-#: templates/user_center/esb_history.html:9
-msgid "申请人"
-msgstr "Applicant"
+#~ msgid "申请人"
+#~ msgstr "Applicant"
 
-#: templates/user_center/esb_approval.html:10
-#: templates/user_center/esb_history.html:10
-msgid "申请时间"
-msgstr "Time"
+#~ msgid "申请时间"
+#~ msgstr "Time"
 
-#: templates/user_center/esb_approval.html:11
-#: templates/user_center/esb_history.html:11
-msgid "申请应用"
-msgstr "APP"
+#~ msgid "申请应用"
+#~ msgstr "APP"
 
-#: templates/user_center/esb_approval.html:12
-#: templates/user_center/esb_history.html:12
-msgid "组件系统"
-msgstr "Component system"
+#~ msgid "组件系统"
+#~ msgstr "Component system"
 
-#: templates/user_center/esb_approval.html:13
-#: templates/user_center/esb_history.html:13
-msgid "组件名称"
-msgstr "Component name"
+#~ msgid "组件名称"
+#~ msgstr "Component name"
 
-#: templates/user_center/esb_approval.html:14
-msgid "操作"
-msgstr "Operation"
+#~ msgid "操作"
+#~ msgstr "Operation"
 
-#: templates/user_center/esb_history.html:14
-msgid "结果"
-msgstr "Result"
+#~ msgid "结果"
+#~ msgstr "Result"
 
-#: templates/user_center/weixin_bind_error.html:6
-msgid "绑定失败"
-msgstr "Binding failed"
+#~ msgid "绑定失败"
+#~ msgstr "Binding failed"
 
-#: templates/user_center/weixin_mp.part:13
-msgid "扫描二维码"
-msgstr "Scan QR code"
+#~ msgid "扫描二维码"
+#~ msgstr "Scan QR code"
 
-#: templates/user_center/weixin_qy_bind_success.html:6
-msgid "微信绑定成功"
-msgstr "WeChat binding success"
+#~ msgid "微信绑定成功"
+#~ msgstr "WeChat binding success"
 
-#: templates/user_center/weixin_qy_bind_success.html:20
-msgid "绑定成功，3秒后将自动关闭页面"
-msgstr "Bind successfully, after 3 seconds will automatically close the page"
+#~ msgid "绑定成功，3秒后将自动关闭页面"
+#~ msgstr ""
+#~ "Bind successfully, after 3 seconds will automatically close the page"
 
-#: templates/user_center/weixin_unbind.part:10
-msgid "微信解绑确认"
-msgstr "Confirm WeChat unbundling"
+#~ msgid "微信解绑确认"
+#~ msgstr "Confirm WeChat unbundling"
 
-#: templates/user_center/weixin_unbind.part:15
-msgid "您确定要解绑该微信号码吗？"
-msgstr "Are you sure you want to unbind the WeChat number?"
+#~ msgid "您确定要解绑该微信号码吗？"
+#~ msgstr "Are you sure you want to unbind the WeChat number?"
 
-#: templates/user_center/weixin_unbind.part:18
-msgid "确认"
-msgstr "Yes"
+#~ msgid "确认"
+#~ msgstr "Yes"
 
-#: user_center/decorators.py:37
-msgid "系统管理员未启用微信通知组件"
-msgstr "System administrator did not enable WeChat notification component"
+#~ msgid "系统管理员未启用微信通知组件"
+#~ msgstr "System administrator did not enable WeChat notification component"
 
-#: user_center/decorators.py:39
-msgid "您已绑定微信，无需再绑定"
-msgstr "You have bound WeChat, so you do not have to bind again"
+#~ msgid "您已绑定微信，无需再绑定"
+#~ msgstr "You have bound WeChat, so you do not have to bind again"
 
-#: user_center/validators.py:28
-msgid "密码不能为空"
-msgstr "Password shall not be empty"
+#~ msgid "密码不能为空"
+#~ msgstr "Password shall not be empty"
 
-#: user_center/validators.py:30
-msgid "两次输入的新密码不一致"
-msgstr "Two passwords entered in twice are not the same"
+#~ msgid "两次输入的新密码不一致"
+#~ msgstr "Two passwords entered in twice are not the same"
 
-#: user_center/views.py:187
-msgid "该申请记录不存在"
-msgstr "The application record does not exist"
+#~ msgid "该申请记录不存在"
+#~ msgstr "The application record does not exist"
 
-#: user_center/views.py:190
-msgid "该申请已经审批过了"
-msgstr "The application has been approved"
+#~ msgid "该申请已经审批过了"
+#~ msgstr "The application has been approved"
 
-#: user_center/views.py:194
-#, python-format
-msgid "[%s]非正常审批结果"
-msgstr "[%s], Non-normal approval result"
+#~ msgid "[%s]非正常审批结果"
+#~ msgstr "[%s], Non-normal approval result"
 
-#: user_center/views.py:207
-msgid "调用组件审批接口出错"
-msgstr "An error occurred while calling component approval interface"
+#~ msgid "调用组件审批接口出错"
+#~ msgstr "An error occurred while calling component approval interface"
 
-#: user_center/wx_core.py:185
-msgid "验证失败：signature参数不能为空"
-msgstr "Verification failed: signature parameters cannot be empty"
+#~ msgid "验证失败：signature参数不能为空"
+#~ msgstr "Verification failed: signature parameters cannot be empty"
 
-#: user_center/wx_core.py:187
-msgid "验证失败：timestamp参数不能为空"
-msgstr "Verification failed: timestamp parameters cannot be empty"
+#~ msgid "验证失败：timestamp参数不能为空"
+#~ msgstr "Verification failed: timestamp parameters cannot be empty"
 
-#: user_center/wx_core.py:189
-msgid "验证失败：nonce参数不能为空"
-msgstr "Verification failed: nonce parameters cannot be empty"
+#~ msgid "验证失败：nonce参数不能为空"
+#~ msgstr "Verification failed: nonce parameters cannot be empty"
 
-#: user_center/wx_core.py:193
-msgid "验证失败：signature错误"
-msgstr "Verification failed: signature error "
+#~ msgid "验证失败：signature错误"
+#~ msgstr "Verification failed: signature error "
 
-#: user_center/wx_core.py:242
-msgid "绑定成功"
-msgstr "Binding succeeded"
+#~ msgid "绑定成功"
+#~ msgstr "Binding succeeded"
 
-#: user_center/wx_utlis.py:99
-msgid "不存在该微信二维码的扫描用户"
-msgstr "There is no scanning user for the WeChat QR code"
+#~ msgid "不存在该微信二维码的扫描用户"
+#~ msgstr "There is no scanning user for the WeChat QR code"
 
-#: user_center/wx_views.py:63
-msgid "后台获取公众号二维码失败，请联系系统管理员检查微信配置"
-msgstr ""
-"Failed to get official account QR code in the background. Please contact the "
-"system administrator to check WeChat configuration"
+#~ msgid "后台获取公众号二维码失败，请联系系统管理员检查微信配置"
+#~ msgstr ""
+#~ "Failed to get official account QR code in the background. Please contact "
+#~ "the system administrator to check WeChat configuration"
 
-#: user_center/wx_views.py:67 user_center/wx_views.py:116
-msgid "创建记录失败，请联系系统管理员处理"
-msgstr "Create a record failed, please contact the system administrator"
+#~ msgid "创建记录失败，请联系系统管理员处理"
+#~ msgstr "Create a record failed, please contact the system administrator"
 
-#: user_center/wx_views.py:101
-msgid "API请求异常，请联系管理员处理"
-msgstr "API request abnormal, please contact the administrator to deal with"
+#~ msgid "API请求异常，请联系管理员处理"
+#~ msgstr "API request abnormal, please contact the administrator to deal with"
 
-#: user_center/wx_views.py:130
-msgid "您没有权限，请联系系统管理员"
-msgstr "You have no permissions, please contact the system administrator"
+#~ msgid "您没有权限，请联系系统管理员"
+#~ msgstr "You have no permissions, please contact the system administrator"
 
-#: user_center/wx_views.py:135
-msgid "绑定失败，请联系系统管理员"
-msgstr "Binding failed, please contact the system administrator"
+#~ msgid "绑定失败，请联系系统管理员"
+#~ msgstr "Binding failed, please contact the system administrator"
 
-#: user_center/wx_views.py:141
-msgid "绑定出错，请联系系统管理员"
-msgstr "Binding error, please contact the system administrator"
+#~ msgid "绑定出错，请联系系统管理员"
+#~ msgstr "Binding error, please contact the system administrator"
 
 #~ msgid "%(year)s年%(month)s月"
 #~ msgstr "%(year)s-%(month)s"

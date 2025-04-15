@@ -1167,17 +1167,7 @@ BLUEKING.window = (function(){
 		},
 		// 创建个人中心应用窗口
 		create_user_center : function(app_url){
-			BLUEKING.window.createTemp({
-				appid : 'bk-grzx',
-				app_code: 'user_center',
-				title : gettext('个人中心'),
-				url : urlPrefix + 'user_center/',
-				width : 1167,
-				height: 734,
-				isresize : true,
-				imgsrc : staticUrl + 'img/shortcut/tool_app/user_center.png',
-				refresh : false
-			}, app_url);
+			BLUEKING.api.open_app_by_desk('bk_usermgr', app_url)
 		},
 		// 桌面添加菜单
 		create_add_menu : function(e){

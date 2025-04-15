@@ -22,8 +22,8 @@ from django.http import HttpResponseRedirect
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import check_for_language
 
-from bk_i18n.constants import DJANGO_LANG_TO_BK_LANG, TIME_ZONE_LIST
-from components import usermgr
+from apigw.client import BkUserWebAPIClient
+from bk_i18n.constants import DJANGO_LANG_TO_BK_LANG
 
 
 def _get_response(request):
@@ -40,30 +40,17 @@ def set_language(request):
     if request.method == "POST":
         language = request.POST.get("language", None)
         if language and check_for_language(language):
-            # 调用login接口设置
-            username = request.user.username
-            is_success, message = usermgr.reset_user_i18n_language(username, DJANGO_LANG_TO_BK_LANG[language])
-            if is_success:
-                request.session[settings.LANGUAGE_SESSION_KEY] = language
-                response.set_cookie(
-                    settings.LANGUAGE_COOKIE_NAME,
-                    DJANGO_LANG_TO_BK_LANG[language],
-                    max_age=settings.LANGUAGE_COOKIE_AGE,
-                    path=settings.LANGUAGE_COOKIE_PATH,
-                    domain=settings.LANGUAGE_COOKIE_DOMAIN,
-                )
-    return response
-
-
-def set_timezone(request):
-    response = _get_response(request)
-    if request.method == "POST":
-        timezone = request.POST.get("timezone", None)
-        if timezone and timezone in TIME_ZONE_LIST:
-            # 调用login接口设置
-            username = request.user.username
-            is_success, message = usermgr.reset_user_i18n_timezone(username, timezone)
-            if is_success:
-                request.session[settings.TIMEZONE_SESSION_KEY] = timezone
-
+            # 调用用户管理接口设置语言
+            bk_token = request.COOKIES.get(settings.BK_COOKIE_NAME, None)
+            client = BkUserWebAPIClient(request.user.tenant_id, bk_token)
+            client.update_current_user_language(DJANGO_LANG_TO_BK_LANG[language])
+            # 将语言写入到 cookie 中
+            request.session[settings.LANGUAGE_SESSION_KEY] = language
+            response.set_cookie(
+                settings.LANGUAGE_COOKIE_NAME,
+                DJANGO_LANG_TO_BK_LANG[language],
+                max_age=settings.LANGUAGE_COOKIE_AGE,
+                path=settings.LANGUAGE_COOKIE_PATH,
+                domain=settings.LANGUAGE_COOKIE_DOMAIN,
+            )
     return response

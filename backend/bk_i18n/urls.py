@@ -23,5 +23,4 @@ from bk_i18n import views
 
 urlpatterns = [
     re_path("^set_language/$", views.set_language, name="set_language"),
-    re_path("^set_timezone/$", views.set_timezone, name="set_timezone"),
 ]
