@@ -148,7 +148,7 @@ class PrometheusAfterWithExclusionMiddleware(PrometheusAfterMiddleware, Middlewa
 
     def process_response(self, request, response):
         """处理响应时跳过指定路径"""
-        # 排除 /console/ping/ 路径的 Metric 指标统计
-        if request.path == '/console/ping/':
+        # 排除 /console/ping/ 和 /console/healthz/ 路径的 Metric 指标统计
+        if request.path in ['/console/ping/', '/console/healthz/']:
             return response
         return super().process_response(request, response)
