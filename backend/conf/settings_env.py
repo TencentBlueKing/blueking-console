@@ -42,6 +42,22 @@ DATABASES = {
     }
 }
 
+# 数据库 ssl 配置
+BK_PAAS_DATABASE_TLS_ENABLED = env.bool("BK_PAAS_DATABASE_TLS_ENABLED", False)
+if BK_PAAS_DATABASE_TLS_ENABLED:
+    default_ssl_options = {
+        "ca": env.str("BK_PAAS_DATABASE_TLS_CERT_CA_FILE", ""),
+    }
+    # mTLS
+    default_cert_file = env.str("BK_PAAS_DATABASE_TLS_CERT_FILE", "")
+    default_key_file = env.str("BK_PAAS_DATABASE_TLS_CERT_KEY_FILE", "")
+    if default_cert_file and default_key_file:
+        default_ssl_options["cert"] = default_cert_file
+        default_ssl_options["key"] = default_key_file
+
+    DATABASES["default"]["OPTIONS"]["ssl"] = default_ssl_options
+
+
 # 是否展示蓝鲸产品版本信息
 IS_BK_SUITE_ENABLED = env.bool("IS_BK_SUITE_ENABLED", False)
 if IS_BK_SUITE_ENABLED:
