@@ -675,7 +675,8 @@ class UserAppManager(models.Manager):
             #  开启多租户则过滤出：全租户应用 + 本租户的应用
             if settings.ENABLE_MULTI_TENANT_MODE:
                 user_app_queryset = user_app_queryset.filter(
-                    Q(app__app_tenant_mode=AppTenantMode.GLOBAL)
+                    Q(desk_app_type=1)
+                    | Q(app__app_tenant_mode=AppTenantMode.GLOBAL)
                     | Q(app__app_tenant_mode=AppTenantMode.SINGLE, app__app_tenant_id=tenant_id)
                 )
             user_app_by_desk = user_app_queryset.values(
