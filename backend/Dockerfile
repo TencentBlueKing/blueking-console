@@ -1,7 +1,7 @@
 FROM python:3.11.10-slim-bullseye
 USER root
 
-RUN apt-get update && apt-get install -y wget file gcc curl procps -y
+RUN apt-get update && apt-get install -y file gcc curl procps -y
 
 RUN mkdir ~/.pip &&  printf '[global]\nindex-url = https://mirrors.cloud.tencent.com/pypi/simple/\nextra-index-url = https://mirrors.tencent.com/repository/pypi/tencent_pypi/simple/' > ~/.pip/pip.conf
 
