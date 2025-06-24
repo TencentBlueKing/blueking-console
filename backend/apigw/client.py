@@ -115,7 +115,7 @@ class BkUserAPIClient:
         for d in data:
             department_ids.add(d["id"])
 
-            if d.get("family"):
+            if d.get("ancestors"):
                 for f in d.get("ancestors"):
                     department_ids.add(f["id"])
 
