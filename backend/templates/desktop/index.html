@@ -159,7 +159,7 @@
             <div class="startmenu-selfinfo"></div>
             <ul class="startmenu">
                 <li>
-                    <a><span class="startmenu-username">{{request.user.chname}}</span></a>
+                    <a onclick="BLUEKING.api.open_app_by_desk('bk_usermgr')" style="display: flex;"><span title="{{request.user.chname}}" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="startmenu-username">{{request.user.chname}}</span></a>
                 </li>
                 <li><a href="{{BK_DOCS_URL_PREFIX}}" target="blank" class="">{% trans '文档中心' %}</a></li>
                 <li><a href="javascript:;" class="about">{% trans '蓝鲸官网' %}</a></li>

@@ -190,13 +190,14 @@ class App(models.Model):
         verbose_name="应用租户模式",
         max_length=16,
         default=AppTenantMode.GLOBAL,
-        help_text="应用在租户层面的可用范围，可选值：全租户、指定租户",
+        help_text="应用在租户层面的可用范围，可选值：全租户(global)、单租户（single）",
     )
     app_tenant_id = models.CharField(
         verbose_name="应用租户 ID",
         max_length=32,
         default="",
         help_text="应用对哪个租户的用户可用，当应用租户模式为全租户时，本字段值为空",
+        blank=True,
     )
     tenant_id = models.CharField(
         verbose_name="租户 ID",
