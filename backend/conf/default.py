@@ -297,6 +297,9 @@ IS_APP_STAR_ENABLED = False
 # 通知中心的功能可通过配置开启
 IS_BK_NOTICE_ENABLED = False
 BK_NOTICE_ENV = "prod"
+# 蓝鲸 SDK 会统一封装调用各系统的接口，此时由于做多租户改造，需要在调用时使用统一的租户头 X-Bk-Tenant-Id
+# 做了多租户改造的蓝鲸应用，都需要显式配置BK_APP_TENANT_ID=system
+BK_APP_TENANT_ID = "system"
 
 ##################
 # 企业证书校验相关 #
