@@ -493,7 +493,6 @@ BLUEKING.window = (function(){
 				var window_app = '#w_' + appid;
 				if(app_url){
 					// todo 第三方应用判断是否与第三方链接同域名，内置应用判断是否与蓝鲸平台同域
-					$(window_app).find('iframe').attr('src', app_url);
 				}else{ //没有带url，传参选择是否弹出刷新提示
 					if(appcode){
 						//判断应用是否在首页
