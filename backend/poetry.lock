@@ -174,7 +174,7 @@ requests = "*"
 
 [[package]]
 name = "django"
-version = "4.2.16"
+version = "4.2.17"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 category = "main"
 optional = false
@@ -730,7 +730,7 @@ testing = ["coverage", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.11,<3.12"
-content-hash = "c68b94666c31cea5ff7ad03493d9c5624c0dcbc9645b08f89b5038ecbdd53cb6"
+content-hash = "8d97aa1529aef4767449b60eb0f03889b0bda3173f6d724e5745764ee4a09cf7"
 
 [metadata.files]
 asgiref = []

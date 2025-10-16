@@ -17,7 +17,7 @@ try:
 
     APP_CODE = settings.APP_ID
     SECRET_KEY = settings.ESB_TOKEN
-    COMPONENT_SYSTEM_HOST = "http://%s" % settings.PAAS_INNER_DOMAIN
+    COMPONENT_SYSTEM_HOST = settings.BK_COMPONENT_API_URL
 except Exception:
     APP_CODE = ""
     SECRET_KEY = ""
