@@ -44,7 +44,8 @@ def _call_esb_api(http_func, url_path, data, timeout=30):
         "X-Bkapi-Authorization": json.dumps(common_params),
     }
 
-    url = "http://{}{}".format(settings.PAAS_INNER_DOMAIN, url_path)
+    # url = "http://{}{}".format(settings.PAAS_INNER_DOMAIN, url_path)
+    url = settings.BK_COMPONENT_API_URL + url_path
 
     ok, resp_data = http_func(url, data, headers=headers)
 
