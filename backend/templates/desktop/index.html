@@ -299,8 +299,49 @@
     </script>
     <!-- js 国际化 -->
     <script type="text/javascript" src="{{SITE_URL}}jsi18n/i18n/"></script>
+    <script>
+    // 浏览器检测工具 - 用于替代 jQuery 3.x 中移除的 $.browser
+    (function() {
+        var ua = navigator.userAgent.toLowerCase();
+
+        // 全局浏览器检测对象
+        window.BrowserDetect = {
+            msie: /msie|trident/.test(ua),
+            mozilla: /firefox/.test(ua),
+            webkit: /webkit/.test(ua),
+            opera: /opera|opr/.test(ua),
+            version: (function() {
+                var version = 0;
+                // IE
+                if (/msie (\d+)/.test(ua)) {
+                    version = RegExp.$1;
+                } else if (/trident.*rv:(\d+)/.test(ua)) {
+                    version = RegExp.$1;
+                }
+                // Firefox
+                else if (/firefox\/(\d+)/.test(ua)) {
+                    version = RegExp.$1;
+                }
+                // Chrome
+                else if (/chrome\/(\d+)/.test(ua)) {
+                    version = RegExp.$1;
+                }
+                return version.toString();
+            })()
+        };
+    })();
+    </script>
     <!-- jQery库 公共脚本 -->
-    <script src="{{STATIC_URL}}assets/jquery-1.8.3.min.js"></script>
+    <script src="{{STATIC_URL}}assets/jquery-3.7.1.min.js"></script>
+    <!-- jQuery Migrate - 提供向后兼容支持 -->
+    <script src="{{STATIC_URL}}assets/jquery-migrate-3.5.2.min.js"></script>
+    <!-- 挂载浏览器检测到 jQuery -->
+    <script>
+        // 挂载浏览器检测到 $.browser，确保向后兼容
+        if (typeof jQuery !== 'undefined' && typeof BrowserDetect !== 'undefined') {
+            jQuery.browser = BrowserDetect;
+        }
+    </script>
     <!-- 滚动条插件 -->
     <script src="{{STATIC_URL}}assets/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- 腾讯UED提示信息&部分其他小插件 -->
@@ -320,7 +361,7 @@
 	<script src="{{STATIC_URL}}js/csrftoken.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
 	<!-- 蓝鲸工作台核心脚本 -->
 	<script src="{{STATIC_URL}}js/blueking.core.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
-	<script src="{{STATIC_URL}}js/blueking.app.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
+	<script src="{{STATIC_URL}}js/blueking.app.js?v={{STATIC_VERSION}}"></script>
 	<script src="{{STATIC_URL}}js/blueking.appmanage.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
 	<script src="{{STATIC_URL}}js/blueking.base.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
 	<script src="{{STATIC_URL}}js/blueking.desktop.{{JS_SUFFIX}}?v={{STATIC_VERSION}}"></script>
@@ -366,7 +407,7 @@
 		$('#desktop').show();
 		//初始化一些桌面信息
 		BLUEKING.base.init();
-    
+
         {% if IS_BK_NOTICE_ENABLED %}
             //获取通知消息
             BKNOTICE.init();
