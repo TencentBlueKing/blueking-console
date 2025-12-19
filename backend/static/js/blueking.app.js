@@ -84,16 +84,14 @@ BLUEKING.app = (function(){
 		/*
 		**  获取桌面应用数据
 		*/
-		get : function(){
-			//获取json数组并循环输出每个应用
-			$.ajax({
-				type : 'POST',
-				url : urlPrefix + 'get_my_app/',
-				dataType : 'json',
-				beforeSend : function(){
-					BLUEKING.VAR.isAppMoving = true;
-				}
-			}).done(function(sc){
+	get : function(){
+		//获取json数组并循环输出每个应用
+		BLUEKING.VAR.isAppMoving = true;
+		$.ajax({
+			type : 'POST',
+			url : urlPrefix + 'get_my_app/',
+			dataType : 'json'
+		}).done(function(sc){
 				BLUEKING.VAR.isAppMoving = false;
 				if(typeof sc == 'object'){
 					if(typeof sc['dock'] == 'object'){
