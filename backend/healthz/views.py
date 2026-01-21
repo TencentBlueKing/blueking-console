@@ -136,7 +136,9 @@ def _warning_database_bksuite():
         with django.db.connections["bksuite"].cursor() as c:
             c.execute("SELECT 0")
     except django.db.Error as e:
-        msg = _(u"%(ecode)s Bksuite数据库连接存在问题 %(error)s; 不影响使用, 但[蓝鲸智云 - 开发者中心 - 版本信息]无法正常展示") % {
+        msg = _(
+            u"%(ecode)s Bksuite数据库连接存在问题 %(error)s; 不影响使用, 但[蓝鲸智云 - 开发者中心 - 版本信息]无法正常展示"
+        ) % {
             "ecode": ConsoleErrorCodes.E1303004_BASE_BKSUITE_DATABASE_ERROR,
             "error": str(e),
         }

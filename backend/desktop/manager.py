@@ -80,7 +80,8 @@ class UserSettingsManager(models.Manager):
             return True
         except Exception as error:
             logger.error(
-                "Category setting in the left navigation of user's desktop app market failed, Error message：%s" % error
+                "Category setting in the left navigation of user's desktop app market failed, Error message：%s"
+                % error
             )
             return False
 

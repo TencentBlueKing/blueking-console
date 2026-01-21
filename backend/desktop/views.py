@@ -157,7 +157,9 @@ def get_wallpaper(request):
         wallpaper = "1<{|}>%s<{|}>%s<{|}>%d<{|}>%d" % (wp_url, wallpaper_type, user_wp.width, user_wp.height)
     except Exception as error:
         logger.error("An error occurred in getting wallpaper, Error message: %s" % error)
-        wallpaper = "1<{|}>" + settings.STATIC_URL + "img/wallpaper/wallpaper1.jpg<{|}>lashen<{|}>1920<{|}>1080"  # 默认值
+        wallpaper = (
+            "1<{|}>" + settings.STATIC_URL + "img/wallpaper/wallpaper1.jpg<{|}>lashen<{|}>1920<{|}>1080"
+        )  # 默认值
     return HttpResponse(wallpaper)
 
 

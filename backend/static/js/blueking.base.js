@@ -78,10 +78,10 @@ BLUEKING.base = (function(){
 		},
 		setLanguage: function(language, callback){
 			$.ajax({
-				type: 'POST',
+				type: 'PUT',
 				data: {language: language},
 				async: false,
-				url: urlPrefix + 'i18n/set_language/',
+				url: bk_uer_web_api_url + '/prod/api/v3/open-web/tenant/current-user/language/',
 				success: function(){
 					callback && callback();
 				}

@@ -56,7 +56,13 @@ class UserSettings(models.Model):
 
     APPXY_CHOICES = [("x", u"横排列"), ("y", u"竖排列")]
     DOCKPOS_CHOICES = [("top", u"上边"), ("left", u"左边"), ("right", u"右边")]
-    SKIN_CHOICES = [("chrome", "Chrome皮肤"), ("default", u"默认"), ("ext", u"Ext皮肤"), ("mac", u"Mac皮肤"), ("qq", u"QQ皮肤")]
+    SKIN_CHOICES = [
+        ("chrome", "Chrome皮肤"),
+        ("default", u"默认"),
+        ("ext", u"Ext皮肤"),
+        ("mac", u"Mac皮肤"),
+        ("qq", u"QQ皮肤"),
+    ]
     WALLPAPER_TYPE_CHOICES = [
         ("tianchong", u"填充"),
         ("shiying", u"适应"),
@@ -71,12 +77,24 @@ class UserSettings(models.Model):
     skin = models.CharField(u"窗口皮肤", choices=SKIN_CHOICES, max_length=20, default="mac")
     wallpaper_id = models.IntegerField(u"壁纸ID", default=1)
     wallpaper_type = models.CharField(u"壁纸显示方式", choices=WALLPAPER_TYPE_CHOICES, max_length=20, default="lashen")
-    dock = models.TextField(u"[应用码头]应用id", default="", blank=True, null=True, help_text=u"用“,”相连")  # 应用拖动的时候需要用
-    desk1 = models.TextField(u"[桌面1]应用id", default="", blank=True, null=True, help_text=u"用“,”相连")  # 应用拖动的时候需要用
-    desk2 = models.TextField(u"[桌面2]应用id", default="", blank=True, null=True, help_text=u"用“,”相连")  # 应用拖动的时候需要用
-    desk3 = models.TextField(u"[桌面3]应用id", default="", blank=True, null=True, help_text=u"用“,”相连")  # 应用拖动的时候需要用
-    desk4 = models.TextField(u"[桌面4]应用id", default="", blank=True, null=True, help_text=u"用“,”相连")  # 应用拖动的时候需要用
-    desk5 = models.TextField(u"[桌面5]应用id", default="", blank=True, null=True, help_text=u"用“,”相连")  # 应用拖动的时候需要用
+    dock = models.TextField(
+        u"[应用码头]应用id", default="", blank=True, null=True, help_text=u"用“,”相连"
+    )  # 应用拖动的时候需要用
+    desk1 = models.TextField(
+        u"[桌面1]应用id", default="", blank=True, null=True, help_text=u"用“,”相连"
+    )  # 应用拖动的时候需要用
+    desk2 = models.TextField(
+        u"[桌面2]应用id", default="", blank=True, null=True, help_text=u"用“,”相连"
+    )  # 应用拖动的时候需要用
+    desk3 = models.TextField(
+        u"[桌面3]应用id", default="", blank=True, null=True, help_text=u"用“,”相连"
+    )  # 应用拖动的时候需要用
+    desk4 = models.TextField(
+        u"[桌面4]应用id", default="", blank=True, null=True, help_text=u"用“,”相连"
+    )  # 应用拖动的时候需要用
+    desk5 = models.TextField(
+        u"[桌面5]应用id", default="", blank=True, null=True, help_text=u"用“,”相连"
+    )  # 应用拖动的时候需要用
 
     market_nav = models.IntegerField(u"应用市场左侧导航类别", choices=MARKET_NAV_CHOICES, default=MarketNavEnum.APPTAG)
 
@@ -107,14 +125,22 @@ class UserApp(models.Model):
     ]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=u"用户")
-    app = models.ForeignKey(App, on_delete=models.CASCADE, verbose_name=u"应用", null=True, help_text=u"文件夹则此字段为空")
+    app = models.ForeignKey(
+        App, on_delete=models.CASCADE, verbose_name=u"应用", null=True, help_text=u"文件夹则此字段为空"
+    )
     add_time = models.DateTimeField(u"添加时间", auto_now_add=True, blank=True, null=True, help_text=u"添加时间")
     # 文件夹功能 字段
     desk_app_type = models.IntegerField(u"桌面应用类型", choices=DESK_APP_TYPE_CHOICES, default=0)
     folder_name = models.CharField(
-        u"文件夹名", max_length=127, null=True, blank=True, help_text=u"如果desk_app_type为0,则该字段不用填写;反之,则必填"
+        u"文件夹名",
+        max_length=127,
+        null=True,
+        blank=True,
+        help_text=u"如果desk_app_type为0,则该字段不用填写;反之,则必填",
     )
-    parent = models.ForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, verbose_name=u"APP所在的文件夹")
+    parent = models.ForeignKey(
+        "self", on_delete=models.CASCADE, null=True, blank=True, verbose_name=u"APP所在的文件夹"
+    )
     # 应用相关
     app_position = models.CharField(u"用户APP所在位置", choices=APP_POSITION_CHOICES, max_length=20, default="desk1")
 

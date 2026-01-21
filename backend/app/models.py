@@ -113,10 +113,16 @@ class App(models.Model):
 
     state = models.SmallIntegerField(u"应用开发状态", choices=STATE_CHOICES, help_text=u"app的开发状态", default=1)
     tags = models.ForeignKey(AppTags, help_text=u"应用分类", blank=True, null=True, on_delete=SET_NULL)
-    is_already_test = models.BooleanField(u"是否已经提测", default=False, help_text=u"app在测试环境下架或者开发中状态，修改该字段为False。")
-    is_already_online = models.BooleanField(u"是否已经上线", default=False, help_text=u"app正式环境未下架，该字段为True。")
+    is_already_test = models.BooleanField(
+        u"是否已经提测", default=False, help_text=u"app在测试环境下架或者开发中状态，修改该字段为False。"
+    )
+    is_already_online = models.BooleanField(
+        u"是否已经上线", default=False, help_text=u"app正式环境未下架，该字段为True。"
+    )
 
-    first_test_time = models.DateTimeField(u"应用首次提测时间", help_text=u"记录应用首次提测时间", blank=True, null=True, db_index=True)
+    first_test_time = models.DateTimeField(
+        u"应用首次提测时间", help_text=u"记录应用首次提测时间", blank=True, null=True, db_index=True
+    )
     first_online_time = models.DateTimeField(
         u"应用首次上线时间", help_text=u"记录应用首次上线时间", blank=True, null=True, db_index=True
     )
@@ -129,7 +135,9 @@ class App(models.Model):
 
     # celery
     is_use_celery = models.BooleanField(u"app是否使用celery", default=False, help_text=u"选项: true(是)，false(否)")
-    is_use_celery_beat = models.BooleanField(u"app是否使用定时任务", default=False, help_text=u"选项: true(是)，false(否)")
+    is_use_celery_beat = models.BooleanField(
+        u"app是否使用定时任务", default=False, help_text=u"选项: true(是)，false(否)"
+    )
 
     # PaaS3.0 的 app_secret 长度为 50, 加密会更长
     auth_token = models.CharField("Token", max_length=255, blank=True, null=True)
@@ -141,21 +149,35 @@ class App(models.Model):
     logo = models.ImageField(upload_to=APP_LOGO_IMG_RELATED, blank=True, null=True, max_length=500)
     # 桌面应用基本属性
     width = models.IntegerField(u"app页面宽度", blank=True, null=True, help_text=u"应用页面宽度，必须为整数，单位为px")
-    height = models.IntegerField(u"app页面高度", blank=True, null=True, help_text=u"应用页面高度，必须为整数，单位为px")
+    height = models.IntegerField(
+        u"app页面高度", blank=True, null=True, help_text=u"应用页面高度，必须为整数，单位为px"
+    )
     is_max = models.BooleanField(u"是否默认窗口最大化", default=False)
     is_setbar = models.BooleanField(u"窗口是否详情等按钮", default=True, help_text=u"选项: true(有)，false(无)")
-    is_resize = models.BooleanField(u"是否能对窗口进行拉伸", default=True, help_text=u"选项：true(可以拉伸)，false(不可以拉伸)")
-    use_count = models.IntegerField(u"使用人数", default=0, help_text=u"添加了该应用的人数，note：用户卸载应用后，要相应的减1")
-    is_default = models.BooleanField(u"是否为默认应用", default=False, help_text=u"默认应用将在用户首次进入工作台时自动到用户桌面")
+    is_resize = models.BooleanField(
+        u"是否能对窗口进行拉伸", default=True, help_text=u"选项：true(可以拉伸)，false(不可以拉伸)"
+    )
+    use_count = models.IntegerField(
+        u"使用人数", default=0, help_text=u"添加了该应用的人数，note：用户卸载应用后，要相应的减1"
+    )
+    is_default = models.BooleanField(
+        u"是否为默认应用", default=False, help_text=u"默认应用将在用户首次进入工作台时自动到用户桌面"
+    )
     is_display = models.BooleanField(u"是否在桌面展示", default=True, help_text=u"选项: true(有)，false(无)")
     open_mode = models.CharField(u"应用打开方式", max_length=20, choices=OPENMODE_CHOICES, default="new_tab")
 
     # 第三方应用
-    is_third = models.BooleanField("是否为第三方应用", default=False, help_text=u"第三方应用，即外部应用，不走自动部署")
-    external_url = models.CharField(u"第三方应用URL", max_length=255, help_text=u"当且仅当应用类型为第三方应用时必填", blank=True, null=True)
+    is_third = models.BooleanField(
+        "是否为第三方应用", default=False, help_text=u"第三方应用，即外部应用，不走自动部署"
+    )
+    external_url = models.CharField(
+        u"第三方应用URL", max_length=255, help_text=u"当且仅当应用类型为第三方应用时必填", blank=True, null=True
+    )
     # 默认内部应用, 为了获取esb鉴权(esb加白)而生成securt_key的给其他系统调用esb使用 而生成的应用
     is_sysapp = models.BooleanField(
-        "是否为系统间应用", default=False, help_text=u"为了获取esb鉴权(esb加白)而生成securt_key的给其他系统调用esb使用 而生成的应用"
+        "是否为系统间应用",
+        default=False,
+        help_text=u"为了获取esb鉴权(esb加白)而生成securt_key的给其他系统调用esb使用 而生成的应用",
     )
     # 平台级别应用(cc, ijobs等)
     is_platform = models.BooleanField("是否为平台级应用", default=False, help_text=u"平台应用（配置平台、作业平台等）")
@@ -307,7 +329,9 @@ class SecureInfo(models.Model):
     app_code = models.CharField(u"对应的appcode", max_length=30, unique=True)
 
     # 源代码版本信息
-    vcs_type = models.SmallIntegerField(u"版本控制类型", choices=VCS_TYPE_CHOICES, help_text=u"app的开发状态", default=1)
+    vcs_type = models.SmallIntegerField(
+        u"版本控制类型", choices=VCS_TYPE_CHOICES, help_text=u"app的开发状态", default=1
+    )
     vcs_url = models.CharField(u"版本库URL", max_length=1024, blank=True, null=True)
     vcs_username = models.CharField(u"版本库用户名", max_length=50, blank=True, null=True)
     vcs_password = models.CharField(u"版本库密码", max_length=50, blank=True, null=True)

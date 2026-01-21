@@ -154,7 +154,9 @@ def market_get_list(request):
     try:
         start_index = int(request.GET.get("from", 0))  # 该页显示数据起始
         end_index = int(request.GET.get("to", 7))  # 该页显示数据结束
-        search_tag = int(request.GET.get("sidebar_select", "0"))  # 根据标签查询（'0'： 全部应用，'1': 我的应用， '2': 普通应用, '3': 内置应用）
+        search_tag = int(
+            request.GET.get("sidebar_select", "0")
+        )  # 根据标签查询（'0'： 全部应用，'1': 我的应用， '2': 普通应用, '3': 内置应用）
         search_use = int(request.GET.get("topbar_select", "1"))  # 根据使用指标等查询(1:最新应用，2:最热应用)
         search_other = request.GET.get("keyword", "").strip()  # 搜索框（根据应用name、code等搜索）
     except Exception as error:
@@ -215,7 +217,9 @@ def market_get_list(request):
                 "introduction": introduction,  # 应用简介
                 "use_count": app.use_count,  # 应用人气数
                 "star_num": int(app.star_num) if app.star_num else 0,  # 应用评分
-                "user_app_id": all_user_app.get(app.code, "") if app.code in all_user_app else "",  # 应用对应的user_app id
+                "user_app_id": (
+                    all_user_app.get(app.code, "") if app.code in all_user_app else ""
+                ),  # 应用对应的user_app id
                 "relapp_id": app.id,  # 应用id
                 "logo_url": get_app_logo_url(app.code),  # 应用logo
                 "developer": developers_value_name if developers_value_name else "--",  # 开发负责人

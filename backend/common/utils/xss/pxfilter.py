@@ -133,7 +133,7 @@ class XssHtml(HTMLParser):
             attdict = self.node_default(attdict)
 
         attrs = []
-        for (key, value) in list(attdict.items()):
+        for key, value in list(attdict.items()):
             attrs.append('%s="%s"' % (key, self.__htmlspecialchars(value)))
         attrs = (" " + " ".join(attrs)) if attrs else ""
         self.result.append("<" + tag + attrs + end_diagonal + ">")
@@ -212,7 +212,7 @@ class XssHtml(HTMLParser):
         else:
             other = []
         if attrs:
-            for (key, value) in list(attrs.items()):
+            for key, value in list(attrs.items()):
                 if key not in self.common_attrs + other:
                     del attrs[key]
         return attrs
@@ -227,7 +227,7 @@ class XssHtml(HTMLParser):
         return attrs
 
     def __limit_attr(self, attrs, limit={}):
-        for (key, value) in list(limit.items()):
+        for key, value in list(limit.items()):
             if key in attrs and attrs[key] not in value:
                 del attrs[key]
         return attrs
