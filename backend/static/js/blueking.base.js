@@ -82,6 +82,9 @@ BLUEKING.base = (function(){
 				data: {language: language},
 				async: false,
 				url: bk_uer_web_api_url + '/prod/api/v3/open-web/tenant/current-user/language/',
+				xhrFields: {
+					withCredentials: true  // 确保发送 cookie
+				},
 				success: function(){
 					callback && callback();
 				}
