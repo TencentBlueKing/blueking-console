@@ -81,9 +81,10 @@ BLUEKING.base = (function(){
 			var processedLanguage = language === 'zh-hans' ? 'zh-cn' : language;
 			$.ajax({
 				type: 'PUT',
+				async: false,
 				data: {language: processedLanguage},
 				headers: {'X-Bk-Tenant-Id': cur_user_tenant_id},
-				url: bk_uer_web_api_url + '/prod/api/v3/open-web/tenant/current-user/language/',
+				url: bk_user_web_api_url + '/prod/api/v3/open-web/tenant/current-user/language/',
 				xhrFields: {
 					withCredentials: true  // 确保发送 cookie
 				},
