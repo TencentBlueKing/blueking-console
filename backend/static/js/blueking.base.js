@@ -77,9 +77,11 @@ BLUEKING.base = (function(){
 			});
 		},
 		setLanguage: function(language, callback){
+			// 对 language 参数进行二次处理，将 zh-hans 修改为 zh-cn
+			var processedLanguage = language === 'zh-hans' ? 'zh-cn' : language;
 			$.ajax({
 				type: 'PUT',
-				data: {language: language},
+				data: {language: processedLanguage},
 				headers: {'X-Bk-Tenant-Id': 'system'},
 				url: bk_uer_web_api_url + '/prod/api/v3/open-web/tenant/current-user/language/',
 				xhrFields: {
