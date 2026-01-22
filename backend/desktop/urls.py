@@ -60,7 +60,9 @@ urlpatterns += [
     # 查询APP信息
     re_path(r"^get_my_app/$", views.get_my_app),  # 获取用户桌面应用
     re_path(r"^get_my_app_by_id/(?P<app_id>\d+)/$", views.get_my_app_by_id),  # 通过app_id获得APP信息
-    re_path(r"^get_my_app_by_code/(?P<app_code>" + CODE_REGEX + ")/$", views.get_my_app_by_code),  # 通过app_code获得APP信息
+    re_path(
+        r"^get_my_app_by_code/(?P<app_code>" + CODE_REGEX + ")/$", views.get_my_app_by_code
+    ),  # 通过app_code获得APP信息
     # 文件夹
     re_path(r"^add_folder/$", views.add_folder),  # 新建文件夹
     re_path(r"^update_folder/(?P<app_id>\d+)/$", views.update_folder),  # 文件夹重命名
@@ -69,7 +71,9 @@ urlpatterns += [
     re_path(r"^del_my_app/(?P<my_app_id>\d+)/$", views.del_my_app),  # 删除桌面应用
     re_path(r"^move_my_app/(?P<my_app_id>\d+)/$", views.move_my_app),  # 移动桌面应用到另一个桌面
     re_path(r"^update_my_app/(?P<my_app_id>\d+)/$", views.update_my_app),  # 更新桌面应用
-    re_path(r"^is_user_added_app/(?P<app_code>" + CODE_REGEX + ")/$", views.is_user_added_app),  # 判断用户是否添加了该app
+    re_path(
+        r"^is_user_added_app/(?P<app_code>" + CODE_REGEX + ")/$", views.is_user_added_app
+    ),  # 判断用户是否添加了该app
     # 搜索应用
     re_path(r"^search_apps/$", views.search_apps),  # 搜索应用
 ]

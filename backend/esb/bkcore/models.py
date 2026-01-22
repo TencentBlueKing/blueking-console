@@ -33,15 +33,23 @@ class ComponentSystem(models.Model):
     label = models.CharField(_(u"系统标签"), max_length=128, help_text=_(u"系统简要说明"))
     component_admin = models.CharField(_(u"组件开发负责人"), max_length=128, default="", blank=True)
     interface_admin = models.CharField(
-        _(u"系统接口负责人"), max_length=128, default="", blank=True, help_text=_(u"记录系统接口负责人，以便进行消息通知或直接联系，长度为128字符以内")
+        _(u"系统接口负责人"),
+        max_length=128,
+        default="",
+        blank=True,
+        help_text=_(u"记录系统接口负责人，以便进行消息通知或直接联系，长度为128字符以内"),
     )
     system_link = models.CharField(
         _(u"系统链接"), max_length=1024, default="", blank=True, help_text=_(u"标准的HTTP链接，多个以分号分隔")
     )
     belong_to = models.CharField(_(u"系统所属组织"), max_length=128, default="", blank=True)
     remark = models.TextField(_(u"备注"), default="", blank=True)
-    execute_timeout = models.IntegerField(_(u"执行类超时时长"), null=True, blank=True, help_text=_(u"单位秒，未设置时超时时长为30秒"))
-    query_timeout = models.IntegerField(_(u"查询类超时时长"), null=True, blank=True, help_text=_(u"单位秒，未设置时超时时长为30秒"))
+    execute_timeout = models.IntegerField(
+        _(u"执行类超时时长"), null=True, blank=True, help_text=_(u"单位秒，未设置时超时时长为30秒")
+    )
+    query_timeout = models.IntegerField(
+        _(u"查询类超时时长"), null=True, blank=True, help_text=_(u"单位秒，未设置时超时时长为30秒")
+    )
     doc_category_id = models.IntegerField(_(u"文档分类ID"), null=True, blank=True)
 
     class Meta(object):
@@ -75,22 +83,32 @@ class ESBChannel(models.Model):
         (3, _(u"特殊权限")),
     )
 
-    name = models.CharField(_(u"通道名称"), max_length=64, help_text=_(u'通道名称，长度限制为64字符，例如"查询服务器列表"'))
+    name = models.CharField(
+        _(u"通道名称"), max_length=64, help_text=_(u'通道名称，长度限制为64字符，例如"查询服务器列表"')
+    )
     path = models.CharField(_(u"通道路径"), max_length=255, help_text=_(u'通道请求路径，例如"/host/get_host_list/"'))
     method = models.CharField(_(u"请求类型"), max_length=32, null=True, default="", blank=True)
-    component_system = models.ForeignKey(ComponentSystem, on_delete=models.CASCADE, verbose_name=_(u"所属系统"), null=True)
+    component_system = models.ForeignKey(
+        ComponentSystem, on_delete=models.CASCADE, verbose_name=_(u"所属系统"), null=True
+    )
     component_codename = models.CharField(
-        _(u"对应组件代号"), max_length=255, help_text=_(u'对应的组件代号，该组件必须注册到API网关中，例如 "generic.host.get_host_list"')
+        _(u"对应组件代号"),
+        max_length=255,
+        help_text=_(u'对应的组件代号，该组件必须注册到API网关中，例如 "generic.host.get_host_list"'),
     )
     component_name = models.CharField(_(u"组件英文名"), max_length=64, default="", blank=True, null=True)
     is_active = models.BooleanField(_(u"是否开启"), default=True)
     last_modified_time = models.DateTimeField(_(u"最后更新时间"), auto_now=True)
     created_time = models.DateTimeField(_(u"创建时间"), auto_now_add=True)
-    timeout_time = models.IntegerField(_(u"超时时长"), blank=True, null=True, help_text=_(u"单位秒，未设置时以所属系统超时时长为准"))
+    timeout_time = models.IntegerField(
+        _(u"超时时长"), blank=True, null=True, help_text=_(u"单位秒，未设置时以所属系统超时时长为准")
+    )
     type = models.IntegerField(_(u"API类型"), choices=TYPE_CHOICE, default=2)
     comp_conf = models.TextField(_(u"组件配置"), default="", null=True, blank=True)
     perm_level = models.IntegerField(_(u"权限级别"), choices=PERM_LEVEL_CHOICE, default=0)
-    is_hidden = models.BooleanField(_(u"是否隐藏"), default=False, help_text=_(u"是否显示文档，及是否在权限申请中展示"))
+    is_hidden = models.BooleanField(
+        _(u"是否隐藏"), default=False, help_text=_(u"是否显示文档，及是否在权限申请中展示")
+    )
     rate_limit_required = models.BooleanField(_(u"是否校验访问频率"), default=False)
     rate_limit_conf = models.TextField(
         _(u"请求频率配置"),
@@ -155,9 +173,15 @@ class FunctionController(models.Model):
 
     func_code = models.CharField(_(u"功能code"), max_length=64, unique=True)
     func_name = models.CharField(_(u"功能名称"), max_length=64)
-    switch_status = models.BooleanField(_(u"是否开启该功能"), default=True, help_text=_(u"控制功能是否对外开放，若选择，则该功能将对外开放"))
+    switch_status = models.BooleanField(
+        _(u"是否开启该功能"), default=True, help_text=_(u"控制功能是否对外开放，若选择，则该功能将对外开放")
+    )
     wlist = models.TextField(
-        _(u"功能测试白名单"), null=True, default="", blank=True, help_text=_(u"支持两种格式数据，以逗号、分号分隔的字符串，及JSON格式字符串")
+        _(u"功能测试白名单"),
+        null=True,
+        default="",
+        blank=True,
+        help_text=_(u"支持两种格式数据，以逗号、分号分隔的字符串，及JSON格式字符串"),
     )
     func_desc = models.TextField(_(u"功能描述"), null=True, default="", blank=True)
     created_time = models.DateTimeField(_(u"创建时间"), auto_now_add=True)
@@ -214,11 +238,15 @@ class ESBBuffetComponent(models.Model):
     )
 
     name = models.CharField(_(u"名称"), max_length=256)
-    system = models.ForeignKey(ComponentSystem, on_delete=models.CASCADE, verbose_name=_(u"系统"), null=True, blank=True)
+    system = models.ForeignKey(
+        ComponentSystem, on_delete=models.CASCADE, verbose_name=_(u"系统"), null=True, blank=True
+    )
 
     dest_url = models.CharField(_(u"目标接口地址"), max_length=2048)
     dest_http_method = models.CharField(_(u"HTTP请求类型"), max_length=8, choices=HTTP_METHOD_CHOICES)
-    favor_post_ctype = models.CharField(_(u"编码POST参数方式"), max_length=64, default="json", choices=FAVOR_CTYPE_CHOICES)
+    favor_post_ctype = models.CharField(
+        _(u"编码POST参数方式"), max_length=64, default="json", choices=FAVOR_CTYPE_CHOICES
+    )
     extra_headers = models.CharField(_(u"额外请求头信息"), max_length=2048, default="", blank=True)
     extra_params = models.CharField(_(u"额外请求参数"), max_length=2048, default="", blank=True)
 
@@ -238,7 +266,9 @@ class ESBBuffetComponent(models.Model):
     )
     last_modified_time = models.DateTimeField(auto_now=True)
     created_time = models.DateTimeField(auto_now_add=True)
-    timeout_time = models.IntegerField(_(u"超时时长"), blank=True, null=True, help_text=_(u"单位秒，未设置时以所属系统超时时长为准"))
+    timeout_time = models.IntegerField(
+        _(u"超时时长"), blank=True, null=True, help_text=_(u"单位秒，未设置时以所属系统超时时长为准")
+    )
     type = models.IntegerField(_(u"API类型"), choices=TYPE_CHOICE, default=2)
 
     def __unicode__(self):

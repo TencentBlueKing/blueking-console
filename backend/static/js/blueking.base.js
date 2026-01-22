@@ -77,11 +77,17 @@ BLUEKING.base = (function(){
 			});
 		},
 		setLanguage: function(language, callback){
+			// 对 language 参数进行二次处理，将 zh-hans 修改为 zh-cn
+			var processedLanguage = language === 'zh-hans' ? 'zh-cn' : language;
 			$.ajax({
-				type: 'POST',
-				data: {language: language},
+				type: 'PUT',
 				async: false,
-				url: urlPrefix + 'i18n/set_language/',
+				data: {language: processedLanguage},
+				headers: {'X-Bk-Tenant-Id': cur_user_tenant_id},
+				url: bk_user_web_api_url + '/prod/api/v3/open-web/tenant/current-user/language/',
+				xhrFields: {
+					withCredentials: true  // 确保发送 cookie
+				},
 				success: function(){
 					callback && callback();
 				}

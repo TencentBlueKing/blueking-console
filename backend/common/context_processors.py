@@ -47,4 +47,6 @@ def site_settings(request):
         "BK_SHARED_RES_URL": settings.BK_SHARED_RES_URL,
         # 是否开启多租户
         "ENABLE_MULTI_TENANT_MODE": settings.ENABLE_MULTI_TENANT_MODE,
+        # 用户管理 web 端 API 地址
+        "BK_USER_WEB_API_URL": settings.BK_API_URL_TMPL.format(api_name="bk-user-web"),
     }
