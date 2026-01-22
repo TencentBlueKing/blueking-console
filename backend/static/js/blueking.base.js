@@ -80,7 +80,7 @@ BLUEKING.base = (function(){
 			$.ajax({
 				type: 'PUT',
 				data: {language: language},
-				async: false,
+				headers: {'X-Bk-Tenant-Id': 'system'},
 				url: bk_uer_web_api_url + '/prod/api/v3/open-web/tenant/current-user/language/',
 				xhrFields: {
 					withCredentials: true  // 确保发送 cookie
