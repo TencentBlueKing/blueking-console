@@ -20,15 +20,15 @@ django-environ = "0.4.5"
 bk_iam = "1.1.9"
 django-prometheus = "2.1.0"
 future = "1.0.0"
-urllib3 = "2.5.0"
-Pillow = "10.3.0"
+urllib3 = ">=2.6.3"
+Pillow = ">=12.2.0"
 bk-notice-sdk = ">=1.4.2"
 setuptools = ">=80.9.0"
 
 
 [tool.poetry.dev-dependencies]
 # black
-black = "^24.3.0"
+black = ">=26.3.1"
 # isort
 isort = "^5.9.2"
 # flake8
