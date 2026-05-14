@@ -20,6 +20,7 @@ to the current version of the project delivered to anyone in the future.
 context_processor for common(setting)
 ** 除setting外的其他context_processor内容，均采用组件的方式(string)
 """
+
 from django.conf import settings
 from django.utils import timezone
 

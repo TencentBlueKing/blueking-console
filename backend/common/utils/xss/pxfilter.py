@@ -40,6 +40,7 @@ Python 2.6+ or 3.2+
 Cannot defense xss in browser which is belowed IE7
 浏览器版本：IE7+ 或其他浏览器，无法防御IE6及以下版本浏览器中的XSS
 """
+
 from __future__ import print_function
 
 import re
@@ -133,7 +134,7 @@ class XssHtml(HTMLParser):
             attdict = self.node_default(attdict)
 
         attrs = []
-        for (key, value) in list(attdict.items()):
+        for key, value in list(attdict.items()):
             attrs.append('%s="%s"' % (key, self.__htmlspecialchars(value)))
         attrs = (" " + " ".join(attrs)) if attrs else ""
         self.result.append("<" + tag + attrs + end_diagonal + ">")
@@ -212,7 +213,7 @@ class XssHtml(HTMLParser):
         else:
             other = []
         if attrs:
-            for (key, value) in list(attrs.items()):
+            for key, value in list(attrs.items()):
                 if key not in self.common_attrs + other:
                     del attrs[key]
         return attrs
@@ -227,7 +228,7 @@ class XssHtml(HTMLParser):
         return attrs
 
     def __limit_attr(self, attrs, limit={}):
-        for (key, value) in list(limit.items()):
+        for key, value in list(limit.items()):
             if key in attrs and attrs[key] not in value:
                 del attrs[key]
         return attrs
@@ -238,12 +239,10 @@ class XssHtml(HTMLParser):
 
 if "__main__" == __name__:
     parser = XssHtml()
-    parser.feed(
-        """<p><img src=1 onerror=alert(/xss/)></p><div class="left">
+    parser.feed("""<p><img src=1 onerror=alert(/xss/)></p><div class="left">
         <a href='javascript:prompt(1)'><br />hehe</a></div>
         <p id="test" onmouseover="alert(1)">&gt;M<svg>
         <a href="https://www.baidu.com" target="self">MM</a></p>
-        <embed src='javascript:alert(/hehe/)' allowscriptaccess=always />"""
-    )
+        <embed src='javascript:alert(/hehe/)' allowscriptaccess=always />""")
     parser.close()
     print(parser.get_html())

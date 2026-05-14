@@ -17,6 +17,7 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
+
 from builtins import object
 
 from django.db import models
@@ -50,15 +51,25 @@ class Record(models.Model):
     """
 
     app_code = models.CharField(u"对应的appcode", max_length=30, db_index=True)
-    operate_id = models.IntegerField(u"操作标识", choices=OPERATE_ID_CHOICES, help_text=u"0为提测操作，1为上线操作", db_index=True)
-    operate_user = models.CharField(u"操作人", max_length=50, blank=True, null=True, help_text=u"进行上线或提测操作的人")
+    operate_id = models.IntegerField(
+        u"操作标识", choices=OPERATE_ID_CHOICES, help_text=u"0为提测操作，1为上线操作", db_index=True
+    )
+    operate_user = models.CharField(
+        u"操作人", max_length=50, blank=True, null=True, help_text=u"进行上线或提测操作的人"
+    )
 
-    app_old_state = models.SmallIntegerField(u"操作前app的状态", choices=STATE_CHOICES, help_text=u"操作前app的状态", default=1)
+    app_old_state = models.SmallIntegerField(
+        u"操作前app的状态", choices=STATE_CHOICES, help_text=u"操作前app的状态", default=1
+    )
     # = 记录第一次生成的时间
     operate_time = models.DateTimeField(u"操作时间", auto_now_add=True, blank=True, null=True, db_index=True)
-    is_success = models.BooleanField(u"操作是否成功", default=False, help_text=u"提测或上线操作是否成功", db_index=True)
+    is_success = models.BooleanField(
+        u"操作是否成功", default=False, help_text=u"提测或上线操作是否成功", db_index=True
+    )
     is_tips = models.BooleanField(u"显示新标志", default=False, help_text=u"是否在logo上添加更新提示")
-    is_version = models.BooleanField(u"显示新特性", default=False, help_text=u"是否在新应用应用打开时显示该版本更新特性")
+    is_version = models.BooleanField(
+        u"显示新特性", default=False, help_text=u"是否在新应用应用打开时显示该版本更新特性"
+    )
     version = models.CharField(u"版本号", max_length=50, blank=True, null=True, help_text=u"需要显示的版本号信息")
     message = models.TextField(u"操作返回信息", blank=True, null=True, help_text=u"执行提测或上线操作后脚本的返回信息")
     event_id = models.CharField(u"Event_id", max_length=36, blank=True, null=True, db_index=True)

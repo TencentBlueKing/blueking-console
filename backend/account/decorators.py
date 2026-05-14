@@ -17,6 +17,7 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
+
 from functools import wraps
 
 from django.conf import settings
@@ -90,7 +91,9 @@ def verfy_request_header(view_func):
                 )
         except Exception as e:
             logger.exception("Verification of HTTP request header is abnormal:%s" % e)
-            return JsonResponse({"result": False, "code": "1102", "message": _(u"参数不合法:HTTP_X_APP_ID"), "data": {}})
+            return JsonResponse(
+                {"result": False, "code": "1102", "message": _(u"参数不合法:HTTP_X_APP_ID"), "data": {}}
+            )
 
         return view_func(request, *args, **kwargs)
 

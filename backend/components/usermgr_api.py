@@ -19,6 +19,7 @@ to the current version of the project delivered to anyone in the future.
 
 usermgr api
 """
+
 from __future__ import absolute_import
 
 from .esb import _call_esb_api
