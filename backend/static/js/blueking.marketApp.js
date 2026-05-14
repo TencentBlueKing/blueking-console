@@ -20,7 +20,7 @@ BLUEKING.marketApp = (function(){
 			 * 应用添加、打开、卸载操作
 			 */
 			//添加应用
-			$('.btn-add-s').live('click', function(){
+			$(document).on('click', '.btn-add-s', function(){
 				var appid = $(this).attr('app_id');
 				$(this).removeClass().addClass('btn-loading-s');
 				try{
@@ -45,7 +45,7 @@ BLUEKING.marketApp = (function(){
 			});
 
 			//卸载应用
-			$('.btn-remove-s').live('click', function(){
+			$(document).on('click', '.btn-remove-s', function(){
 				try{
 					window.parent.BLUEKING.app.remove_new($(this).attr('app_id'), function(data){
 						if(data==0){
@@ -69,7 +69,7 @@ BLUEKING.marketApp = (function(){
 			});
 
 			//打开应用
-			$('.btn-run-s').live('click', function(){
+			$(document).on('click', '.btn-run-s', function(){
 				try{
 					if($(this).attr('app_id') == ''){
 						window.top.BLUEKING.api.open_app_by_other($(this).attr('app_code'));

@@ -18,6 +18,7 @@ We undertake not to change the open source license (MIT license) applicable
 to the current version of the project delivered to anyone in the future.
 账号体系相关的基类Account.
 """
+
 from builtins import object
 from urllib.parse import urlencode, urlparse
 

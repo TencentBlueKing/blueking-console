@@ -31,6 +31,7 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 import django.views
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
@@ -50,8 +51,6 @@ urlpatterns = [
     re_path(r"^console/accounts/", include("account.urls")),
     # app应用数据（点击量，访问量，在线时长等）
     re_path(r"^console/analysis/", include("analysis.urls")),
-    # app 统计分析图表（点击量，访问量，在线时长等）
-    re_path(r"^console/app_statistics/", include("app_statistics.urls")),
     # 个人中心
     re_path(r"^console/user_center/", include("user_center.urls")),
     # 蓝鲸工作台

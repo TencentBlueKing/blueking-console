@@ -3,7 +3,7 @@
 */
 var TEMP      = {};
 var BLUEKING      = {};
-var tool_apps = ["market", "app_statistics", "user_center", "bk_iam", "bk_user_manage"];
+var tool_apps = ["market", "user_center", "bk_iam", "bk_user_manage"];
 BLUEKING.CONFIG = {
     desk            : 1,        //当前显示桌面
     dockPos         : 'left',   //应用码头位置，参数有：top,left,right
@@ -507,6 +507,19 @@ Poly9.URLParser.prototype._makeGetter = function(field) {
 
 //app跨域请求console的方法使用postMessage [与static/bk_api/api.js中的方法作用一样]
 window.addEventListener('message', function(event) {
+    // 获取当前页面的域名
+    var currentHost = window.location.hostname;
+    
+    // 检查事件来源是否来自当前域名或其子域名
+    var eventOrigin = new URL(event.origin).hostname;
+    var isTrustedOrigin = eventOrigin === currentHost || 
+                          eventOrigin.endsWith('.' + currentHost);
+    
+    if (!isTrustedOrigin) {
+        console.warn('Ignoring message from untrusted origin:', event.origin);
+        return;
+    }
+    
     if(event.data){
         try {
             var data = JSON.parse(event.data);
@@ -519,6 +532,5 @@ window.addEventListener('message', function(event) {
         } catch (e) {
             console.log(e);
         }
-
     }
 })

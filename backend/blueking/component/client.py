@@ -19,6 +19,7 @@ to the current version of the project delivered to anyone in the future.
 
 Component API Client
 """
+
 import json
 import logging
 from builtins import object

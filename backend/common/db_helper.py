@@ -19,6 +19,7 @@ to the current version of the project delivered to anyone in the future.
 
 DJANGO DB 的本地查询
 """
+
 from builtins import object, zip
 
 from django.db import connections

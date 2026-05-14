@@ -11,7 +11,6 @@ See the License for the specific language governing permissions and limitations 
 Django project settings
 """
 
-
 try:
     from django.conf import settings
 

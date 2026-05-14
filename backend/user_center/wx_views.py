@@ -17,6 +17,7 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
+
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
@@ -127,17 +128,23 @@ def weixin_qy_login_callback(request):
     auth_code = request.GET.get("auth_code") or request.GET.get("code")
     # 检查state，防止跨域攻击
     if not WxBkUserTmpRecord.objects.filter(bk_token=bk_token, wx_ticket=state).exists():
-        return render(request, "user_center/weixin_bind_error.html", {"error_message": _(u"您没有权限，请联系系统管理员")})
+        return render(
+            request, "user_center/weixin_bind_error.html", {"error_message": _(u"您没有权限，请联系系统管理员")}
+        )
     # 获取登录用户的wx_userid
     wxapi = WeiXinQyApi()
     wx_userid = wxapi.get_login_user_info(auth_code)
     if not wx_userid:
-        return render(request, "user_center/weixin_bind_error.html", {"error_message": _(u"绑定失败，请联系系统管理员")})
+        return render(
+            request, "user_center/weixin_bind_error.html", {"error_message": _(u"绑定失败，请联系系统管理员")}
+        )
     # 绑定
     # is_success, message = remote_bind_wx_user_info(bk_token, wx_userid)
     username = WxBkUserTmpRecord.objects.get(bk_token=bk_token, wx_ticket=state).username
     is_success, message = usermgr.bind_user_wx(username, wx_userid)
     if not is_success:
-        return render(request, "user_center/weixin_bind_error.html", {"error_message": _(u"绑定出错，请联系系统管理员")})
+        return render(
+            request, "user_center/weixin_bind_error.html", {"error_message": _(u"绑定出错，请联系系统管理员")}
+        )
 
     return render(request, "user_center/weixin_qy_bind_success.html")

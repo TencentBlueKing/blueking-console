@@ -17,6 +17,7 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
+
 from bksuite.constants import ALL_PRODUCTION_QUERY_SQL, BKSUITE_QUERY_SQL
 from common.db_helper import SqlOperate
 
