@@ -19,6 +19,7 @@ to the current version of the project delivered to anyone in the future.
 
 企业证书校验等相关通用函数
 """
+
 import os
 from builtins import str
 

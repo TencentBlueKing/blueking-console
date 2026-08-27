@@ -17,6 +17,7 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
+
 # 蓝鲸产品信息表名
 PRODUCTION_INFO_TABLE_NAME = "production_info"
 

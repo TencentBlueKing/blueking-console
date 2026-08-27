@@ -18,17 +18,18 @@ We undertake not to change the open source license (MIT license) applicable
 to the current version of the project delivered to anyone in the future.
 """
 
-from django.utils.translation import gettext as _
-
-# 此配置用于在 migrations 中向 DB 同步数据，此方案已不推荐，不要通过更新此配置同步数据
-# 目前，同步数据采用在 esb 项目中开发 django command 的方案
-FUNCTION_CONTROLLERS = [
-    {
-        "func_code": "user_auth::skip_user_auth",
-        "func_name": _(u"是否跳过用户身份验证"),
-        "wlist": "bk_paas_log_alert",
-    }
-]
+from django.db import migrations
 
 
-DEFAULT_DOC_CATEGORY = _(u"默认分类")
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ("app", "0036_add_tenant_id"),
+    ]
+
+    operations = [
+        migrations.RemoveField(
+            model_name="app",
+            name="auth_token",
+        ),
+    ]

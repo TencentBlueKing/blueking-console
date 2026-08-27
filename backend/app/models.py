@@ -17,6 +17,7 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
+
 import os
 from builtins import object, str  # noqa
 
@@ -139,8 +140,6 @@ class App(models.Model):
         u"app是否使用定时任务", default=False, help_text=u"选项: true(是)，false(否)"
     )
 
-    # PaaS3.0 的 app_secret 长度为 50, 加密会更长
-    auth_token = models.CharField("Token", max_length=255, blank=True, null=True)
     # 部署的激活码,暂时不用，默认值为null
     deploy_token = models.TextField("deploy_token", blank=True, null=True)
     # 是否作为SaaS服务，即通过直接上传包部署
@@ -189,7 +188,7 @@ class App(models.Model):
     # 应用评分
     star_num = models.DecimalField(u"星级评分", default=0.00, max_digits=5, decimal_places=2, null=True)
 
-    # 在 PaaS3.0 上创建的应用，ESB/APIGW 会从这个表获取应用鉴权信息，所以需要把 PaaS3.0 应用的 app_code/app_secret 同步到这个表中
+    # 在 PaaS3.0 上创建的应用
     from_paasv3 = models.BooleanField(u"是否 Paas3.0 上创建的应用", default=False)
     # 已经迁移到 PaaS3.0 的应用，则 PaaS2.0 的开发中心不再展示这些应用
     migrated_to_paasv3 = models.BooleanField(u"是否已经迁移到 Paas3.0", default=False)

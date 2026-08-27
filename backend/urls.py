@@ -31,6 +31,7 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 import django.views
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns

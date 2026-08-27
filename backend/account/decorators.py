@@ -17,15 +17,13 @@ We undertake not to change the open source license (MIT license) applicable
 
 to the current version of the project delivered to anyone in the future.
 """
+
 from functools import wraps
 
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils.translation import gettext as _
-
-from app.models import App
-from common.log import logger
 
 
 def login_exempt(view_func):
@@ -72,28 +70,17 @@ def verfy_request_header(view_func):
                     "data": {},
                 }
             )
-        try:
-            # ESB 的token 存放在settings中
-            if x_app_code == "esb" and x_app_token == settings.ESB_TOKEN:
-                return view_func(request, *args, **kwargs)
+        # ESB 的 token 存放在 settings 中；应用 auth_token 字段已移除
+        if x_app_code == "esb" and x_app_token == settings.ESB_TOKEN:
+            return view_func(request, *args, **kwargs)
 
-            app = App.objects.get(code=x_app_code)
-            app_token = app.auth_token
-            if not x_app_token == app_token:
-                return JsonResponse(
-                    {
-                        "result": False,
-                        "code": "1101",
-                        "message": _(u"参数不匹配:HTTP_X_APP_ID / HTTP_X_APP_TOKEN"),
-                        "data": {},
-                    }
-                )
-        except Exception as e:
-            logger.exception("Verification of HTTP request header is abnormal:%s" % e)
-            return JsonResponse(
-                {"result": False, "code": "1102", "message": _(u"参数不合法:HTTP_X_APP_ID"), "data": {}}
-            )
-
-        return view_func(request, *args, **kwargs)
+        return JsonResponse(
+            {
+                "result": False,
+                "code": "1101",
+                "message": _(u"参数不匹配:HTTP_X_APP_ID / HTTP_X_APP_TOKEN"),
+                "data": {},
+            }
+        )
 
     return _wrapped_view
