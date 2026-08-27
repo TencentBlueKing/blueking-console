@@ -77,10 +77,8 @@ class Account(AccountSingleton):
         user_model = get_user_model()
         try:
             user = user_model._default_manager.get_by_natural_key(username)
-            is_created_user = False
         except user_model.DoesNotExist:
             user = user_model.objects.create_user(username)
-            is_created_user = True
         finally:
             try:
                 ret, data = self.get_bk_user_info(bk_token)
@@ -93,14 +91,6 @@ class Account(AccountSingleton):
                 user.phone = ""
                 user.email = ""
                 user.role = ""
-
-                # 仅新用户从用户管理同步权限
-                # 用户创建后直接在桌面管理用户是否能进入到 admin 页面的权限
-                if is_created_user:
-                    role = data.get("bk_role", "")
-                    is_superuser = True if role == 1 else False
-                    user.is_superuser = is_superuser
-                    user.is_staff = is_superuser
                 user.save()
 
                 # 设置timezone session

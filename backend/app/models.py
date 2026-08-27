@@ -128,8 +128,6 @@ class App(models.Model):
         u"app是否使用定时任务", default=False, help_text=u"选项: true(是)，false(否)"
     )
 
-    # PaaS3.0 的 app_secret 长度为 50, 加密会更长
-    auth_token = models.CharField("Token", max_length=255, blank=True, null=True)
     # 部署的激活码,暂时不用，默认值为null
     deploy_token = models.TextField("deploy_token", blank=True, null=True)
     # 是否作为SaaS服务，即通过直接上传包部署

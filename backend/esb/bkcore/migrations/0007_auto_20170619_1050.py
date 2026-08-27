@@ -22,7 +22,10 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import datetime
-import esb.bkcore.models
+
+
+def init_app_comp_perm_expires():
+    return datetime.datetime.now() + datetime.timedelta(days=180)
 
 
 class Migration(migrations.Migration):
@@ -38,7 +41,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('app_code', models.CharField(max_length=64, verbose_name='\u84dd\u9cb8\u5e94\u7528\u7f16\u7801')),
                 ('component_id', models.IntegerField(verbose_name='\u7ec4\u4ef6ID')),
-                ('expires', models.DateTimeField(default=esb.bkcore.models.init_app_comp_perm_expires, verbose_name='APP\u8bbf\u95ee\u7ec4\u4ef6\u8fc7\u671f\u65f6\u95f4')),
+                ('expires', models.DateTimeField(default=init_app_comp_perm_expires, verbose_name='APP\u8bbf\u95ee\u7ec4\u4ef6\u8fc7\u671f\u65f6\u95f4')),
                 ('created_time', models.DateTimeField(auto_now_add=True, verbose_name='\u521b\u5efa\u65f6\u95f4')),
                 ('last_accessed_time', models.DateTimeField(default=datetime.datetime.now, verbose_name='APP\u6700\u540e\u8bbf\u95ee\u7ec4\u4ef6\u65f6\u95f4')),
             ],
