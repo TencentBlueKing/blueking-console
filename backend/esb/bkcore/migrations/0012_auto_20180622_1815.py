@@ -20,9 +20,14 @@ to the current version of the project delivered to anyone in the future.
 
 from __future__ import unicode_literals
 
+import datetime
+
 from django.db import migrations, models
 import django.utils.timezone
-import esb.bkcore.models
+
+
+def init_app_comp_perm_expires():
+    return django.utils.timezone.now() + datetime.timedelta(days=180)
 
 
 class Migration(migrations.Migration):
@@ -53,7 +58,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='appcomponentperm',
             name='expires',
-            field=models.DateTimeField(default=esb.bkcore.models.init_app_comp_perm_expires, verbose_name='APP\u8bbf\u95eeAPI\u8fc7\u671f\u65f6\u95f4'),
+            field=models.DateTimeField(default=init_app_comp_perm_expires, verbose_name='APP\u8bbf\u95eeAPI\u8fc7\u671f\u65f6\u95f4'),
         ),
         migrations.AlterField(
             model_name='appcomponentperm',
