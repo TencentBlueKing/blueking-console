@@ -22,12 +22,17 @@ from __future__ import unicode_literals
 
 from django.db import migrations
 
-from esb.bkcore.constants import FUNCTION_CONTROLLERS
-
 
 def init_function_controller(apps, schema_editor):
     FunctionController = apps.get_model('bkcore', 'FunctionController')
-    for func_ctl in FUNCTION_CONTROLLERS:
+    function_controllers = [
+        {
+            "func_code": "user_auth::skip_user_auth",
+            "func_name": "是否跳过用户身份验证",
+            "wlist": "bk_paas_log_alert",
+        }
+    ]
+    for func_ctl in function_controllers:
         func_code = func_ctl.pop('func_code')
         FunctionController.objects.get_or_create(func_code=func_code, defaults=func_ctl)
 

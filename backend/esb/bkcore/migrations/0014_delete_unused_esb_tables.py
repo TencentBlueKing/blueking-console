@@ -18,6 +18,25 @@ We undertake not to change the open source license (MIT license) applicable
 to the current version of the project delivered to anyone in the future.
 """
 
-from django.db import models  # noqa
+from django.db import migrations
 
-# Create your models here.
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ("bkcore", "0013_auto_20200617_1201"),
+    ]
+
+    operations = [
+        migrations.DeleteModel(name="ESBChannel"),
+        migrations.DeleteModel(name="ESBBuffetComponent"),
+        migrations.DeleteModel(name="ComponentSystem"),
+        migrations.DeleteModel(name="FunctionController"),
+        migrations.DeleteModel(name="UserAuthToken"),
+        migrations.DeleteModel(name="ESBBuffetMapping"),
+        migrations.DeleteModel(name="AppAccount"),
+        migrations.DeleteModel(name="ComponentAPIDoc"),
+        migrations.DeleteModel(name="FeedbackForComponentDocs"),
+        migrations.DeleteModel(name="SystemDocCategory"),
+        migrations.DeleteModel(name="AppComponentPerm"),
+    ]

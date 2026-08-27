@@ -40,6 +40,7 @@ Python 2.6+ or 3.2+
 Cannot defense xss in browser which is belowed IE7
 浏览器版本：IE7+ 或其他浏览器，无法防御IE6及以下版本浏览器中的XSS
 """
+
 from __future__ import print_function
 
 import re
@@ -238,12 +239,10 @@ class XssHtml(HTMLParser):
 
 if "__main__" == __name__:
     parser = XssHtml()
-    parser.feed(
-        """<p><img src=1 onerror=alert(/xss/)></p><div class="left">
+    parser.feed("""<p><img src=1 onerror=alert(/xss/)></p><div class="left">
         <a href='javascript:prompt(1)'><br />hehe</a></div>
         <p id="test" onmouseover="alert(1)">&gt;M<svg>
         <a href="https://www.baidu.com" target="self">MM</a></p>
-        <embed src='javascript:alert(/hehe/)' allowscriptaccess=always />"""
-    )
+        <embed src='javascript:alert(/hehe/)' allowscriptaccess=always />""")
     parser.close()
     print(parser.get_html())
