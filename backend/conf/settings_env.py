@@ -103,9 +103,11 @@ LOGIN_DOMAIN = env.str("BK_LOGIN_DOMAIN", "")
 BK_PAAS3_URL = env.str("BK_PAAS3_URL", "")
 
 # 兼容二进制版本的变量
-BK_USER_APP_CODE = "bk_usermgr"
+BK_USER_APP_CODE = env.str("BK_USER_APP_CODE", "bk_usermgr")
 # 用户管理访问地址
 BK_USER_URL = env.str("BK_USER_URL", "")
+# 权限中心使用的 bk_app_code
+BK_IAM_APP_CODE = env.str("BK_IAM_APP_CODE", "bk_iam")
 
 # 证书服务
 IS_CERTIFICATE_SVC_ENABLED = env.bool("BK_PAAS_CONSOLE_IS_CERTIFICATE_SVC_ENABLED", False)
