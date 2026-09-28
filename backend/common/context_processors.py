@@ -42,6 +42,7 @@ def site_settings(request):
         # PaaS3.0 的访问地址
         "BK_PAAS3_URL": settings.BK_PAAS3_URL,
         "BK_USER_APP_CODE": settings.BK_USER_APP_CODE,
+        "BK_IAM_APP_CODE": settings.BK_IAM_APP_CODE,
         "BK_DOCS_URL_PREFIX": settings.BK_DOCS_URL_PREFIX,
         "IS_BK_NOTICE_ENABLED": settings.IS_BK_NOTICE_ENABLED,
         # 产品 title/footer/name/logo 等资源自定义配置的路径

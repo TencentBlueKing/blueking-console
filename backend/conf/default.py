@@ -277,6 +277,8 @@ BK_PAAS3_URL = ""
 BK_USER_APP_CODE = "bk_user_manage"
 # 用户管理访问地址
 BK_USER_URL = ""
+# 权限中心使用的 bk_app_code
+BK_IAM_APP_CODE = "bk_iam"
 
 # 是否展示产品版本信息
 IS_BK_SUITE_ENABLED = True

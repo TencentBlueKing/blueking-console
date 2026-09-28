@@ -1158,7 +1158,7 @@ BLUEKING.window = (function(){
 		},
 		// 创建权限中心应用窗口
 		create_bk_iam: function(app_url){
-			BLUEKING.api.open_app_by_desk('bk_iam', app_url)
+			BLUEKING.api.open_app_by_desk(bk_iam_app_code, app_url)
 		},
 		// 创建用户管理应用窗口
 		create_bk_user_manage: function(app_url){
