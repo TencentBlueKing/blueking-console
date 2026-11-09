@@ -22,20 +22,35 @@ to the current version of the project delivered to anyone in the future.
 
 import environ
 
+from conf import default
 from conf.default import APP_ID, LANGUAGE_COOKIE_NAME
+from conf.kms import get_kms_setting
 
 env = environ.Env()
 
 # Generic Django project settings
 DEBUG = env.bool("DEBUG", False)
 
+# 存量环境均使用 conf.default 中的默认值，信封未提供时不能变更，否则已签名的会话等数据将失效
+SECRET_KEY = get_kms_setting("SECRET_KEY", "django.default.secret_key", default.SECRET_KEY, warn_plaintext=False)
+
 # 数据库配置信息
 DATABASES = {
     "default": {
         "ENGINE": env.str("BK_PAAS_DATABASE_ENGINE", "django.db.backends.mysql"),
         "NAME": env.str("BK_PAAS_DATABASE_NAME", "open_paas"),
-        "USER": env.str("BK_PAAS_DATABASE_USER"),
-        "PASSWORD": env.str("BK_PAAS_DATABASE_PASSWORD"),
+        "USER": get_kms_setting(
+            "BK_PAAS_DATABASE_USER",
+            "mysql.open_paas.username",
+            env.str("BK_PAAS_DATABASE_USER"),
+            warn_plaintext=False,
+        ),
+        "PASSWORD": get_kms_setting(
+            "BK_PAAS_DATABASE_PASSWORD",
+            "mysql.open_paas.password",
+            env.str("BK_PAAS_DATABASE_PASSWORD"),
+            required=True,
+        ),
         "HOST": env.str("BK_PAAS_DATABASE_HOST", ""),
         "PORT": env.int("BK_PAAS_DATABASE_PORT"),
     }
@@ -67,15 +82,30 @@ if IS_BK_SUITE_ENABLED:
     DATABASES['bksuite'] = {
         "ENGINE": env.str("BK_PAAS_DATABASE_ENGINE", "django.db.backends.mysql"),
         "NAME": env.str("BK_SUITE_DATABASE_NAME", "bksuite_common"),
-        "USER": env.str("BK_SUITE_DATABASE_USER", ""),
-        "PASSWORD": env.str("BK_SUITE_DATABASE_PASSWORD", ""),
+        "USER": get_kms_setting(
+            "BK_SUITE_DATABASE_USER",
+            "mysql.bk_suite.username",
+            env.str("BK_SUITE_DATABASE_USER", ""),
+            warn_plaintext=False,
+        ),
+        "PASSWORD": get_kms_setting(
+            "BK_SUITE_DATABASE_PASSWORD",
+            "mysql.bk_suite.password",
+            env.str("BK_SUITE_DATABASE_PASSWORD", ""),
+            required=True,
+        ),
         "HOST": env.str("BK_SUITE_DATABASE_HOST", ""),
         "PORT": env.int("BK_SUITE_DATABASE_PORT", ""),
     }
 
 # 与 ESB 通信的密钥
-ESB_TOKEN = env.str("BK_PAAS_SECRET_KEY")
-BK_APP_SECRET = env.str("BK_PAAS_SECRET_KEY")
+BK_APP_SECRET = get_kms_setting(
+    "BK_PAAS_SECRET_KEY",
+    "bkapp_id_secret.default.app_secret",
+    env.str("BK_PAAS_SECRET_KEY"),
+    required=True,
+)
+ESB_TOKEN = BK_APP_SECRET
 
 # website
 # domain

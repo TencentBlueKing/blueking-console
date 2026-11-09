@@ -24,6 +24,7 @@ urllib3 = ">=2.6.3"
 Pillow = ">=12.2.0"
 bk-notice-sdk = ">=1.4.2"
 setuptools = ">=80.9.0"
+bk-kms-sdk = {version = "1.0.0", extras = ["gm"]}
 
 
 [tool.poetry.dev-dependencies]
